@@ -6,6 +6,19 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "api.izhtech.com",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "7700",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "7700",
+        pathname: "/images/**",
       },
     ],
   },

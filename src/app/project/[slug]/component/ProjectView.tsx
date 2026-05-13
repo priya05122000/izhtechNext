@@ -6,6 +6,7 @@ import Link from "next/link";
 import CustomObject from "@/src/shared/components/CustomObjects";
 import React from "react";
 import SectionViewHeader from "@/src/shared/components/SectionViewHeader";
+import LinkButton from "@/src/shared/components/LinkButton";
 
 interface Project {
     id: string;
@@ -142,57 +143,15 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
 
                     {projectSlug?.projectUrl && (
                         <div className="flex justify-end">
-                            <Link
+                            <LinkButton
                                 href={projectSlug.projectUrl}
+                                className="text-white bg-black border h-8 py-1 px-4 w-32 mt-0"
                                 target="_blank"
-                                className="
-                                    transition-colors
-                                    focus-visible:outline-none
-                                    focus-visible:ring-2
-                                    focus-visible:ring-ring
-                                    focus-visible:ring-offset-2
-                                    disabled:opacity-50
-                                    disabled:pointer-events-none
-                                    ring-offset-background
-                                    flex
-                                    items-center
-                                    justify-center
-                                    text-sm
-                                    font-bold
-                                    text-white
-                                    rounded
-                                    border
-                                    h-8
-                                    py-1
-                                    px-4
-                                    w-32
-                                    mt-0
-                                    bg-black
-                                    relative
-                                    group
-                                "
                             >
-                                <span className="transition-transform duration-300 group-hover:-translate-x-3">
-                                    View more
-                                </span>
+                                View more
+                            </LinkButton>
 
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    className="absolute w-4 h-4 transition-opacity duration-300 opacity-0 right-3 group-hover:opacity-100"
-                                    aria-hidden="true"
-                                >
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                            </Link>
+
                         </div>
                     )}
 

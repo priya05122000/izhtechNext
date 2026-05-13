@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/navigation";
+import LinkButton from "@/src/shared/components/LinkButton";
 
 interface Project {
     id: string;
@@ -350,14 +351,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
 
                                                         <div className="btn-container mt-5">
 
-                                                            <Link
-                                                                href={`/project/${project.slug}`}
-                                                                className="transition-colors focus-visible:outline-none flex items-center justify-center text-sm font-bold rounded h-8 py-1 px-4 w-32 border border-black bg-transparent text-black relative group"
-                                                            >
-                                                                <span className="transition-transform duration-300 group-hover:-translate-x-3">
-                                                                    View more
-                                                                </span>
-                                                            </Link>
+                                                            <LinkButton variant="outline" href={`/project/${project.slug}`}>View More</LinkButton>
 
                                                         </div>
                                                     </div>
@@ -457,14 +451,15 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
 
                                         <div className="btn-container">
 
-                                            <Link
+                                            {/* <Link
                                                 href={`/project/${project.slug}`}
                                                 className="transition-colors focus-visible:outline-none flex items-center justify-center text-sm font-bold rounded h-8 py-1 px-4 w-32 border border-black bg-transparent text-black relative group"
                                             >
                                                 <span className="transition-transform duration-300 group-hover:-translate-x-3">
                                                     View more
                                                 </span>
-                                            </Link>
+                                            </Link> */}
+                                            <LinkButton href={`/project/${project.slug}`}>View More</LinkButton>
                                         </div>
                                     </div>
                                 ) : null

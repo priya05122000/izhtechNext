@@ -1,17 +1,10 @@
 // Footer.tsx
 
 "use client";
-
-import { useState } from "react";
-
-import { Footer as FlowbiteFooter } from "flowbite-react";
-import { Button, TextInput } from "flowbite-react";
-
 import Link from "next/link";
-
-import { useForm } from "react-hook-form";
-
-import { createContact } from "@/src/services/contactService";
+import NewsletterForm from "./NewsletterForm";
+import LazyCaptcha from "@/src/shared/components/LazyCaptcha";
+import LinkButton from "@/src/shared/components/LinkButton";
 
 interface SiteInformation {
     id: string;
@@ -40,39 +33,6 @@ interface FooterProps {
 export default function Footer({
     siteInfo,
 }: FooterProps) {
-
-    const [isSuccessContact, setIsSuccessContact] = useState(false);
-
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors },
-    } = useForm();
-
-    async function saveContact(payload: any) {
-
-        try {
-
-            const response = await createContact(payload);
-
-            if (response.success) {
-                setIsSuccessContact(true);
-            }
-
-        } catch (error) {
-
-            console.error(error);
-
-        } finally {
-
-            reset();
-
-            setTimeout(() => {
-                setIsSuccessContact(false);
-            }, 3000);
-        }
-    }
 
     return (
         <footer className="bg-neutral-900 text-white">
@@ -156,32 +116,12 @@ export default function Footer({
 
                         </div>
 
-                        <Link
+                        <LinkButton
                             href="/images/pdf/izhtech_profile.pdf"
-                            className="inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background text-sm text-white rounded bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500  h-8 py-1 mt-5 w-fit px-6 relative group"
+                            className="text-white bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 border-none h-8 py-1 mt-5 w-fit px-6"
                         >
-                            <span className="transition-transform duration-300 group-hover:-translate-x-3">
-                                Overview and Packages
-                            </span>
-
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="lucide lucide-arrow-right absolute w-4 h-4 transition-opacity duration-300 opacity-0 right-3 group-hover:opacity-100"
-                                aria-hidden="true"
-                            >
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg>
-
-                        </Link>
+                            Overview and Packages
+                        </LinkButton>
 
                     </div>
 
@@ -191,97 +131,10 @@ export default function Footer({
                         <h2 className="font-semibold">
                             Sign up for the newsletter
                         </h2>
-
-                        <form
-                            onSubmit={handleSubmit(saveContact)}
-                            className="pt-3"
-                        >
-                            <div className="flex sm:flex-row items-start sm:items-center gap-2">
-
-                                <div className="flex w-full sm:w-auto text-white">
-
-                                    <div className="relative w-full">
-
-                                        <input
-                                            {...register("email", {
-                                                required: "Email is required",
-                                                pattern: {
-                                                    value:
-                                                        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                                                    message: "Invalid email address",
-                                                },
-                                            })}
-                                            type="email"
-                                            name="email"
-                                            id="email"
-                                            placeholder="you@admin.com"
-                                            className="
-                        block
-                        w-full
-                        rounded-lg
-                        border
-                        border-transparent
-                        bg-[#201f23]
-                        p-2.5
-                        text-sm
-                        text-white
-                        placeholder-gray-400
-                        focus:border-cyan-500
-                        focus:ring-cyan-500
-                        outline-none
-                    "
-                                        />
-
-                                    </div>
-
-                                </div>
-
-                                <input
-                                    type="hidden"
-                                    value="News Letter"
-                                    {...register("message", {
-                                        required: "Message is required",
-                                    })}
-                                />
-
-                                <button
-                                    type="submit"
-                                    className="
-                group
-                relative
-                flex
-                items-stretch
-                justify-center
-                rounded-lg
-                w-20
-                px-0
-                py-2
-                text-white
-                bg-[#201f23]
-                transition-all
-                duration-300
-                hover:bg-[#2a2930]
-            "
-                                >
-                                    <span className="flex items-stretch transition-all duration-200 rounded-md px-2 py-1 text-xs">
-                                        Sign up
-                                    </span>
-                                </button>
-
-                            </div>
-
-                            {errors.email && (
-                                <p className="mt-2 text-sm text-red-600">
-                                    {errors.email.message as string}
-                                </p>
-                            )}
-
-                            {isSuccessContact && (
-                                <p className="mt-2 text-sm text-green-500">
-                                    Thank you for showing interest.
-                                </p>
-                            )}
-                        </form>
+                        <LazyCaptcha
+                            form={"contact-us"}>
+                            <NewsletterForm />
+                        </LazyCaptcha>
                     </div>
 
                 </div>

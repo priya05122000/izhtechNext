@@ -7,6 +7,7 @@ import { Card } from "flowbite-react";
 
 import CustomObject from "@/src/shared/components/CustomObjects";
 import { fadeIn } from "@/src/shared/animation/variants";
+import LinkButton from "@/src/shared/components/LinkButton";
 
 interface CategoryModel {
     id: string;
@@ -83,12 +84,14 @@ export default function BlogList({ blogPosts }: BlogListProps) {
 
                                         <br />
 
-                                        <Link
+                                        {/* <Link
                                             href="/blog"
                                             className="relative z-50 inline-block w-32 rounded border-2 border-black bg-white px-4 py-2 text-center text-sm font-bold text-black hover:bg-gray-200"
                                         >
                                             Read all
-                                        </Link>
+                                        </Link> */}
+                                        <LinkButton href="/blog" variant="outline" className="text-xs" >Read all</LinkButton>
+
                                     </div>
                                 </div>
 

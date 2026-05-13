@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from '@/src/shared/animation/variants';
 import { Network, Target, BarChartHorizontalBig } from "lucide-react";
 import Link from 'next/link';
+import LinkButton from '@/src/shared/components/LinkButton';
 
 interface SiteInformation {
     id: string,
@@ -60,10 +61,9 @@ const MissionStatement = ({ siteInfo }: MissionStatementProps) => {
                             >
                                 Explore More
                             </LinkButton> */}
-                            <Link href="/about" className="transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background flex items-center justify-center mt-4 text-sm font-bold border-1 h-7 rounded-md w-32 px-2 text-white bg-black relative group">
-                                <span className="transition-transform duration-300 group-hover:-translate-x-3">Explore More</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right absolute w-4 h-4 transition-opacity duration-300 opacity-0 right-3 group-hover:opacity-100" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                            </Link>
+                            <LinkButton href="/about">Explore More</LinkButton>
+
+
                         </div>
                     </motion.div>
                     <motion.div
@@ -93,11 +93,8 @@ const MissionStatement = ({ siteInfo }: MissionStatementProps) => {
                                 Explore More
                             </LinkButton> */}
 
+                            <LinkButton href="/about">Explore More</LinkButton>
 
-                            <Link href="/about" className="transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background flex items-center justify-center mt-4 text-sm font-bold border-1 h-7 rounded-md w-32 px-2 text-white bg-black relative group">
-                                <span className="transition-transform duration-300 group-hover:-translate-x-3">Explore More</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right absolute w-4 h-4 transition-opacity duration-300 opacity-0 right-3 group-hover:opacity-100" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                            </Link>
                         </div>
                     </motion.div>
                     <motion.div
@@ -126,10 +123,9 @@ const MissionStatement = ({ siteInfo }: MissionStatementProps) => {
                             >
                                 Explore More
                             </LinkButton> */}
-                            <Link href="/about" className="transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background flex items-center justify-center mt-4 text-sm font-bold border-1 h-7 rounded-md w-32 px-2 text-white bg-black relative group">
-                                <span className="transition-transform duration-300 group-hover:-translate-x-3">Explore More</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right absolute w-4 h-4 transition-opacity duration-300 opacity-0 right-3 group-hover:opacity-100" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                            </Link>
+                           <LinkButton href="/about">Explore More</LinkButton>
+
+
                         </div>
                     </motion.div>
                 </div>

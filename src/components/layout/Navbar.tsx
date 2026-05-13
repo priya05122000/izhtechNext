@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
+import LinkButton from "@/src/shared/components/LinkButton";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -36,28 +37,14 @@ export default function Navbar() {
                 <div className="flex md:order-2">
 
                     {/* CTA Button */}
-                    <Link
+                    <LinkButton
                         href="https://wa.me/918355990274?text=Hi!"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="transition-colors flex items-center justify-center text-sm font-bold text-white rounded py-1 px-4 bg-black h-10 w-24 relative group"
+                        className="transition-colors flex items-center justify-center  text-sm font-bold text-white py-1 bg-black h-10  relative group"
                     >
-                        <span className="transition-transform duration-300 group-hover:-translate-x-3">
-                            Let's Talk
-                        </span>
-
-                        <svg
-                            className="absolute w-4 h-4 transition-opacity duration-300 opacity-0 right-3 group-hover:opacity-100"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                        >
-                            <path d="M5 12h14" />
-                            <path d="m12 5 7 7-7 7" />
-                        </svg>
-                    </Link>
+                        Let's Talk
+                    </LinkButton>
 
                     {/* Mobile Toggle */}
                     <button

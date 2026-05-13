@@ -4,6 +4,7 @@ import { fadeIn } from "../../../shared/animation/variants";
 import { motion } from "framer-motion";
 import Accordion from "../../../shared/components/Accordion";
 import Link from "next/link";
+import LinkButton from "@/src/shared/components/LinkButton";
 
 interface ServiceFeature {
   isFeatured?: boolean;
@@ -76,7 +77,12 @@ export default function ImageSecondServiceBlock(props: Services) {
           {/* <LinkButton href={`/service/${slug}`} size={"sm"}>
             Know more
           </LinkButton> */}
-          <Link href={`/service/${slug}`} className="transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background flex items-center justify-center mt-4 text-sm font-bold text-white rounded bg-indigo-950 border-1 h-8 py-1 px-4 w-32 relative group"><span className="transition-transform duration-300 group-hover:-translate-x-3">Know more</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right absolute w-4 h-4 transition-opacity duration-300 opacity-0 right-3 group-hover:opacity-100" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></Link>
+          <LinkButton
+            href={`/service/${slug}`}
+            className="mt-4 text-white bg-indigo-950 border h-8 py-1 px-4 w-32 font-bold"
+          >
+            Know more
+          </LinkButton>
         </motion.div>
 
         <motion.div
@@ -85,11 +91,11 @@ export default function ImageSecondServiceBlock(props: Services) {
           whileInView={"show"}
           exit={"hidden"}
           viewport={{ once: false, amount: 0.1 }}
-          className="w-full flex items-center justify-center h-[20rem] lg:w-1/2 lg:h-[40rem] order-1 lg:order-2"
+          className="w-full flex items-center justify-center h-80 lg:w-1/2 lg:h-160 order-1 lg:order-2"
         >
           {featuredImagePath && (
             <img
-              className="lg:w-full lg:h-[40rem] w-1/2 object-cover flex h-[20rem]"
+              className="lg:w-full lg:h-160 w-1/2 object-cover flex h-80"
               src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${featuredImagePath}`}
               alt={title || "service-image"}
             />

@@ -46,18 +46,18 @@ const InquiryForm = ({ num1, num2, resetMath }: InquiryFormProps) => {
                     "contact_form"
                 );
 
-            console.log(
-                "RECAPTCHA TOKEN:",
-                token
-            );
+            // console.log(
+            //     "RECAPTCHA TOKEN:",
+            //     token
+            // );
 
             // add token into payload
             payload.token = token;
 
-            console.log(
-                "FINAL PAYLOAD:",
-                payload
-            );
+            // console.log(
+            //     "FINAL PAYLOAD:",
+            //     payload
+            // );
 
             const response = await createContact(payload);
             if (response.success) {

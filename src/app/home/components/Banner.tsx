@@ -5,6 +5,7 @@ import { fadeIn } from '@/src/shared/animation/variants';
 import CustomObject from '@/src/shared/components/CustomObjects';
 import Link from 'next/link';
 import MissionStatement from './MissionStatement';
+import LinkButton from '@/src/shared/components/LinkButton';
 
 interface SiteInformation {
 
@@ -57,10 +58,10 @@ const Banner = ({ siteInfo }: MissionStatementProps) => {
                 entrepreneur, we craft customized solutions to boost your online
                 visibility and strengthen your digital presence.
               </p>
-              <Link href="/about" className="inline-flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background w-32 py-1 text-xs font-bold text-black border-2 border-black bg-transparent h-7 px-3 rounded-md relative group">
-                <span className="transition-transform duration-300 group-hover:-translate-x-3">Explore More</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right absolute w-4 h-4 transition-opacity duration-300 opacity-0 right-3 group-hover:opacity-100" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-              </Link>
+
+
+              <LinkButton href="/about" variant="outline" className="text-xs">Explore More</LinkButton>
+
             </div>
           </motion.div>
           <motion.div
