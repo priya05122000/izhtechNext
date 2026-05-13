@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-
 import Link from "next/link";
-
 import { motion } from "framer-motion";
 
 import {
@@ -13,7 +11,6 @@ import {
 
 import { fadeIn } from "@/src/shared/animation/variants";
 import DynamicIcon from "@/src/shared/components/Icon";
-
 
 interface ServicesHighlightsModal {
     id: string;
@@ -45,9 +42,9 @@ interface ServicesFeaturesModal {
 }
 
 interface Services {
-    id: string,
-    slug: string,
-    title?: string,
+    id: string;
+    slug: string;
+    title?: string;
     shortNote?: string;
     description?: string;
     icon?: string;
@@ -85,28 +82,34 @@ const OurService = ({
     services,
 }: OurServiceProps) => {
 
+    const [activeTab, setActiveTab] = useState(0);
+
     const sortedServices = [...services].sort(
         (a, b) => (a.order ?? 0) - (b.order ?? 0)
     );
-
-    const [activeTab, setActiveTab] = useState(0);
 
     const handleTabChange = (index: number) => {
         setActiveTab(index);
     };
 
     if (!services || services.length === 0) {
-        return <p>No services available at the moment.</p>;
+        return (
+            <p>
+                No services available at the moment.
+            </p>
+        );
     }
 
     return (
         <section className="mx-auto container-fluid xl:container px-8">
-            <div className="lg:px-10 pb-18 pt-18 bg-[#F7F9FA] rounded">
+
+            <div className="lg:px-10 bg-[#F7F9FA] rounded">
 
                 <div className="relative py-10">
 
                     {/* HEADING */}
-                    <div className="text-center ">
+                    <div className="text-center">
+
                         <p className="pt-4 pb-2 text-base">
                             #OUR SERVICE
                         </p>
@@ -114,37 +117,96 @@ const OurService = ({
                         <h4 className="pb-3 font-bold text-md lg:text-3xl md:text-3xl sm:text-3xl">
                             What to expect?
                         </h4>
+
                     </div>
 
                     <div className="w-full lg:pl-10">
 
-                        <div className="flex flex-col lg:flex-row gap-6 mt-8">
+                        <div
+                            className="
+                                flex
+                                flex-col
+                                ring-transparent
+                                align-start
+                                md:flex-col
+                                lg:flex-row
+                                gap-2
+                                md:gap-4
+                                lg:gap-2
+                                sm:justify-center
+                                md:justify-start
+                                outline-none
+                            "
+                        >
 
                             {/* TAB BUTTONS */}
-                            <div className="flex lg:flex-col overflow-x-auto lg:min-w-[220px] scrollbar-hide">
+                            <div
+                                aria-label="Pills"
+                                role="tablist"
+                                className="
+                                    flex
+                                    mt-8
+                                    align-left
+                                    lg:items-baseline
+                                    lg:justify-start
+                                    justify-center
+                                    flex-wrap
+                                    text-left
+                                    lg:flex-col
+                                    font-medium
+                                    text-sm
+                                    ring-transparent
+                                    rounded-none
+                                    text-gray-500
+                                    bg-gray
+                                    border-transparent
+                                    space-x-2
+                                    outline-none
+                                "
+                            >
 
                                 {sortedServices?.map(
-                                    (serviceDetail: Services, index: number) => {
-                                        const isActive = activeTab === index;
+                                    (serviceDetail, index) => {
+
+                                        const isActive =
+                                            activeTab === index;
 
                                         return (
                                             <button
                                                 key={serviceDetail.id}
+                                                type="button"
                                                 onClick={() => handleTabChange(index)}
                                                 className={`
+                                                    flex
+                                                    items-center
+                                                    p-4
+                                                    text-sm
+                                                    font-medium
+                                                    first:ml-0
                                                     text-left
-                                                    px-4
-                                                    py-3
+                                                    rounded-none
+                                                    lg:min-w-[160px]
+                                                    lg:w-auto
                                                     whitespace-nowrap
-                                                    border-b-2
-                                                    lg:border-b-0
-                                                    lg:border-r-2
+                                                    justify-start
+                                                    bg-transparent
+                                                    hover:bg-gray-50
+                                                    ring-transparent
                                                     transition-all
                                                     duration-300
 
                                                     ${isActive
-                                                        ? "border-[#FFD074] text-black font-semibold"
-                                                        : "border-transparent text-gray-500 hover:text-black"
+                                                        ? `
+                                                            text-black
+                                                            border-[#FFD074]
+                                                            border-b-2
+                                                            lg:border-r-2
+                                                            lg:border-b-0
+                                                        `
+                                                        : `
+                                                            text-black
+                                                            border-transparent
+                                                        `
                                                     }
                                                 `}
                                             >
@@ -153,6 +215,7 @@ const OurService = ({
                                         );
                                     }
                                 )}
+
                             </div>
 
                             {/* TAB CONTENT */}
@@ -160,61 +223,106 @@ const OurService = ({
 
                                 {sortedServices?.[activeTab] && (() => {
 
-                                    const serviceDetail = sortedServices[activeTab];
+                                    const serviceDetail =
+                                        sortedServices[activeTab];
 
                                     return (
                                         <div key={serviceDetail.id}>
 
-                                            <div className="flex flex-col items-start flex-1 p-5 sm:flex-row ">
+                                            <div
+                                                className="
+                                                    flex
+                                                    flex-col
+                                                    items-start
+                                                    flex-1
+                                                    p-5
+                                                    sm:flex-row
+                                                "
+                                            >
 
                                                 {/* CARD */}
                                                 <motion.div
                                                     variants={fadeIn("right", 0.1)}
                                                     initial="hidden"
-                                                    whileInView={"show"}
-                                                    viewport={{ once: false, amount: 0.1 }}
+                                                    whileInView="show"
+                                                    viewport={{
+                                                        once: false,
+                                                        amount: 0.1,
+                                                    }}
                                                 >
-                                                    <Link href={`/service/${serviceDetail.slug}`}>
 
-                                                        <Card
-                                                            className="max-w-sm shadow-none "
-                                                            imgAlt="img"
-                                                            imgSrc={`${BASE_URL}/${serviceDetail.featuredImagePath}`}
+                                                    <Link
+                                                        href={`/service/${serviceDetail.slug}`}
+                                                    >
+
+                                                        <div
+                                                            className="
+        max-w-sm
+        overflow-hidden
+        rounded-xl
+        bg-white
+        shadow-sm
+        border
+        border-gray-200
+    "
                                                         >
-                                                            <div className="flex flex-col gap-2">
 
-                                                                <div className="text-xl font-bold dark:text-white">
-                                                                    {serviceDetail.title}
+                                                            <img
+                                                                src={`${BASE_URL}/${serviceDetail.featuredImagePath}`}
+                                                                alt="img"
+                                                                className="w-full object-cover rounded-t-xl"
+                                                            />
+
+                                                            <div className="flex flex-col gap-4 p-6">
+
+                                                                <div className="flex flex-col gap-2">
+
+                                                                    <div className="text-xl font-bold text-black">
+                                                                        {serviceDetail.title}
+                                                                    </div>
+
+                                                                    <div className="h-2.5 w-full rounded-full bg-gray-200">
+
+                                                                        <div
+                                                                            className="
+                        h-2.5
+                        w-[45%]
+                        rounded-full
+                        bg-gradient-to-r
+                        from-indigo-500
+                        via-purple-500
+                        to-pink-500
+                    "
+                                                                        />
+
+                                                                    </div>
+
                                                                 </div>
 
-                                                                <Progress
-                                                                    progress={45}
-                                                                    size="sm"
-                                                                    theme={{
-                                                                        base: "w-full rounded-full bg-transparent",
-                                                                        color: {
-                                                                            info: "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500",
-                                                                        }
-                                                                    }}
-                                                                    color="info"
-                                                                    className="h-2.5 w-[100%]"
-                                                                />
+                                                                <p className="text-gray-700 text-md">
+                                                                    {serviceDetail.shortNote?.toString() || ""}
+                                                                </p>
 
                                                             </div>
 
-                                                            <p className="text-gray-700 text-md dark:text-gray-400">
-                                                                {serviceDetail.shortNote?.toString() || ""}
-                                                            </p>
-
-                                                        </Card>
+                                                        </div>
 
                                                     </Link>
+
                                                 </motion.div>
 
-                                                {/* RIGHT */}
+                                                {/* FEATURES */}
                                                 <div className="flex-1 mt-0 sm:ml-4">
 
-                                                    <div className="flex flex-col w-full px-2 gap- lg:justify-center">
+                                                    <div
+                                                        className="
+                                                            flex
+                                                            flex-col
+                                                            w-full
+                                                            px-2
+                                                            lg:justify-center
+                                                        "
+                                                    >
 
                                                         {serviceDetail.serviceFeatures
                                                             ?.filter(
@@ -230,19 +338,26 @@ const OurService = ({
                                                             .slice(0, 3)
                                                             .map(
                                                                 (
-                                                                    serviceFeature: ServicesFeaturesModal,
+                                                                    serviceFeature,
                                                                     index
                                                                 ) => (
+
                                                                     <motion.div
                                                                         key={serviceFeature.id}
                                                                         variants={fadeIn("right", 0.2)}
                                                                         initial="hidden"
-                                                                        whileInView={"show"}
+                                                                        whileInView="show"
                                                                         viewport={{
                                                                             once: false,
-                                                                            amount: 0.1
+                                                                            amount: 0.1,
                                                                         }}
-                                                                        className="flex flex-col border-slate-600 md:flex-1 lg:w-full"
+                                                                        className="
+                                                                            flex
+                                                                            flex-col
+                                                                            border-slate-600
+                                                                            md:flex-1
+                                                                            lg:w-full
+                                                                        "
                                                                     >
 
                                                                         <span
@@ -257,11 +372,15 @@ const OurService = ({
                                                                                 ${colors[index % 10]}
                                                                             `}
                                                                         >
+
                                                                             <DynamicIcon
-                                                                                iconName={serviceFeature?.icon as string}
+                                                                                iconName={
+                                                                                    serviceFeature?.icon as string
+                                                                                }
                                                                                 size={28}
                                                                                 className="text-white"
                                                                             />
+
                                                                         </span>
 
                                                                         <h2 className="pt-2 font-bold text-md">
@@ -272,13 +391,14 @@ const OurService = ({
                                                                             className="pt-2 pb-3 text-sm"
                                                                             dangerouslySetInnerHTML={{
                                                                                 __html:
-                                                                                    serviceFeature.description || ""
+                                                                                    serviceFeature.description || "",
                                                                             }}
                                                                         />
 
                                                                     </motion.div>
                                                                 )
                                                             )}
+
                                                     </div>
 
                                                 </div>
@@ -296,7 +416,9 @@ const OurService = ({
                     </div>
 
                 </div>
+
             </div>
+
         </section>
     );
 };

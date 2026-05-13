@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import CustomObject from "@/src/shared/components/CustomObjects";
 import React from "react";
+import SectionViewHeader from "@/src/shared/components/SectionViewHeader";
 
 interface Project {
     id: string;
@@ -41,27 +42,7 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
         <section className="flex justify-center py-5 lg:py-8 sm:py-10 px-8">
             <div className="md:container overflow-hidden">
 
-                <div className="w-full mx-auto relative px-5 sm:px-0">
-                    <div className="flex flex-col justify-end h-full">
-                        <CustomObject
-                            className="absolute top-0 -z-10"
-                            variants="green-disk"
-                        />
-
-                        <p className="pt-4 text-base">
-                            Our Projects
-                        </p>
-
-                        <h1 className="pt-4 pb-4 text-5xl font-bold 2xl:text-7xl lg:text-4xl md:text-4xl sm:text-4xl">
-                            {projectSlug?.projectName}
-                        </h1>
-
-                        <p className="sr-only">
-                            IZH Tech project showcasing web development,
-                            mobile application development, branding and digital solutions.
-                        </p>
-                    </div>
-                </div>
+                <SectionViewHeader header="Our Projects" title={projectSlug?.projectName} />
 
                 <div className="px-5 lg:px-10">
 

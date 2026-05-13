@@ -79,6 +79,78 @@ const BlogView = ({
     return (
         <section className="px-8 mx-auto bg-transparent md:container">
 
+            {/* Header */}
+            {/* <div className="lg:flex gap-4 py-5">
+
+                <div className="lg:w-[85%]">
+
+                    <motion.div
+                        variants={fadeIn("down", 0.1)}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{
+                            once: true,
+                            amount: 0.2,
+                        }}
+                    >
+
+                        <p className="text-base text-gray-600">
+                            {blogSlug?.categories
+                                ?.map((cat) => cat.name)
+                                .join(" | ")}
+                        </p>
+
+                        <h1 className="pt-2 text-5xl font-bold lg:w-3/4">
+                            {blogSlug?.title}
+                        </h1>
+
+                        <p className="pt-4 pb-4 text-base text-gray-800">
+                            {blogSlug?.shortNote}
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+                        variants={fadeIn("right", 0.2)}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{
+                            once: true,
+                            amount: 0.2,
+                        }}
+                        className="flex flex-wrap items-center gap-4"
+                    >
+
+                        <div className="flex items-center gap-2">
+                            <CircleUser
+                                size={28}
+                                color="black"
+                            />
+
+                            <div className="text-xs">
+                                <p>Posted by</p>
+
+                                <p className="font-medium">
+                                    {blogSlug?.author?.name}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="text-xs">
+                            <p>Published</p>
+
+                            <p className="font-medium">
+                                {formattedDate}
+                            </p>
+                        </div>
+
+                        <SharedButton
+                            title={blogSlug?.title}
+                            imageUrl={imageUrl}
+                        />
+
+                    </motion.div>
+                </div>
+            </div> */}
 
             <section className="flex justify-center py-5 lg:py-8 sm:py-10 ">
                 <div className="md:container overflow-hidden lg:w-[85%] me-auto">

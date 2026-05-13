@@ -40,31 +40,27 @@ const Inquiry = ({ siteInfo }: InquiryProps) => {
         formState: { errors },
     } = useForm();
 
-    // const { mutateAsync: contactMutation } = useCreateContactMutationQuery();
-
     // Math question state
-    const [num1, setNum1] = useState(Math.floor(Math.random() * 10) + 1);
-    const [num2, setNum2] = useState(Math.floor(Math.random() * 10) + 1);
+    const [num1, setNum1] = useState(0);
+    const [num2, setNum2] = useState(0);
     const [mathAnswer, setMathAnswer] = useState("");
     const [mathError, setMathError] = useState("");
 
+    React.useEffect(() => {
+        setNum1(Math.floor(Math.random() * 10) + 1);
+        setNum2(Math.floor(Math.random() * 10) + 1);
+    }, []);
+
     async function saveContact(payload: any) {
         try {
-
             const response = await createContact(payload);
-
             if (response.success) {
                 console.log("Contact created successfully");
             }
-
         } catch (error) {
-
             console.error(error);
-
         } finally {
-
             reset();
-
             setNum1(Math.floor(Math.random() * 10) + 1);
             setNum2(Math.floor(Math.random() * 10) + 1);
             setMathAnswer("");
