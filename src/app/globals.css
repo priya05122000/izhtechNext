@@ -214,3 +214,7 @@ circle {
   pointer-events: none;
   /* optional: to avoid capturing mouse events */
 }
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}

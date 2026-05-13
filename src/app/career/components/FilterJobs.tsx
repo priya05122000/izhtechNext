@@ -48,7 +48,7 @@ const FilterJobs = ({
                 >
                     {career?.[0]?.careerBannerImage ? (
                         <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_URL}/${career[0].careerBannerImage}`}
+                            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${career[0].careerBannerImage}`}
                             alt="Career Banner"
                             className="object-cover w-full h-[20rem] lg:h-[30rem] xl:h-[40rem]"
                         />

@@ -65,7 +65,7 @@ interface OurServiceProps {
     services: Services[];
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const colors = [
     "bg-purple-300",

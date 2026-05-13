@@ -5,6 +5,7 @@ import "./globals.css";
 import ClientLayout from "./ClientLayout";
 
 import { DM_Sans } from "next/font/google";
+import { Toaster } from "sonner";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -34,6 +35,11 @@ export default function RootLayout({
         <ClientLayout>
           {children}
         </ClientLayout>
+
+        <Toaster
+          position="top-right"
+          richColors
+        />
 
       </body>
 

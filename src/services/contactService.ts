@@ -1,6 +1,6 @@
 // src/services/contactService.ts
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export interface ContactModel {
     email?: string;
@@ -12,7 +12,7 @@ export async function createContact(payload: ContactModel) {
     try {
 
         const res = await fetch(
-            `${API_BASE_URL}/api/contacts`,
+            `${API_BASE_URL}/api/contact`,
             {
                 method: "POST",
 

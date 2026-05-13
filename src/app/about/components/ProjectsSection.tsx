@@ -378,7 +378,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                                     key={index}
                                                     alt={`img${index}`}
                                                     className={`show-image absolute w-full h-full object-contain object-center transition-opacity duration-500 ease-in-out opacity-100! transform! translate-y-0! z-10 cursor-pointer`}
-                                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/${project?.featuredImagePath}`}
+                                                    src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${project?.featuredImagePath}`}
                                                     onClick={() =>
                                                         router.push(
                                                             `/project/${project.slug}`
@@ -432,7 +432,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                                 <img
                                                     alt={`img${index}`}
                                                     className="show-image w-full h-full object-cover mb-5"
-                                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/${project?.projectImagePath}`}
+                                                    src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${project?.projectImagePath}`}
                                                 />
 
                                             </Link>

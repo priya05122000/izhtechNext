@@ -134,7 +134,7 @@ const Slider = ({ testimonials }: TestimonialProps) => {
                                             />
                                             <div className="flex flex-col items-center mt-2">
                                                 <img
-                                                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/${testimonial?.imagePath}`} alt="Image"
+                                                    src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${testimonial?.imagePath}`} alt="Image"
                                                     className="w-auto h-12 mb-2 rounded-full"
                                                 />
                                                 <p className="pt-2 text-xs text-gray-500">

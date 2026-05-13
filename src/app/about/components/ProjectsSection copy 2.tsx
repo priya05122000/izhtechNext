@@ -273,7 +273,7 @@ const ProjectsSection = ({
                                             ref={(el) => {
                                                 imageRefs.current[index] = el;
                                             }}
-                                            src={`${process.env.NEXT_PUBLIC_BASE_URL}/${project.featuredImagePath}`}
+                                            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${project.featuredImagePath}`}
                                             alt={project.title}
                                             className="absolute inset-0 w-full h-full object-cover"
                                         />
@@ -313,7 +313,7 @@ const ProjectsSection = ({
                                             <img
                                                 alt={`img${index}`}
                                                 className="w-full h-full object-cover mb-5 rounded-xl"
-                                                src={`${process.env.NEXT_PUBLIC_BASE_URL}/${project.projectImagePath}`}
+                                                src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${project.projectImagePath}`}
                                             />
 
                                         </Link>

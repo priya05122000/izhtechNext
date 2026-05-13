@@ -26,7 +26,7 @@ export default function ServiceHighlights({
     datas = [],
 }: ServiceHighlightsProps) {
 
-    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+    const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
