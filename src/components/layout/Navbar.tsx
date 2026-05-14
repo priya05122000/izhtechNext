@@ -49,7 +49,7 @@ export default function Navbar() {
                     {/* Mobile Toggle */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 md:hidden"
+                        className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 cursor-pointer hover:bg-gray-100 md:hidden"
                     >
                         <Menu className="h-6 w-6" />
                     </button>
@@ -60,7 +60,7 @@ export default function Navbar() {
                     className={`w-[90%] md:block md:w-auto absolute md:relative bg-white top-20 md:top-0 transition-transform duration-1000 ${isOpen ? "block" : "hidden"
                         }`}
                 >
-                    <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
+                    <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-6 md:text-sm md:font-medium">
 
                         {navItems.map((item) => (
                             <div className="relative" key={item.path}>

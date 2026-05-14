@@ -57,11 +57,11 @@ export default function ImageFirstServiceBlock(props: Services) {
           whileInView={"show"}
           exit={"hidden"}
           viewport={{ once: false, amount: 0.1 }}
-          className="w-full flex items-center justify-center h-80 lg:w-1/2 lg:h-160"
+          className="w-full flex items-center justify-center h-80 sm:w-3/2 lg:w-1/2 lg:h-160"
         >
           {featuredImagePath && (
             <img
-              className="lg:w-full lg:h-160 w-1/2 flex object-cover h-80"
+              className="lg:w-full lg:h-160 sm:w-1/2 flex object-cover object-center h-80"
               src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${featuredImagePath}`}
               alt={title || "service-image"}
             />
@@ -74,7 +74,7 @@ export default function ImageFirstServiceBlock(props: Services) {
           whileInView={"show"}
           exit={"hidden"}
           viewport={{ once: false, amount: 0.1 }}
-          className="w-full px-0 md:px-5 py-10 lg:py-0 md:flex-1 lg:w-1/2 lg:pe-20 xl:pe-36"
+          className="w-full px-0 md:px-5 py-10 lg:py-0 md:flex-1  lg:w-1/2 lg:pe-20 xl:pe-36"
         >
           <p className="pb-2 text-xs">OUR SERVICES</p>
 

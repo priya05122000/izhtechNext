@@ -77,7 +77,7 @@ const BlogView = ({
             : "";
 
     return (
-        <section className="px-8 mx-auto bg-transparent md:container">
+        <section className="lg:px-8 mx-auto bg-transparent md:container">
 
             {/* Header */}
             {/* <div className="lg:flex gap-4 py-5">

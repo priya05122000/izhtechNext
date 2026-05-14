@@ -49,7 +49,7 @@ export default function ServiceFeatureList({
             <div className="grid items-center justify-center mx-auto text-white">
                 <div className="md:container relative overflow-hidden">
 
-                    <ul className="grid lg:grid-cols-3 lg:gap-5 lg:p-13 py-[4rem] p-0 sm:p-8 gap-[3.3rem]">
+                    <ul className="grid sm:grid-cols-2 lg:grid-cols-3 lg:gap-5 lg:p-13 py-[4rem] p-0 sm:p-8 gap-[3.3rem]">
 
                         {filteredDatas.map((item) => {
 

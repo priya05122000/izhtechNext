@@ -7,7 +7,7 @@ import ProgressBar from "./Progress";
 
 const Banner = () => {
     return (
-        <section className="px-5 mx-auto ">
+        <section className="px-5 mx-auto relative overflow-x-hidden">
             <div className="flex gap-5 py-3 px-0 sm:px-10 mx-auto ">
                 <div className="relative gap-10 mx-auto lg:flex ">
                     <motion.div

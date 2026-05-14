@@ -80,8 +80,7 @@ export default function NewsletterForm() {
                                 text-sm
                                 text-white
                                 placeholder-gray-400
-                                focus:border-cyan-500
-                                focus:ring-cyan-500
+
                                 outline-none
                             "
                         />
@@ -111,6 +110,7 @@ export default function NewsletterForm() {
                         transition-all
                         duration-300
                         hover:bg-[#2a2930]
+                        cursor-pointer
                     "
                 >
                     <span className="flex items-stretch transition-all duration-200 rounded-md px-2 py-1 text-xs">

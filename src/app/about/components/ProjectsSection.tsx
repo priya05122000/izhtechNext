@@ -306,7 +306,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
     }, []);
 
     return (
-        <section className="container-fluid">
+        <section className="container-fluid ">
 
             <div className="ProjectsSection">
 
@@ -315,7 +315,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                         <div
                             className="showcase-pin relative min-h-screen flex"
                         >
-                            <div className="show-text relative overflow-hidden w-1/2 h-full">
+                            <div className="show-text relative overflow-hidden w-3/5 xl:w-1/2 h-full">
 
                                 <div className="show-text-contain relative w-full h-full">
 
@@ -329,19 +329,19 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
 
                                                 <div
                                                     key={index}
-                                                    className='mt-3.25   relative w-1/2 md:w-[70%] lg:w-[65%] xl:w-1/2 h-screen text-left flex flex-col ml-auto mr-[25.2px] justify-center items-start transition-opacity duration-300 ease-in-out  '
+                                                    className='mt-3.25 relative w-1/2 md:w-[70%] lg:w-[65%] xl:w-1/2 h-screen text-left flex flex-col ml-auto mr-[25.2px] justify-center items-start transition-opacity duration-300 ease-in-out  '
                                                 >
-                                                    <div>
+                                                    <div className="w-full">
                                                         <span className="span-back font-normal pointer-events-none text-[15px] md:text-[14px] lg:text-[15px] mb-2">
                                                             {project.projectName}
                                                         </span>
 
-                                                        <h4 className="text-[26px] md:text-[20px] lg:text-[22px] xl:text-[26px] font-bold pr-[0.6rem] tracking-[0.4px] text-[#222]">
+                                                        <h4 className="text-[26px] md:text-[20px] lg:text-[22px] xl:text-[26px] font-bold pr-[0.6rem] tracking-[0.4px] text-[#222] ">
                                                             {project.title}
                                                         </h4>
 
                                                         <h4
-                                                            className="text-[15px] md:text-[14px] lg:text-[15px] font-semibold pr-[0.6rem] tracking-[0.4px] text-[#222] mt-4"
+                                                            className="text-[15px] md:text-[12px] lg:text-[15px] font-semibold pr-[0.6rem] tracking-[0.4px] text-[#222] mt-4"
                                                             dangerouslySetInnerHTML={{
                                                                 __html:
                                                                     project.shortNote ||
@@ -407,14 +407,22 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
 
                     <div className="showcase-mobile-container min-h-screen w-full py-10">
 
+                        <div className="py-6">
+                            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center">
+                                Our Projects
+                            </h3>
+                        </div>
+
+
                         {projects?.map(
                             (project, index) =>
                                 project.status ? (
 
                                     <div
                                         key={index}
-                                        className="mobile-showcase-box flex items-start justify-center flex-col pb-5 px-5"
+                                        className="mobile-showcase-box flex items-start justify-center flex-col pb-10 px-5"
                                     >
+
 
                                         <div className="showcase-container">
 
@@ -450,16 +458,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                         />
 
                                         <div className="btn-container">
-
-                                            {/* <Link
-                                                href={`/project/${project.slug}`}
-                                                className="transition-colors focus-visible:outline-none flex items-center justify-center text-sm font-bold rounded h-8 py-1 px-4 w-32 border border-black bg-transparent text-black relative group"
-                                            >
-                                                <span className="transition-transform duration-300 group-hover:-translate-x-3">
-                                                    View more
-                                                </span>
-                                            </Link> */}
-                                            <LinkButton href={`/project/${project.slug}`}>View More</LinkButton>
+                                            <LinkButton variant="outline" href={`/project/${project.slug}`}>View More</LinkButton>
                                         </div>
                                     </div>
                                 ) : null

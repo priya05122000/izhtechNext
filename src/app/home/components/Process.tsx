@@ -9,7 +9,7 @@ export default function Process() {
     {
       title: "STRATEGY BEFORE EXECUTION",
       description:
-        "We begin by understanding your business from the inside out. Your targets become our blueprint, whether for software, campaigns, or creative assets. No guesswork, only focused strategy.",
+        "We begin by understanding your business from the inside out. Your targets become our blueprint, whether for software, campaigns, or assets. No guesswork, only focused strategy.",
     },
     {
       title: "VISUALIZE TO REALIZE",

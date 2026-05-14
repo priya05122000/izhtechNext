@@ -71,7 +71,7 @@ const Inquiry = ({ siteInfo }: InquiryProps) => {
                 </motion.div>
                 <div className="py-8">
                     <section>
-                        <div className="flex flex-col lg:flex-row md:flex-row lg:px-8 md:gap-1 xl:gap-6">
+                        <div className="flex flex-col lg:flex-row md:flex-row lg:lg:px-8 gap-6">
                             <motion.div
                                 variants={fadeIn("right", 0.1)}
                                 initial="hidden"

@@ -9,7 +9,7 @@ interface SectionViewHeaderProps {
 
 const SectionViewHeader: React.FC<SectionViewHeaderProps> = ({ title, header }) => (
 
-    <div className="relative pt-5  lg:pt-10">
+    <div className="relative pt-5 lg:pt-10">
         <div className="flex-col justify-center gap-4 my-auto h-4/5 lg:flex lg:flex-row">
             <div className="w-full mx-auto relative  ">
                 <div className="flex flex-col justify-end h-full">

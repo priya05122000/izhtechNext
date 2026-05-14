@@ -65,7 +65,7 @@ export default function BlogList({ blogPosts }: BlogListProps) {
             />
 
             <div className="relative z-10 mt-10">
-                <section className="relative overflow-hidden lg:container lg:mx-auto item-center px-8">
+                <section className="relative overflow-hidden lg:container lg:mx-auto item-center lg:px-8">
                     {blogPosts?.length > 0 && (
                         <>
                             <div className="relative z-10 flex flex-col flex-wrap justify-between gap-4 px-5 my-auto space-y-5 h-4/5 md:flex-row md:px-5">
@@ -203,7 +203,7 @@ export default function BlogList({ blogPosts }: BlogListProps) {
                                                                         ) => (
                                                                             <button
                                                                                 key={index}
-                                                                                className="flex h-6 w-28 items-center justify-center rounded-md bg-black text-xs text-white"
+                                                                                className="flex h-6 w-28 items-center justify-center rounded-md bg-black text-xs text-white cursor-pointer"
                                                                             >
                                                                                 {category.name}
                                                                             </button>

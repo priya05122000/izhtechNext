@@ -95,7 +95,7 @@ const InquiryForm = ({ num1, num2, resetMath }: InquiryFormProps) => {
 
     return (
         <form onSubmit={validateMathAnswer}>
-            <div className="flex-none py-4 lg:px-8 md:px-4 lg:flex xl:gap-6">
+            <div className="flex-none py-4 lg:px-8  lg:flex gap-6">
                 <div className="lg:w-4/12">
                     <h2 className="font-bold">Work Enquiries</h2>
                     <p>
@@ -104,7 +104,7 @@ const InquiryForm = ({ num1, num2, resetMath }: InquiryFormProps) => {
                     </p>
                 </div>
                 <div className="lg:w-[60%]">
-                    <div className="flex flex-wrap w-full gap-2 pt-4 md:p-3 lg:pl-0">
+                    <div className="flex flex-wrap w-full gap-2 pt-4  lg:pl-0">
 
                         {/* Mobile Number Optional */}
                         <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
@@ -259,7 +259,7 @@ const InquiryForm = ({ num1, num2, resetMath }: InquiryFormProps) => {
                         </div>
 
                     </div>
-                    <button className="h-8 text-xs font-bold text-white rounded bg-[#000000] w-28 border">
+                    <button className="h-8 text-xs font-bold cursor-pointer text-white rounded bg-[#000000] w-28 border">
                         Submit
                     </button>
                 </div>

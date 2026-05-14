@@ -65,10 +65,10 @@ const Testimonials = ({ testimonials }: OurTestimonialProps) => {
     };
 
     return (
-        <section className="bg-black container-fluid overflow-hidden">
+        <section className="bg-black container-fluid overflow-x-hidden">
 
-            <div className="md:container px-8 relative flex flex-col xl:gap-[15%] lg:gap[12%] py-10 sm:py-20 mx-auto text-left md:flex-row">
-                <div className="w-full mb-10 sm:w-2/4">
+            <div className="md:container px-5 sm:px-8 relative overflow-hidden flex min-w-0 flex-col gap-10 lg:gap-16 py-10 sm:py-20 mx-auto text-left md:flex-row">
+                <div className="w-full mb-10 md:w-1/2 min-w-0">
                     <h6 className="text-base text-gray-200">TESTIMONIALS</h6>
                     <h5 className="pt-4 mt-3 text-2xl font-bold text-white border-t xl:text-4xl sm:text-3xl border-t-gray-700">
                         What our clients say
@@ -93,14 +93,14 @@ const Testimonials = ({ testimonials }: OurTestimonialProps) => {
 
                 </div>
 
-                <div className="w-full sm:w-2/4 relative">
+                <div className="w-full md:w-1/2 relative min-w-0 overflow-hidden">
                     {activeTestimonials.length > 0 ? (
                         <>
                             {/* LEFT CONTROL */}
                             <button
                                 type="button"
                                 onClick={() => sliderRef.current?.slickPrev()}
-                                className="absolute bottom-0 lg:left-0 hidden lg:flex items-center justify-center px-4 focus:outline-none z-10 text-white"
+                                className="absolute bottom-0 lg:left-0 hidden lg:flex items-center justify-center px-4 focus:outline-none z-10 text-white cursor-pointer"
                             >
                                 <span className="relative after:content-[''] after:h-0.5 pl-0 flex flex-row after:bg-gray-500 after:absolute after:top-3 after:-right-9.5 after:w-7.5">
                                     {formatIndex(currentIndex - 1)}
@@ -111,43 +111,46 @@ const Testimonials = ({ testimonials }: OurTestimonialProps) => {
                             <button
                                 type="button"
                                 onClick={() => sliderRef.current?.slickNext()}
-                                className="absolute bottom-0 lg:left-[5%] hidden lg:flex items-center justify-center px-4 focus:outline-none z-10 text-white"
+                                className="absolute bottom-0 lg:left-[5%] hidden lg:flex items-center justify-center px-4 focus:outline-none z-10 text-white cursor-pointer"
                             >
                                 <span className="ml-8.75">
                                     {formatIndex(currentIndex + 1)}
                                 </span>
                             </button>
 
-                            <Slider ref={sliderRef} {...settings}>
-                                {activeTestimonials.map((testimonial, index) => (
-                                    <div key={index}>
-                                        <div className="flex flex-col h-full gap-3 text-left dark:text-white">
-                                            <div className="flex flex-col bg-black gap-1">
-                                                <span className="w-32 p-2 mb-2 text-xs font-normal text-gray-100 bg-gray-900 rounded focus:outline-none">
-                                                    {testimonial?.companyLocation}
-                                                </span>
+                            <div className="overflow-hidden w-full">
+                                <Slider ref={sliderRef} {...settings}>
+                                    {activeTestimonials.map((testimonial, index) => (
+                                        <div key={index}>
+                                            <div className="flex flex-col h-full gap-3 text-left dark:text-white">
+                                                <div className="flex flex-col bg-black gap-1">
+                                                    <span className="w-32 p-2 mb-2 text-xs font-normal text-gray-100 bg-gray-900 rounded focus:outline-none">
+                                                        {testimonial?.companyLocation}
+                                                    </span>
 
-                                                <p>
-                                                    {testimonial?.testimonials?.replace(
-                                                        /<[^>]+>/g,
-                                                        ""
-                                                    )}
-                                                </p>
-                                            </div>
+                                                    <p>
+                                                        {testimonial?.testimonials?.replace(
+                                                            /<[^>]+>/g,
+                                                            ""
+                                                        )}
+                                                    </p>
+                                                </div>
 
-                                            <div>
-                                                <span className="text-xs font-bold text-white">
-                                                    {testimonial?.companyName}
-                                                </span>
+                                                <div>
+                                                    <span className="text-xs font-bold text-white">
+                                                        {testimonial?.companyName}
+                                                    </span>
 
-                                                <h5 className="text-xs text-white">
-                                                    {testimonial?.designation}
-                                                </h5>
+                                                    <h5 className="text-xs text-white">
+                                                        {testimonial?.designation}
+                                                    </h5>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </Slider>
+                                    ))}
+                                </Slider>
+                            </div>
+
                         </>
                     ) : (
                         <div className="text-gray-400">

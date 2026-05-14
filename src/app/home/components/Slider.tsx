@@ -29,7 +29,7 @@ interface TestimonialProps {
 const PrevArrow = ({ onClick }: any) => (
     <button
         onClick={onClick}
-        className="absolute top-10 lg:top-1/2 left-4 md:left-36 z-10 -translate-y-1/2 cursor-pointer"
+        className="absolute top-10 lg:top-1/2 left-4 md:left-36 z-10 translate-y-1/2 cursor-pointer"
     >
         <div className="flex h-10 w-10 items-center justify-center rounded-full ">
             <MoveLeft className="h-5 w-5 text-black" />
@@ -40,7 +40,7 @@ const PrevArrow = ({ onClick }: any) => (
 const NextArrow = ({ onClick }: any) => (
     <button
         onClick={onClick}
-        className="absolute top-10 lg:top-1/2 right-4 md:right-36 z-10 -translate-y-1/2 cursor-pointer"
+        className="absolute top-10 lg:top-1/2 right-4 md:right-36 z-10 translate-y-1/2 cursor-pointer"
     >
         <div className="flex h-10 w-10 items-center justify-center rounded-full ">
             <MoveRight className="h-5 w-5 text-black" />
@@ -70,7 +70,7 @@ const Slider = ({ testimonials }: TestimonialProps) => {
     };
 
     return (
-        <section className="mx-auto overflow-hidden container-fluid xl:container px-8">
+        <section className="mx-auto overflow-hidden container-fluid xl:container lg:px-8">
 
             <div className="px-5 py-16 text-center bg-[#F5F1F5] md:px-0 mb-0 xl:mb-10 h-full relative overflow-hidden">
                 <div className="h-full">

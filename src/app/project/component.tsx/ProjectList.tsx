@@ -37,7 +37,7 @@ interface OurProjectsProps {
 
 const ProjectList = ({ projects }: OurProjectsProps) => {
     return (
-        <section className="flex justify-center pb-5  lg:pb-10 px-8">
+        <section className="flex justify-center py-5  lg:pb-10 sm:px-8">
 
             <div className="px-5  lg:px-10">
                 <div className="grid grid-cols-1  md:grid-cols-12 gap-10">

@@ -40,12 +40,13 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
     return (
-        <section className="flex justify-center py-5 lg:py-8 sm:py-10 px-8">
+        <section className="flex justify-center py-5 lg:py-8 sm:py-10 px-5 sm:px-8">
             <div className="md:container overflow-hidden">
 
                 <SectionViewHeader header="Our Projects" title={projectSlug?.projectName} />
 
-                <div className="px-5 lg:px-10">
+
+                <div className="lg:px-10">
 
                     <div className="py-8 sm:py-10">
 

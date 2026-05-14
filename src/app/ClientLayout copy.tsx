@@ -66,12 +66,11 @@ export default function ClientLayout({
             <Navbar />
 
             <section
-                className={`relative mx-auto container-fluid ${!isAboutPage && !isBlogPage ? "overflow-hidden" : ""}`}
+                className={`relative mx-auto container-fluid`}
             >
+
                 <CustomObject
-                    className={`
-                        ${isAboutPage || isBlogPage ? "hidden" : ""
-                        }
+                    className="
                         absolute
                         -top-40
                         -right-40
@@ -85,18 +84,32 @@ export default function ClientLayout({
                         lg:-right-40
                         lg:h-[50vh]
                         2xl:block
-                    `}
+                    "
                     variants="circle-2"
                 />
 
-
                 <PageScroll />
 
+                <section
+                    className={`relative mx-auto ${!isAboutPage && !isBlogPage
+                        ? ""
+                        : ""
+                        } container-fluid`}
+                >
+                    {/* <section className="container-fluid relative mx-auto"> */}
+                    {children}
+                    {/* </section> */}
+                </section>
                 {/* <section
-                    className={`relative mx-auto container-fluid ${!isAboutPage && !isBlogPage ? "overflow-hidden" : ""}`}
-                > */}
-                {children}
-                {/* </section> */}
+                    className={`relative mx-auto ${!isAboutPage && !isBlogPage
+                            ? "overflow-hidden"
+                            : ""
+                        } container-fluid`}
+                >
+                    <section className="container-fluid relative mx-auto overflow-hidden">
+                        {children}
+                    </section>
+                </section> */}
 
                 <section
                     className={`relative mx-auto ${!isAboutPage && !isBlogPage

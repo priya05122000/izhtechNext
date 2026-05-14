@@ -18,7 +18,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({
     children,
 }) => {
     const base =
-        "flex items-center justify-center text-sm font-medium h-7 rounded-sm w-32 px-2 relative group transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background";
+        "flex items-center justify-center text-sm font-medium h-7 rounded-sm w-32 px-2 relative group transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background ";
     const filled =
         "text-white bg-black border-1";
     const outline =

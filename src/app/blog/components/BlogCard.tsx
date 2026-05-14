@@ -141,7 +141,7 @@ export default function BlogCard({
 
                                 <button
                                     key={index}
-                                    className="items-center justify-center h-6 text-xs text-white bg-black rounded-md w-28"
+                                    className="items-center justify-center h-6 text-xs text-white cursor-pointer bg-black rounded-md w-28"
                                 >
                                     {category.name}
                                 </button>
@@ -239,21 +239,29 @@ export default function BlogCard({
     );
 
     return (
-        <motion.div
-            variants={fadeIn("left", 0.1)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{
-                once: false,
-                amount: 0.1,
-            }}
-            className="relative"
-        >
+        // <motion.div
+        //     variants={fadeIn("left", 0.1)}
+        //     initial="hidden"
+        //     whileInView="show"
+        //     viewport={{
+        //         once: false,
+        //         amount: 0.1,
+        //     }}
+        //     className="relative"
+        // >
+        //     <Link href={`/blog/${slug}`}>
+        //         {variant === "blog"
+        //             ? BlogSectionCard
+        //             : HomeCard}
+        //     </Link>
+        // </motion.div>
+
+        <div className="relative">
             <Link href={`/blog/${slug}`}>
                 {variant === "blog"
                     ? BlogSectionCard
                     : HomeCard}
             </Link>
-        </motion.div>
+        </div>
     );
 }

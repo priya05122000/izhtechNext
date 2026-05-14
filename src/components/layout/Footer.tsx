@@ -109,7 +109,7 @@ export default function Footer({
 
                             <a
                                 href="mailto:celibadhanasekharan@izhtech.com"
-                                className="font-bold"
+                                className="font-bold text-sm"
                             >
                                 celibadhanasekharan@izhtech.com
                             </a>

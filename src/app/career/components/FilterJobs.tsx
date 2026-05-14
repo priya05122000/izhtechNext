@@ -35,7 +35,7 @@ const FilterJobs = ({
     setActiveRoleId,
 }: FilterJobsProps) => {
     return (
-        <section className="px-8">
+        <section className="px-5 sm:px-8">
             <div className="relative mx-auto px-0 md:px-5 lg:px-10 md:flex">
 
                 {/* Left Image Section */}
@@ -84,12 +84,12 @@ const FilterJobs = ({
                                 "No career description available."}
                         </p>
 
-                        <div className="flex flex-wrap gap-5 mt-5">
+                        <div className="flex flex-wrap gap-2 mt-5">
 
                             {/* View All Button */}
                             <button
                                 onClick={() => setActiveRoleId(null)}
-                                className={`w-auto px-3 py-1 text-xs font-bold border rounded-[2px] uppercase transition-all ${activeRoleId === null
+                                className={`w-auto px-3 py-1 text-xs font-bold border cursor-pointer rounded-xs uppercase transition-all ${activeRoleId === null
                                         ? "bg-black text-white border-black"
                                         : "bg-white text-black border-black"
                                     }`}
@@ -106,7 +106,7 @@ const FilterJobs = ({
                                         onClick={() =>
                                             setActiveRoleId(jobrole.id)
                                         }
-                                        className={`w-auto px-3 py-1 text-xs font-bold border rounded-xs uppercase transition-all ${activeRoleId === jobrole.id
+                                        className={`w-auto cursor-pointer px-3 py-1 text-xs font-bold border rounded-xs uppercase transition-all ${activeRoleId === jobrole.id
                                                 ? "bg-black text-white border-black"
                                                 : "bg-white text-black border-black"
                                             }`}

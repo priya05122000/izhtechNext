@@ -17,7 +17,7 @@ const Counts = ({ awards, designers }: CountsProps) => {
   h-96 sm:h-120 md:h-144 lg:h-180
   bg-[url('/images/Aboutpage/img/counts/bg.webp')]">
 
-                <div className="container bottom-0 flex flex-col items-end justify-end h-full mx-auto px-8">
+                <div className="container bottom-0 flex flex-col items-end justify-end h-full mx-auto lg:px-8">
                     <div className="flex items-end justify-center md:justify-end">
                         <div className="grid justify-center p-6 text-white bg-red-600 bg-linear-to-r to-pink-500 md:pr-32">
                             <div className="flex items-center justify-between">

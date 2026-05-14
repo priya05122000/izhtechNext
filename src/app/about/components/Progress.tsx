@@ -15,7 +15,7 @@ export default function ProgressBar({
 }: ProgressProps) {
 
   const themeCustom = {
-    base: "w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700",
+    base: "w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-200",
     label: "mb-1 flex justify-between font-medium dark:text-white",
     bar: "space-x-2 rounded-full text-center font-medium leading-none text-cyan-300 dark:text-cyan-100",
     color: {

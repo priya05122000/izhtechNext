@@ -11,28 +11,14 @@ const AccordionItem = ({ header, content, i, expanded, setExpanded }: any) => {
   return (
     <>
       <motion.button
-        className="flex items-start justify-between gap-4 w-full px-0 lg:px-5  py-2 xl:py-5 font-medium text-left text-black first:rounded-t-lg last:rounded-b-lg hover:bg-gray-100  "
+        className="flex items-center justify-between w-full px-0 lg:px-5  py-2 xl:py-5 font-medium text-left text-black first:rounded-t-lg last:rounded-b-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800"
         initial={false}
         onClick={() => setExpanded(isOpen ? false : i)}
       >
 
-        <div className="flex items-start gap-3 flex-1 min-w-0">
-          <ArrowUpRightSquare className=" text-gray-600
-    w-5
-    h-5
-    min-w-5
-    min-h-5
-    max-w-5
-    max-h-5
-    mt-1
-    shrink-0
-    flex-none " />
-          <h5 className=" text-black
-    uppercase
-    leading-relaxed
-    text-base
-    md:text-lg
-    wrap-break-word"> {header}</h5>
+        <div className="flex items-center gap-2">
+          <ArrowUpRightSquare className="text-gray-600 " />
+          <h5 className=" text-black-800 uppercase"> {header}</h5>
         </div>
         <motion.span
           initial={{ rotate: 0 }}
@@ -56,7 +42,7 @@ const AccordionItem = ({ header, content, i, expanded, setExpanded }: any) => {
             transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
             {/* <p className="p-5 text-sm text-black">{content}</p> */}
-            <div className="py-2 px-5 text-sm text-black" dangerouslySetInnerHTML={{ __html: content }} />
+            <div className="p-5 text-sm text-black" dangerouslySetInnerHTML={{ __html: content }} />
           </motion.section>
         )}
       </AnimatePresence>

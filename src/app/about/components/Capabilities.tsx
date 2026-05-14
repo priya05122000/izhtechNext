@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Capabilities = () => {
     return (
-        <section className="px-5 mx-auto ">
+        <section className="px-5 mx-auto relative overflow-x-hidden">
             <div className="px-0 sm:px-10 pt-10 mx-auto ">
                 <div className="flex flex-col lg:flex-row gap-10 items-center">
                     {/* Text Section */}

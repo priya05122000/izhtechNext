@@ -4,51 +4,54 @@ import { fadeIn } from '@/src/shared/animation/variants';
 
 const WhyWorkWithUs = () => {
     return (
-        <section className=" mx-auto mb-10 lg:mb-36 mt-10">
+        <section className=" mx-auto mb-10 lg:mb-36 mt-10 px-5 sm:px-8 xl:px-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                {/* Text Content */}
-                <motion.div
-                    variants={fadeIn("right", 0.1)}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: false, amount: 0.1 }}
-                    className="container pl-5 xl:pl-20"
-                >
-                    <p className="text-4xl sm:text-5xl font-bold mt-10 lg:mt-20">
-                        Life at IZH Tech
-                    </p>
-                    <p className="text-base text-justify mt-5">
-                        At Izh Tech, we are more than a workplace. We are a community of innovators, thinkers, and problem solvers. Through tech discussions, team activities, and shared learning, we create an engaging environment where every team member feels supported and empowered.
-                    </p>
-                    <p className="text-base text-[#0E3BF9] font-semibold mt-5">
-                        Be a part of our journey — let’s build the future together!
-                    </p>
+                <div className="flex flex-col justify-center">
+                    {/* Text Content */}
+                    <motion.div
+                        variants={fadeIn("right", 0.1)}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: false, amount: 0.1 }}
+                        className="container"
+                    >
+                        <p className="text-4xl sm:text-5xl font-bold">
+                            Life at IZH Tech
+                        </p>
+                        <p className="text-base text-justify mt-5">
+                            At Izh Tech, we are more than a workplace. We are a community of innovators, thinkers, and problem solvers. Through tech discussions, team activities, and shared learning, we create an engaging environment where every team member feels supported and empowered.
+                        </p>
+                        <p className="text-base text-[#0E3BF9] font-semibold mt-5">
+                            Be a part of our journey — let’s build the future together!
+                        </p>
 
-                    <p className="mt-12 text-3xl sm:text-4xl font-bold">
-                        Why Work With Us?
-                    </p>
-                    <ul className="mt-5 text-justify list-disc pl-5 space-y-3">
-                        <li>
-                            <strong>Innovative Environment:</strong> Work with modern technologies and tools.
-                        </li>
-                        <li>
-                            <strong>Career Growth:</strong> Continuous learning,
-                            mentorship, and upskilling.
-                        </li>
-                        <li>
-                            <strong>Collaborative Culture:</strong> We value teamwork and
-                            creative problem-solving.
-                        </li>
-                        <li>
-                            <strong>Diverse Projects:</strong> Gain experience across
-                            industries and domains.
-                        </li>
-                        <li>
-                            <strong>Work-Life Balance:</strong> A flexible, supportive
-                            company culture.
-                        </li>
-                    </ul>
-                </motion.div>
+                        <p className="mt-12 text-3xl sm:text-4xl font-bold">
+                            Why Work With Us?
+                        </p>
+                        <ul className="mt-5 text-justify list-disc pl-5 space-y-3">
+                            <li>
+                                <strong>Innovative Environment:</strong> Work with modern technologies and tools.
+                            </li>
+                            <li>
+                                <strong>Career Growth:</strong> Continuous learning,
+                                mentorship, and upskilling.
+                            </li>
+                            <li>
+                                <strong>Collaborative Culture:</strong> We value teamwork and
+                                creative problem-solving.
+                            </li>
+                            <li>
+                                <strong>Diverse Projects:</strong> Gain experience across
+                                industries and domains.
+                            </li>
+                            <li>
+                                <strong>Work-Life Balance:</strong> A flexible, supportive
+                                company culture.
+                            </li>
+                        </ul>
+                    </motion.div>
+                </div>
+
 
                 {/* Image */}
                 <motion.div
@@ -56,11 +59,12 @@ const WhyWorkWithUs = () => {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: false, amount: 0.1 }}
+                    className="flex flex-col justify-center"
                 >
                     <img
                         src="./images/career/c2.webp"
                         alt="Life at IZH Tech"
-                        className="w-full h-auto lg:h-170 xl:h-162.5 object-cover pl-5 pr-5 lg:pr-5 xl:pr-20 lg:pl-0 "
+                        className="w-full h-auto lg:h-170 xl:h-162.5 object-cover "
                     />
                 </motion.div>
             </div>

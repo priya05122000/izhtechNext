@@ -10,7 +10,7 @@ const MeetTheTeam = () => {
     const [activeCard, setActiveCard] = useState<number | null>(null);
 
     return (
-        <section className="pt-8 sm:pt-16 ">
+        <section className="pt-8 sm:pt-16 relative overflow-x-hidden">
             <div className="px-5 mx-auto">
                 <section className="px-0 sm:px-10">
                     <div className="w-full ">

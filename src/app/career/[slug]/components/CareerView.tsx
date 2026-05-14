@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import CustomObject from "@/src/shared/components/CustomObjects";
 import SectionHeader from "@/src/shared/components/SectionHeader";
+import LinkButton from "@/src/shared/components/LinkButton";
 
 interface JobRolesModel {
     id: string;
@@ -76,7 +77,7 @@ const CareerView = ({
 
 
             {/* Content Section */}
-            <section className="px-8 mb-20 mx-auto md:container">
+            <section className="px-5 sm:px-8 mb-20 mx-auto md:container">
 
                 {/* Description */}
                 <div className="mt-10">
@@ -129,12 +130,19 @@ const CareerView = ({
 
                 {/* Apply Button */}
                 <div className="mt-10 flex justify-end">
-                    <Link
+                    {/* <Link
                         href={`mailto:celibadhanasekharan@izhtech.com?subject=Job Application for ${jobSlug?.title}`}
                         className="inline-flex items-center justify-center h-10 px-6 text-sm font-medium text-white transition-all rounded-md bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500"
                     >
                         Apply
-                    </Link>
+                    </Link> */}
+
+                    <LinkButton
+                        href={`mailto:celibadhanasekharan@izhtech.com?subject=Job Application for ${jobSlug?.title}`}
+                        className="h-10 px-6 text-sm font-medium text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md"
+                    >
+                        Apply
+                    </LinkButton>
                 </div>
             </section>
         </section>

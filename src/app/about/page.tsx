@@ -105,7 +105,7 @@ const AboutPage = async () => {
                 designers={siteInfo?.[0]?.teamCount}
             />
 
-            <MeetTheTeam />
+            {/* <MeetTheTeam /> */}
 
         </>
     )

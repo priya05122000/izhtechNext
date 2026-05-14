@@ -34,7 +34,7 @@ interface MissionStatementProps {
 
 const Banner = ({ siteInfo }: MissionStatementProps) => {
   return (
-    <section className="mx-auto container-fluid xl:container px-8">
+    <section className="mx-auto container-fluid xl:container lg:px-8">
       <div className="lg:px-10 pb-12 pt-12  bg-[#F5F7FF] rounded">
         <div className="flex-col justify-center gap-4 px-5 my-auto h-4/5 lg:flex lg:flex-row">
           <motion.div

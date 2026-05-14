@@ -101,7 +101,7 @@ const OurService = ({
     }
 
     return (
-        <section className="mx-auto container-fluid xl:container px-8">
+        <section className="mx-auto container-fluid xl:container lg:px-8">
 
             <div className="lg:px-10 bg-[#F7F9FA] rounded">
 
@@ -180,12 +180,13 @@ const OurService = ({
                                                     flex
                                                     items-center
                                                     p-4
+                                                    cursor-pointer
                                                     text-sm
                                                     font-medium
                                                     first:ml-0
                                                     text-left
                                                     rounded-none
-                                                    lg:min-w-[160px]
+                                                    lg:min-w-40
                                                     lg:w-auto
                                                     whitespace-nowrap
                                                     justify-start

@@ -9,7 +9,7 @@ export default function Hero() {
     return (
         <section className="pt-6 pb-6 lg:h-[calc(80vh-70px)] relative">
 
-            <div className="md:container relative flex justify-center md:h-full max-[490px]:h-[50vh] h-[60vh] mx-auto px-8">
+            <div className="md:container relative flex justify-center md:h-full max-[490px]:h-[50vh] h-[60vh] mx-auto   sm:px-8">
 
                 <div className="flex flex-col justify-center gap-4 px-5 my-auto md:flex-row md:pb-20 lg:pb-0">
 

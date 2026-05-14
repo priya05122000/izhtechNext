@@ -6,7 +6,7 @@ export default function NewsLetter() {
     <section className="py-10 sm:py-20 px-5">
       <div className="text-center py-0 xl:px-10 m-0 ">
         <h2 className="font-bold text-md lg:text-3xl md:text-3xl sm:text-3xl ">
-          <span className="text-3xl font-bold text-transparent lg:text-8xl bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text tracking-[-.2rem]"> Future-Proof Your Business
+          <span className="text-3xl font-bold text-transparent lg:text-8xl bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text tracking-[-.1rem]"> Future-Proof Your Business
           </span>
         </h2>
         <span className="text-xl lg:text-2xl"> With our expert team of creative professionals!

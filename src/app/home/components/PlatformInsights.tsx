@@ -25,7 +25,7 @@ interface MissionStatementProps {
 
 const PlatformInsights = ({ siteInfo }: MissionStatementProps) => {
     return (
-        <section className="relative  mx-auto bg-gray-50 container-fluid z-0 px-8">
+        <section className="relative  mx-auto bg-gray-50 container-fluid z-0 lg:px-8">
             <div className="mx-auto container-fluid xl:container z-0">
                 <div className="lg:px-10 pb-16 pt-16 bg-[#F5F1F5] rounded relative">
                     <div className="flex-col justify-center gap-4 px-5 my-auto h-4/5 lg:flex lg:flex-row">

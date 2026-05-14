@@ -63,7 +63,7 @@ const JobList = ({
     }: {
         children: React.ReactNode;
     }) => (
-        <button className="px-2 py-1 text-xs font-bold border rounded bg-white text-black border-black uppercase">
+        <button className="px-2 py-1 text-xs font-bold border rounded bg-white text-black border-black uppercase cursor-pointer">
             {children}
         </button>
     );

@@ -77,7 +77,7 @@ const BlogView = ({
             : "";
 
     return (
-        <section className="px-8 mx-auto bg-transparent md:container">
+        <section className="px-5 sm:px-8 mx-auto bg-transparent md:container">
 
 
             <section className="flex justify-center py-5 lg:py-8 sm:py-10 ">
