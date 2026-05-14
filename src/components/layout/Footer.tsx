@@ -145,11 +145,11 @@ export default function Footer({
                     </div>
                     <div className="flex flex-wrap justify-between sm:justify-center gap-2 mt-4 sm:mt-0 text-xs text-white list-none">
                         <li className="me-4 last:mr-0 md:mr-6">
-                            <a href="./about" className="hover:underline">About Us</a>
+                            <a href="/about" className="hover:underline">About Us</a>
                         </li>
-                        <li className="me-4 last:mr-0 md:mr-6"><a href="./service" className="hover:underline">Our Service</a>
+                        <li className="me-4 last:mr-0 md:mr-6"><a href="/service" className="hover:underline">Our Service</a>
                         </li>
-                        <li className="me-4 last:mr-0 md:mr-6"><a href="./contact" className="hover:underline">Contact Us</a>
+                        <li className="me-4 last:mr-0 md:mr-6"><a href="/contact" className="hover:underline">Contact Us</a>
                         </li>
                     </div>
                 </div>
