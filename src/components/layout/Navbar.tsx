@@ -74,6 +74,7 @@ export default function Navbar() {
                                             }`}
                                     >
                                         {item.name}
+
                                     </Link>
                                 </li>
                             </div>
