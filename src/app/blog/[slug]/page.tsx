@@ -1,25 +1,22 @@
 // page.tsx
 
-import React from "react";
-
-import Script from "next/script";
 
 import BlogView from "./components/BlogView";
 
 import { getBlogBySlug } from "@/src/services/blogPostService";
 
 interface BlogSlugPageProps {
-    params: Promise<{
+    params: {
         slug: string;
-    }>;
+    };
 }
 
 export async function generateMetadata({
     params,
 }: BlogSlugPageProps) {
 
-    const { slug } = await params;
-
+    const { slug } = params;
+    
     const blogSlug = await getBlogBySlug(slug);
 
     const imageUrl = blogSlug?.imagePath
@@ -121,7 +118,7 @@ const BlogSlugPage = async ({
         <>
 
             {articleSchema && (
-                <Script
+                <script
                     id="blog-article-schema"
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
