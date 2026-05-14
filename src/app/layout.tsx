@@ -8,7 +8,7 @@ import { DM_Sans } from "next/font/google";
 
 import { Toaster } from "sonner";
 
-import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -40,7 +40,7 @@ export default function RootLayout({
           richColors
         />
 
-        <Script
+        {/* <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-SYDD14SZLN"
         />
@@ -57,7 +57,9 @@ export default function RootLayout({
 
             gtag('config', 'G-SYDD14SZLN');
           `}
-        </Script>
+        </Script> */}
+
+        <GoogleAnalytics gaId="G-SYDD14SZLN" />
       </body>
     </html>
   );
