@@ -9,10 +9,11 @@ import { getAllServices } from "@/src/services/mainService";
 import { getAllProjects } from "@/src/services/projectService";
 
 import { getAllCareer } from "@/src/services/careerService";
+import { getAllJobs, getJobBySlug } from "../services/JobService";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
-    const baseUrl = "https://www.izhtech.com";
+    const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_URL
 
     // Static Pages
     const staticPages: MetadataRoute.Sitemap = [
@@ -115,7 +116,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         })) || [];
 
     // Careers
-    const careers = await getAllCareer();
+    const careers = await getAllJobs();
+
+    console.log(careers)
 
     const careerPages: MetadataRoute.Sitemap =
         careers?.map((career: any) => ({
