@@ -12,6 +12,8 @@ import ServiceHighlights from './component.tsx/ServiceHighlights';
 
 import SectionViewHeader from '@/src/shared/components/SectionViewHeader';
 
+import { notFound } from "next/navigation";
+
 interface ServiceSlugPageProps {
     params: Promise<{
         slug: string;
@@ -26,6 +28,10 @@ export async function generateMetadata({
 
     const serviceSlug =
         await getServiceBySlug(slug);
+
+    if (!serviceSlug) {
+        notFound();
+    }
 
     const currentUrl =
         `https://www.izhtech.com/service/${slug}`;
@@ -97,6 +103,11 @@ const ServiceSlugPage = async ({
 
     const serviceSlug =
         await getServiceBySlug(slug);
+
+    if (!serviceSlug) {
+        notFound();
+    }
+
 
     const currentUrl =
         `https://www.izhtech.com/service/${slug}`;
