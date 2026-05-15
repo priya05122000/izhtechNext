@@ -17,7 +17,7 @@ export const metadata = {
         "Get in touch with IZH Tech for branding, web development, app development, and digital marketing services.",
 
     alternates: {
-        canonical: "https://www.izhtech.com/contact",
+        canonical: "https://izhtech.com/contact",
     },
 };
 
@@ -37,7 +37,7 @@ const ContactPage = async () => {
             "Contact IZH Tech",
 
         url:
-            "https://www.izhtech.com/contact",
+            "https://izhtech.com/contact",
 
         description:
             "Get in touch with IZH Tech for branding, web development, app development, and digital marketing services.",
@@ -50,10 +50,10 @@ const ContactPage = async () => {
                 "IZH Tech",
 
             url:
-                "https://www.izhtech.com",
+                "https://izhtech.com",
 
             logo:
-                "https://www.izhtech.com/logo-primary.png",
+                "https://izhtech.com/logo-primary.png",
 
             contactPoint: {
                 "@type":

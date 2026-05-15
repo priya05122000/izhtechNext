@@ -30,7 +30,7 @@ export async function generateMetadata({
             : "";
 
     const currentUrl =
-        `https://www.izhtech.com/project/${slug}`;
+        `https://izhtech.com/project/${slug}`;
 
     return {
         title:
@@ -90,7 +90,7 @@ const ProjectSlugPage = async ({
         await getProjectBySlug(slug);
 
     const currentUrl =
-        `https://www.izhtech.com/project/${slug}`;
+        `https://izhtech.com/project/${slug}`;
 
     const imageUrl =
         projectSlug?.featuredImagePath
@@ -133,7 +133,7 @@ const ProjectSlugPage = async ({
                         "IZH Tech",
 
                     url:
-                        "https://www.izhtech.com",
+                        "https://izhtech.com",
                 },
 
                 publisher: {
@@ -148,7 +148,7 @@ const ProjectSlugPage = async ({
                             "ImageObject",
 
                         url:
-                            "https://www.izhtech.com/logo-primary.png",
+                            "https://izhtech.com/logo-primary.png",
                     },
                 },
             }

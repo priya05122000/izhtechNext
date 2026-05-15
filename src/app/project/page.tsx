@@ -15,7 +15,7 @@ export const metadata = {
         "A showcase of professional digital projects by IZH Tech including web development, mobile applications, branding and digital solutions.",
 
     alternates: {
-        canonical: "https://www.izhtech.com/project",
+        canonical: "https://izhtech.com/project",
     },
 };
 
@@ -36,7 +36,7 @@ const ProjectPage = async () => {
                     "ItemList",
 
                 "@id":
-                    "https://www.izhtech.com/project#portfolio",
+                    "https://izhtech.com/project#portfolio",
 
                 name:
                     "IZH Tech Portfolio Projects",
@@ -65,7 +65,7 @@ const ProjectPage = async () => {
                                     idx + 1,
 
                                 url:
-                                    `https://www.izhtech.com/project/${project.slug}`,
+                                    `https://izhtech.com/project/${project.slug}`,
 
                                 name:
                                     project.projectName,

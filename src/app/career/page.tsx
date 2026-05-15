@@ -19,7 +19,7 @@ export const metadata = {
         "Explore career opportunities at IZH Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
 
     alternates: {
-        canonical: "https://www.izhtech.com/career",
+        canonical: "https://izhtech.com/career",
     },
 };
 
@@ -100,10 +100,10 @@ const CareerPage = async () => {
                                     "IZH Tech",
 
                                 sameAs:
-                                    "https://www.izhtech.com",
+                                    "https://izhtech.com",
 
                                 logo:
-                                    "https://www.izhtech.com/logo-primary.png",
+                                    "https://izhtech.com/logo-primary.png",
                             },
 
                             jobLocation:
@@ -134,7 +134,7 @@ const CareerPage = async () => {
                             },
 
                             url:
-                                `https://www.izhtech.com/career/${job.slug}`,
+                                `https://izhtech.com/career/${job.slug}`,
                         })
                     ),
             }
@@ -152,7 +152,7 @@ const CareerPage = async () => {
             "Careers at IZH Tech",
 
         url:
-            "https://www.izhtech.com/career",
+            "https://izhtech.com/career",
 
         description:
             "Career opportunities at IZH Tech. Join our creative team working on branding, web development, app development, and digital marketing projects.",
@@ -165,10 +165,10 @@ const CareerPage = async () => {
                 "IZH Tech",
 
             url:
-                "https://www.izhtech.com",
+                "https://izhtech.com",
 
             logo:
-                "https://www.izhtech.com/logo.png",
+                "https://izhtech.com/logo.png",
 
             description:
                 "IZH Tech is a digital company providing branding, web development, app development, and digital marketing services.",

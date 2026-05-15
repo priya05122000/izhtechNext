@@ -18,7 +18,7 @@ import SectionHeader from '@/src/shared/components/SectionHeader'
 
 export const metadata = {
     alternates: {
-        canonical: "https://www.izhtech.com/about",
+        canonical: "https://izhtech.com/about",
     },
 };
 
@@ -41,8 +41,8 @@ const AboutPage = async () => {
                         {
                             "@context": "https://schema.org",
                             "@type": "AboutPage",
-                            "@id": "https://www.izhtech.com/about",
-                            url: "https://www.izhtech.com/about",
+                            "@id": "https://izhtech.com/about",
+                            url: "https://izhtech.com/about",
                             name: "About IZH Tech",
                             description:
                                 "IZH Tech is a digital solutions company providing web development, mobile app development, branding, and digital marketing services.",
@@ -51,10 +51,10 @@ const AboutPage = async () => {
                         {
                             "@context": "https://schema.org",
                             "@type": "Organization",
-                            "@id": "https://www.izhtech.com/#organization",
+                            "@id": "https://izhtech.com/#organization",
                             name: "IZH Tech",
-                            url: "https://www.izhtech.com",
-                            logo: "https://www.izhtech.com/logo-primary.png",
+                            url: "https://izhtech.com",
+                            logo: "https://izhtech.com/logo-primary.png",
                             sameAs: [
                                 "https://www.facebook.com/izhtech",
                                 "https://www.linkedin.com/company/izhtech",
@@ -70,13 +70,13 @@ const AboutPage = async () => {
                                     "@type": "ListItem",
                                     position: 1,
                                     name: "Home",
-                                    item: "https://www.izhtech.com"
+                                    item: "https://izhtech.com"
                                 },
                                 {
                                     "@type": "ListItem",
                                     position: 2,
                                     name: "About",
-                                    item: "https://www.izhtech.com/about"
+                                    item: "https://izhtech.com/about"
                                 }
                             ]
                         }

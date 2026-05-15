@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         },
 
         sitemap:
-            "https://www.izhtech.com/sitemap.xml",
+            "https://izhtech.com/sitemap.xml",
     };
 }

@@ -11,7 +11,7 @@ import SectionHeader from "@/src/shared/components/SectionHeader";
 
 export const metadata = {
     alternates: {
-        canonical: "https://www.izhtech.com/blog",
+        canonical: "https://izhtech.com/blog",
     },
 };
 
@@ -30,18 +30,18 @@ const BlogPage = async () => {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Blog",
-                        "@id": "https://www.izhtech.com/blog#blog",
+                        "@id": "https://izhtech.com/blog#blog",
                         name: "IZH Tech Blog",
                         description:
                             "Latest articles and insights on technology, digital marketing, and business solutions from IZH Tech.",
-                        url: "https://www.izhtech.com/blog",
+                        url: "https://izhtech.com/blog",
                         publisher: {
                             "@type": "Organization",
                             name: "IZH Tech",
-                            url: "https://www.izhtech.com",
+                            url: "https://izhtech.com",
                             logo: {
                                 "@type": "ImageObject",
-                                url: "https://www.izhtech.com/logo-primary.png",
+                                url: "https://izhtech.com/logo-primary.png",
                             },
                         },
                     }),

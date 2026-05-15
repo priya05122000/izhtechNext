@@ -22,7 +22,7 @@ export async function generateMetadata({
         ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/${blogSlug.imagePath.replace(/\\/g, "/")}`
         : "";
 
-    const currentUrl = `https://www.izhtech.com/blog/${slug}`;
+    const currentUrl = `https://izhtech.com/blog/${slug}`;
 
     return {
         title: blogSlug?.title || "Blog",

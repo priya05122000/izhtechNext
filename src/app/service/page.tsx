@@ -41,7 +41,7 @@ export const metadata = {
 
     alternates: {
         canonical:
-            "https://www.izhtech.com/service",
+            "https://izhtech.com/service",
     },
 };
 
@@ -71,7 +71,7 @@ const ServicePage = async () => {
                     "ItemList",
 
                 "@id":
-                    "https://www.izhtech.com/service#services",
+                    "https://izhtech.com/service#services",
 
                 name:
                     "IZH Tech Services",
@@ -92,7 +92,7 @@ const ServicePage = async () => {
                                 idx + 1,
 
                             url:
-                                `https://www.izhtech.com/service/${service.slug}`,
+                                `https://izhtech.com/service/${service.slug}`,
 
                             name:
                                 service.title ||
@@ -115,7 +115,7 @@ const ServicePage = async () => {
             "Service",
 
         "@id":
-            "https://www.izhtech.com/service#services",
+            "https://izhtech.com/service#services",
 
         name:
             "IZH Tech Services",
@@ -131,10 +131,10 @@ const ServicePage = async () => {
                 "IZH Tech",
 
             url:
-                "https://www.izhtech.com",
+                "https://izhtech.com",
 
             logo:
-                "https://www.izhtech.com/logo.png",
+                "https://izhtech.com/logo.png",
         },
 
         hasOfferCatalog: {

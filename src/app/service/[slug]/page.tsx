@@ -34,7 +34,7 @@ export async function generateMetadata({
     }
 
     const currentUrl =
-        `https://www.izhtech.com/service/${slug}`;
+        `https://izhtech.com/service/${slug}`;
 
     const imageUrl =
         serviceSlug?.featuredImagePath
@@ -110,7 +110,7 @@ const ServiceSlugPage = async ({
 
 
     const currentUrl =
-        `https://www.izhtech.com/service/${slug}`;
+        `https://izhtech.com/service/${slug}`;
 
     const imageUrl =
         serviceSlug?.featuredImagePath
@@ -148,10 +148,10 @@ const ServiceSlugPage = async ({
                             "IZH Tech",
 
                         url:
-                            "https://www.izhtech.com",
+                            "https://izhtech.com",
 
                         logo:
-                            "https://www.izhtech.com/logo-primary.png",
+                            "https://izhtech.com/logo-primary.png",
                     },
 
                     image:
@@ -176,7 +176,7 @@ const ServiceSlugPage = async ({
                                 "Home",
 
                             item:
-                                "https://www.izhtech.com",
+                                "https://izhtech.com",
                         },
 
                         {
@@ -189,7 +189,7 @@ const ServiceSlugPage = async ({
                                 "Services",
 
                             item:
-                                "https://www.izhtech.com/service",
+                                "https://izhtech.com/service",
                         },
 
                         {

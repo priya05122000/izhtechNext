@@ -24,7 +24,7 @@ export default async function Head({
         ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/${blogSlug.imagePath.replace(/\\/g, "/")}`
         : "";
 
-    const currentUrl = `https://www.izhtech.com/blog/${slug}`;
+    const currentUrl = `https://izhtech.com/blog/${slug}`;
 
     const articleSchema = {
         "@context": "https://schema.org",
@@ -65,7 +65,7 @@ export default async function Head({
             logo: {
                 "@type": "ImageObject",
 
-                url: "https://www.izhtech.com/logo-primary.png",
+                url: "https://izhtech.com/logo-primary.png",
             },
         },
     };

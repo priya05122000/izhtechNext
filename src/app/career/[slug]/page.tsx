@@ -24,7 +24,7 @@ export async function generateMetadata({
         await getJobBySlug(slug);
 
     const currentUrl =
-        `https://www.izhtech.com/career/${slug}`;
+        `https://izhtech.com/career/${slug}`;
 
     return {
         title:
@@ -76,7 +76,7 @@ const CareerSlugPage = async ({
         await getJobBySlug(slug);
 
     const currentUrl =
-        `https://www.izhtech.com/career/${slug}`;
+        `https://izhtech.com/career/${slug}`;
 
     // JobPosting Schema
     const jobSchema =
@@ -119,10 +119,10 @@ const CareerSlugPage = async ({
                         "IZH Tech",
 
                     sameAs:
-                        "https://www.izhtech.com",
+                        "https://izhtech.com",
 
                     logo:
-                        "https://www.izhtech.com/logo-primary.png",
+                        "https://izhtech.com/logo-primary.png",
                 },
 
                 jobLocation:
