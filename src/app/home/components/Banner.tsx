@@ -77,7 +77,8 @@ const Banner = ({ siteInfo }: MissionStatementProps) => {
               variants="blue-short-line-left"
             />
 
-            <img className=" sm:w-[80%] lg:w-full z-10 lg:m-0 mx-auto h-auto" src="/images/bannar1/img.webp" />
+            <img className=" sm:w-[80%] lg:w-full z-10 lg:m-0 mx-auto h-auto" src="/images/bannar1/img.webp"  alt="Software development and digital marketing services"
+ />
           </motion.div>
         </div>
 

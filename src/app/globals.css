@@ -151,56 +151,25 @@ circle {
 }
 
 .service-description h6 {
-  @apply pb-4 text-lg md:text-xl font-bold text-black;
+  padding-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: black;
 }
-
-
 
 .service-description p {
-  @apply text-sm leading-7 tracking-wider text-justify;
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.05em;
+  text-align: justify;
 }
 
-.project-description {
-  word-break: break-word;
-  overflow-wrap: break-word;
+@media (min-width: 768px) {
+  .service-description h6 {
+    font-size: 1.25rem;
+  }
 }
 
-
-.blog-content p {
-  @apply text-sm md:text-base mb-4 text-black text-justify;
-}
-
-.blog-content ul {
-  @apply list-disc list-inside mb-4 text-sm md:text-base text-black text-justify;
-}
-
-.blog-content h2 {
-  @apply pb-4 text-xl md:text-2xl font-bold text-black;
-}
-
-.blog-content h3 {
-  @apply pb-4 text-lg md:text-xl font-bold text-black;
-}
-
-.project-description h4 {
-  @apply pb-4 text-2xl md:text-3xl font-bold text-black;
-}
-
-.project-description h5 {
-  @apply pb-4 text-xl md:text-2xl font-bold text-black;
-}
-
-.project-description h6 {
-  @apply pb-4 text-lg md:text-xl font-bold text-black;
-}
-
-.project-description p {
-  @apply text-sm md:text-base mb-4 text-black text-justify;
-}
-
-.project-description ul {
-  @apply list-disc list-inside mb-4 text-sm md:text-base text-black text-justify;
-}
 
 .show-image:first-child {
   opacity: 1;

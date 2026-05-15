@@ -51,7 +51,7 @@ export default function ServiceHighlights({
                                 <div className="flex flex-col gap-4 lg:flex-row lg:gap-8 xl:gap-16 md:items-center lg:justify-center">
                                     <motion.img
                                         src={`${imageUrl}`}
-                                        alt=""
+                                        alt={item.name || "Service highlight image"}
                                         className="w-full rounded-lg lg:w-1/2 h-full object-cover"
                                         variants={fadeIn("left", 0.3)}
                                         initial="hidden"
@@ -103,7 +103,7 @@ export default function ServiceHighlights({
                                     </motion.div>
                                     <motion.img
                                         src={`${imageUrl}`}
-                                        alt=""
+                                        alt={item.name || "Service highlight image"}
                                         className="w-full rounded-lg lg:w-1/2 h-full object-cover"
                                         variants={fadeIn("left", 0.3)}
                                         initial="hidden"

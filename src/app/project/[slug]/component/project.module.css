@@ -1,0 +1,98 @@
+.project-description {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.project-description h4 {
+    padding-bottom: 1rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: black;
+}
+
+.project-description h5 {
+    padding-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: black;
+}
+
+.project-description h6 {
+    padding-bottom: 1rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: black;
+}
+
+.project-description p {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    color: black;
+    text-align: justify;
+    line-height: 1.75rem;
+}
+
+.project-description ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: black;
+    text-align: justify;
+    line-height: 1.75rem;
+}
+
+@media (min-width: 640px) {
+    .project-description h4 {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .project-description h4 {
+        font-size: 1.875rem;
+    }
+
+    .project-description h5 {
+        font-size: 1.5rem;
+    }
+
+    .project-description h6 {
+        font-size: 1.25rem;
+    }
+
+    .project-description p,
+    .project-description ul {
+        font-size: 1rem;
+    }
+}
+
+
+/* .project-description {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.project-description h4 {
+    @apply pb-4 text-4xl sm:text-5xl 2xl:text-7xl font-bold text-black;
+}
+
+.project-description h4 {
+    @apply pb-4 text-2xl md:text-3xl font-bold text-black;
+}
+
+.project-description h5 {
+    @apply pb-4 text-xl md:text-2xl font-bold text-black;
+}
+
+.project-description h6 {
+    @apply pb-4 text-lg md:text-xl font-bold text-black;
+}
+
+.project-description p {
+    @apply text-sm md:text-base mb-4 text-black text-justify;
+}
+
+.project-description ul {
+    @apply list-disc list-inside mb-4 text-sm md:text-base text-black text-justify;
+} */

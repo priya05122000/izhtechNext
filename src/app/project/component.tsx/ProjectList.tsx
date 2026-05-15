@@ -79,7 +79,7 @@ const ProjectList = ({ projects }: OurProjectsProps) => {
                                                     <img
                                                         src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${imagePath}`}
                                                         className="h-75 lg:h-62.5 xl:h-100 shadow-lg object-cover w-full "
-                                                        alt=""
+                                                        alt={project.projectName || "Project image"}
                                                     />
 
                                                 </a>
@@ -98,9 +98,8 @@ const ProjectList = ({ projects }: OurProjectsProps) => {
                                                     <img
                                                         src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${imagePath}`}
                                                         className="h-75 lg:h-62.5 xl:h-100 shadow-lg object-cover w-full"
-                                                        alt=""
+                                                        alt={project.projectName || "Project image"}
                                                     />
-
                                                 </a>
                                             </motion.div>
                                         ))}

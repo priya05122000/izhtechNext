@@ -270,7 +270,7 @@ const OurService = ({
 
                                                             <img
                                                                 src={`${BASE_URL}/${serviceDetail.featuredImagePath}`}
-                                                                alt="img"
+                                                                alt={serviceDetail.title || "Service featured image"}
                                                                 className="w-full object-cover rounded-t-xl"
                                                             />
 

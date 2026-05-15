@@ -2,11 +2,10 @@
 
 import { fadeIn } from "@/src/shared/animation/variants";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import CustomObject from "@/src/shared/components/CustomObjects";
-import React from "react";
 import SectionViewHeader from "@/src/shared/components/SectionViewHeader";
 import LinkButton from "@/src/shared/components/LinkButton";
+import styles from "./project.module.css"
+
 
 interface Project {
     id: string;
@@ -121,7 +120,7 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
                                             lg:w-[35%]
                                             mb-4
                                             object-cover
-                                            min-h-[300px]
+                                            min-h-75
                                             ${index % 2 === 0
                                                 ? "float-left md:mr-8 lg:mr-10"
                                                 : "float-right md:ml-8 lg:ml-10"
@@ -130,7 +129,7 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
                                     />
 
                                     <div
-                                        className="text-md lg:text-lg text-gray-700 project-description"
+                                        className={`text-md lg:text-lg text-gray-700 ${styles["project-description"]}`}
                                         dangerouslySetInnerHTML={{
                                             __html: desc?.description || "",
                                         }}

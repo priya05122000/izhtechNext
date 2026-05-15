@@ -10,6 +10,7 @@ import { CircleUser } from "lucide-react";
 import { fadeIn } from "@/src/shared/animation/variants";
 import SharedButton from "@/src/shared/components/SharedButton";
 import SectionViewHeader from "@/src/shared/components/SectionViewHeader";
+import styles from "./blog.module.css"
 
 interface PostModel {
     id: string;
@@ -159,14 +160,14 @@ const BlogView = ({
 
             {/* Description */}
             <motion.div
-                variants={fadeIn("right", 0.4)}
+                variants={fadeIn("right", 0.2)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{
                     once: true,
-                    amount: 0.2,
+                    amount: 0.1,
                 }}
-                className="pt-6 blog-content"
+                className={`pt-6 ${styles["blog-content"]}`}
                 dangerouslySetInnerHTML={{
                     __html:
                         blogSlug?.description || "",
