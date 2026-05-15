@@ -118,7 +118,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Careers
     const careers = await getAllJobs();
 
-    console.log(careers)
+    // console.log(careers)
 
     const careerPages: MetadataRoute.Sitemap =
         careers?.map((career: any) => ({

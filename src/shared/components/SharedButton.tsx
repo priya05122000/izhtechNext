@@ -27,7 +27,7 @@ const SharedButton = ({ title, imageUrl }: ShareProps) => {
   }, [imageUrl]);
 
   const formattedTitle = title?.trim() || "Check this out!";
-  console.log("formattedTitle", formattedTitle);
+  // console.log("formattedTitle", formattedTitle);
 
   const handleWebShare = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const clickedLink = (e.target as HTMLElement).closest("a");
