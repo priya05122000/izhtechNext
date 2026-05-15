@@ -17,8 +17,33 @@ import MeetTheTeam from './components/MeetTheTeam'
 import SectionHeader from '@/src/shared/components/SectionHeader'
 
 export const metadata = {
+    title: "About Us | IZH Tech",
+
+    description:
+        "Learn more about IZH Tech, a digital solutions company specializing in web development, mobile app development, branding, and digital marketing services.",
+
     alternates: {
         canonical: "https://izhtech.com/about",
+    },
+
+    openGraph: {
+        title: "About Us | IZH Tech",
+
+        description:
+            "Learn more about IZH Tech, a digital solutions company specializing in web development, mobile app development, branding, and digital marketing services.",
+
+        url: "https://izhtech.com/about",
+
+        type: "website",
+    },
+
+    twitter: {
+        card: "summary_large_image",
+
+        title: "About Us | IZH Tech",
+
+        description:
+            "Learn more about IZH Tech, a digital solutions company specializing in web development, mobile app development, branding, and digital marketing services.",
     },
 };
 

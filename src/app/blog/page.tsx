@@ -10,8 +10,33 @@ import { getAllBlogPosts } from "@/src/services/blogPostService";
 import SectionHeader from "@/src/shared/components/SectionHeader";
 
 export const metadata = {
+    title: "Blogs | IZH Tech",
+
+    description:
+        "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
+
     alternates: {
         canonical: "https://izhtech.com/blog",
+    },
+
+    openGraph: {
+        title: "Blogs | IZH Tech",
+
+        description:
+            "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
+
+        url: "https://izhtech.com/blog",
+
+        type: "website",
+    },
+
+    twitter: {
+        card: "summary_large_image",
+
+        title: "Blogs | IZH Tech",
+
+        description:
+            "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
     },
 };
 

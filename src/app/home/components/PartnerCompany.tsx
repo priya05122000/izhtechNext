@@ -94,6 +94,7 @@ export default function PartnerCompany({
                                         alt={client?.name || "Client Logo"}
                                         width={120}
                                         height={80}
+                                        unoptimized
                                         className="object-contain w-full h-16 transition-all filter grayscale hover:grayscale-0 lg:h-20 max-w-30"
                                     />
                                 )}

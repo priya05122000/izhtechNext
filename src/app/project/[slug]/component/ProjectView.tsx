@@ -147,11 +147,10 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
                                 href={projectSlug.projectUrl}
                                 className="text-white bg-black border h-8 py-1 px-4 w-32 mt-0"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 View more
                             </LinkButton>
-
-
                         </div>
                     )}
 

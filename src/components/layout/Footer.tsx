@@ -56,6 +56,7 @@ export default function Footer({
                                 href="https://www.instagram.com/izh_tech"
                                 target="_blank"
                                 className="ml-1"
+                                rel="noopener noreferrer"
                             >
                                 /Ig.
                             </a>
@@ -64,6 +65,7 @@ export default function Footer({
                                 href="https://www.facebook.com/izhtech"
                                 target="_blank"
                                 className="ml-1"
+                                rel="noopener noreferrer"
                             >
                                 /Fb.
                             </a>
@@ -72,6 +74,7 @@ export default function Footer({
                                 href="https://www.linkedin.com/company/izh-tech/"
                                 target="_blank"
                                 className="ml-1"
+                                rel="noopener noreferrer"
                             >
                                 /In.
                             </a>
@@ -117,6 +120,8 @@ export default function Footer({
                         </div>
 
                         <LinkButton
+                            target="_blank"
+                            rel="noopener noreferrer"
                             href="/images/pdf/izhtech_profile.pdf"
                             className="text-white bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 border-none h-8 py-1 mt-5 w-fit px-6"
                         >

@@ -139,7 +139,7 @@ const CareerView = ({
 
                     <LinkButton
                         href={`mailto:celibadhanasekharan@izhtech.com?subject=Job Application for ${jobSlug?.title}`}
-                        className="h-10 px-6 text-sm font-medium text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md"
+                        className="h-10 px-6 text-sm font-medium text-white bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md"
                     >
                         Apply
                     </LinkButton>

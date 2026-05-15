@@ -5,6 +5,14 @@ const nextConfig: NextConfig = {
   output: "standalone",
 
   images: {
+
+    unoptimized: true,
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [360, 640, 768, 1024, 1280, 1440, 1600],
+    imageSizes: [64, 96, 128, 256, 384],
+    domains: ["api.izhtech.com", "localhost", "127.0.0.1"],
+    qualities: [70, 75, 80, 90],
+
     remotePatterns: [
       {
         protocol: "https",
@@ -26,6 +34,22 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.izhtech.com",
+          },
+        ],
+        destination: "https://izhtech.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {
@@ -37,21 +61,44 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+
       {
         source: "/(.*)",
         headers: [
+
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains; preload",
+          },
+
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+
           {
             key: "Content-Security-Policy",
             value: `
-            default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
-            script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
-            style-src * 'unsafe-inline' data: blob:;
-            img-src * data: blob:;
-            font-src * data: blob:;
-            connect-src * data: blob: ws: wss:;
-            frame-ancestors *;
-          `.replace(/\n/g, ""),
+              default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
+              script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
+              style-src * 'unsafe-inline' data: blob:;
+              img-src * data: blob:;
+              font-src * data: blob:;
+              connect-src * data: blob: ws: wss:;
+              frame-ancestors *;
+            `.replace(/\n/g, ""),
           },
+
         ],
       },
     ];
