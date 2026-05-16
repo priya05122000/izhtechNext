@@ -78,7 +78,7 @@ const AboutPage = async () => {
                             "@type": "Organization",
                             "@id": "https://izhtech.com/#organization",
                             name: "IZH Tech",
-                            url: "https://izhtech.com",
+                            url: "https://izhtech.com/",
                             logo: "https://izhtech.com/logo-primary.png",
                             sameAs: [
                                 "https://www.facebook.com/izhtech",
@@ -95,7 +95,7 @@ const AboutPage = async () => {
                                     "@type": "ListItem",
                                     position: 1,
                                     name: "Home",
-                                    item: "https://izhtech.com"
+                                    item: "https://izhtech.com/"
                                 },
                                 {
                                     "@type": "ListItem",

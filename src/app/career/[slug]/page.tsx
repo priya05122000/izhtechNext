@@ -119,7 +119,7 @@ const CareerSlugPage = async ({
                         "IZH Tech",
 
                     sameAs:
-                        "https://izhtech.com",
+                        "https://izhtech.com/",
 
                     logo:
                         "https://izhtech.com/logo-primary.png",

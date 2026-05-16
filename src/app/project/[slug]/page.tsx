@@ -133,7 +133,7 @@ const ProjectSlugPage = async ({
                         "IZH Tech",
 
                     url:
-                        "https://izhtech.com",
+                        "https://izhtech.com/",
                 },
 
                 publisher: {

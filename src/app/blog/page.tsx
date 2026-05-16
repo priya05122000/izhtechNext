@@ -63,7 +63,7 @@ const BlogPage = async () => {
                         publisher: {
                             "@type": "Organization",
                             name: "IZH Tech",
-                            url: "https://izhtech.com",
+                            url: "https://izhtech.com/",
                             logo: {
                                 "@type": "ImageObject",
                                 url: "https://izhtech.com/logo-primary.png",

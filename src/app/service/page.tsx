@@ -131,7 +131,7 @@ const ServicePage = async () => {
                 "IZH Tech",
 
             url:
-                "https://izhtech.com",
+                "https://izhtech.com/",
 
             logo:
                 "https://izhtech.com/logo.png",
