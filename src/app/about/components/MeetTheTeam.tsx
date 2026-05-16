@@ -53,7 +53,7 @@ const MeetTheTeam = () => {
                                 <motion.img
                                     src={`/images/team${item}.jpg`}
                                     alt="team"
-                                    className="w-full h-[380px] object-cover object-top"
+                                    className="w-full h-95 object-cover object-top"
                                     variants={{
                                         rest: { scale: 1 },
                                         hover: { scale: 1.1 }
@@ -63,7 +63,7 @@ const MeetTheTeam = () => {
 
                                 {/* Gradient Overlay */}
                                 <motion.div
-                                    className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"
+                                    className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent"
                                     variants={{
                                         rest: { opacity: 0 },
                                         hover: { opacity: 1 }
