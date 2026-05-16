@@ -11,7 +11,7 @@ export const metadata = {
     "IZH Tech is a digital solutions company in India offering web and mobile app development, custom software, AI solutions, branding, and digital marketing services to help businesses grow online.",
 
   alternates: {
-    canonical: "https://izhtech.com/",
+    canonical: "https://izhtech.com",
   },
 };
 
@@ -34,7 +34,7 @@ const page = () => {
       "Izh Tech Creative Solutions",
 
     url:
-      "https://izhtech.com/",
+      "https://izhtech.com",
 
     logo:
       "https://izhtech.com/logo-primary.png",

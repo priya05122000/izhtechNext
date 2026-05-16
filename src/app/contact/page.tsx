@@ -50,7 +50,7 @@ const ContactPage = async () => {
                 "IZH Tech",
 
             url:
-                "https://izhtech.com/",
+                "https://izhtech.com",
 
             logo:
                 "https://izhtech.com/logo-primary.png",

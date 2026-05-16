@@ -148,7 +148,7 @@ const ServiceSlugPage = async ({
                             "IZH Tech",
 
                         url:
-                            "https://izhtech.com/",
+                            "https://izhtech.com",
 
                         logo:
                             "https://izhtech.com/logo-primary.png",
@@ -176,7 +176,7 @@ const ServiceSlugPage = async ({
                                 "Home",
 
                             item:
-                                "https://izhtech.com/",
+                                "https://izhtech.com",
                         },
 
                         {
