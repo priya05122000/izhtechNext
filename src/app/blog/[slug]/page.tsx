@@ -24,8 +24,13 @@ export async function generateMetadata({
 
     const currentUrl = `https://izhtech.com/blog/${slug}`;
 
+    const seoTitle =
+        blogSlug?.title?.length > 55
+            ? `${blogSlug?.title} | IZH`
+            : `${blogSlug?.title} | IZH Tech`;
+
     return {
-        title: blogSlug?.title || "Blog",
+        title: seoTitle,
 
         description:
             blogSlug?.shortNote ||
@@ -36,7 +41,7 @@ export async function generateMetadata({
         },
 
         openGraph: {
-            title: blogSlug?.title,
+            title: seoTitle,
 
             description:
                 blogSlug?.shortNote,
@@ -55,7 +60,7 @@ export async function generateMetadata({
         twitter: {
             card: "summary_large_image",
 
-            title: blogSlug?.title,
+            title: seoTitle,
 
             description:
                 blogSlug?.shortNote,

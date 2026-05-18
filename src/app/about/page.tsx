@@ -20,7 +20,7 @@ export const metadata = {
     title: "About IZH Tech and Our Digital Solutions Team",
 
     description:
-        "Learn more about IZH Tech, a digital solutions company specializing in web development, mobile app development, branding, and digital marketing services.",
+        "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses.",
 
     alternates: {
         canonical: "https://izhtech.com/about",
@@ -30,7 +30,7 @@ export const metadata = {
         title: "About IZH Tech and Our Digital Solutions Team",
 
         description:
-            "Learn more about IZH Tech, a digital solutions company specializing in web development, mobile app development, branding, and digital marketing services.",
+            "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses.",
 
         url: "https://izhtech.com/about",
 
@@ -43,7 +43,7 @@ export const metadata = {
         title: "About IZH Tech and Our Digital Solutions Team",
 
         description:
-            "Learn more about IZH Tech, a digital solutions company specializing in web development, mobile app development, branding, and digital marketing services.",
+            "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses.",
     },
 };
 
