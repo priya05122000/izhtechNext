@@ -7,10 +7,10 @@ export default function Collaboration() {
       <div className="flex flex-col justify-between w-full py-4 border-b-2 md:container align-item-center md:flex-row lg:flex-row border-neutral-800 sm:px-8">
         <div className="mb-4 md:w-1/2 lg:w-full">
           <p className="pb-2 text-base text-white">LET'S COLLABORATE</p>
-          <h2 className="pb-4 font-bold text-white text-md lg:text-6xl md:text-4xl sm:text-2xl">
+          <h5 className="pb-4 font-bold text-white text-md lg:text-6xl md:text-4xl sm:text-2xl">
             Send us an email, <br />
             to discuss a new project.
-          </h2>
+          </h5>
         </div>
         <div className="flex justify-start md:justify-end my-auto lg:flex-row lg:w-1/4">
           <LinkButton

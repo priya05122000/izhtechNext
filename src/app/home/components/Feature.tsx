@@ -84,9 +84,9 @@ export default function Feature({ services }: FeatureProps) {
 
                                     </motion.span>
 
-                                    <h2 className="pt-2 font-bold text-md lg:text-lg xl:text-xl">
+                                    <p className="pt-2 font-bold text-md lg:text-lg xl:text-xl">
                                         {item.title}
-                                    </h2>
+                                    </p>
 
                                     <p className="px-5 pt-2 text-sm text-center lg:text-sm xl:text-md">
                                         {item.shortNote}

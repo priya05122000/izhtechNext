@@ -110,6 +110,8 @@ const ProjectPage = async () => {
                 customObjectVariant="green-disk"
             />
 
+            <h2 className='sr-only'>Real Projects Built for Real Business Growth h2</h2>
+
             <ProjectList
                 projects={projects}
             />

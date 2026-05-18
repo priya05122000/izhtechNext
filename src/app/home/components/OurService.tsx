@@ -384,9 +384,9 @@ const OurService = ({
 
                                                                         </span>
 
-                                                                        <h2 className="pt-2 font-bold text-md">
+                                                                        <h4 className="pt-2 font-bold text-md">
                                                                             {serviceFeature.title}
-                                                                        </h2>
+                                                                        </h4>
 
                                                                         <div
                                                                             className="pt-2 pb-3 text-sm"

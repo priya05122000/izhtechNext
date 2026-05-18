@@ -85,9 +85,9 @@ export default function Footer({
                     {/* Address */}
                     <div>
 
-                        <h2 className="font-semibold">
+                        <h6 className="font-semibold">
                             Address
-                        </h2>
+                        </h6>
 
                         {siteInfo.length > 0 && (
                             <div className="pt-3 text-gray-300">
@@ -100,9 +100,9 @@ export default function Footer({
                     {/* Work Enquiries */}
                     <div>
 
-                        <h2 className="font-semibold">
+                        <h6 className="font-semibold">
                             Work Enquiries
-                        </h2>
+                        </h6>
 
                         <div className="pt-3 text-gray-300">
 
@@ -133,9 +133,9 @@ export default function Footer({
                     {/* Newsletter */}
                     <div>
 
-                        <h2 className="font-semibold">
+                        <h6 className="font-semibold">
                             Sign up for the newsletter
-                        </h2>
+                        </h6>
                         <LazyCaptcha
                             form={"contact-us"}>
                             <NewsletterForm />

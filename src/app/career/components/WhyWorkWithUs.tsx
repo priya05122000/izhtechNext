@@ -15,19 +15,19 @@ const WhyWorkWithUs = () => {
                         viewport={{ once: false, amount: 0.1 }}
                         className="container"
                     >
-                        <p className="text-4xl sm:text-5xl font-bold">
+                        <h2 className="text-4xl sm:text-5xl font-bold">
                             Life at IZH Tech
-                        </p>
+                        </h2>
                         <p className="text-base text-justify mt-5">
                             At Izh Tech, we are more than a workplace. We are a community of innovators, thinkers, and problem solvers. Through tech discussions, team activities, and shared learning, we create an engaging environment where every team member feels supported and empowered.
                         </p>
-                        <p className="text-base text-[#0E3BF9] font-semibold mt-5">
+                        <h3 className="text-base text-[#0E3BF9] font-semibold mt-5">
                             Be a part of our journey — let’s build the future together!
-                        </p>
+                        </h3>
 
-                        <p className="mt-12 text-3xl sm:text-4xl font-bold">
+                        <h4 className="mt-12 text-3xl sm:text-4xl font-bold">
                             Why Work With Us?
-                        </p>
+                        </h4>
                         <ul className="mt-5 text-justify list-disc pl-5 space-y-3">
                             <li>
                                 <strong>Innovative Environment:</strong> Work with modern technologies and tools.

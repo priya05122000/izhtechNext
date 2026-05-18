@@ -65,10 +65,10 @@ export default function ServiceHighlights({
                                         whileInView="show"
                                         exit="hidden"
                                     >
-                                        <p className="text-xs font-medium tracking-wide"></p>
-                                        <p className="xl:text-6xl text-4xl font-bold pb-2.5">
+                                        {/* <p className="text-xs font-medium tracking-wide"></p> */}
+                                        <h4 className="xl:text-6xl text-4xl font-bold pb-2.5">
                                             {item.name}
-                                        </p>
+                                        </h4>
                                         <div
                                             className="text-sm leading-7 tracking-wider"
                                             dangerouslySetInnerHTML={{
@@ -90,10 +90,10 @@ export default function ServiceHighlights({
                                         whileInView="show"
                                         exit="hidden"
                                     >
-                                        <p className="text-xs font-medium tracking-wide"></p>
-                                        <p className="xl:text-6xl text-4xl font-bold pb-2.5">
+                                        {/* <p className="text-xs font-medium tracking-wide"></p> */}
+                                        <h4 className="xl:text-6xl text-4xl font-bold pb-2.5">
                                             {item.name}
-                                        </p>
+                                        </h4>
                                         <div
                                             className="text-sm leading-7 tracking-wider"
                                             dangerouslySetInnerHTML={{

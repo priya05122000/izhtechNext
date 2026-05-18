@@ -44,9 +44,9 @@ const Banner = () => {
                         className="flex-col justify-center gap-10 lg:gap-5 xl:gap-10 md:pe-0 mt-5 lg:mt-0 lg:pe-10 lg:w-1/2 lg:flex"
                     >
                         <div>
-                            <h4 className="pb-4 text-3xl lg:text-2xl xl:text-4xl font-bold ">
+                            <h2 className="pb-4 text-3xl lg:text-2xl xl:text-4xl font-bold ">
                                 Business Growth Solution
-                            </h4>
+                            </h2>
                             <p className="text-justify sm:text-sm xl:text-base md:text-md">
                                 At Izh Tech, we help businesses grow with practical support and
                                 steady guidance. Whether you are building a startup, running a
@@ -61,9 +61,9 @@ const Banner = () => {
                         </div>
 
                         <div className="mt-10  lg:mt-0">
-                            <h4 className="pb-4 text-3xl lg:text-2xl xl:text-4xl  font-bold">
+                            <h3 className="pb-4 text-3xl lg:text-2xl xl:text-4xl  font-bold">
                                 Customized Business Success
-                            </h4>
+                            </h3>
                             <p className="text-justify sm:text-sm xl:text-base md:text-md">
                                 Get expert support from Izh Tech for your business, whether you
                                 work in e-commerce or healthcare. We shape our digital marketing

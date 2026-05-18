@@ -60,9 +60,9 @@ export default function ImageSecondServiceBlock(props: Services) {
         >
           <p className="pb-2 text-xs">OUR SERVICES</p>
 
-          <h2 className="pb-2 text-3xl font-bold">
+          <h3 className="pb-2 text-3xl font-bold">
             {title}
-          </h2>
+          </h3>
 
           <div
             dangerouslySetInnerHTML={{

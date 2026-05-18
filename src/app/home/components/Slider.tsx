@@ -74,9 +74,9 @@ const Slider = ({ testimonials }: TestimonialProps) => {
 
             <div className="px-5 py-16 text-center bg-[#F5F1F5] md:px-0 mb-0 xl:mb-10 h-full relative overflow-hidden">
                 <div className="h-full">
-                    <h3 className="pt-6 font-bold text-center text-md lg:text-5xl md:text-4xl sm:text-4xl">
+                    <h4 className="pt-6 font-bold text-center text-md lg:text-5xl md:text-4xl sm:text-4xl">
                         Meet our customers.
-                    </h3>
+                    </h4>
 
                     <div className="relative h-full">
                         {activeTestimonials.length > 0 ? (

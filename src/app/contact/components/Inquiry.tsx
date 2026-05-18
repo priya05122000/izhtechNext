@@ -80,7 +80,7 @@ const Inquiry = ({ siteInfo }: InquiryProps) => {
                                 viewport={{ once: false, amount: 0.1 }}
                                 className="lg:w-4/12 md:w-6/12"
                             >
-                                <h4 className="mb-3 text-xl font-black">Our Offices</h4>
+                                <h2 className="mb-3 text-xl font-black">Our Offices</h2>
                                 <p>Schedule your visit with us</p>
                             </motion.div>
                             <motion.div
@@ -90,7 +90,7 @@ const Inquiry = ({ siteInfo }: InquiryProps) => {
                                 exit={"hidden"}
                                 viewport={{ once: false, amount: 0.1 }}
                             >
-                                <h2 className="mb-3 font-black">Head Office</h2>
+                                <h3 className="mb-3 text-xl font-black">Head Office</h3>
                                 {siteInfo[0]?.address}
                                 <p className="mb-5 font-black">Call us: {siteInfo[0]?.mobilePrimary}</p>
                                 <p>Monday-Friday</p>

@@ -31,9 +31,9 @@ const Details = ({ description, featuredImagePath, header }: propValues) => {
                         whileInView="show"
                         exit="hidden">
                         {/* <p className="text-xs font-medium tracking-wide">{ izhtech}</p> */}
-                        <p className="xl:text-6xl text-4xl font-bold pb-2.5">
+                        {/* <p className="xl:text-6xl text-4xl font-bold pb-2.5">
                             {header}
-                        </p>
+                        </p> */}
                         <div className="service-description" dangerouslySetInnerHTML={{ __html: description }}>
                         </div>
                         {/* <p className="text-sm leading-7 tracking-wider text-justify" dangerouslySetInnerHTML={{ __html: description }}>

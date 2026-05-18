@@ -75,12 +75,12 @@ export default function ServiceFeatureList({
 
                                     </div>
 
-                                    <h6 className="text-slate-50 font-bold text-[1.2rem] py-3">
+                                    <h3 className="text-slate-50 font-bold text-[1.2rem] py-3">
                                         {item?.title}
-                                    </h6>
+                                    </h3>
 
                                     <div
-                                        className="!text-white services-description"
+                                        className="text-white! services-description"
                                         dangerouslySetInnerHTML={{
                                             __html: description,
                                         }}

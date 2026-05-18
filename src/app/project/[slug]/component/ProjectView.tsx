@@ -92,8 +92,11 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
                             whileInView="show"
                             viewport={{ once: false, amount: 0.1 }}
                         >
-                            <h3 className="text-4xl font-bold lg:text-5xl md:text-3xl sm:text-3xl mb-10">
+                            <h2 className="text-4xl font-bold lg:text-5xl md:text-3xl sm:text-3xl mb-10">
                                 Project Overview
+                            </h2>
+                            <h3 className="sr-only">
+                                Detailed project overview and case study
                             </h3>
                         </motion.div>
 

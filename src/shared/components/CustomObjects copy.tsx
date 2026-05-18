@@ -25,6 +25,7 @@ interface CustomObjectProps {
   | "green-doted"
   | "vector_fixed";
 
+
   className: string;
 }
 
@@ -33,10 +34,7 @@ function CustomObject({ variants, className }: CustomObjectProps) {
     "line-purple-left": "/images/objects/purple-line-left.webp",
     "circle-2": "/images/objects/circle-2.gif",
     "half-dash-yellow": "/images/objects/half-dash-yellow.gif",
-
-    // mp4
     "full": "/images/objects/izhtech_animation.gif",
-
     "green": "/images/objects/green.gif",
     "orange-half-circle-lines": "/images/objects/orange-half-circle-lines.webp",
     "hero-left-full": "/images/objects/hero-full.webp",
@@ -53,45 +51,13 @@ function CustomObject({ variants, className }: CustomObjectProps) {
     "purple-line-small-right": "/images/objects/purple-line-right-small.gif",
     "vector_one": "/images/objects/Vector1.webp",
     "vector_fixed": "/images/objects/purple-line-right-small-rename.webp",
-
-    // changed gif to mp4
     "blue-short-line-left": "/images/objects/blue-short-line-left.gif",
-
     "text-rotate": "/images/objects/text-rotate.gif",
     "green-doted": "/images/objects/green-doted.webp",
     "yellow-doted": "/images/objects/yellow-doted.webp"
   };
 
-  //   const mediaSrc =
-  //     objectVariants[variants] || "/images/objects/purple-line-left.webp";
 
-  //   // variants using video
-  //   const videoVariants = ["full", "blue-short-line-left"];
-
-  //   if (videoVariants.includes(variants)) {
-  //     return (
-  //       <video
-  //         className={className}
-  //         autoPlay
-  //         loop
-  //         muted
-  //         playsInline
-  //       >
-  //         <source src={mediaSrc} type="video/mp4" />
-  //       </video>
-  //     );
-  //   }
-
-  //   return (
-  //     <img
-  //       className={className}
-  //       src={mediaSrc}
-  //       alt={`Custom object variant: ${variants}`}
-  //     />
-  //   );
-  // }
-
-  // export default CustomObject;
 
   const imageSrc: string =
     objectVariants[variants] || "/images/objects/purple-line-left.webp";

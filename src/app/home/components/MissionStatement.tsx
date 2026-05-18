@@ -50,7 +50,7 @@ const MissionStatement = ({ siteInfo }: MissionStatementProps) => {
                             </span>
                         </div>
                         <div className="w-1/2 md:w-full md:order-2">
-                            <h2 className="pt-2 text-lg font-bold">Vision</h2>
+                            <p className="pt-2 text-lg font-bold">Vision</p>
                             <p className="pt-2 pb-3 text-base">
                                 {siteInfo[0]?.vision}
                             </p>
@@ -81,7 +81,7 @@ const MissionStatement = ({ siteInfo }: MissionStatementProps) => {
                                 <Target className="w-1/2 mx-auto my-auto text-green-400 h-1/2" /> </span>
                         </div>
                         <div className="order-1 w-1/2 md:w-full md:order-2">
-                            <h2 className="pt-2 text-lg font-bold">Mission</h2>
+                            <p className="pt-2 text-lg font-bold">Mission</p>
                             <p className="pt-2 pb-3 text-base">
                                 {siteInfo[0]?.mission}
                             </p>
@@ -112,7 +112,7 @@ const MissionStatement = ({ siteInfo }: MissionStatementProps) => {
                                 <BarChartHorizontalBig className="w-1/2 mx-auto my-auto text-orange-400 h-1/2" /> </span>
                         </div>
                         <div className="order-1 w-1/2 md:w-full md:order-2">
-                            <h2 className="pt-2 text-lg font-bold">Values</h2>
+                            <p className="pt-2 text-lg font-bold">Values</p>
                             <p className="pt-2 pb-3 text-base">
                                 {siteInfo[0]?.values}
                             </p>

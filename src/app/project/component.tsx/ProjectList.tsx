@@ -113,9 +113,9 @@ const ProjectList = ({ projects }: OurProjectsProps) => {
                                         whileInView={"show"}
                                         viewport={{ once: false, amount: 0.1 }}
                                     >
-                                        <p className="text-lg lg:text-md xl:text-xl font-bold mt-5">
+                                        <h3 className="text-lg lg:text-md xl:text-xl font-bold mt-5">
                                             {project.projectName}
-                                        </p>
+                                        </h3>
                                         <p className="text-sm xl:text-base mt-1 ">
                                             {/* {project.technologies?.map(tech => tech?.technology?.technology).join(', ') || "No technologies listed"} */}
                                             {project.technologies

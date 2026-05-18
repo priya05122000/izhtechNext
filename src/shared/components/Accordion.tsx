@@ -27,12 +27,12 @@ const AccordionItem = ({ header, content, i, expanded, setExpanded }: any) => {
     mt-1
     shrink-0
     flex-none " />
-          <h5 className=" text-black
+          <h4 className=" text-black
     uppercase
     leading-relaxed
     text-base
     md:text-lg
-    wrap-break-word"> {header}</h5>
+    wrap-break-word"> {header}</h4>
         </div>
         <motion.span
           initial={{ rotate: 0 }}

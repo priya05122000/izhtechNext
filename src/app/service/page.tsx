@@ -258,6 +258,8 @@ const ServicePage = async () => {
                 customObjectVariant="green-disk"
             />
 
+            <h2 className="sr-only"> Custom Software Development and Digital Solutions Services</h2>
+
             <section className="px-5 mx-auto">
 
                 {sortedServices?.map(

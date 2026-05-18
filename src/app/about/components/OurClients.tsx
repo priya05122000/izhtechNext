@@ -42,9 +42,9 @@ const OurClients = ({ clients }: OurClientsProps) => {
                                 key={client.id}
                                 className="p-2 pl-2 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4 flex flex-col items-start lg:items-start"
                             >
-                                <h6 className="font-bold text-md sm:text-lg lg:text-md mb-2 text-left lg:text-left">
+                                <h3 className="font-bold text-md sm:text-lg lg:text-md mb-2 text-left lg:text-left">
                                     {client?.companyName}
-                                </h6>
+                                </h3>
                                 <div className="text-sm sm:text-base lg:text-md text-left lg:text-left">
                                     <a href="#" className="text-black">
                                         <div

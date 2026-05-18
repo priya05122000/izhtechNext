@@ -69,11 +69,11 @@ const Testimonials = ({ testimonials }: OurTestimonialProps) => {
 
             <div className="md:container px-5 sm:px-8 relative overflow-hidden flex min-w-0 flex-col gap-10 lg:gap-16 py-10 sm:py-20 mx-auto text-left md:flex-row">
                 <div className="w-full mb-10 md:w-1/2 min-w-0">
-                    <h6 className="text-base text-gray-200">TESTIMONIALS</h6>
-                    <h5 className="pt-4 mt-3 text-2xl font-bold text-white border-t xl:text-4xl sm:text-3xl border-t-gray-700">
+                    <h3 className="text-base text-gray-200">TESTIMONIALS</h3>
+                    <h3 className="pt-4 mt-3 text-2xl font-bold text-white border-t xl:text-4xl sm:text-3xl border-t-gray-700">
                         What our clients say
                         <br /> about Izh-Tech.
-                    </h5>
+                    </h3>
                     {/* <LinkButton
                     href="/contact"
                     size={'sm'}
@@ -141,9 +141,9 @@ const Testimonials = ({ testimonials }: OurTestimonialProps) => {
                                                         {testimonial?.companyName}
                                                     </span>
 
-                                                    <h5 className="text-xs text-white">
+                                                    <h3 className="text-xs text-white">
                                                         {testimonial?.designation}
-                                                    </h5>
+                                                    </h3>
                                                 </div>
                                             </div>
                                         </div>

@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { createContact } from "@/src/services/contactService";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { toast } from "sonner";
+import { fadeIn } from "@/src/shared/animation/variants";
+import { motion } from "framer-motion"
 
 interface InquiryFormProps {
     num1: number;
@@ -95,16 +97,24 @@ const InquiryForm = ({ num1, num2, resetMath }: InquiryFormProps) => {
 
     return (
         <form onSubmit={validateMathAnswer}>
-            <div className="flex-none py-4 lg:px-8  lg:flex gap-6">
-                <div className="lg:w-4/12">
-                    <h2 className="font-bold">Work Enquiries</h2>
-                    <p>
+            <div className="flex-none py-4 lg:px-8  lg:flex gap-6 mt-3">
+                <motion.div
+                    variants={fadeIn("right", 0.1)}
+                    initial="hidden"
+                    whileInView={"show"}
+                    exit={"hidden"}
+                    viewport={{ once: false, amount: 0.1 }}
+                    className="lg:w-4/12  mb-6 lg:mb-0"
+                >
+
+                    <h4 className="mb-3 text-xl font-black">Work Enquiries</h4>
+                    <h5>
                         Fill in this form or <span className="font-bold">send us an e-mail</span> with your
                         enquiry.
-                    </p>
-                </div>
+                    </h5>
+                </motion.div>
                 <div className="lg:w-[60%]">
-                    <div className="flex flex-wrap w-full gap-2 pt-4  lg:pl-0">
+                    <div className="flex flex-wrap w-full gap-2   lg:pl-0">
 
                         {/* Mobile Number Optional */}
                         <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">

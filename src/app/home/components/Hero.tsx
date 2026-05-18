@@ -30,9 +30,9 @@ export default function Hero() {
                                 marketing agency, offering tailored solutions to boost your
                                 brand’s online presence. Don’t navigate the digital world alone!
                             </p>
-                            <h3 className="order-1 text-5xl font-black  lg:order-2 lg:text-5xl 2xl:text-7xl sm:text-4xl">
+                            <p className="order-1 text-5xl font-black  lg:order-2 lg:text-5xl 2xl:text-7xl sm:text-4xl">
                                 Give your brand the edge it deserves.
-                            </h3>
+                            </p>
                         </motion.div>
                     </div>
 

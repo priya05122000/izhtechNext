@@ -1,18 +1,15 @@
-import React from 'react';
-
+import React from "react";
 import Script from "next/script";
-
-import { getServiceBySlug } from '@/src/services/mainService';
-
-import Details from './component.tsx/Details';
-
-import ServiceFeatureList from './component.tsx/ServiceFeatureList';
-
-import ServiceHighlights from './component.tsx/ServiceHighlights';
-
-import SectionViewHeader from '@/src/shared/components/SectionViewHeader';
-
 import { notFound } from "next/navigation";
+import striptags from "striptags";
+
+import { getServiceBySlug } from "@/src/services/mainService";
+
+import Details from "./component.tsx/Details";
+import ServiceFeatureList from "./component.tsx/ServiceFeatureList";
+import ServiceHighlights from "./component.tsx/ServiceHighlights";
+
+import SectionViewHeader from "@/src/shared/components/SectionViewHeader";
 
 interface ServiceSlugPageProps {
     params: Promise<{
@@ -20,10 +17,114 @@ interface ServiceSlugPageProps {
     }>;
 }
 
+const BASE_URL =
+    process.env.NEXT_PUBLIC_API_BASE_URL;
+
+const SITE_URL =
+    "https://izhtech.com";
+
+// Reusable service formatter
+const formatServiceData = (
+    serviceSlug: any,
+    slug: string
+) => {
+    const currentUrl =
+        `${SITE_URL}/service/${slug}`;
+
+    const imageUrl =
+        serviceSlug?.featuredImagePath
+            ? `${BASE_URL}/${serviceSlug.featuredImagePath.replace(
+                /\\/g,
+                "/"
+            )}`
+            : "";
+
+    const plainDescription = striptags(
+        serviceSlug?.description || ""
+    );
+
+    return {
+        currentUrl,
+        imageUrl,
+        plainDescription,
+    };
+};
+
+// Reusable schema generator
+const generateServiceSchema = (
+    serviceSlug: any,
+    currentUrl: string,
+    imageUrl: string,
+    plainDescription: string
+) => {
+    return [
+        {
+            "@context": "https://schema.org",
+
+            "@type": "Service",
+
+            "@id": currentUrl,
+
+            name: serviceSlug.title,
+
+            description: plainDescription,
+
+            provider: {
+                "@type": "Organization",
+
+                name: "IZH Tech",
+
+                url: SITE_URL,
+
+                logo: `${SITE_URL}/logo-primary.png`,
+            },
+
+            image: imageUrl,
+        },
+
+        {
+            "@context": "https://schema.org",
+
+            "@type": "BreadcrumbList",
+
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+
+                    position: 1,
+
+                    name: "Home",
+
+                    item: SITE_URL,
+                },
+
+                {
+                    "@type": "ListItem",
+
+                    position: 2,
+
+                    name: "Services",
+
+                    item: `${SITE_URL}/service`,
+                },
+
+                {
+                    "@type": "ListItem",
+
+                    position: 3,
+
+                    name: serviceSlug.title,
+
+                    item: currentUrl,
+                },
+            ],
+        },
+    ];
+};
+
 export async function generateMetadata({
     params,
 }: ServiceSlugPageProps) {
-
     const { slug } = await params;
 
     const serviceSlug =
@@ -33,16 +134,14 @@ export async function generateMetadata({
         notFound();
     }
 
-    const currentUrl =
-        `https://izhtech.com/service/${slug}`;
-
-    const imageUrl =
-        serviceSlug?.featuredImagePath
-            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/${serviceSlug.featuredImagePath.replace(
-                /\\/g,
-                "/"
-            )}`
-            : "";
+    const {
+        currentUrl,
+        imageUrl,
+        plainDescription,
+    } = formatServiceData(
+        serviceSlug,
+        slug
+    );
 
     return {
         title:
@@ -50,23 +149,20 @@ export async function generateMetadata({
             "Service",
 
         description:
-            serviceSlug?.description ||
+            plainDescription ||
             "IZH Tech service details",
 
         alternates: {
-            canonical:
-                currentUrl,
+            canonical: currentUrl,
         },
 
         openGraph: {
-            title:
-                serviceSlug?.title,
+            title: serviceSlug?.title,
 
             description:
-                serviceSlug?.description,
+                plainDescription,
 
-            url:
-                currentUrl,
+            url: currentUrl,
 
             images: [
                 {
@@ -85,7 +181,7 @@ export async function generateMetadata({
                 serviceSlug?.title,
 
             description:
-                serviceSlug?.description,
+                plainDescription,
 
             images: [imageUrl],
         },
@@ -95,11 +191,7 @@ export async function generateMetadata({
 const ServiceSlugPage = async ({
     params,
 }: ServiceSlugPageProps) => {
-
     const { slug } = await params;
-
-    const BASE_URL =
-        process.env.NEXT_PUBLIC_API_BASE_URL;
 
     const serviceSlug =
         await getServiceBySlug(slug);
@@ -108,123 +200,35 @@ const ServiceSlugPage = async ({
         notFound();
     }
 
+    const {
+        currentUrl,
+        imageUrl,
+        plainDescription,
+    } = formatServiceData(
+        serviceSlug,
+        slug
+    );
 
-    const currentUrl =
-        `https://izhtech.com/service/${slug}`;
-
-    const imageUrl =
-        serviceSlug?.featuredImagePath
-            ? `${BASE_URL}/${serviceSlug.featuredImagePath.replace(
-                /\\/g,
-                "/"
-            )}`
-            : "";
-
-    // Service Schema
     const serviceSchema =
-        serviceSlug
-            ? [
-                {
-                    "@context":
-                        "https://schema.org",
-
-                    "@type":
-                        "Service",
-
-                    "@id":
-                        currentUrl,
-
-                    name:
-                        serviceSlug.title,
-
-                    description:
-                        serviceSlug.description,
-
-                    provider: {
-                        "@type":
-                            "Organization",
-
-                        name:
-                            "IZH Tech",
-
-                        url:
-                            "https://izhtech.com",
-
-                        logo:
-                            "https://izhtech.com/logo-primary.png",
-                    },
-
-                    image:
-                        imageUrl,
-                },
-
-                {
-                    "@context":
-                        "https://schema.org",
-
-                    "@type":
-                        "BreadcrumbList",
-
-                    itemListElement: [
-                        {
-                            "@type":
-                                "ListItem",
-
-                            position: 1,
-
-                            name:
-                                "Home",
-
-                            item:
-                                "https://izhtech.com",
-                        },
-
-                        {
-                            "@type":
-                                "ListItem",
-
-                            position: 2,
-
-                            name:
-                                "Services",
-
-                            item:
-                                "https://izhtech.com/service",
-                        },
-
-                        {
-                            "@type":
-                                "ListItem",
-
-                            position: 3,
-
-                            name:
-                                serviceSlug.title,
-
-                            item:
-                                currentUrl,
-                        },
-                    ],
-                },
-            ]
-            : null;
+        generateServiceSchema(
+            serviceSlug,
+            currentUrl,
+            imageUrl,
+            plainDescription
+        );
 
     return (
         <>
-
-            {/* Service Schema */}
-            {serviceSchema && (
-                <Script
-                    id="service-schema"
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html:
-                            JSON.stringify(
-                                serviceSchema
-                            ),
-                    }}
-                />
-            )}
+            <Script
+                id="service-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html:
+                        JSON.stringify(
+                            serviceSchema
+                        ),
+                }}
+            />
 
             <section className="flex justify-center py-5 lg:py-8 sm:py-10 px-8">
 
@@ -260,7 +264,6 @@ const ServiceSlugPage = async ({
                     serviceSlug?.serviceHighlights
                 }
             />
-
         </>
     );
 };

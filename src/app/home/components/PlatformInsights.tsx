@@ -46,23 +46,23 @@ const PlatformInsights = ({ siteInfo }: MissionStatementProps) => {
                                 {siteInfo?.length > 0 && (
                                     <div className="flex flex-row w-full gap-6 pt-8 lg:justify-start">
                                         <div className="flex flex-col w-2/5 pt-2 border-t border-slate-600">
-                                            <h2 className="pt-2 text-3xl font-bold">
+                                            <h3 className="pt-2 text-3xl font-bold">
                                                 {siteInfo[0].teamCount}{" "}
                                                 <span className="text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text">
                                                     +
                                                 </span>
-                                            </h2>
+                                            </h3>
                                             <p className="pt-2 pb-3 text-xs">
                                                 Designers <br /> and Developers
                                             </p>
                                         </div>
                                         <div className="flex flex-col w-2/5 pt-2 border-t border-slate-600">
-                                            <h2 className="pt-2 text-3xl font-bold">
+                                            <h3 className="pt-2 text-3xl font-bold">
                                                 {siteInfo[0].projectHandled}{" "}
                                                 <span className="text-transparent bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text">
                                                     +
                                                 </span>
-                                            </h2>
+                                            </h3>
                                             <p className="pt-2 pb-3 text-xs">
                                                 Projects <br /> Handled
                                             </p>
