@@ -41,7 +41,7 @@ export async function generateMetadata({
 
     return {
         title:
-            `${projectSlug?.projectName} Project Case Study ` ||
+            `${projectSlug?.projectName} - Project Case Study ` ||
             "Project Case Study - IZH Tech",
 
         description:

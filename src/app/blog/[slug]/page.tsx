@@ -24,10 +24,14 @@ export async function generateMetadata({
 
     const currentUrl = `https://izhtech.com/blog/${slug}`;
 
+    const rawTitle =
+        blogSlug?.title || "IZH Tech Blog";
+
     const seoTitle =
-        blogSlug?.title?.length > 55
-            ? `${blogSlug?.title} | IZH`
-            : `${blogSlug?.title} | IZH Tech`;
+        rawTitle.length > 55
+            ? rawTitle
+            : `${rawTitle} | IZH Tech`;
+
 
     return {
         title: seoTitle,
