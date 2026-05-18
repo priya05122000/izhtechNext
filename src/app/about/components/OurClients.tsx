@@ -46,11 +46,9 @@ const OurClients = ({ clients }: OurClientsProps) => {
                                     {client?.companyName}
                                 </h3>
                                 <div className="text-sm sm:text-base lg:text-md text-left lg:text-left">
-                                    <a href="#" className="text-black">
-                                        <div
-                                            dangerouslySetInnerHTML={{ __html: client?.description }}
-                                        />
-                                    </a>
+                                    <div className="text-black"
+                                        dangerouslySetInnerHTML={{ __html: client?.description }}
+                                    />
                                 </div>
                             </li>
                         ))}

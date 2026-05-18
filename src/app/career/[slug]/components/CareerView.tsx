@@ -84,7 +84,7 @@ const CareerView = ({
                 {/* Description */}
                 <div className="mt-10">
                     <h2 className="text-[#0E3BF9] font-bold text-[15.84px]">
-                        Required Skills
+                        {jobSlug?.title} Required Skills
                     </h2>
 
                     {renderHTMLBulletPoints(jobSlug?.description)}

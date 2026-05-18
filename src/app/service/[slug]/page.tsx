@@ -145,7 +145,7 @@ export async function generateMetadata({
 
     return {
         title:
-            `${serviceSlug?.title} Services - IZH Tech` ||
+            `${serviceSlug?.title} Solutions and Services - IZH Tech` ||
             "IZH Tech Services",
 
         description:
@@ -157,7 +157,7 @@ export async function generateMetadata({
         },
 
         openGraph: {
-            title: `${serviceSlug?.title} Services - IZH Tech`,
+            title: `${serviceSlug?.title} Solutions and Services - IZH Tech`,
             description:
                 plainDescription,
 
@@ -176,7 +176,7 @@ export async function generateMetadata({
             card:
                 "summary_large_image",
 
-            title: `${serviceSlug?.title} Services - IZH Tech`,
+            title: `${serviceSlug?.title} Solutions and Services - IZH Tech`,
 
             description:
                 plainDescription,
@@ -234,7 +234,7 @@ const ServiceSlugPage = async ({
 
                     <SectionViewHeader
                         header="Our Service"
-                        title={serviceSlug?.title}
+                        title={`${serviceSlug?.title} Services`}
                     />
 
                     <Details

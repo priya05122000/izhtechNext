@@ -247,9 +247,9 @@ const CareerPage = async () => {
                 customObjectVariant="orange-disk"
             />
 
-            <h2 className="sr-only">
+            {/* <h2 className="sr-only">
                 Jobs in Web Development, Branding and Digital Marketing
-            </h2>
+            </h2> */}
 
             <CareerJobsWrapper
                 jobLists={jobLists}
