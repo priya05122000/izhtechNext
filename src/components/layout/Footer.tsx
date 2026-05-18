@@ -46,8 +46,12 @@ export default function Footer({
 
                         <img
                             src="/Logo-white.png"
-                            alt="Logo"
-                            className="h-16 mb-4"
+                            alt="IZH Tech Logo"
+                            className="h-16 w-auto mb-4"
+                            width={200}
+                            height={64}
+                            decoding="async"
+                            loading="lazy"
                         />
 
                         <h6 className="text-sm font-semibold">

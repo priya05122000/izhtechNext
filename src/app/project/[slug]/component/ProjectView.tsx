@@ -56,10 +56,13 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
                             viewport={{ once: false, amount: 0.1 }}
                         >
                             <img
-                                src={`${BASE_URL}/${projectSlug?.projectImagePath || projectSlug?.featuredImagePath || ""
-                                    }`}
+                                src={`${BASE_URL}/${projectSlug?.projectImagePath || projectSlug?.featuredImagePath || ""}`}
                                 alt={projectSlug?.projectName || "Project Image"}
                                 className="w-full object-cover h-full xl:h-112.5"
+                                width={1600}
+                                height={900}
+                                loading="eager"
+                                decoding="async"
                             />
                         </motion.div>
 
@@ -116,19 +119,23 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
 
                                     <img
                                         src={`${BASE_URL}/${desc?.imagePath || ""}`}
-                                        alt={`Project ${index + 1}`}
+                                        alt={`${projectSlug?.projectName} image ${index + 1}`}
                                         className={`
-                                            w-full
-                                            md:w-1/2
-                                            lg:w-[35%]
-                                            mb-4
-                                            object-cover
-                                            min-h-75
-                                            ${index % 2 === 0
+        w-full
+        md:w-1/2
+        lg:w-[35%]
+        mb-4
+        object-cover
+        min-h-75
+        ${index % 2 === 0
                                                 ? "float-left md:mr-8 lg:mr-10"
                                                 : "float-right md:ml-8 lg:ml-10"
                                             }
-                                        `}
+    `}
+                                        width={1200}
+                                        height={800}
+                                        loading="lazy"
+                                        decoding="async"
                                     />
 
                                     <div

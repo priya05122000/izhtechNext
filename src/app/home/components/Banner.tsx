@@ -6,6 +6,7 @@ import CustomObject from '@/src/shared/components/CustomObjects';
 import Link from 'next/link';
 import MissionStatement from './MissionStatement';
 import LinkButton from '@/src/shared/components/LinkButton';
+import Image from 'next/image';
 
 interface SiteInformation {
 
@@ -77,8 +78,16 @@ const Banner = ({ siteInfo }: MissionStatementProps) => {
               variants="blue-short-line-left"
             />
 
-            <img className=" sm:w-[80%] lg:w-full z-10 lg:m-0 mx-auto h-auto" src="/images/bannar1/img.webp"  alt="Software development and digital marketing services"
- />
+            {/* <img className=" sm:w-[80%] lg:w-full z-10 lg:m-0 mx-auto h-auto" src="/images/bannar1/img.webp"  alt="Software development and digital marketing services" /> */}
+            <Image
+              className="sm:w-[80%] lg:w-full z-10 lg:m-0 mx-auto h-auto"
+              src="/images/bannar1/img.webp"
+              alt="Software development and digital marketing services"
+              width={800}
+              height={600}
+              priority
+            />
+
           </motion.div>
         </div>
 

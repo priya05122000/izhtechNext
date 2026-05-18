@@ -21,7 +21,15 @@ const Counts = ({ awards, designers }: CountsProps) => {
                     <div className="flex items-end justify-center md:justify-end">
                         <div className="grid justify-center p-6 text-white bg-red-600 bg-linear-to-r to-pink-500 md:pr-32">
                             <div className="flex items-center justify-between">
-                                <img src="images/Aboutpage/img/counts/diamond.webp" alt="Example Image" className="w-12 h-10 lg:w-8 lg:h-6" />
+                                <img
+                                    src="images/Aboutpage/img/counts/diamond.webp"
+                                    alt="Decorative diamond icon"
+                                    className="w-12 h-10 lg:w-8 lg:h-6"
+                                    width={48}
+                                    height={40}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                                 <h4 className="text-2xl font-bold lg:text-4xl">
                                     <Counter value={designers || 0} direction="up" />+
                                 </h4>
@@ -32,7 +40,15 @@ const Counts = ({ awards, designers }: CountsProps) => {
                         </div>
                         <div className="grid justify-center p-6 text-white bg-black md:pr-32">
                             <div className="flex items-center ">
-                                <img src="images/Aboutpage/img/counts/square.webp" alt="Example Image" className="w-10 h-10" />
+                                <img
+                                    src="images/Aboutpage/img/counts/square.webp"
+                                    alt="Decorative square icon"
+                                    className="w-10 h-10"
+                                    width={40}
+                                    height={40}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                                 <h4 className="text-2xl font-bold lg:text-4xl">
                                     <Counter value={awards || 0} direction="up" />+
                                 </h4>

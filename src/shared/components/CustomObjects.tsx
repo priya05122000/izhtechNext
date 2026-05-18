@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface CustomObjectProps {
   variants:
   | "line-purple-left"
@@ -97,10 +99,18 @@ function CustomObject({ variants, className }: CustomObjectProps) {
     objectVariants[variants] || "/images/objects/purple-line-left.webp";
 
   return (
+    // <img
+    //   className={` ${className}`}
+    //   src={imageSrc}
+    //   alt={`Custom object variant: ${variants}`}
+    // />
+
     <img
-      className={` ${className}`}
+      className={className}
       src={imageSrc}
       alt={`Custom object variant: ${variants}`}
+      loading="lazy"
+      decoding="async"
     />
   );
 }

@@ -49,15 +49,21 @@ export default function ServiceHighlights({
                         return (
                             <div key={`${item.id}-${index}`} className="container px-5 py-10 mx-auto lg:mx-auto lg:px-16">
                                 <div className="flex flex-col gap-4 lg:flex-row lg:gap-8 xl:gap-16 md:items-center lg:justify-center">
-                                    <motion.img
-                                        src={`${imageUrl}`}
-                                        alt={item.name || "Service highlight image"}
-                                        className="w-full rounded-lg lg:w-1/2 h-full object-cover"
-                                        variants={fadeIn("left", 0.3)}
-                                        initial="hidden"
-                                        whileInView="show"
-                                        exit="hidden"
-                                    />
+                                    <div className="w-full lg:w-1/2 self-stretch">
+                                        <motion.img
+                                            src={`${imageUrl}`}
+                                            alt={item.name || "Service highlight image"}
+                                            className="w-full h-full rounded-lg object-cover"
+                                            width={1200}
+                                            height={800}
+                                            loading="lazy"
+                                            decoding="async"
+                                            variants={fadeIn("left", 0.3)}
+                                            initial="hidden"
+                                            whileInView="show"
+                                            exit="hidden"
+                                        />
+                                    </div>
                                     <motion.div
                                         className="w-full  lg:w-1/2"
                                         variants={fadeIn("left", 0.3)}
@@ -101,15 +107,21 @@ export default function ServiceHighlights({
                                             }}
                                         />
                                     </motion.div>
-                                    <motion.img
-                                        src={`${imageUrl}`}
-                                        alt={item.name || "Service highlight image"}
-                                        className="w-full rounded-lg lg:w-1/2 h-full object-cover"
-                                        variants={fadeIn("left", 0.3)}
-                                        initial="hidden"
-                                        whileInView="show"
-                                        exit="hidden"
-                                    />
+                                    <div className="w-full lg:w-1/2 self-stretch">
+                                        <motion.img
+                                            src={`${imageUrl}`}
+                                            alt={item.name || "Service highlight image"}
+                                            className="w-full h-full rounded-lg object-cover"
+                                            width={1200}
+                                            height={800}
+                                            loading="lazy"
+                                            decoding="async"
+                                            variants={fadeIn("left", 0.3)}
+                                            initial="hidden"
+                                            whileInView="show"
+                                            exit="hidden"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         );

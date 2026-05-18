@@ -8,7 +8,7 @@ export const metadata = {
   title: "IZH Tech – Software & Digital Solutions",
 
   description:
-    "IZH Tech is a digital solutions company in India offering web and mobile app development, custom software, AI solutions, branding, and digital marketing services to help businesses grow online.",
+    "Digital marketing, Web, mobile app, branding and software services by Izh Tech help businesses grow online.",
 
   alternates: {
     canonical: "https://izhtech.com",

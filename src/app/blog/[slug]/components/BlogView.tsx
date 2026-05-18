@@ -147,13 +147,17 @@ const BlogView = ({
                         once: true,
                         amount: 0.3,
                     }}
-                    className="w-full h-[500px] overflow-hidden rounded-md"
+                    className="w-full h-125 overflow-hidden rounded-md"
                 >
 
                     <img
                         src={imageUrl}
                         alt={blogSlug?.title}
                         className="w-full h-full object-cover"
+                        width={1600}
+                        height={900}
+                        loading="eager"
+                        decoding="async"
                     />
                 </motion.div>
             )}

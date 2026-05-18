@@ -2,6 +2,8 @@ import React from 'react';
 
 import Script from "next/script";
 
+import striptags from "striptags";
+
 import { getProjectBySlug } from '@/src/services/projectService';
 
 import ProjectView from './component/ProjectView';
@@ -32,13 +34,18 @@ export async function generateMetadata({
     const currentUrl =
         `https://izhtech.com/project/${slug}`;
 
+    const plainDescription =
+        striptags(
+            projectSlug?.shortNote || ""
+        );
+
     return {
         title:
             `${projectSlug?.projectName} Project Case Study - IZH Tech` ||
             "Project Case Study - IZH Tech",
 
         description:
-            projectSlug?.shortNote ||
+            plainDescription ||
             "Project details",
 
         alternates: {
@@ -51,14 +58,15 @@ export async function generateMetadata({
                 `${projectSlug?.projectName} Project Case Study - IZH Tech`,
 
             description:
-                projectSlug?.shortNote,
+                plainDescription,
 
             url:
                 currentUrl,
 
             images: [
                 {
-                    url: imageUrl,
+                    url:
+                        imageUrl,
                 },
             ],
 
@@ -74,9 +82,10 @@ export async function generateMetadata({
                 `${projectSlug?.projectName} Project Case Study - IZH Tech`,
 
             description:
-                projectSlug?.shortNote,
+                plainDescription,
 
-            images: [imageUrl],
+            images:
+                [imageUrl],
         },
     };
 }
@@ -101,6 +110,11 @@ const ProjectSlugPage = async ({
             )}`
             : "";
 
+    const plainDescription =
+        striptags(
+            projectSlug?.shortNote || ""
+        );
+
     // CreativeWork Schema
     const structuredData =
         projectSlug
@@ -121,7 +135,7 @@ const ProjectSlugPage = async ({
                     projectSlug.projectName,
 
                 description:
-                    projectSlug.shortNote,
+                    plainDescription,
 
                 image:
                     imageUrl,

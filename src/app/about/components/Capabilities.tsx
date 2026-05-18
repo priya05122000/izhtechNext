@@ -34,11 +34,14 @@ const Capabilities = () => {
                     >
                         <img
                             src="/images/Aboutpage/img/capabilities.webp"
-                            alt="Capabilities"
+                            alt="IZH Tech capabilities"
                             className="w-full h-auto object-cover"
+                            width={1200}
+                            height={800}
+                            loading="lazy"
+                            decoding="async"
                         />
                     </motion.div>
-
                 </div>
             </div>
         </section>

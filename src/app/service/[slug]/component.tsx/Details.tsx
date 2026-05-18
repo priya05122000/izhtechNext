@@ -20,6 +20,10 @@ const Details = ({ description, featuredImagePath, header }: propValues) => {
                             src={featuredImagePath}
                             alt={header || "Service details image"}
                             className="w-full rounded-xl"
+                            width={1200}
+                            height={800}
+                            loading="lazy"
+                            decoding="async"
                             variants={fadeIn("right", 0.3)}
                             initial="hidden"
                             whileInView="show"

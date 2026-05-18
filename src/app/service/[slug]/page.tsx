@@ -28,6 +28,7 @@ const formatServiceData = (
     serviceSlug: any,
     slug: string
 ) => {
+
     const currentUrl =
         `${SITE_URL}/service/${slug}`;
 
@@ -39,9 +40,10 @@ const formatServiceData = (
             )}`
             : "";
 
-    const plainDescription = striptags(
-        serviceSlug?.description || ""
-    );
+    const plainDescription =
+        striptags(
+            serviceSlug?.description || ""
+        );
 
     return {
         currentUrl,
@@ -57,65 +59,87 @@ const generateServiceSchema = (
     imageUrl: string,
     plainDescription: string
 ) => {
+
     return [
         {
-            "@context": "https://schema.org",
+            "@context":
+                "https://schema.org",
 
-            "@type": "Service",
+            "@type":
+                "Service",
 
-            "@id": currentUrl,
+            "@id":
+                currentUrl,
 
-            name: serviceSlug.title,
+            name:
+                serviceSlug.title,
 
-            description: plainDescription,
+            description:
+                plainDescription,
 
             provider: {
-                "@type": "Organization",
+                "@type":
+                    "Organization",
 
-                name: "IZH Tech",
+                name:
+                    "IZH Tech",
 
-                url: SITE_URL,
+                url:
+                    SITE_URL,
 
-                logo: `${SITE_URL}/logo-primary.png`,
+                logo:
+                    `${SITE_URL}/logo-primary.png`,
             },
 
-            image: imageUrl,
+            image:
+                imageUrl,
         },
 
         {
-            "@context": "https://schema.org",
+            "@context":
+                "https://schema.org",
 
-            "@type": "BreadcrumbList",
+            "@type":
+                "BreadcrumbList",
 
             itemListElement: [
                 {
-                    "@type": "ListItem",
+                    "@type":
+                        "ListItem",
 
                     position: 1,
 
-                    name: "Home",
+                    name:
+                        "Home",
 
-                    item: SITE_URL,
+                    item:
+                        SITE_URL,
                 },
 
                 {
-                    "@type": "ListItem",
+                    "@type":
+                        "ListItem",
 
                     position: 2,
 
-                    name: "Services",
+                    name:
+                        "Services",
 
-                    item: `${SITE_URL}/service`,
+                    item:
+                        `${SITE_URL}/service`,
                 },
 
                 {
-                    "@type": "ListItem",
+                    "@type":
+                        "ListItem",
 
                     position: 3,
 
-                    name: serviceSlug.title,
+                    name:
+                        serviceSlug.title,
 
-                    item: currentUrl,
+                    item:
+                        currentUrl,
                 },
             ],
         },
@@ -125,7 +149,9 @@ const generateServiceSchema = (
 export async function generateMetadata({
     params,
 }: ServiceSlugPageProps) {
-    const { slug } = await params;
+
+    const { slug } =
+        await params;
 
     const serviceSlug =
         await getServiceBySlug(slug);
@@ -149,37 +175,44 @@ export async function generateMetadata({
             "IZH Tech Services",
 
         description:
-            plainDescription ||
+            serviceSlug?.shortNote ||
             "IZH Tech service details",
 
         alternates: {
-            canonical: currentUrl,
+            canonical:
+                currentUrl,
         },
 
         openGraph: {
-            title: `${serviceSlug?.title} Solutions and Services - IZH Tech`,
-            description:
-                plainDescription,
+            title:
+                `${serviceSlug?.title} Solutions and Services - IZH Tech`,
 
-            url: currentUrl,
+            description:
+                serviceSlug?.shortNote,
+
+            url:
+                currentUrl,
 
             images: [
                 {
-                    url: imageUrl,
+                    url:
+                        imageUrl,
                 },
             ],
 
-            type: "website",
+            type:
+                "website",
         },
 
         twitter: {
             card:
                 "summary_large_image",
 
-            title: `${serviceSlug?.title} Solutions and Services - IZH Tech`,
+            title:
+                `${serviceSlug?.title} Solutions and Services - IZH Tech`,
 
             description:
-                plainDescription,
+                serviceSlug?.shortNote,
 
             images: [imageUrl],
         },
@@ -189,7 +222,9 @@ export async function generateMetadata({
 const ServiceSlugPage = async ({
     params,
 }: ServiceSlugPageProps) => {
-    const { slug } = await params;
+
+    const { slug } =
+        await params;
 
     const serviceSlug =
         await getServiceBySlug(slug);
@@ -217,6 +252,7 @@ const ServiceSlugPage = async ({
 
     return (
         <>
+            {/* Service Schema */}
             <Script
                 id="service-schema"
                 type="application/ld+json"
@@ -244,7 +280,7 @@ const ServiceSlugPage = async ({
                         featuredImagePath={
                             imageUrl
                         }
-                        header={""}
+                        header=""
                     />
 
                 </div>

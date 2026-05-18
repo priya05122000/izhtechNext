@@ -64,7 +64,11 @@ const WhyWorkWithUs = () => {
                     <img
                         src="./images/career/c2.webp"
                         alt="Life at IZH Tech"
-                        className="w-full h-auto lg:h-170 xl:h-162.5 object-cover "
+                        className="w-full h-full lg:h-170 xl:h-162.5 object-cover"
+                        width={1200}
+                        height={900}
+                        loading="lazy"
+                        decoding="async"
                     />
                 </motion.div>
             </div>

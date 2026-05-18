@@ -158,11 +158,14 @@ export default function BlogCard({
         <div className="relative max-w-lg mx-auto h-full overflow-hidden rounded-sm bg-black p-0!">
 
             <div className="flex flex-col h-full">
-
                 <img
                     src={imageUrl}
-                    alt={item.title}
+                    alt={item.title || "Image"}
                     className="w-full h-60 object-cover"
+                    width={1200}
+                    height={240}
+                    loading="lazy"
+                    decoding="async"
                 />
 
                 <div className="flex-1 flex flex-col justify-between py-3 px-4">

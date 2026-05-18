@@ -370,13 +370,15 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                             project.status ? (
                                                 <img
                                                     key={index}
-                                                    alt={`img${index}`}
-                                                    className={`show-image absolute w-full h-full object-contain object-center transition-opacity duration-500 ease-in-out opacity-100! transform! translate-y-0! z-10 cursor-pointer`}
+                                                    alt={project.title || `Project ${index + 1}`}
+                                                    className="show-image absolute w-full h-full object-contain object-center transition-opacity duration-500 ease-in-out opacity-100! transform! translate-y-0! z-10 cursor-pointer"
                                                     src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${project?.featuredImagePath}`}
+                                                    width={1600}
+                                                    height={900}
+                                                    loading="lazy"
+                                                    decoding="async"
                                                     onClick={() =>
-                                                        router.push(
-                                                            `/project/${project.slug}`
-                                                        )
+                                                        router.push(`/project/${project.slug}`)
                                                     }
                                                 />
                                             ) : null
@@ -432,9 +434,13 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                             >
 
                                                 <img
-                                                    alt={`img${index}`}
+                                                    alt={project.title || `Project ${index + 1}`}
                                                     className="show-image w-full h-full object-cover mb-5"
                                                     src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${project?.projectImagePath}`}
+                                                    width={1600}
+                                                    height={900}
+                                                    loading="lazy"
+                                                    decoding="async"
                                                 />
 
                                             </Link>

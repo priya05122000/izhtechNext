@@ -28,8 +28,12 @@ export default function Navbar() {
                 <Link href="/" className="flex items-center">
                     <img
                         src="/logo-primary.png"
-                        className="w-16"
-                        alt="izhtech | Your Digital Partner"
+                        className="w-16 h-auto"
+                        alt="IZH Tech | Your Digital Partner"
+                        width={64}
+                        height={64}
+                        decoding="async"
+                        loading="eager"
                     />
                 </Link>
 

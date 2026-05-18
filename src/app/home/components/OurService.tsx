@@ -129,7 +129,7 @@ const OurService = ({
                                 ring-transparent
                                 align-start
                                 md:flex-col
-                                lg:flex-row
+                                xl:flex-row
                                 gap-2
                                 md:gap-4
                                 lg:gap-2
@@ -147,12 +147,12 @@ const OurService = ({
                                     flex
                                     mt-8
                                     align-left
-                                    lg:items-baseline
-                                    lg:justify-start
+                                    xl:items-baseline
+                                    xl:justify-start
                                     justify-center
                                     flex-wrap
                                     text-left
-                                    lg:flex-col
+                                    xl:flex-col
                                     font-medium
                                     text-sm
                                     ring-transparent
@@ -186,8 +186,8 @@ const OurService = ({
                                                     first:ml-0
                                                     text-left
                                                     rounded-none
-                                                    lg:min-w-40
-                                                    lg:w-auto
+                                                    xl:min-w-40
+                                                    xl:w-auto
                                                     whitespace-nowrap
                                                     justify-start
                                                     bg-transparent
@@ -201,8 +201,8 @@ const OurService = ({
                                                             text-black
                                                             border-[#FFD074]
                                                             border-b-2
-                                                            lg:border-r-2
-                                                            lg:border-b-0
+                                                            xl:border-r-2
+                                                            xl:border-b-0
                                                         `
                                                         : `
                                                             text-black
@@ -268,11 +268,23 @@ const OurService = ({
     "
                                                         >
 
-                                                            <img
+                                                            {/* <img
                                                                 src={`${BASE_URL}/${serviceDetail.featuredImagePath}`}
                                                                 alt={serviceDetail.title || "Service featured image"}
                                                                 className="w-full object-cover rounded-t-xl"
-                                                            />
+                                                            /> */}
+
+                                                            <div className="w-full h-62.5 overflow-hidden rounded-t-xl">
+                                                                <img
+                                                                    src={`${BASE_URL}/${serviceDetail.featuredImagePath}`}
+                                                                    alt={serviceDetail.title || "Service featured image"}
+                                                                    className="w-full h-full object-cover"
+                                                                    width={1200}
+                                                                    height={800}
+                                                                    loading="lazy"
+                                                                    decoding="async"
+                                                                />
+                                                            </div>
 
                                                             <div className="flex flex-col gap-4 p-6">
 
@@ -289,7 +301,7 @@ const OurService = ({
                         h-2.5
                         w-[45%]
                         rounded-full
-                        bg-gradient-to-r
+                        bg-linear-to-r
                         from-indigo-500
                         via-purple-500
                         to-pink-500

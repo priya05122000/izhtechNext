@@ -50,7 +50,11 @@ const FilterJobs = ({
                         <img
                             src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${career[0].careerBannerImage}`}
                             alt="Career Banner"
-                            className="object-cover w-full h-[20rem] lg:h-[30rem] xl:h-[40rem]"
+                            className="object-cover w-full h-80 lg:h-120 xl:h-160"
+                            width={1600}
+                            height={900}
+                            loading="lazy"
+                            decoding="async"
                         />
                     ) : (
                         <p>No image available</p>
@@ -65,7 +69,7 @@ const FilterJobs = ({
                     viewport={{ once: false, amount: 0.1 }}
                 >
                     <CustomObject
-                        className="absolute top-[calc(27%-10px)] left-[calc(30%-10px)] lg:top-[calc(24%-10px)] lg:left-[calc(46%-10px)] xl:top-[calc(21%-10px)] xl:left-[calc(47%-10px)] transform -translate-x-1/2 -translate-y-1/2 -z-10 -2xl h-[150vw] lg:h-[100vh] hidden lg:block"
+                        className="absolute top-[calc(27%-10px)] left-[calc(30%-10px)] lg:top-[calc(24%-10px)] lg:left-[calc(46%-10px)] xl:top-[calc(21%-10px)] xl:left-[calc(47%-10px)] transform -translate-x-1/2 -translate-y-1/2 -z-10 -2xl h-[150vw] lg:h-screen hidden lg:block"
                         variants="green"
                     />
                 </motion.span>
@@ -90,8 +94,8 @@ const FilterJobs = ({
                             <button
                                 onClick={() => setActiveRoleId(null)}
                                 className={`w-auto px-3 py-1 text-xs font-bold border cursor-pointer rounded-xs uppercase transition-all ${activeRoleId === null
-                                        ? "bg-black text-white border-black"
-                                        : "bg-white text-black border-black"
+                                    ? "bg-black text-white border-black"
+                                    : "bg-white text-black border-black"
                                     }`}
                             >
                                 VIEW ALL
@@ -107,8 +111,8 @@ const FilterJobs = ({
                                             setActiveRoleId(jobrole.id)
                                         }
                                         className={`w-auto cursor-pointer px-3 py-1 text-xs font-bold border rounded-xs uppercase transition-all ${activeRoleId === jobrole.id
-                                                ? "bg-black text-white border-black"
-                                                : "bg-white text-black border-black"
+                                            ? "bg-black text-white border-black"
+                                            : "bg-white text-black border-black"
                                             }`}
                                     >
                                         {jobrole.roleName}
