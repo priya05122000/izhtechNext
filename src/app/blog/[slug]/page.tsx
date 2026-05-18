@@ -28,7 +28,7 @@ export async function generateMetadata({
         blogSlug?.title || "IZH Tech Blog";
 
     const seoTitle =
-        rawTitle.length > 55
+        rawTitle.length > 49
             ? rawTitle
             : `${rawTitle} | IZH Tech`;
 
