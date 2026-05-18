@@ -144,9 +144,9 @@ const BlogsList = ({
                                 {/* Categories */}
                                 <div className="bg-[#A5B7FF1F] border border-[#00000012] rounded-sm shadow-sm overflow-hidden">
 
-                                    <h2 className="text-lg font-semibold p-4">
+                                    <p className="text-lg font-semibold p-4">
                                         Categories
-                                    </h2>
+                                    </p>
 
                                     <ul className="space-y-0 text-sm">
 

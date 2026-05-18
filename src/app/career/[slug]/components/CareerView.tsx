@@ -67,8 +67,9 @@ const CareerView = ({
             {/* Hero Section */}
 
             <SectionHeader
-                title="Career"
-                description={<>Are you Looking for Your Dream <span className="text-[#0E3BF9]">Job?</span></>}
+                title={jobSlug?.title}
+                description={jobSlug.shortNote}
+                // description={<>Are you Looking for Your Dream <span className="text-[#0E3BF9]">Job?</span></>}
                 srOnlyText={`Job opportunity at IZH Tech in web development, mobile app development, branding and digital marketing. Apply now for career growth. ${jobSlug?.title || "Job opening at IZH Tech"}`}
                 buttonText="View more"
                 buttonHref="/contact"
@@ -79,20 +80,21 @@ const CareerView = ({
             {/* Content Section */}
             <section className="px-5 sm:px-8 mb-20 mx-auto md:container">
 
+
                 {/* Description */}
                 <div className="mt-10">
-                    <p className="text-[#0E3BF9] font-bold text-[15.84px]">
+                    <h2 className="text-[#0E3BF9] font-bold text-[15.84px]">
                         Required Skills
-                    </p>
+                    </h2>
 
                     {renderHTMLBulletPoints(jobSlug?.description)}
                 </div>
 
                 {/* Open Positions */}
                 <div className="mt-10">
-                    <p className="text-[#0E3BF9] font-bold text-[15.84px]">
+                    <h3 className="text-[#0E3BF9] font-bold text-[15.84px]">
                         Open Positions
-                    </p>
+                    </h3>
 
                     <p className="mt-2">
                         {jobSlug?.openPositions}
@@ -101,9 +103,9 @@ const CareerView = ({
 
                 {/* Education */}
                 <div className="mt-10">
-                    <p className="text-[#0E3BF9] font-bold text-[15.84px]">
+                    <h3 className="text-[#0E3BF9] font-bold text-[15.84px]">
                         Education & Qualification
-                    </p>
+                    </h3>
 
                     <p className="mt-2">
                         {jobSlug?.educationAndQualification instanceof Date
@@ -114,9 +116,9 @@ const CareerView = ({
 
                 {/* Experience */}
                 <div className="mt-10">
-                    <p className="text-[#0E3BF9] font-bold text-[15.84px]">
+                    <h3 className="text-[#0E3BF9] font-bold text-[15.84px]">
                         Years of Experience
-                    </p>
+                    </h3>
 
                     <p className="mt-2">
                         {jobSlug?.yearOfExperience < 1

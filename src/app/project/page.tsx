@@ -9,7 +9,7 @@ import ProjectList from './component.tsx/ProjectList';
 import SectionHeader from '@/src/shared/components/SectionHeader';
 
 export const metadata = {
-    title: "Our Projects - IZH Tech",
+    title: "Our Projects and Case Studies - IZH Tech",
 
     description:
         "A showcase of professional digital projects by IZH Tech including web development, mobile applications, branding and digital solutions.",
@@ -110,7 +110,7 @@ const ProjectPage = async () => {
                 customObjectVariant="green-disk"
             />
 
-            <h2 className='sr-only'>Real Projects Built for Real Business Growth h2</h2>
+            <h2 className='sr-only'>Real Projects Built for Real Business Growth</h2>
 
             <ProjectList
                 projects={projects}

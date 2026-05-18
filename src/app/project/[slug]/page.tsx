@@ -34,8 +34,8 @@ export async function generateMetadata({
 
     return {
         title:
-            projectSlug?.projectName ||
-            "Project",
+            `${projectSlug?.projectName} Project Case Study - IZH Tech` ||
+            "Project Case Study - IZH Tech",
 
         description:
             projectSlug?.shortNote ||
@@ -48,7 +48,7 @@ export async function generateMetadata({
 
         openGraph: {
             title:
-                projectSlug?.projectName,
+                `${projectSlug?.projectName} Project Case Study - IZH Tech`,
 
             description:
                 projectSlug?.shortNote,
@@ -62,7 +62,8 @@ export async function generateMetadata({
                 },
             ],
 
-            type: "website",
+            type:
+                "website",
         },
 
         twitter: {
@@ -70,7 +71,7 @@ export async function generateMetadata({
                 "summary_large_image",
 
             title:
-                projectSlug?.projectName,
+                `${projectSlug?.projectName} Project Case Study - IZH Tech`,
 
             description:
                 projectSlug?.shortNote,

@@ -34,7 +34,7 @@ interface Services {
 }
 
 export const metadata = {
-    title: "Our Services - IZH Tech",
+    title: "Web Development and Digital Services - IZH Tech",
 
     description:
         "Explore IZH Tech services including web development, mobile app development, branding and digital marketing solutions.",

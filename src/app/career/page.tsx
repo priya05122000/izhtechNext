@@ -13,13 +13,40 @@ import CareerJobsWrapper from "./components/CareerJobsWrapper";
 import SectionHeader from "@/src/shared/components/SectionHeader";
 
 export const metadata = {
-    title: "Career - IZH Tech",
+    title:
+        "Career Opportunities in Web and App Development - IZH Tech",
 
     description:
         "Explore career opportunities at IZH Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
 
     alternates: {
-        canonical: "https://izhtech.com/career",
+        canonical:
+            "https://izhtech.com/career",
+    },
+
+    openGraph: {
+        title:
+            "Career Opportunities in Web and App Development - IZH Tech",
+
+        description:
+            "Explore career opportunities at IZH Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
+
+        url:
+            "https://izhtech.com/career",
+
+        type:
+            "website",
+    },
+
+    twitter: {
+        card:
+            "summary_large_image",
+
+        title:
+            "Career Opportunities in Web and App Development - IZH Tech",
+
+        description:
+            "Explore career opportunities at IZH Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
     },
 };
 
@@ -219,6 +246,10 @@ const CareerPage = async () => {
                 buttonText="Apply Now"
                 customObjectVariant="orange-disk"
             />
+
+            <h2 className="sr-only">
+                Jobs in Web Development, Branding and Digital Marketing
+            </h2>
 
             <CareerJobsWrapper
                 jobLists={jobLists}

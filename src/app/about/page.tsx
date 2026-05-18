@@ -17,7 +17,7 @@ import MeetTheTeam from './components/MeetTheTeam'
 import SectionHeader from '@/src/shared/components/SectionHeader'
 
 export const metadata = {
-    title: "About Us | IZH Tech",
+    title: "About IZH Tech and Our Digital Solutions Team",
 
     description:
         "Learn more about IZH Tech, a digital solutions company specializing in web development, mobile app development, branding, and digital marketing services.",
@@ -27,7 +27,7 @@ export const metadata = {
     },
 
     openGraph: {
-        title: "About Us | IZH Tech",
+        title: "About IZH Tech and Our Digital Solutions Team",
 
         description:
             "Learn more about IZH Tech, a digital solutions company specializing in web development, mobile app development, branding, and digital marketing services.",
@@ -40,7 +40,7 @@ export const metadata = {
     twitter: {
         card: "summary_large_image",
 
-        title: "About Us | IZH Tech",
+        title: "About IZH Tech and Our Digital Solutions Team",
 
         description:
             "Learn more about IZH Tech, a digital solutions company specializing in web development, mobile app development, branding, and digital marketing services.",

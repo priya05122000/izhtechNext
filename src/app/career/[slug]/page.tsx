@@ -1,5 +1,3 @@
-// page.tsx
-
 import React from "react";
 
 import Script from "next/script";
@@ -28,8 +26,8 @@ export async function generateMetadata({
 
     return {
         title:
-            jobSlug?.title ||
-            "Career",
+            `${jobSlug?.title} Career Opportunities - IZH Tech` ||
+            "Career Opportunities - IZH Tech",
 
         description:
             jobSlug?.shortNote ||
@@ -42,7 +40,7 @@ export async function generateMetadata({
 
         openGraph: {
             title:
-                jobSlug?.title,
+                `${jobSlug?.title} Career Opportunities - IZH Tech`,
 
             description:
                 jobSlug?.shortNote,
@@ -50,7 +48,8 @@ export async function generateMetadata({
             url:
                 currentUrl,
 
-            type: "website",
+            type:
+                "website",
         },
 
         twitter: {
@@ -58,7 +57,7 @@ export async function generateMetadata({
                 "summary_large_image",
 
             title:
-                jobSlug?.title,
+                `${jobSlug?.title} Career Opportunities - IZH Tech`,
 
             description:
                 jobSlug?.shortNote,

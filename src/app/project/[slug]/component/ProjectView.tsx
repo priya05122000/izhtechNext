@@ -93,10 +93,10 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
                             viewport={{ once: false, amount: 0.1 }}
                         >
                             <h2 className="text-4xl font-bold lg:text-5xl md:text-3xl sm:text-3xl mb-10">
-                                Project Overview
+                                {projectSlug?.projectName} Overview
                             </h2>
                             <h3 className="sr-only">
-                                Detailed project overview and case study
+                                Detailed overview and case study of {projectSlug?.projectName}
                             </h3>
                         </motion.div>
 

@@ -11,7 +11,7 @@ import { getAllSiteInfo } from '@/src/services/siteInfoService';
 import SectionHeader from '@/src/shared/components/SectionHeader';
 
 export const metadata = {
-    title: "Contact Us - IZH Tech",
+    title: "Contact IZH Tech for Web and App Development",
 
     description:
         "Get in touch with IZH Tech for branding, web development, app development, and digital marketing services.",
@@ -34,7 +34,7 @@ const ContactPage = async () => {
             "ContactPage",
 
         name:
-            "Contact IZH Tech",
+            "Contact IZH Tech for Digital Solutions",
 
         url:
             "https://izhtech.com/contact",

@@ -10,7 +10,7 @@ import { getAllBlogPosts } from "@/src/services/blogPostService";
 import SectionHeader from "@/src/shared/components/SectionHeader";
 
 export const metadata = {
-    title: "Blogs | IZH Tech",
+    title: "Technology and Digital Marketing Blogs - IZH Tech",
 
     description:
         "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
@@ -20,7 +20,7 @@ export const metadata = {
     },
 
     openGraph: {
-        title: "Blogs | IZH Tech",
+        title: "Technology and Digital Marketing Blogs - IZH Tech",
 
         description:
             "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
@@ -33,7 +33,7 @@ export const metadata = {
     twitter: {
         card: "summary_large_image",
 
-        title: "Blogs | IZH Tech",
+        title: "Technology and Digital Marketing Blogs - IZH Tech",
 
         description:
             "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
@@ -79,6 +79,10 @@ const BlogPage = async () => {
                 srOnlyText="IZH Tech blog shares articles on web development, mobile app development, branding, and digital marketing."
                 customObjectVariant="green-disk"
             />
+
+            <h2 className="sr-only">
+                Insights on Technology, Branding and Business Growth
+            </h2>
 
             <BlogsList blogs={blogs || []} />
 

@@ -145,8 +145,8 @@ export async function generateMetadata({
 
     return {
         title:
-            serviceSlug?.title ||
-            "Service",
+            `${serviceSlug?.title} Services - IZH Tech` ||
+            "IZH Tech Services",
 
         description:
             plainDescription ||
@@ -157,8 +157,7 @@ export async function generateMetadata({
         },
 
         openGraph: {
-            title: serviceSlug?.title,
-
+            title: `${serviceSlug?.title} Services - IZH Tech`,
             description:
                 plainDescription,
 
@@ -177,8 +176,7 @@ export async function generateMetadata({
             card:
                 "summary_large_image",
 
-            title:
-                serviceSlug?.title,
+            title: `${serviceSlug?.title} Services - IZH Tech`,
 
             description:
                 plainDescription,

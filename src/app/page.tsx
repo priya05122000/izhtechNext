@@ -5,7 +5,7 @@ import Script from "next/script";
 import HomePage from './home/page';
 
 export const metadata = {
-  title: "IZH Tech",
+  title: "IZH Tech – Software & Digital Solutions",
 
   description:
     "IZH Tech is a digital solutions company in India offering web and mobile app development, custom software, AI solutions, branding, and digital marketing services to help businesses grow online.",
