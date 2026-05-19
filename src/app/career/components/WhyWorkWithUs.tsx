@@ -62,7 +62,7 @@ const WhyWorkWithUs = () => {
                     className="flex flex-col justify-center"
                 >
                     <img
-                        src="./images/career/c2.webp"
+                        src="/images/career.webp"
                         alt="Life at IZH Tech"
                         className="w-full h-full lg:h-170 xl:h-162.5 object-cover"
                         width={1200}

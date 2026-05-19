@@ -15,14 +15,14 @@ const Counts = ({ awards, designers }: CountsProps) => {
         <section className="mx-auto md:px-0 overflow-hidden px-5 sm:px-0 py-5 sm:py-0">
             <div className="bg-center justify-end bg-cover bg-no-repeat
   h-96 sm:h-120 md:h-144 lg:h-180
-  bg-[url('/images/Aboutpage/img/counts/bg.webp')]">
+  bg-[url('/images/Aboutpage/bg.webp')]">
 
                 <div className="container bottom-0 flex flex-col items-end justify-end h-full mx-auto lg:px-8">
                     <div className="flex items-end justify-center md:justify-end">
                         <div className="grid justify-center p-6 text-white bg-red-600 bg-linear-to-r to-pink-500 md:pr-32">
                             <div className="flex items-center justify-between">
                                 <img
-                                    src="images/Aboutpage/img/counts/diamond.webp"
+                                    src="images/Aboutpage/diamond.webp"
                                     alt="Decorative diamond icon"
                                     className="w-12 h-10 lg:w-8 lg:h-6"
                                     width={48}
@@ -41,7 +41,7 @@ const Counts = ({ awards, designers }: CountsProps) => {
                         <div className="grid justify-center p-6 text-white bg-black md:pr-32">
                             <div className="flex items-center ">
                                 <img
-                                    src="images/Aboutpage/img/counts/square.webp"
+                                    src="images/Aboutpage/square.webp"
                                     alt="Decorative square icon"
                                     className="w-10 h-10"
                                     width={40}

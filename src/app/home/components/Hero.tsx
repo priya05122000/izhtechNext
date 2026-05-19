@@ -45,7 +45,7 @@ export default function Hero() {
                         className="relative mx-auto hidden h-full flex-col justify-end pb-5 md:flex lg:w-3/6 sm:w-full"
                     >
                         <Image
-                            src="/images/hero/bg-1.webp"
+                            src="/images/hero.webp"
                             alt="Hero Image"
                             width={500}
                             height={500}

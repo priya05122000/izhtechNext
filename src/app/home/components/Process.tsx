@@ -72,7 +72,7 @@ export default function Process() {
                 exit={"hidden"}
                 viewport={{ once: false, amount: 0.1 }}
                 className="absolute right-0 hidden bg-right bg-no-repeat bg-cover top-6 bottom-5 left-72 lg:block" // hide on small screens, show on large screens
-                style={{ backgroundImage: "url('/images/img/Group11.webp')" }}
+                style={{ backgroundImage: "url('/images/Group11.webp')" }}
               ></motion.div>
             </div>
           </div>

@@ -81,7 +81,7 @@ const Banner = ({ siteInfo }: MissionStatementProps) => {
             {/* <img className=" sm:w-[80%] lg:w-full z-10 lg:m-0 mx-auto h-auto" src="/images/bannar1/img.webp"  alt="Software development and digital marketing services" /> */}
             <Image
               className="sm:w-[80%] lg:w-full z-10 lg:m-0 mx-auto h-auto"
-              src="/images/bannar1/img.webp"
+              src="/images/banner.webp"
               alt="Software development and digital marketing services"
               width={800}
               height={600}
