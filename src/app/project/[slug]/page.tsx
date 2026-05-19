@@ -2,8 +2,6 @@ import React from 'react';
 
 import Script from "next/script";
 
-import striptags from "striptags";
-
 import { getProjectBySlug } from '@/src/services/projectService';
 
 import ProjectView from './component/ProjectView';
@@ -35,9 +33,8 @@ export async function generateMetadata({
         `https://izhtech.com/project/${slug}`;
 
     const plainDescription =
-        striptags(
-            projectSlug?.shortNote || ""
-        );
+        projectSlug?.metaDescription ||
+        "Project details";
 
     return {
         title:
@@ -45,8 +42,7 @@ export async function generateMetadata({
             "Project Case Study - IZH Tech",
 
         description:
-            plainDescription ||
-            "Project details",
+            plainDescription,
 
         alternates: {
             canonical:
@@ -111,9 +107,8 @@ const ProjectSlugPage = async ({
             : "";
 
     const plainDescription =
-        striptags(
-            projectSlug?.shortNote || ""
-        );
+        projectSlug?.metaDescription ||
+        "Project details";
 
     // CreativeWork Schema
     const structuredData =

@@ -24,13 +24,18 @@ export async function generateMetadata({
 
     const currentUrl = `https://izhtech.com/blog/${slug}`;
 
-    const rawTitle =
-        blogSlug?.title || "IZH Tech Blog";
+    // const rawTitle =
+    //     blogSlug?.title || "IZH Tech Blog";
 
-    const seoTitle =
-        rawTitle.length > 49
-            ? rawTitle
-            : `${rawTitle} | IZH Tech`;
+    const seoTitle = blogSlug?.title
+        ? `${blogSlug.title} | IZH Tech`
+        : "IZH Tech Blog";
+
+
+    // const seoTitle =
+    //     rawTitle.length > 49
+    //         ? rawTitle
+    //         : `${rawTitle} | IZH Tech`;
 
 
     return {

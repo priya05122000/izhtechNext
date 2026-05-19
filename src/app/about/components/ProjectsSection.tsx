@@ -12,6 +12,7 @@ interface Project {
     projectName?: string;
     slug: string;
     shortNote?: string;
+    metaDescription?: string;
     featuredImagePath?: string;
     projectImagePath?: string;
     projectUrl?: string;
