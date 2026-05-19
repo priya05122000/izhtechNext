@@ -45,7 +45,7 @@ export default function ServiceFeatureList({
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
     return (
-        <section className="w-full px-5 mx-auto">
+        <section className="w-full px-5 mx-auto bg-black">
             <div className="grid items-center justify-center mx-auto text-white">
                 <div className="md:container relative overflow-hidden">
 

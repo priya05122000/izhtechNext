@@ -33,7 +33,7 @@ const Capabilities = () => {
                         className="w-full lg:w-1/2"
                     >
                         <img
-                            src="/images/Aboutpage/img/capabilities.webp"
+                            src="/images/about/capabilities.webp"
                             alt="IZH Tech capabilities"
                             className="w-full h-auto object-cover"
                             width={1200}

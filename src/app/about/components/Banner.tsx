@@ -20,7 +20,7 @@ const Banner = () => {
                         <Image
                             width={500}
                             height={500}
-                            src="/images/Aboutpage/img/banner.webp"
+                            src="/images/about/banner.webp"
                             alt="Example Image"
                             className="w-full h-full object-cover"
                         />
