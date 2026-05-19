@@ -76,7 +76,7 @@ export default function ClientLayout({
                         -top-40
                         -right-40
                         -z-10
-                        h-[100vw]
+                        
                         max-w-7xl
                         sm:-top-20
                         sm:-right-20

@@ -45,7 +45,7 @@ export default function ServiceFeatureList({
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
     return (
-        <section className="w-full px-5 mx-auto bg-black">
+        <section className="w-full px-5 mx-auto">
             <div className="grid items-center justify-center mx-auto text-white">
                 <div className="md:container relative overflow-hidden">
 
@@ -96,7 +96,7 @@ export default function ServiceFeatureList({
                         initial="hidden"
                         whileInView={"show"}
                         viewport={{ once: false, amount: 0.1 }}
-                        className="absolute right-0 bottom-80"
+                        className="absolute right-0 bottom-80 bg-amber-900"
                     >
                         <CustomObject
                             className="absolute hidden lg:block right-0 -xl h-[60vw] lg:h-[40vh] opacity-25"
