@@ -56,7 +56,7 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
                             viewport={{ once: false, amount: 0.1 }}
                         >
                             <img
-                                src={`${BASE_URL}/${projectSlug?.projectImagePath || projectSlug?.featuredImagePath || ""}`}
+                                src={`${BASE_URL}/uploads/${projectSlug?.projectImagePath || projectSlug?.featuredImagePath || ""}`}
                                 alt={projectSlug?.projectName || "Project Image"}
                                 className="w-full object-cover h-full xl:h-112.5"
                                 width={1600}
