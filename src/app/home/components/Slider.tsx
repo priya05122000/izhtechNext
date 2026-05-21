@@ -103,7 +103,7 @@ const Slider = ({ testimonials }: TestimonialProps) => {
                                                             /> */}
 
                                                             <img
-                                                                src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${testimonial?.imagePath}`}
+                                                                src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${testimonial?.imagePath}`}
                                                                 alt={testimonial?.name || "Testimonial image"}
                                                                 className="w-auto h-12 mb-2 rounded-full"
                                                                 width={48}

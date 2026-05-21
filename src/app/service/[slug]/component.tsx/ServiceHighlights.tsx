@@ -43,7 +43,7 @@ export default function ServiceHighlights({
             {sortedDatas.map(
                 (item: ServicesHighlightsModal, index: number) => {
 
-                    const imageUrl = `${BASE_URL}/${item?.imagePath || ""}`;
+                    const imageUrl = `${BASE_URL}/uploads/${item?.imagePath || ""}`;
 
                     if (index % 2 === 0) {
                         return (

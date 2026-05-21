@@ -122,7 +122,7 @@ const Testimonials = ({ testimonials }: OurTestimonialProps) => {
                                 <Slider ref={sliderRef} {...settings}>
                                     {activeTestimonials.map((testimonial, index) => (
                                         <div key={index}>
-                                            <div className="flex flex-col h-full gap-3 text-left dark:text-white">
+                                            <div className="flex flex-col h-full gap-3 text-left text-white">
                                                 <div className="flex flex-col bg-black gap-1">
                                                     <span className="w-32 p-2 mb-2 text-xs font-normal text-gray-100 bg-gray-900 rounded focus:outline-none">
                                                         {testimonial?.companyLocation}

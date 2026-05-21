@@ -118,7 +118,7 @@ const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
                                 <div className="clearfix">
 
                                     <img
-                                        src={`${BASE_URL}/${desc?.imagePath || ""}`}
+                                        src={`${BASE_URL}/uploads/${desc?.imagePath || ""}`}
                                         alt={`${projectSlug?.projectName} image ${index + 1}`}
                                         className={`
         w-full

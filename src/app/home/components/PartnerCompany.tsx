@@ -90,7 +90,7 @@ export default function PartnerCompany({
 
                                 {client?.logo && (
                                     <Image
-                                        src={`${BASE_URL}/${client.logo.replace(/\\/g, "/")}`}
+                                        src={`${BASE_URL}/uploads/${client.logo.replace(/\\/g, "/")}`}
                                         alt={client?.name || "Client Logo"}
                                         width={120}
                                         height={80}

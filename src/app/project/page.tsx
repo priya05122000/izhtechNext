@@ -76,7 +76,7 @@ const ProjectPage = async () => {
 
                                 image:
                                     imagePath
-                                        ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/${imagePath.replace(
+                                        ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${imagePath.replace(
                                             /\\/g,
                                             "/"
                                         )}`

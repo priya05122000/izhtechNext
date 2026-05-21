@@ -34,7 +34,7 @@ const formatServiceData = (
 
     const imageUrl =
         serviceSlug?.featuredImagePath
-            ? `${BASE_URL}/${serviceSlug.featuredImagePath.replace(
+            ? `${BASE_URL}/uploads/${serviceSlug.featuredImagePath.replace(
                 /\\/g,
                 "/"
             )}`

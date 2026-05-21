@@ -62,7 +62,7 @@ export default function ImageFirstServiceBlock(props: Services) {
           {featuredImagePath && (
             <img
               className="lg:w-full lg:h-160 sm:w-1/2 flex object-cover object-center h-80"
-              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${featuredImagePath}`}
+              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${featuredImagePath}`}
               alt={title || "service-image"}
               width={1200}
               height={900}

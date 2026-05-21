@@ -79,7 +79,7 @@ const ProjectList = ({ projects }: OurProjectsProps) => {
                                                         rel="noopener noreferrer "
                                                     >
                                                         <img
-                                                            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${imagePath}`}
+                                                            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${imagePath}`}
                                                             className="h-75 lg:h-62.5 xl:h-100 shadow-lg object-cover w-full"
                                                             alt={project.projectName || "Project image"}
                                                             width={1200}
@@ -102,7 +102,7 @@ const ProjectList = ({ projects }: OurProjectsProps) => {
                                                         rel="noopener noreferrer"
                                                     >
                                                         <img
-                                                            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${imagePath}`}
+                                                            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${imagePath}`}
                                                             className="h-75 lg:h-62.5 xl:h-100 shadow-lg object-cover w-full"
                                                             alt={project.projectName || "Project image"}
                                                             width={1200}

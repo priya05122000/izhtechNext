@@ -66,7 +66,7 @@ export default function BlogCard({
             ?.replace(/\\/g, "/");
 
     const imageUrl =
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/${cleanImagePath}`;
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${cleanImagePath}`;
 
     // Home Card
     const HomeCard = (

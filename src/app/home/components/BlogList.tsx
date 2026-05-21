@@ -105,7 +105,7 @@ export default function BlogList({ blogPosts }: BlogListProps) {
                                         ?.trim()
                                         .replace(/\\/g, "/");
 
-                                    const imageUrl = `${BASE_URL}/${cleanImagePath}`;
+                                    const imageUrl = `${BASE_URL}/uploads/${cleanImagePath}`;
 
                                     if (item.status !== "true") return null;
 

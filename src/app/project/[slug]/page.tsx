@@ -23,7 +23,7 @@ export async function generateMetadata({
 
     const imageUrl =
         projectSlug?.featuredImagePath
-            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/${projectSlug.featuredImagePath.replace(
+            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/uplods/${projectSlug.featuredImagePath.replace(
                 /\\/g,
                 "/"
             )}`
@@ -100,7 +100,7 @@ const ProjectSlugPage = async ({
 
     const imageUrl =
         projectSlug?.featuredImagePath
-            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/${projectSlug.featuredImagePath.replace(
+            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${projectSlug.featuredImagePath.replace(
                 /\\/g,
                 "/"
             )}`

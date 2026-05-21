@@ -74,7 +74,7 @@ const BlogView = ({
 
     const imageUrl =
         blogSlug?.imagePath
-            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/${blogSlug.imagePath}`
+            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${blogSlug.imagePath}`
             : "";
 
     return (

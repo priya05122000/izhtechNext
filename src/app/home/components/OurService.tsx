@@ -276,7 +276,7 @@ const OurService = ({
 
                                                             <div className="w-full h-62.5 overflow-hidden rounded-t-xl">
                                                                 <img
-                                                                    src={`${BASE_URL}/${serviceDetail.featuredImagePath}`}
+                                                                    src={`${BASE_URL}/uploads/${serviceDetail.featuredImagePath}`}
                                                                     alt={serviceDetail.title || "Service featured image"}
                                                                     className="w-full h-full object-cover"
                                                                     width={1200}
