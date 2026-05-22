@@ -132,6 +132,7 @@ const ProjectSlugPage = async ({
             author: {
                 "@type": "Organization",
                 name: "IZH Tech",
+                url: "https://izhtech.com",
             },
 
             publisher: {

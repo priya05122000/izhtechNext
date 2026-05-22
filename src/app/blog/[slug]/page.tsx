@@ -143,6 +143,9 @@ const BlogSlugPage = async ({
 
                     name:
                         "IZH Tech",
+
+                    url: "https://izhtech.com",
+
                 },
 
                 publisher: {

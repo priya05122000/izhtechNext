@@ -54,33 +54,36 @@ const BlogPage = async () => {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
 
-                        "@type": "CollectionPage",
+                        "@type": "ItemList",
 
-                        "@id": "https://izhtech.com/blog",
+                        name:
+                            "IZH Tech Blogs",
 
-                        url: "https://izhtech.com/blog",
-
-                        name: "IZH Tech Blog",
-
-                        headline:
-                            "Technology and Digital Marketing Blogs - IZH Tech",
+                        url:
+                            "https://izhtech.com/blog",
 
                         description:
                             "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
 
-                        publisher: {
-                            "@type": "Organization",
+                        itemListElement:
+                            blogs?.map(
+                                (
+                                    blog: any,
+                                    index: number
+                                ) => ({
+                                    "@type":
+                                        "ListItem",
 
-                            name: "IZH Tech",
+                                    position:
+                                        index + 1,
 
-                            url: "https://izhtech.com",
+                                    url:
+                                        `https://izhtech.com/blog/${blog.slug}`,
 
-                            logo: {
-                                "@type": "ImageObject",
-
-                                url: "https://izhtech.com/logo-primary.png",
-                            },
-                        },
+                                    name:
+                                        blog.title,
+                                })
+                            ),
                     }),
                 }}
             />
