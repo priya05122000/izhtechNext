@@ -50,6 +50,22 @@ const nextConfig: NextConfig = {
   //   ];
   // },
 
+  async redirects() {
+    return [
+      {
+        source: "/blog-detail/:slug",
+        destination: "/blog/:slug",
+        permanent: true,
+      },
+
+      {
+        source: "/project-details/:slug",
+        destination: "/project/:slug",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {

@@ -5,6 +5,7 @@ import Script from "next/script";
 import { getProjectBySlug } from '@/src/services/projectService';
 
 import ProjectView from './component/ProjectView';
+import { notFound } from 'next/navigation';
 
 interface ProjectSlugPageProps {
     params: Promise<{
@@ -38,9 +39,10 @@ export async function generateMetadata({
 
     return {
         title:
-            `${projectSlug?.projectName} - Project Case Study ` ||
-            "Project Case Study - IZH Tech",
-
+            projectSlug?.projectName
+                ? `${projectSlug.projectName} - Project Case Study`
+                : "Project Case Study - IZH Tech",
+                
         description:
             plainDescription,
 
@@ -94,6 +96,10 @@ const ProjectSlugPage = async ({
 
     const projectSlug =
         await getProjectBySlug(slug);
+
+    if (!projectSlug) {
+        notFound();
+    }
 
     const currentUrl =
         `https://izhtech.com/project/${slug}`;

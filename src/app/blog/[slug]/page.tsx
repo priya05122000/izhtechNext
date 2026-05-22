@@ -7,6 +7,7 @@ import Script from "next/script";
 import BlogView from "./components/BlogView";
 
 import { getBlogBySlug } from "@/src/services/blogPostService";
+import { notFound } from "next/navigation";
 
 interface BlogSlugPageProps {
     params: Promise<{
@@ -98,6 +99,10 @@ const BlogSlugPage = async ({
 
     const blogSlug =
         await getBlogBySlug(slug);
+
+    if (!blogSlug) {
+        notFound();
+    }
 
     const currentUrl =
         `https://izhtech.com/blog/${slug}`;

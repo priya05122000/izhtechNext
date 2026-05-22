@@ -75,7 +75,7 @@ const ProjectList = ({ projects }: OurProjectsProps) => {
                                                     viewport={{ once: false, amount: 0.1 }}
                                                 >
                                                     <a
-                                                        href={`project/${slug}`}
+                                                        href={`/project/${slug}`}
                                                         rel="noopener noreferrer "
                                                     >
                                                         <img
@@ -98,7 +98,7 @@ const ProjectList = ({ projects }: OurProjectsProps) => {
                                                     viewport={{ once: false, amount: 0.1 }}
                                                 >
                                                     <a
-                                                        href={`project/${slug}`}
+                                                        href={`/project/${slug}`}
                                                         rel="noopener noreferrer"
                                                     >
                                                         <img

@@ -5,6 +5,7 @@ import Script from "next/script";
 import { getJobBySlug } from "@/src/services/JobService";
 
 import CareerView from "./components/CareerView";
+import { notFound } from "next/navigation";
 
 interface JobSlugPageProps {
     params: Promise<{
@@ -74,6 +75,10 @@ const CareerSlugPage = async ({
 
     const jobSlug =
         await getJobBySlug(slug);
+
+    if (!jobSlug) {
+        notFound();
+    }
 
     const currentUrl =
         `https://izhtech.com/career/${slug}`;
