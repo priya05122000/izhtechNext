@@ -26,8 +26,9 @@ export async function generateMetadata({
 
     return {
         title:
-            `${jobSlug?.title} Career Opportunities - IZH Tech` ||
-            "Career Opportunities - IZH Tech",
+            jobSlug?.title
+                ? `${jobSlug.title} Career Opportunities - IZH Tech`
+                : "Career Opportunities - IZH Tech",
 
         description:
             jobSlug?.shortNote ||
@@ -124,18 +125,41 @@ const CareerSlugPage = async ({
                         "https://izhtech.com/logo-primary.png",
                 },
 
-                jobLocation:
-                {
-                    "@type":
-                        "Place",
+                jobLocation: {
+                    "@type": "Place",
 
-                    address:
-                    {
-                        "@type":
-                            "PostalAddress",
+                    address: {
+                        "@type": "PostalAddress",
+
+                        streetAddress:
+                            "III Floor, Nixon Pinnacle, North, Sarguna Veethi St, Cruz Enclave, Simon Nagar",
+
+                        addressLocality:
+                            "Nagercoil",
+
+                        addressRegion:
+                            "Tamil Nadu",
+
+                        postalCode:
+                            "629001",
 
                         addressCountry:
                             "IN",
+                    },
+                },
+                baseSalary: {
+                    "@type": "MonetaryAmount",
+
+                    currency: "INR",
+
+                    value: {
+                        "@type": "QuantitativeValue",
+
+                        minValue: 10000,
+
+                        maxValue: 40000,
+
+                        unitText: "MONTH",
                     },
                 },
 

@@ -23,7 +23,7 @@ export async function generateMetadata({
 
     const imageUrl =
         projectSlug?.featuredImagePath
-            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/uplods/${projectSlug.featuredImagePath.replace(
+            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${projectSlug.featuredImagePath.replace(
                 /\\/g,
                 "/"
             )}`
@@ -111,58 +111,39 @@ const ProjectSlugPage = async ({
         "Project details";
 
     // CreativeWork Schema
-    const structuredData =
-        projectSlug
-            ? {
-                "@context":
-                    "https://schema.org",
+    const structuredData = projectSlug
+        ? {
+            "@context": "https://schema.org",
+            "@type": "Article",
 
-                "@type":
-                    "CreativeWork",
+            "@id": currentUrl,
+            mainEntityOfPage: currentUrl,
 
-                "@id":
-                    currentUrl,
+            headline: projectSlug.projectName,
 
-                url:
-                    currentUrl,
+            description: plainDescription,
 
-                name:
-                    projectSlug.projectName,
+            image: imageUrl,
 
-                description:
-                    plainDescription,
+            datePublished: projectSlug.createdAt,
 
-                image:
-                    imageUrl,
+            dateModified: projectSlug.updatedAt,
 
-                author: {
-                    "@type":
-                        "Organization",
+            author: {
+                "@type": "Organization",
+                name: "IZH Tech",
+            },
 
-                    name:
-                        "IZH Tech",
-
-                    url:
-                        "https://izhtech.com",
+            publisher: {
+                "@type": "Organization",
+                name: "IZH Tech",
+                logo: {
+                    "@type": "ImageObject",
+                    url: "https://izhtech.com/logo-primary.png",
                 },
-
-                publisher: {
-                    "@type":
-                        "Organization",
-
-                    name:
-                        "IZH Tech",
-
-                    logo: {
-                        "@type":
-                            "ImageObject",
-
-                        url:
-                            "https://izhtech.com/logo-primary.png",
-                    },
-                },
-            }
-            : null;
+            },
+        }
+        : null;
 
     return (
         <>

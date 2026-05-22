@@ -46,7 +46,6 @@ const BlogPage = async () => {
 
     return (
         <>
-
             {/* Blog Schema */}
             <Script
                 id="blog-schema"
@@ -54,18 +53,31 @@ const BlogPage = async () => {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "Blog",
-                        "@id": "https://izhtech.com/blog#blog",
-                        name: "IZH Tech Blog",
-                        description:
-                            "Latest articles and insights on technology, digital marketing, and business solutions from IZH Tech.",
+
+                        "@type": "CollectionPage",
+
+                        "@id": "https://izhtech.com/blog",
+
                         url: "https://izhtech.com/blog",
+
+                        name: "IZH Tech Blog",
+
+                        headline:
+                            "Technology and Digital Marketing Blogs - IZH Tech",
+
+                        description:
+                            "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
+
                         publisher: {
                             "@type": "Organization",
+
                             name: "IZH Tech",
+
                             url: "https://izhtech.com",
+
                             logo: {
                                 "@type": "ImageObject",
+
                                 url: "https://izhtech.com/logo-primary.png",
                             },
                         },
