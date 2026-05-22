@@ -111,10 +111,6 @@ function CustomObject({
 
   // Only Lighthouse warning images
   const objectSizes = {
-    "circle-2": {
-      width: 360,
-      height: 1000,
-    },
 
     "text-rotate": {
       width: 1100,
@@ -141,10 +137,6 @@ function CustomObject({
       height: 500,
     },
 
-    "full": {
-      width: 500,
-      height: 1000,
-    },
 
     "orange-half-circle-lines": {
       width: 150,
@@ -182,8 +174,10 @@ function CustomObject({
       alt={`Custom object variant: ${variants}`}
       loading="lazy"
       decoding="async"
-      width={size?.width}
-      height={size?.height}
+      {...(size && {
+        width: size.width,
+        height: size.height,
+      })}
     />
   );
 }
