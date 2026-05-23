@@ -40,13 +40,15 @@ function CustomObject({
       "/images/objects/purple-line-left.webp",
 
     "circle-2":
-      "/images/objects/circle-2.gif",
+      "/images/objects/circle-2.webp",
 
     "half-dash-yellow":
       "/images/objects/half-dash-yellow.gif",
 
     "full":
-      "/images/objects/izhtech_animation.gif",
+      "/images/objects/ezgif.com-animated-gif-maker.gif",
+    // "full":
+    //   "/images/objects/izhtech_animation.gif",
 
     "green":
       "/images/objects/green.gif",
@@ -100,7 +102,7 @@ function CustomObject({
       "/images/objects/blue-short-line-left.gif",
 
     "text-rotate":
-      "/images/objects/text-rotate.gif",
+      "/images/objects/text-rotate.webp",
 
     "green-doted":
       "/images/objects/green-doted.webp",

@@ -1,22 +1,16 @@
 "use client";
 
-import Slider from "react-slick";
 import Image from "next/image";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import styles from "./partner.module.css"
+
+import "swiper/css";
 
 interface Clients {
     id: string;
     name: string;
-    companyName: string;
-    industry: string;
-    description: string;
-    isActive: boolean | string;
     logo?: string;
-    serviceId: string;
-    createdAt?: string;
-    updatedAt?: string;
-    deletedAt?: string;
 }
 
 interface PartnerCompanyProps {
@@ -28,82 +22,55 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 export default function PartnerCompany({
     clients,
 }: PartnerCompanyProps) {
-
-    const settings = {
-        infinite: true,
-        speed: 500,
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        pauseOnHover: true,
-        arrows: true,
-        dots: false,
-        centerMode: true,
-        centerPadding: "0px",
-
-        responsive: [
-            {
-                breakpoint: 1280,
-                settings: {
-                    slidesToShow: 6,
-                },
-            },
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 6,
-                },
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 4,
-                    arrows: false,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 3,
-                    arrows: false,
-                },
-            },
-        ],
-    };
-
-    if (!clients?.length) {
-        return null;
-    }
+    if (!clients?.length) return null;
 
     return (
         <section className="py-8 bg-white">
-            <div className="relative w-full px-4 mx-auto max-w-sm md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
-
-                <Slider {...settings}>
-                    {clients.map((client, idx) => (
-                        <div
-                            key={client.id || idx}
-                            className="flex items-center justify-center px-2"
-                        >
-                            <div className="flex items-center justify-center w-full h-full">
-
-                                {client?.logo && (
+            <div className="max-w-7xl mx-auto px-4">
+                <Swiper
+                    modules={[Autoplay]}
+                    loop={true}
+                    speed={4000}
+                    allowTouchMove={false}
+                    autoplay={{
+                        delay: 0,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
+                    }}
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 3,
+                            spaceBetween: 10,
+                        },
+                        768: {
+                            slidesPerView: 4,
+                            spaceBetween: 20,
+                        },
+                        1024: {
+                            slidesPerView: 6,
+                            spaceBetween: 30,
+                        },
+                    }}
+                    className={styles["partner-swiper"]}
+                >
+                    {clients.map((client) => (
+                        <SwiperSlide key={client.id}>
+                            <div className="flex items-center justify-center h-20">
+                                {client.logo && (
                                     <Image
                                         src={`${BASE_URL}/uploads/${client.logo.replace(/\\/g, "/")}`}
-                                        alt={client?.name || "Client Logo"}
+                                        alt={client.name}
                                         width={120}
                                         height={80}
-                                        unoptimized
-                                        className="object-contain w-full h-16 transition-all filter grayscale hover:grayscale-0 lg:h-20 max-w-30"
+                                        loading="lazy"
+                                        quality={70}
+                                        className="object-contain  h-14 w-auto grayscale hover:grayscale-0 transition-all"
                                     />
                                 )}
-
                             </div>
-                        </div>
+                        </SwiperSlide>
                     ))}
-                </Slider>
-
+                </Swiper>
             </div>
         </section>
     );

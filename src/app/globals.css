@@ -22,21 +22,11 @@ body {
   overflow-x: hidden !important;
 }
 
-/* .container {
-  padding: 2rem;
-} */
-
 *:focus {
   --tw-ring-opacity: 0 !important;
 }
 
-/* h1,
-h3 {
-  letter-spacing: 0rem;
-} */
-
-
-@keyframes pathAnimation {
+/* @keyframes pathAnimation {
   0% {
     opacity: 0.05;
   }
@@ -52,8 +42,7 @@ h3 {
 
 .animated-path {
   animation: pathAnimation 2s ease-in-out infinite;
-}
-
+} */
 
 .progress {
   position: sticky;
@@ -105,8 +94,6 @@ circle {
   color: white !important;
 }
 
-
-
 .pos {
   position: sticky !important;
   top: 0 !important;
@@ -125,8 +112,7 @@ circle {
   /* Firefox */
 }
 
-
-@keyframes slideUp {
+/* @keyframes slideUp {
   0% {
     transform: translateY(100px);
     opacity: 0;
@@ -141,35 +127,12 @@ circle {
 @keyframes slideFromBottom {
   0% {
     transform: translateY(100%);
-    /* Start from the bottom */
   }
 
   100% {
     transform: translateY(0);
-    /* End at the original position */
   }
-}
-
-.service-description h2 {
-  padding-bottom: 0.5rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: black;
-}
-
-.service-description p {
-  font-size: 0.875rem;
-  line-height: 1.75rem;
-  letter-spacing: 0.05em;
-  text-align: justify;
-}
-
-@media (min-width: 768px) {
-  .service-description h6 {
-    font-size: 1.25rem;
-  }
-}
-
+} */
 
 .show-image:first-child {
   opacity: 1;
@@ -187,13 +150,3 @@ circle {
 .grecaptcha-badge {
   visibility: hidden !important;
 }
-
-/* .slick-slider,
-.slick-list,
-.slick-track {
-  max-width: 100%;
-}
-
-.slick-list {
-  overflow: hidden;
-} */

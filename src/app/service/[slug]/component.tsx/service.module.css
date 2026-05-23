@@ -1,0 +1,19 @@
+.service-description h2 {
+    padding-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: black;
+}
+
+.service-description p {
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+    letter-spacing: 0.05em;
+    text-align: justify;
+}
+
+@media (min-width: 768px) {
+    .service-description h6 {
+        font-size: 1.25rem;
+    }
+}

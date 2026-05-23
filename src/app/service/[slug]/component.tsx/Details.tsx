@@ -1,7 +1,8 @@
 "use client"
 import { fadeIn } from '@/src/shared/animation/variants';
 import { motion } from 'framer-motion';
-import React from 'react'
+import styles from "./service.module.css"
+
 
 interface propValues {
     header: string,
@@ -38,7 +39,7 @@ const Details = ({ description, featuredImagePath, header }: propValues) => {
                         {/* <p className="xl:text-6xl text-4xl font-bold pb-2.5">
                             {header}
                         </p> */}
-                        <div className="service-description" dangerouslySetInnerHTML={{ __html: description }}>
+                        <div className={`${styles["service-description"]}`} dangerouslySetInnerHTML={{ __html: description }}>
                         </div>
                         {/* <p className="text-sm leading-7 tracking-wider text-justify" dangerouslySetInnerHTML={{ __html: description }}>
             </p> */}

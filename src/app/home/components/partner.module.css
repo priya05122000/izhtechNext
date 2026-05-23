@@ -1,0 +1,15 @@
+.partner-swiper {
+    overflow: hidden;
+}
+
+.partner-swiper :global(.swiper-slide) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+
+.testimonial-swiper .swiper-wrapper {
+    transition-timing-function: ease-in-out;
+}
