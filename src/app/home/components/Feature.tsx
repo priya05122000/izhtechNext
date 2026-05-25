@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, useTime, useTransform } from "framer-motion";
 import { fadeIn } from "../../../shared/animation/variants";
 import DynamicIcon from "@/src/shared/components/Icon";
+import type { IconName } from "@/src/shared/components/Icon";
 
 interface Services {
     id: string;
@@ -11,7 +12,7 @@ interface Services {
     title?: string;
     shortNote?: string;
     description?: string;
-    icon?: string;
+    icon?: IconName;
     order?: number;
     isActive?: boolean;
     featuredImagePath?: string;
@@ -78,7 +79,7 @@ export default function Feature({ services }: FeatureProps) {
                                         className={`flex items-center justify-center w-8 h-8 mt-5 ${color.bg} rounded-full`}
                                     >
                                         <DynamicIcon
-                                            iconName={item?.icon as string}
+                                            iconName={item?.icon}
                                             className={color.text}
                                         />
 

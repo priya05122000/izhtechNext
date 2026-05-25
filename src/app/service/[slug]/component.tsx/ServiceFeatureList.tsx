@@ -2,7 +2,7 @@
 
 import { fadeIn } from "@/src/shared/animation/variants";
 import CustomObject from "@/src/shared/components/CustomObjects";
-import DynamicIcon from "@/src/shared/components/Icon";
+import DynamicIcon, { IconName } from "@/src/shared/components/Icon";
 import { motion } from "framer-motion";
 
 interface ServicesFeaturesModal {
@@ -10,7 +10,7 @@ interface ServicesFeaturesModal {
     title: string;
     description: string;
     imagePath?: string;
-    icon?: string;
+    icon?: IconName;
     isFeatured: boolean;
     order: number;
     isActive: boolean;
@@ -70,7 +70,7 @@ export default function ServiceFeatureList({
                                     <div className="w-[50px] h-[50px] bg-neutral-600 flex justify-center items-center rounded-full">
 
                                         <DynamicIcon
-                                            iconName={item?.icon as string}
+                                            iconName={item?.icon}
                                         />
 
                                     </div>

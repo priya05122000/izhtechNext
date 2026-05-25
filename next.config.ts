@@ -1,4 +1,9 @@
+import NextBundleAnalyzer from "@next/bundle-analyzer";
 import type { NextConfig } from "next";
+
+const withBundleAnalyzer = NextBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
 
 const nextConfig: NextConfig = {
 
@@ -34,21 +39,6 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/:path*",
-  //       has: [
-  //         {
-  //           type: "host",
-  //           value: "www.izhtech.com",
-  //         },
-  //       ],
-  //       destination: "https://izhtech.com/:path*",
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
 
   async redirects() {
     return [
@@ -132,4 +122,4 @@ const nextConfig: NextConfig = {
 
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

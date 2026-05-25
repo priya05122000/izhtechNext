@@ -3,11 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-import {
-    Card,
-    Progress,
-} from "flowbite-react";
+import type { IconName } from "@/src/shared/components/Icon";
 
 import { fadeIn } from "@/src/shared/animation/variants";
 import DynamicIcon from "@/src/shared/components/Icon";
@@ -17,7 +13,7 @@ interface ServicesHighlightsModal {
     name: string;
     description: string;
     imagePath?: string;
-    icon?: string;
+    icon?: IconName;
     order: number;
     isActive: boolean;
     serviceId: string;
@@ -31,7 +27,7 @@ interface ServicesFeaturesModal {
     title: string;
     description: string;
     imagePath?: string;
-    icon?: string;
+    icon?: IconName;
     isFeatured: boolean;
     order: number;
     isActive: boolean;
@@ -47,7 +43,7 @@ interface Services {
     title?: string;
     shortNote?: string;
     description?: string;
-    icon?: string;
+    icon?: IconName;
     order?: number;
     isActive?: boolean;
     featuredImagePath?: string;
@@ -387,9 +383,7 @@ const OurService = ({
                                                                         >
 
                                                                             <DynamicIcon
-                                                                                iconName={
-                                                                                    serviceFeature?.icon as string
-                                                                                }
+                                                                                iconName={serviceFeature?.icon}
                                                                                 size={28}
                                                                                 className="text-white"
                                                                             />
