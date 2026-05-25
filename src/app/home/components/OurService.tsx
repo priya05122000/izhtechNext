@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import type { IconName } from "@/src/shared/components/Icon";
-
 import { fadeIn } from "@/src/shared/animation/variants";
 import DynamicIcon from "@/src/shared/components/Icon";
 
@@ -13,7 +11,7 @@ interface ServicesHighlightsModal {
     name: string;
     description: string;
     imagePath?: string;
-    icon?: IconName;
+    icon?: string;
     order: number;
     isActive: boolean;
     serviceId: string;
@@ -27,7 +25,7 @@ interface ServicesFeaturesModal {
     title: string;
     description: string;
     imagePath?: string;
-    icon?: IconName;
+    icon?: string;
     isFeatured: boolean;
     order: number;
     isActive: boolean;
@@ -43,7 +41,7 @@ interface Services {
     title?: string;
     shortNote?: string;
     description?: string;
-    icon?: IconName;
+    icon?: string;
     order?: number;
     isActive?: boolean;
     featuredImagePath?: string;

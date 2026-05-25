@@ -2,7 +2,7 @@
 
 import { fadeIn } from "@/src/shared/animation/variants";
 import CustomObject from "@/src/shared/components/CustomObjects";
-import DynamicIcon, { IconName } from "@/src/shared/components/Icon";
+import DynamicIcon from "@/src/shared/components/Icon";
 import { motion } from "framer-motion";
 
 interface ServicesFeaturesModal {
@@ -10,7 +10,7 @@ interface ServicesFeaturesModal {
     title: string;
     description: string;
     imagePath?: string;
-    icon?: IconName;
+    icon?: string;
     isFeatured: boolean;
     order: number;
     isActive: boolean;

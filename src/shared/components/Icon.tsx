@@ -1,51 +1,13 @@
-import {
-  ArrowRight,
-  Menu,
-  X,
-  Phone,
-  Mail,
-  ChevronRight,
-  CircleUser,
-  Search,
-  Network,
-  Target,
-  BarChartHorizontalBig,
-  MoveLeft,
-  MoveRight,
-  Minus,
-  Plus,
-  ArrowUpRightSquare,
-  Facebook,
-  Youtube,
-  LucideIcon,
+"use client";
+
+import dynamic from "next/dynamic";
+import type {
   LucideProps,
 } from "lucide-react";
 
-export const iconMap = {
-  ArrowRight,
-  Menu,
-  X,
-  Phone,
-  Mail,
-  ChevronRight,
-  CircleUser,
-  Search,
-  Network,
-  Target,
-  BarChartHorizontalBig,
-  MoveLeft,
-  MoveRight,
-  Minus,
-  Plus,
-  ArrowUpRightSquare,
-  Facebook,
-  Youtube,
-};
-
-export type IconName = keyof typeof iconMap;
-
-interface DynamicIconProps extends LucideProps {
-  iconName?: IconName;
+interface DynamicIconProps
+  extends LucideProps {
+  iconName?: string;
 }
 
 export default function DynamicIcon({
@@ -54,17 +16,29 @@ export default function DynamicIcon({
   ...props
 }: DynamicIconProps) {
 
-  console.log(iconName);
-
   if (!iconName) return null;
 
-  const IconComponent =
-    iconMap[iconName] as LucideIcon;
+  const Icon = dynamic(async () => {
 
-  if (!IconComponent) return null;
+    const icons =
+      await import("lucide-react");
+
+    return (
+      icons[
+      iconName as keyof typeof icons
+      ] as React.ComponentType<LucideProps>
+    );
+
+  }, {
+    ssr: false,
+
+    loading: () => (
+      <span className="w-4 h-4" />
+    ),
+  });
 
   return (
-    <IconComponent
+    <Icon
       className={className}
       {...props}
     />

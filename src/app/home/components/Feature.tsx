@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion, useTime, useTransform } from "framer-motion";
 import { fadeIn } from "../../../shared/animation/variants";
 import DynamicIcon from "@/src/shared/components/Icon";
-import type { IconName } from "@/src/shared/components/Icon";
 
 interface Services {
     id: string;
@@ -12,7 +11,7 @@ interface Services {
     title?: string;
     shortNote?: string;
     description?: string;
-    icon?: IconName;
+    icon?: string;
     order?: number;
     isActive?: boolean;
     featuredImagePath?: string;
