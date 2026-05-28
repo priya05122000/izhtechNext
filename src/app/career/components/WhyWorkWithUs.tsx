@@ -1,6 +1,7 @@
 "use client"
 import { motion } from "framer-motion";
 import { fadeIn } from '@/src/shared/animation/variants';
+import Image from "next/image";
 
 const WhyWorkWithUs = () => {
     return (
@@ -12,8 +13,11 @@ const WhyWorkWithUs = () => {
                         variants={fadeIn("right", 0.1)}
                         initial="hidden"
                         whileInView="show"
-                        viewport={{ once: false, amount: 0.1 }}
-                        className="container"
+                        viewport={{
+                            once: true,
+                            amount: 0.15,
+                        }}
+                        className="w-full"
                     >
                         <h2 className="text-4xl sm:text-5xl font-bold">
                             Life at IZH Tech
@@ -28,7 +32,7 @@ const WhyWorkWithUs = () => {
                         <h4 className="mt-12 text-3xl sm:text-4xl font-bold">
                             Why Work With Us?
                         </h4>
-                        <ul className="mt-5 text-justify list-disc pl-5 space-y-3">
+                        <ul className="mt-5 text-left sm:text-justify list-disc pl-5 space-y-3">
                             <li>
                                 <strong>Innovative Environment:</strong> Work with modern technologies and tools.
                             </li>
@@ -58,17 +62,27 @@ const WhyWorkWithUs = () => {
                     variants={fadeIn("left", 0.1)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, amount: 0.1 }}
+                    viewport={{
+                        once: true,
+                        amount: 0.15,
+                    }}
                     className="flex flex-col justify-center"
                 >
-                    <img
+                    <Image
                         src="/images/career.webp"
                         alt="Life at IZH Tech"
-                        className="w-full h-full lg:h-170 xl:h-162.5 object-cover"
+                        // className="w-full h-full lg:h-170 xl:h-162.5 object-cover"
+                        className="
+    w-full
+    h-80
+    sm:h-100
+    lg:h-170
+    xl:h-162.5
+    object-cover
+"
                         width={1200}
                         height={900}
-                        loading="lazy"
-                        decoding="async"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                 </motion.div>
             </div>

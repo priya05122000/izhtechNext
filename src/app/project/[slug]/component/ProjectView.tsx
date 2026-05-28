@@ -1,11 +1,18 @@
 "use client";
 
-import { fadeIn } from "@/src/shared/animation/variants";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+import { fadeIn } from "@/src/shared/animation/variants";
+
 import SectionViewHeader from "@/src/shared/components/SectionViewHeader";
 import LinkButton from "@/src/shared/components/LinkButton";
-import styles from "./project.module.css"
 
+import styles from "./project.module.css";
+
+/* -------------------------------------------------------------------------- */
+/*                                   TYPES                                    */
+/* -------------------------------------------------------------------------- */
 
 interface Project {
     id: string;
@@ -19,9 +26,7 @@ interface Project {
     status: boolean;
     order?: number;
     bgColor?: string;
-    createdAt?: Date;
-    updatedAt?: Date;
-    deletedAt?: Date;
+
     technologies?: {
         technology: {
             id: string;
@@ -35,137 +40,333 @@ interface Project {
     }[];
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+/* -------------------------------------------------------------------------- */
+/*                                  CONSTANTS                                 */
+/* -------------------------------------------------------------------------- */
 
-const ProjectView = ({ projectSlug }: { projectSlug: Project }) => {
+const BASE_URL =
+    process.env.NEXT_PUBLIC_API_BASE_URL;
+
+const motionProps = (
+    direction:
+        | "left"
+        | "right"
+        | "up"
+) => ({
+    variants: fadeIn(direction, 0.1),
+    initial: "hidden",
+    whileInView: "show",
+    viewport: {
+        once: true,
+        amount: 0.15,
+    },
+});
+
+/* -------------------------------------------------------------------------- */
+/*                              HERO IMAGE SECTION                            */
+/* -------------------------------------------------------------------------- */
+
+const HeroImage = ({
+    imagePath,
+    title,
+}: {
+    imagePath: string;
+    title?: string;
+}) => {
     return (
-        <section className="flex justify-center py-5 lg:py-8 sm:py-10 px-5 sm:px-8">
-            <div className="md:container overflow-hidden">
+        <motion.div {...motionProps("left")}>
 
-                <SectionViewHeader header="Our Projects" title={projectSlug?.projectName} />
+            <div
+                className="
+                    relative
+                    w-full
+                    overflow-hidden
+                    xl:h-112.5
+                "
+            >
+                <Image
+                    src={`${BASE_URL}/uploads/${imagePath}`}
+                    alt={title || "Project Image"}
+                    width={1600}
+                    height={900}
+                    sizes="100vw"
+                    className="
+                        h-full
+                        w-full
+                        object-cover
+                    "
+                />
+            </div>
 
+        </motion.div>
+    );
+};
+
+/* -------------------------------------------------------------------------- */
+/*                              INTRO CONTENT                                 */
+/* -------------------------------------------------------------------------- */
+
+const ProjectIntro = ({
+    title,
+    shortNote,
+}: {
+    title?: string;
+    shortNote?: string;
+}) => {
+    return (
+        <motion.div
+            {...motionProps("up")}
+            className="mt-8"
+        >
+
+            <p
+                className="
+                    text-start
+                    text-sm
+                    text-[rgba(22,21,25,0.43)]
+                    md:text-[16.4px]
+                "
+            >
+                {title}
+            </p>
+
+            <div
+                className="
+                    mt-4
+                    text-xl
+                    lg:text-2xl
+                "
+                style={{ lineHeight: 1.4 }}
+                dangerouslySetInnerHTML={{
+                    __html: shortNote || "",
+                }}
+            />
+
+        </motion.div>
+    );
+};
+
+/* -------------------------------------------------------------------------- */
+/*                             DESCRIPTION BLOCK                              */
+/* -------------------------------------------------------------------------- */
+
+const DescriptionBlock = ({
+    description,
+    imagePath,
+    projectName,
+    sizes,
+    index,
+}: {
+    description?: string;
+    imagePath?: string;
+    projectName?: string;
+    sizes?: string;
+    index: number;
+}) => {
+
+    const isEven = index % 2 === 0;
+
+    return (
+        <motion.div
+            className="mb-10 lg:mb-16"
+            {...motionProps(
+                isEven ? "right" : "left"
+            )}
+        >
+
+            <div className="clearfix">
+
+                {/* IMAGE */}
+                {imagePath && (
+
+                    <Image
+                        src={`${BASE_URL}/uploads/${imagePath}`}
+                        alt={`${projectName} image ${index + 1}`}
+                        width={1200}
+                        height={800}
+                        loading="lazy"
+                        sizes={sizes}
+                        className={`
+                        mb-4
+                        min-h-75
+                        w-full
+                        object-cover
+                        md:w-1/2
+                        lg:w-[35%]
+
+                        ${isEven
+                                ? "float-left md:mr-8 lg:mr-10"
+                                : "float-right md:ml-8 lg:ml-10"
+                            }
+                    `}
+                    />
+
+                )}
+
+                {/* DESCRIPTION */}
+
+                <div
+                    className={`
+                        text-base
+                        text-gray-700
+                        lg:text-lg
+                        ${styles["project-description"]}
+                    `}
+                    dangerouslySetInnerHTML={{
+                        __html: description || "",
+                    }}
+                />
+
+                <div className="clear-both" />
+
+            </div>
+
+        </motion.div>
+    );
+};
+
+/* -------------------------------------------------------------------------- */
+/*                               MAIN COMPONENT                               */
+/* -------------------------------------------------------------------------- */
+
+const ProjectView = ({
+    projectSlug,
+}: {
+    projectSlug: Project;
+}) => {
+
+    const heroImage =
+        projectSlug?.projectImagePath ||
+        projectSlug?.featuredImagePath ||
+        "";
+
+    return (
+        <section
+            className="
+                flex
+                justify-center
+                px-5
+                py-5
+                sm:px-8
+                sm:py-10
+                lg:py-8
+            "
+        >
+
+            <div
+                className="
+                    overflow-hidden
+                    md:container
+                "
+            >
+
+                {/* HEADER */}
+
+                <SectionViewHeader
+                    header="Our Projects"
+                    title={projectSlug?.projectName}
+                />
 
                 <div className="lg:px-10">
 
+                    {/* HERO SECTION */}
+
                     <div className="py-8 sm:py-10">
 
-                        <motion.div
-                            variants={fadeIn("left", 0.1)}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: false, amount: 0.1 }}
-                        >
-                            <img
-                                src={`${BASE_URL}/uploads/${projectSlug?.projectImagePath || projectSlug?.featuredImagePath || ""}`}
-                                alt={projectSlug?.projectName || "Project Image"}
-                                className="w-full object-cover h-full xl:h-112.5"
-                                width={1600}
-                                height={900}
-                                loading="eager"
-                                decoding="async"
-                            />
-                        </motion.div>
+                        <HeroImage
+                            imagePath={heroImage}
+                            title={projectSlug?.projectName}
+                        />
 
-                        <motion.div
-                            variants={fadeIn("up", 0.1)}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: false, amount: 0.1 }}
-                            className="mt-8"
-                        >
-                            <p className="text-start text-sm md:text-[16.4px] text-[rgba(22,21,25,0.43)]">
-                                {projectSlug?.title}
-                            </p>
+                        <ProjectIntro
+                            title={projectSlug?.title}
+                            shortNote={projectSlug?.shortNote}
+                        />
 
-                            <div
-                                className="mt-4 text-xl lg:text-2xl"
-                                style={{ lineHeight: 1.4 }}
-                                dangerouslySetInnerHTML={{
-                                    __html: projectSlug?.shortNote || "",
-                                }}
-                            />
-                        </motion.div>
                     </div>
+
+                    {/* OVERVIEW */}
 
                     <div className="mt-8">
 
                         <motion.div
-                            variants={fadeIn("right", 0.1)}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: false, amount: 0.1 }}
+                            {...motionProps("right")}
                         >
-                            <h2 className="text-4xl font-bold lg:text-5xl md:text-3xl sm:text-3xl mb-10">
-                                {projectSlug?.projectName} Overview
+
+                            <h2
+                                className="
+                                    mb-10
+                                    font-bold
+                                   text-3xl sm:text-4xl lg:text-5xl
+                                "
+                            >
+                                {projectSlug?.projectName}
+                                {" "}
+                                Overview
                             </h2>
+
                             <h3 className="sr-only">
-                                Detailed overview and case study of {projectSlug?.projectName}
+                                Detailed overview and
+                                case study of
+                                {" "}
+                                {projectSlug?.projectName}
                             </h3>
+
                         </motion.div>
 
-                        {projectSlug?.descriptions?.map((desc, index) => (
-                            <motion.div
-                                key={index}
-                                className="mb-10 lg:mb-16"
-                                variants={fadeIn(
-                                    index % 2 === 0 ? "right" : "left",
-                                    0.1
-                                )}
-                                initial="hidden"
-                                whileInView="show"
-                                viewport={{ once: false, amount: 0.1 }}
-                            >
-                                <div className="clearfix">
+                        {/* DESCRIPTION LIST */}
 
-                                    <img
-                                        src={`${BASE_URL}/uploads/${desc?.imagePath || ""}`}
-                                        alt={`${projectSlug?.projectName} image ${index + 1}`}
-                                        className={`
-        w-full
-        md:w-1/2
-        lg:w-[35%]
-        mb-4
-        object-cover
-        min-h-75
-        ${index % 2 === 0
-                                                ? "float-left md:mr-8 lg:mr-10"
-                                                : "float-right md:ml-8 lg:ml-10"
-                                            }
-    `}
-                                        width={1200}
-                                        height={800}
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
+                        {projectSlug?.descriptions?.map(
+                            (desc, index) => (
+                                <DescriptionBlock
+                                    key={index}
+                                    description={desc.description}
+                                    imagePath={desc.imagePath}
+                                    projectName={projectSlug.projectName}
+                                    index={index}
+                                    sizes="
+    (max-width: 768px) 100vw,
+    (max-width: 1024px) 50vw,
+    35vw
+"
+                                />
+                            )
+                        )}
 
-                                    <div
-                                        className={`text-md lg:text-lg text-gray-700 ${styles["project-description"]}`}
-                                        dangerouslySetInnerHTML={{
-                                            __html: desc?.description || "",
-                                        }}
-                                    />
-
-                                    <div className="clear-both"></div>
-                                </div>
-                            </motion.div>
-                        ))}
                     </div>
 
+                    {/* BUTTON */}
+
                     {projectSlug?.projectUrl && (
+
                         <div className="flex justify-end">
+
                             <LinkButton
                                 href={projectSlug.projectUrl}
-                                className="text-white bg-black border h-8 py-1 px-4 w-32 mt-0"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                className="
+                                    mt-0
+                                    h-8
+                                    w-32
+                                    border
+                                    bg-black
+                                    px-4
+                                    py-1
+                                    text-white
+                                "
                             >
                                 View more
                             </LinkButton>
+
                         </div>
+
                     )}
 
                 </div>
+
             </div>
+
         </section>
     );
 };

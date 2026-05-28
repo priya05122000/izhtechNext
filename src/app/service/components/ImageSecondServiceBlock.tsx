@@ -1,10 +1,20 @@
 "use client";
 
-import { fadeIn } from "../../../shared/animation/variants";
+import { useMemo } from "react";
+
+import Image from "next/image";
+
 import { motion } from "framer-motion";
+
+import { fadeIn } from "../../../shared/animation/variants";
+
 import Accordion from "../../../shared/components/Accordion";
-import Link from "next/link";
+
 import LinkButton from "@/src/shared/components/LinkButton";
+
+/* -------------------------------------------------------------------------- */
+/*                                   TYPES                                    */
+/* -------------------------------------------------------------------------- */
 
 interface ServiceFeature {
   isFeatured?: boolean;
@@ -29,7 +39,21 @@ interface Services {
   serviceFeatures?: ServiceFeature[];
 }
 
-export default function ImageSecondServiceBlock(props: Services) {
+/* -------------------------------------------------------------------------- */
+/*                                  CONSTANTS                                 */
+/* -------------------------------------------------------------------------- */
+
+const BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL;
+
+/* -------------------------------------------------------------------------- */
+/*                               MAIN COMPONENT                               */
+/* -------------------------------------------------------------------------- */
+
+export default function ImageSecondServiceBlock(
+  props: Services
+) {
+
   const {
     slug,
     title,
@@ -38,74 +62,203 @@ export default function ImageSecondServiceBlock(props: Services) {
     serviceFeatures = [],
   } = props;
 
-  const features = serviceFeatures
-    .filter(
-      (feature) =>
-        feature?.isFeatured === true &&
-        feature?.isActive === true
-    )
-    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-    .slice(0, 3);
+  /* ---------------------------------------------------------------------- */
+  /*                              FILTER FEATURES                           */
+  /* ---------------------------------------------------------------------- */
+
+  const features = useMemo(() => {
+
+    return serviceFeatures
+      .filter(
+        (feature) =>
+          feature?.isFeatured === true &&
+          feature?.isActive === true
+      )
+      .sort(
+        (a, b) =>
+          (a.order ?? 0) -
+          (b.order ?? 0)
+      )
+      .slice(0, 3);
+
+  }, [serviceFeatures]);
+
+  /* ---------------------------------------------------------------------- */
+  /*                                IMAGE URL                               */
+  /* ---------------------------------------------------------------------- */
+
+  const imageUrl =
+    featuredImagePath
+      ? `${BASE_URL}/uploads/${featuredImagePath}`
+      : null;
 
   return (
-    <section className="sm:px-10 container-fluid">
-      <div className="flex flex-col items-center sm:flex-col md:flex-col lg:flex-row xl:flex-row lg:gap-5">
-        <motion.div
-          variants={fadeIn("left", 0.1)}
-          initial="hidden"
-          whileInView={"show"}
-          exit={"hidden"}
-          viewport={{ once: false, amount: 0.1 }}
-          className="order-2 w-full px-0 sm:px-5 py-10 mt-5 lg:order-1 lg:py-0 md:flex-1 lg:w-1/2 lg:pe-20 xl:pe-36"
-        >
-          <p className="pb-2 text-xs">OUR SERVICES</p>
+    <section
+      className="
+                container-fluid
+                sm:px-10
+            "
+    >
 
-          <h3 className="pb-2 text-3xl font-bold">
+      <div
+        className="
+                    flex
+                    flex-col
+                    items-center
+                    lg:flex-row
+                    lg:gap-5
+                "
+      >
+
+        {/* CONTENT */}
+
+        <motion.div
+          variants={fadeIn(
+            "left",
+            0.15
+          )}
+          initial="hidden"
+          whileInView="show"
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          className="
+                        order-2
+                        mt-5
+                        w-full
+                        px-0
+                        py-10
+                        sm:px-5
+                        md:flex-1
+                        lg:order-1
+                        lg:w-1/2
+                        lg:py-0
+                        lg:pe-20
+                        xl:pe-36
+                    "
+        >
+
+          <p
+            className="
+                            pb-2
+                            text-xs
+                            tracking-wider
+                        "
+          >
+            OUR SERVICES
+          </p>
+
+          <h3
+            className="
+                            pb-2
+                            text-3xl
+                            font-bold
+                            sm:text-4xl
+                        "
+          >
             {title}
           </h3>
 
           <div
             dangerouslySetInnerHTML={{
-              __html: shortNote?.toString() || "",
+              __html:
+                shortNote?.toString() ||
+                "",
             }}
           />
 
+          {/* FEATURES */}
+
           <div className="mt-5">
-            <Accordion items={features} />
+
+            <Accordion
+              items={features}
+            />
+
           </div>
 
-          {/* <LinkButton href={`/service/${slug}`} size={"sm"}>
-            Know more
-          </LinkButton> */}
+          {/* BUTTON */}
+
           <LinkButton
             href={`/service/${slug}`}
-            className="mt-4 text-white bg-indigo-950 border h-8 py-1 px-4 w-32 font-bold"
+            className="
+                            mt-4
+                            h-8
+                            w-32
+                            border
+                            bg-indigo-950
+                            px-4
+                            py-1
+                            font-bold
+                            text-white
+                        "
           >
             Know more
           </LinkButton>
+
         </motion.div>
 
+        {/* IMAGE */}
+
         <motion.div
-          variants={fadeIn("right", 0.1)}
-          initial="hidden"
-          whileInView={"show"}
-          exit={"hidden"}
-          viewport={{ once: false, amount: 0.1 }}
-          className="w-full flex items-center justify-center h-80 sm:w-3/2 lg:w-1/2 lg:h-160 order-1 lg:order-2"
-        >
-          {featuredImagePath && (
-            <img
-              className="lg:w-full lg:h-160 sm:w-1/2 flex object-cover object-center h-80"
-              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${featuredImagePath}`}
-              alt={title || "service-image"}
-              width={1200}
-              height={900}
-              loading="lazy"
-              decoding="async"
-            />
+          variants={fadeIn(
+            "right",
+            0.15
           )}
+          initial="hidden"
+          whileInView="show"
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          className="
+                        order-1
+                        flex
+                        h-full
+                        w-full
+                        items-center
+                        justify-center
+                        lg:order-2
+                        lg:w-1/2
+                    "
+        >
+
+          {imageUrl && (
+
+            <div
+              className="
+                                relative
+                                h-80
+                                w-full
+                                overflow-hidden
+                                sm:h-[500px]
+                                lg:h-[640px]
+                            "
+            >
+
+              <Image
+                src={imageUrl}
+                alt={
+                  title ||
+                  "Service image"
+                }
+                fill
+                className="object-cover"
+                sizes="
+                                    (max-width: 768px) 100vw,
+                                    (max-width: 1024px) 50vw,
+                                    50vw
+                                "
+              />
+
+            </div>
+          )}
+
         </motion.div>
+
       </div>
+
     </section>
   );
 }

@@ -1,13 +1,13 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Card } from "flowbite-react";
 
 import CustomObject from "@/src/shared/components/CustomObjects";
 import { fadeIn } from "@/src/shared/animation/variants";
 import LinkButton from "@/src/shared/components/LinkButton";
+import Image from "next/image";
+import { MoveLeft, MoveRight } from "lucide-react";
 
 interface CategoryModel {
     id: string;
@@ -96,128 +96,113 @@ export default function BlogList({ blogPosts }: BlogListProps) {
                                 </div>
 
                                 {/* Blog Cards */}
-                                {blogPosts.slice(0, 4).map((item) => {
-                                    const date = formatDate(
-                                        item?.publishedDate?.toString()
-                                    );
+                                {blogPosts
+                                    .filter((item) => item.status === "true")
+                                    .slice(0, 4)
+                                    .map((item, index) => {
+                                        const date = formatDate(
+                                            item?.publishedDate?.toString()
+                                        );
 
-                                    const cleanImagePath = item?.imagePath
-                                        ?.trim()
-                                        .replace(/\\/g, "/");
+                                        const cleanImagePath = item?.imagePath
+                                            ?.trim()
+                                            .replace(/\\/g, "/");
 
-                                    const imageUrl = `${BASE_URL}/uploads/${cleanImagePath}`;
+                                        const imageUrl = `${BASE_URL}/uploads/${cleanImagePath}`;
 
-                                    if (item.status !== "true") return null;
+                                        // if (item.status !== "true") return null;
 
-                                    return (
-                                        <div
-                                            key={item.id}
-                                            className="h-full sm:w-full md:w-[48%] lg:w-[30%] xl:w-[31%] item-center"
-                                        >
-                                            <motion.div
-                                                variants={fadeIn("left", 0.1)}
-                                                initial="hidden"
-                                                whileInView="show"
-                                                viewport={{
-                                                    once: false,
-                                                    amount: 0.1,
-                                                }}
-                                                className="relative"
+                                        return (
+                                            <div
+                                                key={item.id}
+                                                className="h-full sm:w-full md:w-[48%] lg:w-[30%] xl:w-[31%] item-center"
                                             >
-                                                <Link href={`/blog/${item.slug}`}>
-                                                    <Card className="relative mx-auto h-96 max-w-lg overflow-hidden rounded-md p-4">
+                                                <motion.div
+                                                    variants={fadeIn("up", index * 0.06)}
+                                                    initial="hidden"
+                                                    whileInView="show"
+                                                    viewport={{
+                                                        once: true,
+                                                        amount: 0.15,
+                                                    }}
+                                                    className="relative"
+                                                >
+                                                    <Link href={`/blog/${item.slug}`}>
+                                                        <div className="relative mx-auto h-80 sm:h-96 max-w-lg overflow-hidden rounded-md p-5
+sm:p-6
+lg:p-8">
 
-                                                        {/* Background Image */}
-                                                        <div
+                                                            {/* Background Image */}
+                                                            {/* <div
                                                             className="absolute inset-0 z-0 bg-cover bg-center"
                                                             style={{
                                                                 backgroundImage: `url('${imageUrl}')`,
                                                             }}
-                                                        />
+                                                        /> */}
 
-                                                        {/* Overlay */}
-                                                        <div className="absolute inset-0 z-0 bg-[#00000080]" />
+                                                            <Image
+                                                                src={imageUrl}
+                                                                alt={item.title}
+                                                                fill
+                                                                className="z-0 object-cover "
+                                                                sizes="(max-width: 768px) 100vw, 33vw"
+                                                            />
 
-                                                        {/* Content */}
-                                                        <div className="relative z-10 flex h-full flex-col justify-between">
+                                                            {/* Overlay */}
+                                                            <div className="absolute inset-0 z-0 bg-[#00000080]" />
 
-                                                            {/* Top */}
-                                                            <div className="border-gray-200 py-3 sm:py-4 dark:border-gray-700">
-                                                                <div className="mb-8 flex items-center space-x-4">
+                                                            {/* Content */}
+                                                            <div className="relative z-10 flex h-full flex-col justify-between">
 
-                                                                    <div className="flex-1">
-                                                                        <p className="text-sm text-white xl:text-md">
-                                                                            Posted by
-                                                                        </p>
+                                                                {/* Top */}
+                                                                <div className="border-gray-200 py-3 sm:py-4 dark:border-gray-700">
+                                                                    <div className="mb-8 flex items-center space-x-4">
 
-                                                                        <p className="text-xs font-bold text-white xl:text-sm">
-                                                                            {item.author?.name} | {date}
-                                                                        </p>
+                                                                        <div className="flex-1">
+                                                                            <p className="text-sm text-white xl:text-md">
+                                                                                Posted by
+                                                                            </p>
+
+                                                                            <p className="text-xs font-bold text-white xl:text-sm">
+                                                                                {item.author?.name} | {date}
+                                                                            </p>
+                                                                        </div>
+
+                                                                        <MoveLeft className="h-6 w-5 text-white xl:w-6" />
+
+                                                                        <MoveRight className="h-6 w-5 text-white xl:w-6" />
                                                                     </div>
-
-                                                                    {/* Left Arrow */}
-                                                                    <svg
-                                                                        className="h-6 w-5 text-white xl:w-6"
-                                                                        viewBox="0 0 24 24"
-                                                                        strokeWidth="2"
-                                                                        stroke="currentColor"
-                                                                        fill="none"
-                                                                        strokeLinecap="round"
-                                                                        strokeLinejoin="round"
-                                                                    >
-                                                                        <path stroke="none" d="M0 0h24v24H0z" />
-                                                                        <line x1="5" y1="12" x2="19" y2="12" />
-                                                                        <line x1="5" y1="12" x2="11" y2="18" />
-                                                                        <line x1="5" y1="12" x2="11" y2="6" />
-                                                                    </svg>
-
-                                                                    {/* Right Arrow */}
-                                                                    <svg
-                                                                        className="h-6 w-5 text-white xl:w-6"
-                                                                        viewBox="0 0 24 24"
-                                                                        strokeWidth="2"
-                                                                        stroke="currentColor"
-                                                                        fill="none"
-                                                                        strokeLinecap="round"
-                                                                        strokeLinejoin="round"
-                                                                    >
-                                                                        <path stroke="none" d="M0 0h24v24H0z" />
-                                                                        <line x1="5" y1="12" x2="19" y2="12" />
-                                                                        <line x1="13" y1="18" x2="19" y2="12" />
-                                                                        <line x1="13" y1="6" x2="19" y2="12" />
-                                                                    </svg>
                                                                 </div>
-                                                            </div>
 
-                                                            {/* Bottom */}
-                                                            <div>
-                                                                <p className="mb-1 rounded-sm bg-white px-2.5 py-1.5 text-xl font-bold text-black">
-                                                                    {item.title}
-                                                                </p>
+                                                                {/* Bottom */}
+                                                                <div>
+                                                                    <p className="mb-1 rounded-sm bg-white px-2.5 py-1.5 text-xl font-bold text-black">
+                                                                        {item.title}
+                                                                    </p>
 
-                                                                <div className="mt-2 flex flex-row flex-wrap gap-4">
-                                                                    {item?.categories?.map(
-                                                                        (
-                                                                            category,
-                                                                            index
-                                                                        ) => (
-                                                                            <button
-                                                                                key={index}
-                                                                                className="flex h-6 w-28 items-center justify-center rounded-md bg-black text-xs text-white cursor-pointer"
-                                                                            >
-                                                                                {category.name}
-                                                                            </button>
-                                                                        )
-                                                                    )}
+                                                                    <div className="mt-2 flex flex-row flex-wrap gap-4">
+                                                                        {item?.categories?.map(
+                                                                            (
+                                                                                category,
+                                                                                index
+                                                                            ) => (
+                                                                                <span
+                                                                                    key={index}
+                                                                                    className="flex h-6 w-28 items-center justify-center rounded-md bg-black text-xs text-white "
+                                                                                >
+                                                                                    {category.name}
+                                                                                </span>
+                                                                            )
+                                                                        )}
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </Card>
-                                                </Link>
-                                            </motion.div>
-                                        </div>
-                                    );
-                                })}
+                                                    </Link>
+                                                </motion.div>
+                                            </div>
+                                        );
+                                    })}
                             </div>
 
                             <div className="flex w-full flex-col-3 gap-6 md:flex-row md:py-6 lg:flex-row lg:flex-wrap lg:justify-center" />

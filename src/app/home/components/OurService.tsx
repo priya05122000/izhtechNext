@@ -1,10 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import { memo, useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
+
 import { fadeIn } from "@/src/shared/animation/variants";
 import DynamicIcon from "@/src/shared/components/Icon";
+
+/* -------------------------------------------------------------------------- */
+/*                                   TYPES                                    */
+/* -------------------------------------------------------------------------- */
 
 interface ServicesHighlightsModal {
     id: string;
@@ -56,6 +62,10 @@ interface OurServiceProps {
     services: Services[];
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                  CONSTANTS                                 */
+/* -------------------------------------------------------------------------- */
+
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const colors = [
@@ -69,8 +79,88 @@ const colors = [
     "bg-red-300",
     "bg-blue-300",
     "bg-green-300",
-    "bg-yellow-300",
 ];
+
+/* -------------------------------------------------------------------------- */
+/*                              HELPER FUNCTION                               */
+/* -------------------------------------------------------------------------- */
+
+const getFeaturedServices = (
+    features: ServicesFeaturesModal[]
+) => {
+    return features
+        ?.filter(
+            (feature) =>
+                feature.isFeatured &&
+                feature.isActive
+        )
+        .sort(
+            (a, b) =>
+                (a.order ?? 0) - (b.order ?? 0)
+        )
+        .slice(0, 3);
+};
+
+/* -------------------------------------------------------------------------- */
+/*                              FEATURE COMPONENT                             */
+/* -------------------------------------------------------------------------- */
+
+const FeatureCard = memo(({
+    feature,
+    index,
+}: {
+    feature: ServicesFeaturesModal;
+    index: number;
+}) => {
+    return (
+        <div
+            className="
+                flex
+                flex-col
+                lg:w-full
+            "
+        >
+            <span
+                className={`
+                    flex
+                    items-center
+                    justify-center
+                    w-12
+                    h-12
+                    mt-5
+                    rounded-full
+                    shrink-0
+                    ${colors[index % colors.length]}
+                `}
+            >
+                <DynamicIcon
+                    iconName={feature.icon}
+                    size={28}
+                    className="text-white"
+                />
+            </span>
+
+            <h4 className="pt-2 font-bold text-base">
+                {feature.title}
+            </h4>
+
+            <div
+                className="
+                    pt-2
+                    pb-3
+                    text-sm
+                "
+                dangerouslySetInnerHTML={{
+                    __html: feature.description || "",
+                }}
+            />
+        </div>
+    );
+});
+
+/* -------------------------------------------------------------------------- */
+/*                                MAIN COMPONENT                              */
+/* -------------------------------------------------------------------------- */
 
 const OurService = ({
     services,
@@ -78,15 +168,17 @@ const OurService = ({
 
     const [activeTab, setActiveTab] = useState(0);
 
-    const sortedServices = [...services].sort(
-        (a, b) => (a.order ?? 0) - (b.order ?? 0)
-    );
+    const sortedServices = useMemo(() => {
+        return [...services].sort(
+            (a, b) =>
+                (a.order ?? 0) - (b.order ?? 0)
+        );
+    }, [services]);
 
-    const handleTabChange = (index: number) => {
-        setActiveTab(index);
-    };
+    const activeService =
+        sortedServices?.[activeTab];
 
-    if (!services || services.length === 0) {
+    if (!services?.length) {
         return (
             <p>
                 No services available at the moment.
@@ -95,24 +187,58 @@ const OurService = ({
     }
 
     return (
-        <section className="mx-auto container-fluid xl:container lg:px-8">
-
-            <div className="lg:px-10 bg-[#F7F9FA] rounded">
-
+        <section
+            className="
+                container-fluid
+                mx-auto
+                lg:px-8
+                xl:container
+            "
+        >
+            <div
+                className="
+                    rounded
+                    bg-[#F7F9FA]
+                    lg:px-10
+                    overflow-hidden
+                "
+            >
                 <div className="relative py-10">
 
-                    {/* HEADING */}
+                    {/* ------------------------------------------------------------------ */}
+                    {/*                               HEADING                              */}
+                    {/* ------------------------------------------------------------------ */}
+
                     <div className="text-center">
 
-                        <p className="pt-4 pb-2 text-base">
+                        <p
+                            className="
+                                pt-4
+                                pb-2
+                                text-base
+                            "
+                        >
                             #OUR SERVICE
                         </p>
 
-                        <h4 className="pb-3 font-bold text-md lg:text-3xl md:text-3xl sm:text-3xl">
+                        <h4
+                            className="
+                                pb-3
+                                text-2xl
+                                font-bold
+                                sm:text-3xl
+                                md:text-3xl
+                                lg:text-3xl
+                            "
+                        >
                             What to expect?
                         </h4>
 
                     </div>
+
+                    {/* ------------------------------------------------------------------ */}
+                    {/*                             MAIN LAYOUT                             */}
+                    {/* ------------------------------------------------------------------ */}
 
                     <div className="w-full lg:pl-10">
 
@@ -120,299 +246,276 @@ const OurService = ({
                             className="
                                 flex
                                 flex-col
-                                ring-transparent
-                                align-start
-                                md:flex-col
+                                gap-4
                                 xl:flex-row
-                                gap-2
-                                md:gap-4
-                                lg:gap-2
-                                sm:justify-center
-                                md:justify-start
-                                outline-none
                             "
                         >
 
-                            {/* TAB BUTTONS */}
+                            {/* ------------------------------------------------------------------ */}
+                            {/*                              TAB BUTTONS                           */}
+                            {/* ------------------------------------------------------------------ */}
+
                             <div
-                                aria-label="Pills"
                                 role="tablist"
+                                aria-label="Services"
                                 className="
-                                    flex
                                     mt-8
-                                    align-left
-                                    xl:items-baseline
-                                    xl:justify-start
-                                    justify-center
+                                    flex
                                     flex-wrap
-                                    text-left
-                                    xl:flex-col
-                                    font-medium
+                                    justify-center
+                                    gap-2
                                     text-sm
-                                    ring-transparent
-                                    rounded-none
+                                    font-medium
                                     text-gray-500
-                                    bg-gray
-                                    border-transparent
-                                    space-x-2
-                                    outline-none
+                                    xl:flex-col
+                                    xl:justify-start
                                 "
                             >
-
-                                {sortedServices?.map(
-                                    (serviceDetail, index) => {
+                                {sortedServices.map(
+                                    (
+                                        service,
+                                        index
+                                    ) => {
 
                                         const isActive =
                                             activeTab === index;
 
                                         return (
                                             <button
-                                                key={serviceDetail.id}
+                                                key={service.id}
+                                                role="tab"
+                                                aria-selected={isActive}
                                                 type="button"
-                                                onClick={() => handleTabChange(index)}
+                                                onClick={() =>
+                                                    setActiveTab(index)
+                                                }
                                                 className={`
                                                     flex
                                                     items-center
+                                                    justify-start
+                                                    whitespace-nowrap
+                                                    border-b-2
                                                     p-4
-                                                    cursor-pointer
+                                                    text-left
                                                     text-sm
                                                     font-medium
-                                                    first:ml-0
-                                                    text-left
-                                                    rounded-none
-                                                    xl:min-w-40
-                                                    xl:w-auto
-                                                    whitespace-nowrap
-                                                    justify-start
-                                                    bg-transparent
-                                                    hover:bg-gray-50
-                                                    ring-transparent
-                                                    transition-all
+                                                    transition-[border-color,color]
                                                     duration-300
+                                                    xl:min-w-40
+                                                    xl:border-b-0
+                                                    xl:border-r-2
 
                                                     ${isActive
                                                         ? `
-                                                            text-black
                                                             border-[#FFD074]
-                                                            border-b-2
-                                                            xl:border-r-2
-                                                            xl:border-b-0
+                                                            text-black
                                                         `
                                                         : `
-                                                            text-black
                                                             border-transparent
+                                                            text-black
                                                         `
                                                     }
                                                 `}
                                             >
-                                                {serviceDetail.title}
+                                                {service.title}
                                             </button>
                                         );
                                     }
                                 )}
-
                             </div>
 
-                            {/* TAB CONTENT */}
+                            {/* ------------------------------------------------------------------ */}
+                            {/*                              TAB CONTENT                           */}
+                            {/* ------------------------------------------------------------------ */}
+
                             <div className="flex-1">
 
-                                {sortedServices?.[activeTab] && (() => {
+                                {activeService && (
 
-                                    const serviceDetail =
-                                        sortedServices[activeTab];
+                                    <div
+                                        className="
+                                            flex
+                                            flex-col
+                                            items-start
+                                            p-5
+                                            sm:flex-row
+                                        "
+                                    >
 
-                                    return (
-                                        <div key={serviceDetail.id}>
+                                        {/* ------------------------------------------------------------------ */}
+                                        {/*                                SERVICE CARD                        */}
+                                        {/* ------------------------------------------------------------------ */}
 
-                                            <div
-                                                className="
-                                                    flex
-                                                    flex-col
-                                                    items-start
-                                                    flex-1
-                                                    p-5
-                                                    sm:flex-row
-                                                "
+                                        <motion.div
+                                            key={activeService.id}
+                                            variants={fadeIn("right", 0.1)}
+                                            initial="hidden"
+                                            // animate="show"
+                                            className="will-change-transform"
+                                            whileInView="show"
+                                            viewport={{
+                                                once: true,
+                                                amount: 0.15,
+                                            }}
+                                        >
+
+                                            <Link
+                                                href={`/service/${activeService.slug}`}
                                             >
 
-                                                {/* CARD */}
-                                                <motion.div
-                                                    variants={fadeIn("right", 0.1)}
-                                                    initial="hidden"
-                                                    whileInView="show"
-                                                    viewport={{
-                                                        once: false,
-                                                        amount: 0.1,
-                                                    }}
+                                                <div
+                                                    className="
+                                                        w-full
+                                                        max-w-sm
+                                                        overflow-hidden
+                                                        rounded-xl
+                                                        border
+                                                        border-gray-200
+                                                        bg-white
+                                                        shadow-sm
+                                                    "
                                                 >
 
-                                                    <Link
-                                                        href={`/service/${serviceDetail.slug}`}
+                                                    {/* IMAGE */}
+
+                                                    <div
+                                                        className="
+                                                            relative
+                                                            h-62.5
+                                                            w-full
+                                                            overflow-hidden
+                                                            rounded-t-xl
+                                                        "
                                                     >
+                                                        <Image
+                                                            src={`${BASE_URL}/uploads/${activeService.featuredImagePath}`}
+                                                            alt={
+                                                                activeService.title ||
+                                                                "Service image"
+                                                            }
+                                                            fill
+                                                            className="object-cover"
+                                                            sizes="
+                                                                (max-width: 768px) 100vw,
+                                                                33vw
+                                                            "
+                                                            priority={false}
+                                                        />
+                                                    </div>
 
-                                                        <div
-                                                            className="
-        max-w-sm
-        overflow-hidden
-        rounded-xl
-        bg-white
-        shadow-sm
-        border
-        border-gray-200
-    "
-                                                        >
-
-                                                            {/* <img
-                                                                src={`${BASE_URL}/${serviceDetail.featuredImagePath}`}
-                                                                alt={serviceDetail.title || "Service featured image"}
-                                                                className="w-full object-cover rounded-t-xl"
-                                                            /> */}
-
-                                                            <div className="w-full h-62.5 overflow-hidden rounded-t-xl">
-                                                                <img
-                                                                    src={`${BASE_URL}/uploads/${serviceDetail.featuredImagePath}`}
-                                                                    alt={serviceDetail.title || "Service featured image"}
-                                                                    className="w-full h-full object-cover"
-                                                                    width={1200}
-                                                                    height={800}
-                                                                    loading="lazy"
-                                                                    decoding="async"
-                                                                />
-                                                            </div>
-
-                                                            <div className="flex flex-col gap-4 p-6">
-
-                                                                <div className="flex flex-col gap-2">
-
-                                                                    <div className="text-xl font-bold text-black">
-                                                                        {serviceDetail.title}
-                                                                    </div>
-
-                                                                    <div className="h-2.5 w-full rounded-full bg-gray-200">
-
-                                                                        <div
-                                                                            className="
-                        h-2.5
-                        w-[45%]
-                        rounded-full
-                        bg-linear-to-r
-                        from-indigo-500
-                        via-purple-500
-                        to-pink-500
-                    "
-                                                                        />
-
-                                                                    </div>
-
-                                                                </div>
-
-                                                                <p className="text-gray-700 text-md">
-                                                                    {serviceDetail.shortNote?.toString() || ""}
-                                                                </p>
-
-                                                            </div>
-
-                                                        </div>
-
-                                                    </Link>
-
-                                                </motion.div>
-
-                                                {/* FEATURES */}
-                                                <div className="flex-1 mt-0 sm:ml-4">
+                                                    {/* CONTENT */}
 
                                                     <div
                                                         className="
                                                             flex
                                                             flex-col
-                                                            w-full
-                                                            px-2
-                                                            lg:justify-center
+                                                            gap-4
+                                                            p-6
                                                         "
                                                     >
 
-                                                        {serviceDetail.serviceFeatures
-                                                            ?.filter(
-                                                                (serviceFeature) =>
-                                                                    serviceFeature.isFeatured &&
-                                                                    serviceFeature.isActive
-                                                            )
-                                                            .sort(
-                                                                (a, b) =>
-                                                                    (a.order ?? 0) -
-                                                                    (b.order ?? 0)
-                                                            )
-                                                            .slice(0, 3)
-                                                            .map(
-                                                                (
-                                                                    serviceFeature,
-                                                                    index
-                                                                ) => (
+                                                        <div
+                                                            className="
+                                                                flex
+                                                                flex-col
+                                                                gap-2
+                                                            "
+                                                        >
 
-                                                                    <motion.div
-                                                                        key={serviceFeature.id}
-                                                                        variants={fadeIn("right", 0.2)}
-                                                                        initial="hidden"
-                                                                        whileInView="show"
-                                                                        viewport={{
-                                                                            once: false,
-                                                                            amount: 0.1,
-                                                                        }}
-                                                                        className="
-                                                                            flex
-                                                                            flex-col
-                                                                            border-slate-600
-                                                                            md:flex-1
-                                                                            lg:w-full
-                                                                        "
-                                                                    >
+                                                            <h3
+                                                                className="
+                                                                    text-xl
+                                                                    font-bold
+                                                                    text-black
+                                                                "
+                                                            >
+                                                                {activeService.title}
+                                                            </h3>
 
-                                                                        <span
-                                                                            className={`
-                                                                                flex
-                                                                                items-center
-                                                                                justify-center
-                                                                                w-12
-                                                                                h-12
-                                                                                mt-5
-                                                                                rounded-full
-                                                                                ${colors[index % 10]}
-                                                                            `}
-                                                                        >
+                                                            <div
+                                                                className="
+                                                                    h-2.5
+                                                                    w-full
+                                                                    rounded-full
+                                                                    bg-gray-200
+                                                                "
+                                                            >
+                                                                <div
+                                                                    className="
+                                                                        h-2.5
+                                                                        w-[45%]
+                                                                        rounded-full
+                                                                        bg-linear-to-r
+                                                                        from-indigo-500
+                                                                        via-purple-500
+                                                                        to-pink-500
+                                                                    "
+                                                                />
+                                                            </div>
 
-                                                                            <DynamicIcon
-                                                                                iconName={serviceFeature?.icon}
-                                                                                size={28}
-                                                                                className="text-white"
-                                                                            />
+                                                        </div>
 
-                                                                        </span>
-
-                                                                        <h4 className="pt-2 font-bold text-md">
-                                                                            {serviceFeature.title}
-                                                                        </h4>
-
-                                                                        <div
-                                                                            className="pt-2 pb-3 text-sm"
-                                                                            dangerouslySetInnerHTML={{
-                                                                                __html:
-                                                                                    serviceFeature.description || "",
-                                                                            }}
-                                                                        />
-
-                                                                    </motion.div>
-                                                                )
-                                                            )}
+                                                        <p
+                                                            className="
+                                                                text-base
+                                                                text-gray-700
+                                                            "
+                                                        >
+                                                            {activeService.shortNote || ""}
+                                                        </p>
 
                                                     </div>
 
                                                 </div>
 
+                                            </Link>
+
+                                        </motion.div>
+
+                                        {/* ------------------------------------------------------------------ */}
+                                        {/*                                FEATURES                            */}
+                                        {/* ------------------------------------------------------------------ */}
+
+                                        <div
+                                            className="
+                                                mt-0
+                                                flex-1
+                                                sm:ml-4
+                                            "
+                                        >
+
+                                            <div
+                                                className="
+                                                    flex
+                                                    w-full
+                                                    flex-col
+                                                    px-2
+                                                    lg:justify-center
+                                                "
+                                            >
+
+                                                {getFeaturedServices(
+                                                    activeService.serviceFeatures
+                                                ).map(
+                                                    (
+                                                        feature,
+                                                        index
+                                                    ) => (
+                                                        <FeatureCard
+                                                            key={feature.id}
+                                                            feature={feature}
+                                                            index={index}
+                                                        />
+                                                    )
+                                                )}
+
                                             </div>
 
                                         </div>
-                                    );
-                                })()}
+
+                                    </div>
+
+                                )}
 
                             </div>
 

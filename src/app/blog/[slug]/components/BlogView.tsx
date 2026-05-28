@@ -2,15 +2,22 @@
 
 "use client";
 
-import React from "react";
-
 import { motion } from "framer-motion";
 import { CircleUser } from "lucide-react";
 
 import { fadeIn } from "@/src/shared/animation/variants";
-import SharedButton from "@/src/shared/components/SharedButton";
+// import SharedButton from "@/src/shared/components/SharedButton";
 import SectionViewHeader from "@/src/shared/components/SectionViewHeader";
 import styles from "./blog.module.css"
+import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const SharedButton = dynamic(
+    () => import("@/src/shared/components/SharedButton"),
+    {
+        ssr: false,
+    }
+);
 
 interface PostModel {
     id: string;
@@ -91,14 +98,14 @@ const BlogView = ({
                     <p className=" pb-4 text-base text-gray-800">
                         {blogSlug?.shortNote}
                     </p>
-                    <motion.div
-                        variants={fadeIn("right", 0.2)}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{
-                            once: true,
-                            amount: 0.2,
-                        }}
+                    <div
+                        // variants={fadeIn("up", 0.1)}
+                        // initial="hidden"
+                        // whileInView="show"
+                        // viewport={{
+                        //     once: true,
+                        //     amount: 0.2,
+                        // }}
                         className="flex flex-wrap items-center gap-4"
                     >
 
@@ -130,7 +137,7 @@ const BlogView = ({
                             imageUrl={imageUrl}
                         />
 
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -140,31 +147,31 @@ const BlogView = ({
             {imageUrl && (
 
                 <motion.div
-                    variants={fadeIn("zoom", 0.3)}
+                    variants={fadeIn("up", 0.15)}
                     initial="hidden"
                     whileInView="show"
                     viewport={{
                         once: true,
-                        amount: 0.3,
+                        amount: 0.15,
                     }}
-                    className="w-full h-125 overflow-hidden rounded-md"
+                    className="w-full min-h-75 lg:h-125 overflow-hidden rounded-md"
                 >
 
-                    <img
+                    <Image
                         src={imageUrl}
                         alt={blogSlug?.title}
                         className="w-full h-full object-cover"
                         width={1600}
                         height={900}
-                        loading="eager"
-                        decoding="async"
+                        priority
+                        sizes="100vw"
                     />
                 </motion.div>
             )}
 
             {/* Description */}
             <motion.div
-                variants={fadeIn("right", 0.2)}
+                variants={fadeIn("up", 0.1)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{
@@ -181,14 +188,14 @@ const BlogView = ({
             {/* Tags */}
             {blogSlug?.tags && (
 
-                <motion.div
-                    variants={fadeIn("up", 0.5)}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{
-                        once: true,
-                        amount: 0.1,
-                    }}
+                <div
+                    // variants={fadeIn("up", 0.5)}
+                    // initial="hidden"
+                    // whileInView="show"
+                    // viewport={{
+                    //     once: true,
+                    //     amount: 0.1,
+                    // }}
                     className="pt-4 mb-8"
                 >
 
@@ -211,7 +218,7 @@ const BlogView = ({
                                 </span>
                             ))}
                     </div>
-                </motion.div>
+                </div>
             )}
         </section>
     );

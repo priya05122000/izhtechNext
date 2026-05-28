@@ -68,7 +68,7 @@ export default function ClientLayout({
             <section
                 className={`relative mx-auto container-fluid ${!isAboutPage && !isBlogPage ? "overflow-hidden" : ""}`}
             >
-                <CustomObject
+                {/* <CustomObject
                     className={`
                         ${isAboutPage || isBlogPage ? "hidden" : ""
                         }
@@ -76,8 +76,8 @@ export default function ClientLayout({
                         -top-40
                         -right-40
                         -z-10
-                        
-                        max-w-7xl
+
+                        sm:max-w-7xl
                         sm:-top-20
                         sm:-right-20
                         sm:h-[40vh]
@@ -86,6 +86,11 @@ export default function ClientLayout({
                         lg:h-[50vh]
                         2xl:block
                     `}
+                    variants="circle-2"
+                /> */}
+
+                <CustomObject
+                    className={`${isAboutPage || isBlogPage ? "hidden" : ""} absolute -z-10 -top-16 -right-16 w-65 h-65 md:-top-40 md:-right-40 md:w-100 md:h-100`}
                     variants="circle-2"
                 />
 

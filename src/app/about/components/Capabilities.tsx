@@ -2,21 +2,26 @@
 import { fadeIn } from "@/src/shared/animation/variants";
 import CustomObject from "@/src/shared/components/CustomObjects";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Capabilities = () => {
     return (
         <section className="px-5 mx-auto relative overflow-x-hidden">
             <div className="px-0 sm:px-10 pt-10 mx-auto ">
-                <div className="flex flex-col lg:flex-row gap-10 items-center">
+                <div className="flex flex-col lg:flex-row gap-10 items-center relative">
+                    <CustomObject className="absolute -z-10 left-0" variants="green-disk" />
+
                     {/* Text Section */}
                     <motion.div
-                        variants={fadeIn("right", 0.3)}
+                        variants={fadeIn("right", 0.15)}
                         initial="hidden"
                         whileInView="show"
-                        viewport={{ once: false, amount: 0.1 }}
+                        viewport={{
+                            once: true,
+                            amount: 0.15,
+                        }}
                         className="flex flex-col justify-center w-full lg:w-1/2"
                     >
-                        <CustomObject className="absolute -z-10" variants="green-disk" />
 
                         <p className="text-base">CAPABILITIES</p>
 
@@ -26,20 +31,22 @@ const Capabilities = () => {
                     </motion.div>
                     {/* Image Section */}
                     <motion.div
-                        variants={fadeIn("left", 0.3)}
+                        variants={fadeIn("left", 0.15)}
                         initial="hidden"
                         whileInView="show"
-                        viewport={{ once: false, amount: 0.1 }}
+                        viewport={{
+                            once: true,
+                            amount: 0.15,
+                        }}
                         className="w-full lg:w-1/2"
                     >
-                        <img
+                        <Image
                             src="/images/about/capabilities.webp"
                             alt="IZH Tech capabilities"
                             className="w-full h-auto object-cover"
                             width={1200}
                             height={800}
-                            loading="lazy"
-                            decoding="async"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                     </motion.div>
                 </div>

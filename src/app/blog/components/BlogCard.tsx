@@ -1,14 +1,11 @@
 // BlogCard.tsx
 
-"use client";
-
-import React from "react";
+import Image from "next/image";
 import Link from "next/link";
-
-import { Card } from "flowbite-react";
-import { motion } from "framer-motion";
-
-import { fadeIn } from "@/src/shared/animation/variants";
+import {
+    MoveLeft,
+    MoveRight,
+} from "lucide-react";
 
 interface PostModel {
     id: string;
@@ -70,13 +67,22 @@ export default function BlogCard({
 
     // Home Card
     const HomeCard = (
-        <Card className="relative max-w-lg mx-auto h-96 overflow-hidden rounded-md p-4">
+        <div className="relative max-w-lg mx-auto h-96 overflow-hidden rounded-md p-4">
 
-            <div
+            {/* <div
                 className="absolute inset-0 bg-center bg-cover z-0"
                 style={{
                     backgroundImage: `url('${imageUrl}')`,
                 }}
+            /> */}
+
+            <Image
+                src={imageUrl}
+                alt={item.title}
+                fill
+                priority={variant === "home"}
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
             />
 
             <div className="absolute inset-0 bg-[#00000080] z-0"></div>
@@ -97,34 +103,9 @@ export default function BlogCard({
                             </p>
                         </div>
 
-                        <svg
-                            className="w-5 xl:w-6 h-6 text-white"
-                            viewBox="0 0 24 24"
-                            strokeWidth="2"
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <line x1="5" y1="12" x2="11" y2="18" />
-                            <line x1="5" y1="12" x2="11" y2="6" />
-                        </svg>
-                        <svg
-                            className="w-5 xl:w-6 h-6 text-white"
-                            viewBox="0 0 24 24"
-                            strokeWidth="2"
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <line x1="13" y1="18" x2="19" y2="12" />
-                            <line x1="13" y1="6" x2="19" y2="12" />
-                        </svg>
+                        <MoveLeft className="w-5 h-5 text-white" />
+
+                        <MoveRight className="w-5 h-5 text-white" />
                     </div>
                 </div>
 
@@ -139,18 +120,18 @@ export default function BlogCard({
                         {item?.categories?.map(
                             (category, index) => (
 
-                                <button
+                                <span
                                     key={index}
                                     className="items-center justify-center h-6 text-xs text-white cursor-pointer bg-black rounded-md w-28"
                                 >
                                     {category.name}
-                                </button>
+                                </span>
                             )
                         )}
                     </div>
                 </div>
             </div>
-        </Card>
+        </div>
     );
 
     // Blog Card
@@ -158,14 +139,13 @@ export default function BlogCard({
         <div className="relative max-w-lg mx-auto h-full overflow-hidden rounded-sm bg-black p-0!">
 
             <div className="flex flex-col h-full">
-                <img
+                <Image
                     src={imageUrl}
                     alt={item.title || "Image"}
                     className="w-full h-60 object-cover"
                     width={1200}
                     height={240}
-                    loading="lazy"
-                    decoding="async"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                 />
 
                 <div className="flex-1 flex flex-col justify-between py-3 px-4">

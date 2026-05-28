@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 
 import CustomObject from "@/src/shared/components/CustomObjects";
 import { fadeIn } from "@/src/shared/animation/variants";
+import Image from "next/image";
 
 interface JobRolesModel {
     id: string;
@@ -36,25 +36,51 @@ const FilterJobs = ({
 }: FilterJobsProps) => {
     return (
         <section className="px-5 sm:px-8">
-            <div className="relative mx-auto px-0 md:px-5 lg:px-10 md:flex">
+            <div className="relative mx-auto px-0 md:px-5 lg:px-10 md:flex ">
 
                 {/* Left Image Section */}
                 <motion.div
                     variants={fadeIn("right", 0.1)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, amount: 0.1 }}
-                    className="relative bg-transparent w-full lg:w-1/2 mb-5 sm:mb-0"
+                    viewport={{
+                        once: true,
+                        amount: 0.15,
+                    }}
+                    className="relative bg-transparent  w-full lg:w-1/2 mb-5 sm:mb-0"
                 >
+                    <CustomObject
+                        className="
+            absolute
+            top-0
+            right-0
+            hidden
+            sm:block
+            -translate-y-1/2
+            translate-x-1/2
+            w-32 h-32
+            lg:w-50 lg:h-50
+            z-0
+        "
+                        variants="green"
+                    />
                     {career?.[0]?.careerBannerImage ? (
-                        <img
+                        <Image
                             src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${career[0].careerBannerImage}`}
                             alt="Career Banner"
-                            className="object-cover w-full h-80 lg:h-120 xl:h-160"
+                            className="
+    relative
+    z-10
+    object-cover
+    w-full
+    h-80
+    lg:h-120
+"
                             width={1600}
                             height={900}
-                            loading="lazy"
-                            decoding="async"
+                            // loading="lazy"
+                            // decoding="async"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                     ) : (
                         <p>No image available</p>
@@ -62,24 +88,22 @@ const FilterJobs = ({
                 </motion.div>
 
                 {/* Background Decorative Object */}
-                <motion.span
-                    variants={fadeIn("right", 0.5)}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: false, amount: 0.1 }}
-                >
-                    <CustomObject
-                        className="absolute top-[calc(27%-10px)] left-[calc(30%-10px)] lg:top-[calc(24%-10px)] lg:left-[calc(46%-10px)] xl:top-[calc(21%-10px)] xl:left-[calc(47%-10px)] transform -translate-x-1/2 -translate-y-1/2 -z-10 -2xl h-[150vw] lg:h-screen hidden lg:block"
-                        variants="green"
-                    />
-                </motion.span>
+                {/*
+                <CustomObject
+                    className="absolute top-[calc(27%-10px)] left-[calc(30%-10px)] lg:top-[calc(24%-10px)] lg:left-[calc(46%-10px)] xl:top-[calc(21%-10px)] xl:left-[calc(47%-10px)] transform -translate-x-1/2 -translate-y-1/2 -z-10 -2xl h-[150vw] lg:h-screen hidden lg:block"
+                    variants="green"
+                /> */}
+
 
                 {/* Right Content Section */}
                 <motion.div
                     variants={fadeIn("left", 0.1)}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, amount: 0.1 }}
+                    viewport={{
+                        once: true,
+                        amount: 0.15,
+                    }}
                     className="flex flex-col justify-center gap-6 px-0 sm:px-6 md:px-10 lg:px-20 w-full lg:w-1/2"
                 >
                     <div>

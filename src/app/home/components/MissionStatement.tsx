@@ -1,12 +1,17 @@
-import React from 'react'
 import { motion } from "framer-motion";
-import { fadeIn } from '@/src/shared/animation/variants';
-import { Network, Target, BarChartHorizontalBig } from "lucide-react";
-import Link from 'next/link';
-import LinkButton from '@/src/shared/components/LinkButton';
+import { fadeIn } from "@/src/shared/animation/variants";
+
+import {
+    Network,
+    Target,
+    BarChartHorizontalBig,
+    LucideIcon,
+} from "lucide-react";
+
+import LinkButton from "@/src/shared/components/LinkButton";
 
 interface SiteInformation {
-    id: string,
+    id: string;
     companyName?: string;
     professionalExperience?: string;
     teamCount?: string;
@@ -29,111 +34,135 @@ interface MissionStatementProps {
     siteInfo: SiteInformation[];
 }
 
-const MissionStatement = ({ siteInfo }: MissionStatementProps) => {
-    return (
-        <div>
-            {siteInfo?.length > 0 && (
-                <div className="flex flex-col w-full gap-6 px-5 pt-8 md:flex-row lg:flex-row lg:flex-wrap lg:justify-center">
-                    <motion.div
-                        variants={fadeIn("up", 0.2)}
-                        initial="hidden"
-                        whileInView={"show"}
-                        exit={"hidden"}
-                        viewport={{ once: false, amount: 0.1 }}
-                        className="flex justify-around py-2 border-t md:flex-1 lg:w-1/4 border-slate-600 md:flex-col"
-                    >
-                        <div className="flex flex-col justify-center order-2 md:order-1">
-
-                            <span
-                                className="flex justify-center w-20 h-20 mt-5 bg-blue-100 rounded-full justify-item-center md:w-12 md:h-12">
-                                <Network className="w-1/2 mx-auto my-auto text-blue-400 h-1/2" />
-                            </span>
-                        </div>
-                        <div className="w-1/2 md:w-full md:order-2">
-                            <p className="pt-2 text-lg font-bold">Vision</p>
-                            <p className="pt-2 pb-3 text-base">
-                                {siteInfo[0]?.vision}
-                            </p>
-                            {/* <LinkButton
-                                href={"/about"}
-                                size={"xs"}
-                                className="w-32 px-2 text-white bg-black "
-                            >
-                                Explore More
-                            </LinkButton> */}
-                            <LinkButton href="/about">Explore More</LinkButton>
-
-
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        variants={fadeIn("up", 0.2)}
-                        initial="hidden"
-                        whileInView={"show"}
-                        exit={"hidden"}
-                        viewport={{ once: false, amount: 0.1 }}
-                        className="flex justify-around py-2 border-t md:flex-1 lg:w-1/4 border-slate-600 md:flex-col"
-                    >
-                        <div className="flex flex-col justify-center order-2 md:order-1">
-                            <span
-                                className="flex justify-center w-20 h-20 mt-5 bg-green-100 rounded-full justify-item-center md:w-12 md:h-12">
-
-                                <Target className="w-1/2 mx-auto my-auto text-green-400 h-1/2" /> </span>
-                        </div>
-                        <div className="order-1 w-1/2 md:w-full md:order-2">
-                            <p className="pt-2 text-lg font-bold">Mission</p>
-                            <p className="pt-2 pb-3 text-base">
-                                {siteInfo[0]?.mission}
-                            </p>
-                            {/* <LinkButton
-                                href={"/about"}
-                                size={"xs"}
-                                className="w-32 px-2 text-white bg-black "
-                            >
-                                Explore More
-                            </LinkButton> */}
-
-                            <LinkButton href="/about">Explore More</LinkButton>
-
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        variants={fadeIn("up", 0.2)}
-                        initial="hidden"
-                        whileInView={"show"}
-                        exit={"hidden"}
-                        viewport={{ once: false, amount: 0.1 }}
-                        className="flex justify-around py-2 border-t md:flex-1 lg:w-1/4 border-slate-600 md:flex-col"
-                    >
-                        <div className="flex flex-col justify-center order-2 md:order-1">
-                            <span
-                                className="flex justify-center w-20 h-20 mt-5 bg-orange-100 rounded-full justify-item-center md:w-12 md:h-12">
-
-                                <BarChartHorizontalBig className="w-1/2 mx-auto my-auto text-orange-400 h-1/2" /> </span>
-                        </div>
-                        <div className="order-1 w-1/2 md:w-full md:order-2">
-                            <p className="pt-2 text-lg font-bold">Values</p>
-                            <p className="pt-2 pb-3 text-base">
-                                {siteInfo[0]?.values}
-                            </p>
-                            {/* <LinkButton
-                                href={"/about"}
-                                size={"xs"}
-                                className="w-32 px-2 text-white bg-black "
-                            >
-                                Explore More
-                            </LinkButton> */}
-                           <LinkButton href="/about">Explore More</LinkButton>
-
-
-                        </div>
-                    </motion.div>
-                </div>
-            )}
-
-
-        </div>
-    )
+interface CardItem {
+    title: string;
+    description?: string;
+    icon: LucideIcon;
+    bgColor: string;
+    iconColor: string;
 }
 
-export default MissionStatement
+const MissionStatement = ({
+    siteInfo,
+}: MissionStatementProps) => {
+
+    const info = siteInfo?.[0];
+
+    const cards: CardItem[] = [
+        {
+            title: "Vision",
+            description: info?.vision,
+            icon: Network,
+            bgColor: "bg-blue-100",
+            iconColor: "text-blue-400",
+        },
+        {
+            title: "Mission",
+            description: info?.mission,
+            icon: Target,
+            bgColor: "bg-green-100",
+            iconColor: "text-green-400",
+        },
+        {
+            title: "Values",
+            description: info?.values,
+            icon: BarChartHorizontalBig,
+            bgColor: "bg-orange-100",
+            iconColor: "text-orange-400",
+        },
+    ];
+
+    if (!siteInfo?.length) return null;
+
+    return (
+        <div className="
+            flex
+            flex-col
+            w-full
+            gap-6
+            px-5
+            pt-8
+                items-stretch
+
+            md:flex-row
+            md:items-stretch
+            lg:justify-center
+        ">
+            {cards.map((card, index) => {
+
+                const Icon = card.icon;
+
+                return (
+                    <motion.div
+                        key={card.title}
+                        variants={fadeIn(
+                            "up",
+                            index * 0.08
+                        )}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{
+                            once: true,
+                            amount: 0.15,
+                        }}
+                        className="
+                             flex h-full justify-around items-stretch py-2 border-t border-slate-600 md:flex-1 flex-col  flex-1  sm:min-h-65 lg:min-h-55"
+                    >
+                        <div className="
+                            flex
+                            flex-col
+                            justify-center
+
+                        ">
+                            <span
+                                className={`
+                                    flex
+                                    justify-center
+                                    items-center
+                                    w-14
+                                    h-14
+                                    sm:w-16
+                                    sm:h-16
+                                    md:w-12
+                                    md:h-12
+                                    mt-5
+                                    rounded-full
+                                    ${card.bgColor}
+                                `}
+                            >
+                                <Icon
+                                    className={`
+                                        w-1/2
+                                        h-1/2
+                                        ${card.iconColor}
+                                    `}
+                                />
+                            </span>
+                        </div>
+
+                        <div className="flex flex-col flex-1 h-full order-1 md:order-2">
+                            <div>
+                                <p className="pt-2 text-xl font-bold">
+                                    {card.title}
+                                </p>
+
+                                <p className=" pt-2 pb-3 text-base leading-relaxed">
+                                    {card.description}
+                                </p>
+                            </div>
+
+                            <div className="mt-auto">
+                                <LinkButton href="/about">
+                                    Explore More
+                                </LinkButton>
+                            </div>
+                        </div>
+
+                    </motion.div>
+                );
+            })}
+        </div>
+    );
+};
+
+export default MissionStatement;

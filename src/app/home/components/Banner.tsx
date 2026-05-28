@@ -1,9 +1,7 @@
 "use client"
-import React from 'react'
 import { motion } from "framer-motion";
 import { fadeIn } from '@/src/shared/animation/variants';
 import CustomObject from '@/src/shared/components/CustomObjects';
-import Link from 'next/link';
 import MissionStatement from './MissionStatement';
 import LinkButton from '@/src/shared/components/LinkButton';
 import Image from 'next/image';
@@ -42,9 +40,12 @@ const Banner = ({ siteInfo }: MissionStatementProps) => {
             variants={fadeIn("right", 0.2)}
             initial="hidden"
             whileInView={"show"}
-            exit={"hidden"}
-            viewport={{ once: false, amount: 0.1 }}
-            className=" lg:w-4/6 sm:w-[75%] sm:pe-7 lg:m-0 mx-auto relative"
+            // exit={"hidden"}
+            viewport={{
+              once: true,
+              amount: 0.15,
+            }}
+            className=" lg:w-4/6 sm:w-[80%] sm:pe-7 lg:m-0 mx-auto relative "
           >
             <div className="relative flex flex-col justify-end h-full pb-5 ">
               <p className="z-10 text-base">#Grow_Your_Business</p>
@@ -69,23 +70,50 @@ const Banner = ({ siteInfo }: MissionStatementProps) => {
             variants={fadeIn("left", 0.2)}
             initial="hidden"
             whileInView={"show"}
-            exit={"hidden"}
-            viewport={{ once: false, amount: 0.1 }}
-            className="relative flex flex-col justify-end h-full pb-5 mx-auto my-auto lg:w-3/6 sm:w-full "
+            // exit={"hidden"}
+            viewport={{
+              once: true,
+              amount: 0.15,
+            }}
+            className="relative flex flex-col justify-end h-full  mx-auto my-auto lg:w-3/6 sm:w-full"
           >
             <CustomObject
-              className="absolute hidden -left-28 w-100 h-80 -z-1 -top-18 lg:-top-12.5 -2xl lg:block"
+              className="
+            absolute
+            top-0
+            left-0
+            hidden
+            lg:block
+            -translate-y-1/2
+            -translate-x-1/2
+            lg:w-50 lg:h-50
+            z-0
+        "
               variants="blue-short-line-left"
             />
 
+            {/* <CustomObject
+              className="absolute hidden -left-28 w-100 h-80 z-0 -top-18 lg:-top-12.5 -2xl lg:block"
+              variants="blue-short-line-left"
+            /> */}
+
             {/* <img className=" sm:w-[80%] lg:w-full z-10 lg:m-0 mx-auto h-auto" src="/images/bannar1/img.webp"  alt="Software development and digital marketing services" /> */}
             <Image
-              className="sm:w-[80%] lg:w-full z-10 lg:m-0 mx-auto h-auto"
+              className="
+    relative
+    z-10
+    sm:w-[80%]
+    lg:w-full
+    lg:m-0
+    mx-auto
+    h-auto
+"
               src="/images/banner.webp"
               alt="Software development and digital marketing services"
               width={800}
               height={600}
               priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
 
           </motion.div>
