@@ -33,9 +33,7 @@ const InquiryForm = ({ num1, num2, resetMath }: InquiryFormProps) => {
 
             // generate recaptcha token
             if (!executeRecaptcha) {
-                console.log(
-                    "Recaptcha not ready"
-                );
+                console.error("Recaptcha not ready");
                 return;
             }
 

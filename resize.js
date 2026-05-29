@@ -16,16 +16,17 @@
 
 const sharp = require("sharp");
 
-sharp("public/logo/frame.png")
+sharp("public/images/objects/circle-2.webp")
     .resize({
-        width: 250,
-        fit: "contain" // better for logos
+        width: 325,
+        height: 325,
+        fit: "cover"
     })
     .webp({
         quality: 90,
         effort: 6
     })
-    .toFile("public/logo/footerlogo.webp")
+    .toFile("public/images/objects/circle-3.webp")
     .then(() => console.log("✅ Done"))
     .catch(console.error);
 

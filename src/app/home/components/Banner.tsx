@@ -108,7 +108,7 @@ const Banner = ({ siteInfo }: MissionStatementProps) => {
     mx-auto
     h-auto
 "
-              src="/images/banner.webp"
+              src="/images/business-1.webp"
               alt="Software development and digital marketing services"
               width={800}
               height={600}

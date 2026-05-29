@@ -142,7 +142,7 @@ export default function ServiceFeatureList({
                                         item.description || ""
                                     );
 
-                                console.log(item.icon);
+                                // console.log(item.icon);
 
                                 return (
                                     <motion.li

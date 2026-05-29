@@ -48,7 +48,7 @@ export default function Feature({ services }: FeatureProps) {
         { clamp: false }
     );
 
-
+    
     return (
         <section className="grid w-full bg-[#F3FEFD]">
             <div className="container px-8 flex flex-col flex-wrap w-full py-0 pb-6 mx-auto md:flex-row lg:py-24 lg:flex-row lg:flex-wrap lg:justify-center">
@@ -63,20 +63,20 @@ export default function Feature({ services }: FeatureProps) {
                         // console.log(item.icon)
 
                         return (
-                            <div
+                            <motion.div
                                 key={item.id}
-                                // variants={fadeIn("up", 0.2)}
-                                // initial="hidden"
-                                // whileInView="show"
-                                // viewport={{ once: false, amount: 0.1 }}
-                                className="w-full py-2 lg:w-1/4 md:w-1/2 feature-fade-up"
+                                variants={fadeIn("up", 0.2)}
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={{ once: false, amount: 0.1 }}
+                                className="w-full py-2 lg:w-1/4 md:w-1/2"
                             >
                                 <Link
                                     href={`/service/${item.slug}`}
                                     className="flex flex-col items-center"
                                 >
-                                    <span
-                                        // style={{ rotate }}
+                                    <motion.span
+                                        style={{ rotate }}
                                         className={`flex items-center justify-center w-8 h-8 mt-5 ${color.bg} rounded-full`}
                                     >
                                         <DynamicIcon
@@ -84,7 +84,7 @@ export default function Feature({ services }: FeatureProps) {
                                             className={color.text}
                                         />
 
-                                    </span>
+                                    </motion.span>
 
                                     <p className="pt-2 font-bold text-md lg:text-lg xl:text-xl">
                                         {item.title}
@@ -94,7 +94,7 @@ export default function Feature({ services }: FeatureProps) {
                                         {item.shortNote}
                                     </p>
                                 </Link>
-                            </div>
+                            </motion.div>
                         );
                     })}
             </div>

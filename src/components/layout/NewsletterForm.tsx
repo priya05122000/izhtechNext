@@ -18,7 +18,7 @@ export default function NewsletterForm() {
     async function saveContact(payload: any) {
         try {
             if (!executeRecaptcha) {
-                console.log("Recaptcha not ready");
+                console.error("Recaptcha not ready");
                 return;
             }
 
@@ -26,10 +26,10 @@ export default function NewsletterForm() {
 
             const token = await executeRecaptcha("newsletter_form");
 
-            console.log(
-                "RECAPTCHA TOKEN:",
-                token
-            );
+            // console.log(
+            //     "RECAPTCHA TOKEN:",
+            //     token
+            // );
             payload.token = token;
 
             const response = await createContact(payload);

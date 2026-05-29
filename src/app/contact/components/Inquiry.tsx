@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 import { motion } from "framer-motion"
 import CustomObject from '@/src/shared/components/CustomObjects'
 import { fadeIn } from '@/src/shared/animation/variants'
-import { useForm } from 'react-hook-form'
-import { createContact } from "@/src/services/contactService";
 import InquiryForm from './InquiryForm'
 import LazyCaptcha from '@/src/shared/components/LazyCaptcha'
 

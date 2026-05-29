@@ -1,13 +1,9 @@
-"use client";
 
 import LinkButton from "@/src/shared/components/LinkButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import styles from "./testimonial.module.css"
-
-
-import React, { useRef, useState } from "react";
-
+import { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 

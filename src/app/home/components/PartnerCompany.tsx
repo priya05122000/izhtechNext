@@ -63,7 +63,8 @@ export default function PartnerCompany({
                                         width={120}
                                         height={80}
                                         loading="lazy"
-                                        quality={70}
+                                        quality={60}
+                                        sizes="120px"
                                         className="object-contain  h-14 w-auto grayscale hover:grayscale-0 transition-all"
                                     />
                                 )}

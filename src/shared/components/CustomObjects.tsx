@@ -40,7 +40,7 @@ function CustomObject({
       "/images/objects/purple-line-left.webp",
 
     "circle-2":
-      "/images/objects/circle-2.webp",
+      "/images/objects/circle-3.webp",
 
     "half-dash-yellow":
       "/images/objects/half-dash-yellow.gif",
@@ -173,7 +173,8 @@ function CustomObject({
     <img
       className={className}
       src={imageSrc}
-      alt={`Custom object variant: ${variants}`}
+      alt=""
+      aria-hidden="true"
       loading="lazy"
       decoding="async"
       {...(size && {

@@ -12,7 +12,7 @@ import Counts from './components/Counts'
 import { getAllProjects } from '@/src/services/projectService'
 import { getAllSiteInfo } from '@/src/services/siteInfoService'
 import { getAllTestimonials } from '@/src/services/testimonialService'
-import Testimonials from './components/Testimonials'
+import TestimonialsClient from "./components/TestimonialsClient";
 import MeetTheTeam from './components/MeetTheTeam'
 import SectionHeader from '@/src/shared/components/SectionHeader'
 
@@ -121,7 +121,7 @@ const AboutPage = async () => {
 
             <OurClients clients={clients} />
 
-            <Testimonials testimonials={testimonials} />
+            <TestimonialsClient testimonials={testimonials} />
 
             <ProjectsSection projects={projects} />
 

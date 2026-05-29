@@ -1,7 +1,5 @@
 // Footer.tsx
 
-"use client";
-import Link from "next/link";
 import NewsletterForm from "./NewsletterForm";
 import LazyCaptcha from "@/src/shared/components/LazyCaptcha";
 import LinkButton from "@/src/shared/components/LinkButton";

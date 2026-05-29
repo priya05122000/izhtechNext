@@ -9,6 +9,7 @@ import { DM_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { getAllSiteInfo } from "../services/siteInfoService";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -17,11 +18,15 @@ const dmSans = DM_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
+  const siteInfo =
+    await getAllSiteInfo();
+
   return (
     <html lang="en">
       <body
@@ -31,7 +36,7 @@ export default function RootLayout({
           antialiased
         `}
       >
-        <ClientLayout>
+        <ClientLayout siteInfo={siteInfo || []}>
           {children}
         </ClientLayout>
 
@@ -59,7 +64,7 @@ export default function RootLayout({
           `}
         </Script> */}
 
-        <GoogleAnalytics gaId="G-SYDD14SZLN" />
+        {/* <GoogleAnalytics gaId="G-SYDD14SZLN" /> */}
       </body>
     </html>
   );

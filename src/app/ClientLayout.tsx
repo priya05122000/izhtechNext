@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-
+import React from "react";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 
@@ -11,7 +10,6 @@ import PageScroll from "../shared/components/PageScroll";
 import Collaboration from "../shared/components/Collaboration";
 import SocialMediaTag from "../shared/components/SocialMediaTag";
 
-import { getAllSiteInfo } from "../services/siteInfoService";
 
 interface SiteInformation {
     id: string;
@@ -33,33 +31,37 @@ interface SiteInformation {
     address?: string;
 }
 
+interface ClientLayoutProps {
+    children: React.ReactNode;
+    siteInfo: SiteInformation[];
+}
+
 export default function ClientLayout({
     children,
-}: {
-    children: React.ReactNode;
-}) {
+    siteInfo,
+}: ClientLayoutProps) {
 
     const currentPath = usePathname();
 
     const isAboutPage = currentPath === "/about";
     const isBlogPage = currentPath === "/blog";
 
-    const [siteInfo, setSiteInfo] = useState<SiteInformation[]>([]);
+    // const [siteInfo, setSiteInfo] = useState<SiteInformation[]>([]);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        async function fetchSiteInfo() {
-            try {
-                const data = await getAllSiteInfo();
-                setSiteInfo(data || []);
-            } catch (error) {
-                console.error("Failed to fetch site info:", error);
-            }
-        }
+    //     async function fetchSiteInfo() {
+    //         try {
+    //             const data = await getAllSiteInfo();
+    //             setSiteInfo(data || []);
+    //         } catch (error) {
+    //             console.error("Failed to fetch site info:", error);
+    //         }
+    //     }
 
-        fetchSiteInfo();
+    //     fetchSiteInfo();
 
-    }, []);
+    // }, []);
 
     return (
         <>
@@ -90,7 +92,7 @@ export default function ClientLayout({
                 /> */}
 
                 <CustomObject
-                    className={`${isAboutPage || isBlogPage ? "hidden" : ""} absolute -z-10 -top-16 -right-16 w-65 h-65 md:-top-40 md:-right-40 md:w-100 md:h-100`}
+                    className={`${isAboutPage || isBlogPage ? "hidden" : "hidden md:block"} absolute -z-10 -top-16 -right-16 w-65 h-65 md:-top-40 md:-right-40 md:w-100 md:h-100`}
                     variants="circle-2"
                 />
 
