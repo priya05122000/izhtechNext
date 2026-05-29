@@ -112,6 +112,8 @@ const FeatureCard = memo(({
     feature: ServicesFeaturesModal;
     index: number;
 }) => {
+
+    // console.log(feature.icon);
     return (
         <div
             className="
@@ -304,6 +306,7 @@ const OurService = ({
                                                     xl:min-w-40
                                                     xl:border-b-0
                                                     xl:border-r-2
+                                                    cursor-pointer
 
                                                     ${isActive
                                                         ? `

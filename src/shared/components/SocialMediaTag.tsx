@@ -1,7 +1,7 @@
 export default function SocialMediaTag() {
 
   return (
-    <div className="fixed -right-10 flex-col items-end justify-center hidden text-gray-600 transform rotate-90 -translate-y-1/2 lg:flex top-1/2">
+    <div className="fixed -right-10 flex-col items-end justify-center hidden text-gray-600 transform rotate-90 -translate-y-1/2 sm:flex top-1/2">
       <div className="h-[1vw] flex justify-start">
         <p className="my-auto font-semibold">
           Follow Us -

@@ -48,6 +48,7 @@ export default function Feature({ services }: FeatureProps) {
         { clamp: false }
     );
 
+
     return (
         <section className="grid w-full bg-[#F3FEFD]">
             <div className="container px-8 flex flex-col flex-wrap w-full py-0 pb-6 mx-auto md:flex-row lg:py-24 lg:flex-row lg:flex-wrap lg:justify-center">
@@ -59,6 +60,7 @@ export default function Feature({ services }: FeatureProps) {
                     .map((item, index) => {
 
                         const color = colorMap[index % colorMap.length];
+                        console.log(item.icon)
 
                         return (
                             <motion.div

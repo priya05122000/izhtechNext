@@ -142,6 +142,8 @@ export default function ServiceFeatureList({
                                         item.description || ""
                                     );
 
+                                console.log(item.icon);
+
                                 return (
                                     <motion.li
                                         key={item.id}
@@ -169,6 +171,7 @@ export default function ServiceFeatureList({
                                             <DynamicIcon
                                                 iconName={item.icon}
                                             />
+
 
                                         </div>
 
