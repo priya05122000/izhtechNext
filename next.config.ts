@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 640, 768, 1024, 1280, 1440, 1600],
     imageSizes: [64, 96, 128, 256, 384],
-    qualities: [70, 75, 80, 90],
+    qualities: [60, 70, 75, 80, 90],
 
     remotePatterns: [
       {

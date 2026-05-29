@@ -16,17 +16,17 @@
 
 const sharp = require("sharp");
 
-sharp("public/images/objects/circle-2.webp")
-    .resize({
-        width: 325,
-        height: 325,
-        fit: "cover"
-    })
+sharp("public/images/platforminsights-1.webp")
+    // .resize({
+    //     width: 80,
+    //     height: 70,
+    //     fit: "cover"
+    // })
     .webp({
-        quality: 90,
+        quality: 70,
         effort: 6
     })
-    .toFile("public/images/objects/circle-3.webp")
+    .toFile("public/images/platforminsights.webp")
     .then(() => console.log("✅ Done"))
     .catch(console.error);
 

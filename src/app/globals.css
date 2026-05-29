@@ -26,42 +26,25 @@ body {
   --tw-ring-opacity: 0 !important;
 }
 
-/* @keyframes pathAnimation {
-  0% {
-    opacity: 0.05;
-  }
 
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 0.05;
-  }
-}
-
-.animated-path {
-  animation: pathAnimation 2s ease-in-out infinite;
-} */
-
-.progress {
+/* .progress {
   position: sticky;
   top: 0;
   width: 80px;
   height: 80px;
   margin: 0;
   padding: 0;
-}
+} */
 
-.progress svg {
+/* .progress svg {
   transform: translateX(-100px) rotate(-90deg);
-}
+} */
 
-circle {
+/* circle {
   stroke-dashoffset: 0;
   stroke-width: 5%;
   fill: none;
-}
+} */
 
 .progress-bar {
   position: fixed;
@@ -69,7 +52,7 @@ circle {
   left: 0;
   right: 0;
   height: 10px;
-  background: var(--red);
+  background-color: blue;
   transform-origin: 0%;
 }
 
@@ -84,10 +67,10 @@ circle {
   background-color: #ccc;
 }
 
-.progress-bar {
+/* .progress-bar {
   height: 100%;
   background-color: blue;
-}
+} */
 
 
 .services-description * {
@@ -99,42 +82,14 @@ circle {
   top: 0 !important;
 }
 
-/* Hide scrollbar for Chrome, Safari, and Opera */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge, and Firefox */
 .scrollbar-hide {
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
 }
-
-
-
-/* @keyframes slideUp {
-  0% {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideFromBottom {
-  0% {
-    transform: translateY(100%);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-} */
 
 .show-image:first-child {
   opacity: 1;
@@ -185,3 +140,8 @@ circle {
 .hero-fade-left {
   animation: heroFadeLeft 0.8s ease-out forwards;
 }
+
+.testimonial-swiper .swiper-wrapper {
+  transition-timing-function: ease-in-out;
+}
+

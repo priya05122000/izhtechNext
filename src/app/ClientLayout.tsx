@@ -102,7 +102,9 @@ export default function ClientLayout({
                 {/* <section
                     className={`relative mx-auto container-fluid ${!isAboutPage && !isBlogPage ? "overflow-hidden" : ""}`}
                 > */}
-                {children}
+                <main id="main-content">
+                    {children}
+                </main>
                 {/* </section> */}
 
                 <section

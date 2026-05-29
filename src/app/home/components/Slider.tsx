@@ -6,7 +6,6 @@ import { MoveLeft, MoveRight } from "lucide-react";
 import CustomObject from "@/src/shared/components/CustomObjects";
 import Image from "next/image";
 import { useRef } from "react";
-import styles from "./partner.module.css"
 
 
 import "swiper/css";
@@ -63,20 +62,22 @@ const Slider = ({ testimonials }: TestimonialProps) => {
                                 {/* Prev Button */}
                                 <button
                                     ref={prevRef}
+                                    aria-label="Previous testimonial"
                                     className="absolute top-10 lg:top-1/2 left-4 md:left-36 z-10 translate-y-1/2 cursor-pointer"
                                 >
                                     <div className="flex h-10 w-10 items-center justify-center rounded-full">
-                                        <MoveLeft className="h-5 w-5 text-black" />
+                                        <MoveLeft aria-hidden="true" className="h-5 w-5 text-black" />
                                     </div>
                                 </button>
 
                                 {/* Next Button */}
                                 <button
                                     ref={nextRef}
+                                    aria-label="Next testimonial"
                                     className="absolute top-10 lg:top-1/2 right-4 md:right-36 z-10 translate-y-1/2 cursor-pointer"
                                 >
                                     <div className="flex h-10 w-10 items-center justify-center rounded-full">
-                                        <MoveRight className="h-5 w-5 text-black" />
+                                        <MoveRight aria-hidden="true" className="h-5 w-5 text-black" />
                                     </div>
                                 </button>
 
@@ -100,7 +101,7 @@ const Slider = ({ testimonials }: TestimonialProps) => {
                                         swiper.params.navigation.nextEl =
                                             nextRef.current;
                                     }}
-                                    className={styles["testimonial-swiper"]}
+                                    className="testimonial-swiper"
                                 >
 
                                     {activeTestimonials.map(
@@ -112,7 +113,7 @@ const Slider = ({ testimonials }: TestimonialProps) => {
                                                     <div className="text-center">
 
                                                         <div
-                                                            className="px-4 text-sm sm:text-base md:text-lg leading-relaxed"
+                                                            className="px-4 text-sm sm:text-base md:text-lg leading-relaxed text-gray-800"
                                                             dangerouslySetInnerHTML={{
                                                                 __html:
                                                                     testimonial?.testimonials,
@@ -131,10 +132,10 @@ const Slider = ({ testimonials }: TestimonialProps) => {
                                                                 className="w-12 h-12 mb-2 object-contain"
                                                             />
 
-                                                            <p className="pt-2 text-xs text-gray-500">
+                                                            <p className="pt-2 text-xs text-gray-700">
                                                                 {testimonial?.designation}
                                                                 &nbsp;
-                                                                <b>
+                                                                <b className="text-black">
                                                                     {testimonial?.companyName}
                                                                 </b>
                                                             </p>

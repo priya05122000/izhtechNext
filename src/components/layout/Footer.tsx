@@ -3,6 +3,7 @@
 import NewsletterForm from "./NewsletterForm";
 import LazyCaptcha from "@/src/shared/components/LazyCaptcha";
 import LinkButton from "@/src/shared/components/LinkButton";
+import Link from "next/link";
 
 interface SiteInformation {
     id: string;
@@ -156,15 +157,26 @@ export default function Footer({
                 <div className="flex flex-col sm:flex-row justify-between sm:items-center  pt-5 lg:pt-10 mt-5 lg:mt-10">
                     <div data-testid="flowbite-footer-copyright" className=" sm:text-center text-sm text-white text-start">© <a href="/" className="ml-1 hover:underline">izhtech 2024. All rights reserved</a>
                     </div>
-                    <div className="flex flex-wrap justify-between sm:justify-center gap-2 mt-4 sm:mt-0 text-xs text-white list-none">
+
+                    <ul className="flex flex-wrap justify-between sm:justify-center gap-2 mt-4 sm:mt-0 text-xs text-white list-none">
                         <li className="me-4 last:mr-0 md:mr-6">
-                            <a href="/about" className="hover:underline">About Us</a>
+                            <Link href="/about" className="hover:underline">
+                                About Us
+                            </Link>
                         </li>
-                        <li className="me-4 last:mr-0 md:mr-6"><a href="/service" className="hover:underline">Our Service</a>
+
+                        <li className="me-4 last:mr-0 md:mr-6">
+                            <Link href="/service" className="hover:underline">
+                                Our Service
+                            </Link>
                         </li>
-                        <li className="me-4 last:mr-0 md:mr-6"><a href="/contact" className="hover:underline">Contact Us</a>
+
+                        <li className="me-4 last:mr-0 md:mr-6">
+                            <Link href="/contact" className="hover:underline">
+                                Contact Us
+                            </Link>
                         </li>
-                    </div>
+                    </ul>
                 </div>
 
             </div>

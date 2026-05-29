@@ -2,7 +2,6 @@
 import LinkButton from "@/src/shared/components/LinkButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import styles from "./testimonial.module.css"
 import { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -125,7 +124,7 @@ const Testimonials = ({
                                     onSlideChange={(swiper) => {
                                         setCurrentIndex(swiper.realIndex);
                                     }}
-                                    className={styles["testimonial-swiper"]}
+                                    className="testimonial-swiper"
                                 >
 
                                     {activeTestimonials.map(

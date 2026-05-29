@@ -46,7 +46,7 @@ export default function Hero() {
                         // viewport={{ once: true, amount: 0.15 }}
                         className="hero-fade-left relative mx-auto hidden h-full flex-col justify-end  px-5 md:flex lg:w-3/6 sm:w-full"
                     >
-                        <Image
+                        {/* <Image
                             src="/images/hero.webp"
                             alt="Hero Image"
                             width={500}
@@ -54,6 +54,16 @@ export default function Hero() {
                             priority
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 50vw"
                             // className="mx-auto h-auto sm:w-[50%] md:w-[80%] lg:mx-0 lg:w-[75%]"
+                            className="mx-auto h-auto w-full max-w-sm lg:max-w-md lg:mx-0"
+                        /> */}
+
+                        <Image
+                            src="/images/hero.webp"
+                            alt="Hero Image"
+                            width={734}
+                            height={441}
+                            priority
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 50vw"
                             className="mx-auto h-auto w-full max-w-sm lg:max-w-md lg:mx-0"
                         />
                     </div>
