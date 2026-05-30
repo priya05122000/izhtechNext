@@ -46,7 +46,7 @@ function CustomObject({
       "/images/objects/half-dash-yellow.gif",
 
     "full":
-      "/images/objects/ezgif.com-animated-gif-maker.gif",
+      "/images/objects/hero-background.webp",
     // "full":
     //   "/images/objects/izhtech_animation.gif",
 

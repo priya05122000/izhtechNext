@@ -10,6 +10,7 @@ import { Toaster } from "sonner";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { getAllSiteInfo } from "../services/siteInfoService";
+import LCPDiagnostics from "../shared/components/LCPDiagnostics";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -36,6 +37,9 @@ export default async function RootLayout({
           antialiased
         `}
       >
+
+        <LCPDiagnostics />
+
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only"

@@ -16,17 +16,17 @@
 
 const sharp = require("sharp");
 
-sharp("public/images/platforminsights-1.webp")
+sharp("public/images/objects/ezgif.com-animated-gif-maker.gif")
     // .resize({
     //     width: 80,
     //     height: 70,
     //     fit: "cover"
     // })
     .webp({
-        quality: 70,
+        quality: 100,
         effort: 6
     })
-    .toFile("public/images/platforminsights.webp")
+    .toFile("public/images/objects/hero-background.webp")
     .then(() => console.log("✅ Done"))
     .catch(console.error);
 

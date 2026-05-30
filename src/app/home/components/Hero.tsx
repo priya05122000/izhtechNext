@@ -81,12 +81,32 @@ export default function Hero() {
                 viewport={{ once: true, amount: 0.15 }}
             > */}
 
-            <CustomObject
-                // className="absolute -top-12.5 md:-top-12.5 lg:-top-12.5 xl:-top-13.75 opacity-50 sm:opacity-100 -left-5 sm:left-0 -z-10 h-screen sm:h-[95vh] block"
+            {/* <CustomObject
+
                 className="absolute top-0 left-0 -z-10 hidden md:block h-[90vh] opacity-70 lg:opacity-100 pointer-events-none"
                 variants="full"
+            /> */}
+
+            <div
+                className="
+    absolute
+    top-0
+    left-0
+    -z-10
+    hidden
+    md:block
+    h-[90vh]
+    w-full
+    bg-no-repeat
+    bg-contain
+    opacity-70
+    lg:opacity-100
+    pointer-events-none
+  "
+                style={{
+                    backgroundImage: "url('/images/objects/hero-background.webp')",
+                }}
             />
-            {/* </motion.span> */}
 
         </section>
     );
