@@ -20,7 +20,7 @@ export default function Hero() {
                             // viewport={{ once: true, amount: 0.15 }}
                             className="flex flex-col xl:pl-36 lg:pl-16 hero-fade-right"
                         >
-                            <p className="text-[#0C1C28]  order-2 lg:order-1 text-justify pt-5 text-base md:text-xs lg:text-sm">
+                            <p className="text-[#0C1C28]  order-2 lg:order-1 text-justify pt-5 text-base md:text-xs lg:text-sm " suppressHydrationWarning>
                                 Izh Tech is your trusted website development company and digital
                                 marketing agency, offering tailored solutions to boost your
                                 brand’s online presence. Don’t navigate the digital world alone!
@@ -63,8 +63,11 @@ export default function Hero() {
                             width={734}
                             height={441}
                             priority
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 50vw"
+                            fetchPriority="high"
+                            // sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 50vw"
                             className="mx-auto h-auto w-full max-w-sm lg:max-w-md lg:mx-0"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+
                         />
                     </div>
                 </div>

@@ -75,16 +75,16 @@ export default function Feature({ services }: FeatureProps) {
                                     href={`/service/${item.slug}`}
                                     className="flex flex-col items-center"
                                 >
-                                    <motion.span
-                                        style={{ rotate }}
-                                        className={`flex items-center justify-center w-8 h-8 mt-5 ${color.bg} rounded-full`}
+                                    <span
+                                        // style={{ rotate }}
+                                        className={`flex items-center justify-center w-8 h-8 mt-5 ${color.bg} rounded-full rotate-icon`}
                                     >
                                         <DynamicIcon
                                             iconName={item?.icon}
                                             className={color.text}
                                         />
 
-                                    </motion.span>
+                                    </span>
 
                                     <p className="pt-2 font-bold text-md lg:text-lg xl:text-xl">
                                         {item.title}

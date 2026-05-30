@@ -1,5 +1,4 @@
 import LinkButton from "@/src/shared/components/LinkButton";
-import Link from "next/link";
 
 export default function NewsLetter() {
   return (

@@ -53,6 +53,7 @@ export default function Navbar() {
                     {/* Mobile Toggle */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle menu"
                         className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 cursor-pointer hover:bg-gray-100 md:hidden"
                     >
                         <Menu className="h-6 w-6" />

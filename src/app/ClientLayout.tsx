@@ -92,7 +92,7 @@ export default function ClientLayout({
                 /> */}
 
                 <CustomObject
-                    className={`${isAboutPage || isBlogPage ? "hidden" : "hidden md:block"} absolute -z-10 -top-16 -right-16 w-65 h-65 md:-top-40 md:-right-40 md:w-100 md:h-100`}
+                    className={`${isAboutPage || isBlogPage ? "hidden" : "block"} absolute -z-10 -top-16 -right-16 w-65 h-65 md:-top-40 md:-right-40 md:w-100 md:h-100`}
                     variants="circle-2"
                 />
 
