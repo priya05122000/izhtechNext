@@ -112,7 +112,7 @@ const Banner = ({ siteInfo }: MissionStatementProps) => {
               alt="Software development and digital marketing services"
               width={800}
               height={600}
-              priority
+              preload
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
 

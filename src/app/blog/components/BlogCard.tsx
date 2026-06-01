@@ -79,7 +79,7 @@ export default function BlogCard({
                 src={imageUrl}
                 alt={item.title}
                 fill
-                priority={variant === "home"}
+                preload={variant === "home"}
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
             />
@@ -142,13 +142,13 @@ export default function BlogCard({
                     src={imageUrl}
                     alt={item.title || "Image"}
                     className="w-full h-60 object-cover"
-                    width={1200}
-                    height={240}
+                    width={1600}
+                    height={900}
                     sizes="
-(max-width: 768px) 100vw,
-(max-width: 1024px) 50vw,
-464px
-                "/>
+      (max-width: 768px) 100vw,
+      (max-width: 1024px) 50vw,
+      464px
+    "/>
 
                 <div className="flex-1 flex flex-col justify-between py-3 px-4">
 

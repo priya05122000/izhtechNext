@@ -3,6 +3,7 @@
 import NewsletterForm from "./NewsletterForm";
 import LazyCaptcha from "@/src/shared/components/LazyCaptcha";
 import LinkButton from "@/src/shared/components/LinkButton";
+import Image from "next/image";
 import Link from "next/link";
 
 interface SiteInformation {
@@ -43,7 +44,7 @@ export default function Footer({
                     {/* Logo & Socials */}
                     <div>
 
-                        <img
+                        {/* <img
                             src="/Logo-white.png"
                             alt="IZH Tech Logo"
                             className="h-16 w-auto mb-4"
@@ -51,6 +52,14 @@ export default function Footer({
                             height={64}
                             decoding="async"
                             loading="lazy"
+                        /> */}
+
+                        <Image
+                            src="/Logo-white.png"
+                            alt="IZH Tech Logo"
+                            width={200}
+                            height={64}
+                            className="h-16 w-auto mb-4"
                         />
 
                         <h6 className="text-sm font-semibold">

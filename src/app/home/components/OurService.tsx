@@ -402,7 +402,7 @@ const OurService = ({
                                                                 (max-width: 768px) 100vw,
                                                                 33vw
                                                             "
-                                                            priority={false}
+                                                            preload={false}
                                                         />
                                                     </div>
 

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import LinkButton from "@/src/shared/components/LinkButton";
+import Image from "next/image";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ export default function Navbar() {
 
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
-                    <img
+                    {/* <img
                         src="/logo-primary.png"
                         className="w-16 h-auto"
                         alt="IZH Tech | Your Digital Partner"
@@ -34,6 +35,13 @@ export default function Navbar() {
                         height={64}
                         decoding="async"
                         loading="eager"
+                    /> */}
+                    <Image
+                        src="/logo-primary.png"
+                        alt="IZH Tech | Your Digital Partner"
+                        width={64}
+                        height={64}
+                        preload
                     />
                 </Link>
 

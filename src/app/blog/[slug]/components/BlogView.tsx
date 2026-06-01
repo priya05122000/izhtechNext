@@ -173,8 +173,10 @@ const BlogView = ({
                         alt={blogSlug?.title}
                         width={1600}
                         height={900}
-                        priority
+                        preload
                         sizes="(max-width: 768px) 100vw, 85vw"
+                        className="w-full h-full object-cover"
+
                     />
 
                 </motion.div>

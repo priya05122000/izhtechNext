@@ -62,7 +62,7 @@ export default function Hero() {
                             alt="Hero Image"
                             width={734}
                             height={441}
-                            priority
+                            preload
                             fetchPriority="high"
                             // sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 50vw"
                             className="mx-auto h-auto w-full max-w-sm lg:max-w-md lg:mx-0"
