@@ -28,11 +28,13 @@ interface CustomObjectProps {
   | "vector_fixed";
 
   className: string;
+  priority?: boolean;
 }
 
 function CustomObject({
   variants,
   className,
+  priority = false,
 }: CustomObjectProps) {
 
   const objectVariants = {
@@ -175,8 +177,9 @@ function CustomObject({
       src={imageSrc}
       alt=""
       aria-hidden="true"
-      loading="lazy"
-      decoding="async"
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : "auto"}
+      decoding={priority ? "sync" : "async"}
       {...(size && {
         width: size.width,
         height: size.height,

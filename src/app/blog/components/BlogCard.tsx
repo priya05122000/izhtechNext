@@ -38,7 +38,7 @@ interface BlogCardProps {
     variant?: "home" | "blog";
 }
 
-const formatDate = (date: string) => {
+const formatDate = (date: Date | string) => {
     return new Date(date).toLocaleDateString("en-GB", {
         day: "2-digit",
         month: "short",
@@ -53,9 +53,8 @@ export default function BlogCard({
 
     const slug = item.slug;
 
-    const date = formatDate(
-        item?.publishedDate?.toString()
-    );
+    const date = formatDate(item.createdAt);
+
 
     const cleanImagePath =
         item.imagePath
@@ -145,8 +144,11 @@ export default function BlogCard({
                     className="w-full h-60 object-cover"
                     width={1200}
                     height={240}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                />
+                    sizes="
+(max-width: 768px) 100vw,
+(max-width: 1024px) 50vw,
+464px
+                "/>
 
                 <div className="flex-1 flex flex-col justify-between py-3 px-4">
 

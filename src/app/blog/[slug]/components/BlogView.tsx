@@ -73,9 +73,9 @@ const BlogView = ({
 }: BlogViewProps) => {
 
     const formattedDate =
-        blogSlug?.publishedDate
+        blogSlug?.createdAt
             ? formatDate(
-                blogSlug.publishedDate.toString()
+                blogSlug.createdAt.toString()
             )
             : "";
 
@@ -154,10 +154,10 @@ const BlogView = ({
                         once: true,
                         amount: 0.15,
                     }}
-                    className="w-full min-h-75 lg:h-125 overflow-hidden rounded-md"
+                    className="w-full min-h-75 lg:h-105 overflow-hidden rounded-md"
                 >
 
-                    <Image
+                    {/* <Image
                         src={imageUrl}
                         alt={blogSlug?.title}
                         className="w-full h-full object-cover"
@@ -165,7 +165,18 @@ const BlogView = ({
                         height={900}
                         priority
                         sizes="100vw"
+                    /> */}
+
+
+                    <Image
+                        src={imageUrl}
+                        alt={blogSlug?.title}
+                        width={1600}
+                        height={900}
+                        priority
+                        sizes="(max-width: 768px) 100vw, 85vw"
                     />
+
                 </motion.div>
             )}
 
