@@ -8,7 +8,6 @@ interface LinkButtonProps {
     children: React.ReactNode;
     target?: string; // Add this line
     rel?: string
-
 }
 
 const LinkButton: React.FC<LinkButtonProps> = ({

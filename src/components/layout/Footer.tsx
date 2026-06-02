@@ -1,7 +1,7 @@
 // Footer.tsx
 
 import NewsletterForm from "./NewsletterForm";
-import LazyCaptcha from "@/src/shared/components/LazyCaptcha";
+// import LazyCaptcha from "@/src/shared/components/LazyCaptcha";
 import LinkButton from "@/src/shared/components/LinkButton";
 import Image from "next/image";
 import Link from "next/link";
@@ -57,9 +57,10 @@ export default function Footer({
                         <Image
                             src="/Logo-white.png"
                             alt="IZH Tech Logo"
-                            width={200}
-                            height={64}
-                            className="h-16 w-auto mb-4"
+                            width={100}
+                            height={80}
+                            className="w-16 h-auto mb-4"
+                            // className="h-16 w-auto mb-4"
                         />
 
                         <h6 className="text-sm font-semibold">

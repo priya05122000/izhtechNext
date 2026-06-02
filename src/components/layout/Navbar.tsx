@@ -39,9 +39,9 @@ export default function Navbar() {
                     <Image
                         src="/logo-primary.png"
                         alt="IZH Tech | Your Digital Partner"
-                        width={64}
-                        height={64}
-                        preload
+                        width={100}
+                        height={80}
+                        className="w-16 h-auto"
                     />
                 </Link>
 

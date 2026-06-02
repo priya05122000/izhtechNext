@@ -98,7 +98,7 @@ export default function ClientLayout({
                 />
 
 
-                <PageScroll />
+                {/* <PageScroll /> */}
 
                 {/* <section
                     className={`relative mx-auto container-fluid ${!isAboutPage && !isBlogPage ? "overflow-hidden" : ""}`}

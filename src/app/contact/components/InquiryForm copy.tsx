@@ -1,296 +1,296 @@
-"use client"
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { createContact } from "@/src/services/contactService";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { toast } from "sonner";
-// import { fadeIn } from "@/src/shared/animation/variants";
-// import { motion } from "framer-motion"
+// "use client"
+// import React, { useState } from "react";
+// import { useForm } from "react-hook-form";
+// import { createContact } from "@/src/services/contactService";
+// import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+// import { toast } from "sonner";
+// // import { fadeIn } from "@/src/shared/animation/variants";
+// // import { motion } from "framer-motion"
 
-// interface InquiryFormProps {
-//     num1: number;
-//     num2: number;
-//     resetMath: () => void;
-// }
+// // interface InquiryFormProps {
+// //     num1: number;
+// //     num2: number;
+// //     resetMath: () => void;
+// // }
 
-// const InquiryForm = ({ num1, num2, resetMath }: InquiryFormProps) => {
-const InquiryForm = () => {
+// // const InquiryForm = ({ num1, num2, resetMath }: InquiryFormProps) => {
+// const InquiryForm = () => {
 
-    // Math question state
-    const [num1, setNum1] = useState(0);
-    const [num2, setNum2] = useState(0);
-
-
-    React.useEffect(() => {
-        setNum1(Math.floor(Math.random() * 10) + 1);
-        setNum2(Math.floor(Math.random() * 10) + 1);
-    }, []);
-
-    const resetMath = () => {
-        setNum1(Math.floor(Math.random() * 10) + 1);
-        setNum2(Math.floor(Math.random() * 10) + 1);
-    };
+//     // Math question state
+//     const [num1, setNum1] = useState(0);
+//     const [num2, setNum2] = useState(0);
 
 
-    const { executeRecaptcha } =
-        useGoogleReCaptcha();
+//     React.useEffect(() => {
+//         setNum1(Math.floor(Math.random() * 10) + 1);
+//         setNum2(Math.floor(Math.random() * 10) + 1);
+//     }, []);
 
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors },
-    } = useForm();
+//     const resetMath = () => {
+//         setNum1(Math.floor(Math.random() * 10) + 1);
+//         setNum2(Math.floor(Math.random() * 10) + 1);
+//     };
 
-    const [mathAnswer, setMathAnswer] = useState("");
-    const [mathError, setMathError] = useState("");
 
-    async function saveContact(payload: any) {
-        try {
+//     const { executeRecaptcha } =
+//         useGoogleReCaptcha();
 
-            // generate recaptcha token
-            if (!executeRecaptcha) {
-                console.error("Recaptcha not ready");
-                return;
-            }
+//     const {
+//         register,
+//         handleSubmit,
+//         reset,
+//         formState: { errors },
+//     } = useForm();
 
-            await new Promise((resolve) =>
-                setTimeout(resolve, 1000)
-            );
+//     const [mathAnswer, setMathAnswer] = useState("");
+//     const [mathError, setMathError] = useState("");
 
-            const token =
-                await executeRecaptcha(
-                    "contact_form"
-                );
+//     async function saveContact(payload: any) {
+//         try {
 
-            // console.log(
-            //     "RECAPTCHA TOKEN:",
-            //     token
-            // );
+//             // generate recaptcha token
+//             if (!executeRecaptcha) {
+//                 console.error("Recaptcha not ready");
+//                 return;
+//             }
 
-            // add token into payload
-            payload.token = token;
+//             await new Promise((resolve) =>
+//                 setTimeout(resolve, 1000)
+//             );
 
-            // console.log(
-            //     "FINAL PAYLOAD:",
-            //     payload
-            // );
+//             const token =
+//                 await executeRecaptcha(
+//                     "contact_form"
+//                 );
 
-            const response = await createContact(payload);
-            if (response.success) {
+//             // console.log(
+//             //     "RECAPTCHA TOKEN:",
+//             //     token
+//             // );
 
-                toast.success(
-                    "Form submitted successfully"
-                );
+//             // add token into payload
+//             payload.token = token;
 
-            } else {
+//             // console.log(
+//             //     "FINAL PAYLOAD:",
+//             //     payload
+//             // );
 
-                toast.error(
-                    "Something went wrong"
-                );
+//             const response = await createContact(payload);
+//             if (response.success) {
 
-            }
-        } catch (error) {
-            console.error(error);
-        } finally {
-            reset();
-            setMathAnswer("");
-            setMathError("");
-            resetMath();
-        }
-    }
+//                 toast.success(
+//                     "Form submitted successfully"
+//                 );
 
-    function validateMathAnswer(event: React.FormEvent) {
-        event.preventDefault();
-        if (parseInt(mathAnswer) !== num1 + num2) {
-            setMathError("Incorrect answer. Try again.");
-        } else {
-            setMathError("");
-            handleSubmit(saveContact)();
-        }
-    }
+//             } else {
 
-    return (
-        <form onSubmit={validateMathAnswer}>
-            <div className="flex-none py-4 lg:px-8  lg:flex gap-6 mt-3">
-                <div
-                    // variants={fadeIn("right", 0.1)}
-                    // initial="hidden"
-                    // whileInView={"show"}
-                    // exit={"hidden"}
-                    // viewport={{ once: false, amount: 0.1 }}
-                    className="lg:w-4/12  mb-6 lg:mb-0"
-                >
+//                 toast.error(
+//                     "Something went wrong"
+//                 );
 
-                    <h4 className="mb-3 text-xl font-black">Work Enquiries</h4>
-                    <h5>
-                        Fill in this form or <span className="font-bold">send us an e-mail</span> with your
-                        enquiry.
-                    </h5>
-                </div>
-                <div className="lg:w-[60%]">
-                    <div className="flex flex-wrap w-full gap-2   lg:pl-0">
+//             }
+//         } catch (error) {
+//             console.error(error);
+//         } finally {
+//             reset();
+//             setMathAnswer("");
+//             setMathError("");
+//             resetMath();
+//         }
+//     }
 
-                        {/* Mobile Number Optional */}
-                        <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
-                            <label className="block mb-2 text-sm font-medium text-gray-900">
-                                Phone (optional)
-                            </label>
+//     function validateMathAnswer(event: React.FormEvent) {
+//         event.preventDefault();
+//         if (parseInt(mathAnswer) !== num1 + num2) {
+//             setMathError("Incorrect answer. Try again.");
+//         } else {
+//             setMathError("");
+//             handleSubmit(saveContact)();
+//         }
+//     }
 
-                            <input
-                                {...register("mobileNumber", {
-                                    pattern: {
-                                        value: /^[6-9]\d{9}$/,
-                                        message:
-                                            "Enter valid 10 digit mobile number",
-                                    },
-                                    onChange: (e) => {
+//     return (
+//         <form onSubmit={validateMathAnswer}>
+//             <div className="flex-none py-4 lg:px-8  lg:flex gap-6 mt-3">
+//                 <div
+//                     // variants={fadeIn("right", 0.1)}
+//                     // initial="hidden"
+//                     // whileInView={"show"}
+//                     // exit={"hidden"}
+//                     // viewport={{ once: false, amount: 0.1 }}
+//                     className="lg:w-4/12  mb-6 lg:mb-0"
+//                 >
 
-                                        let value = e.target.value
-                                            .replace(/\D/g, "")
-                                            .slice(0, 10);
+//                     <h4 className="mb-3 text-xl font-black">Work Enquiries</h4>
+//                     <h5>
+//                         Fill in this form or <span className="font-bold">send us an e-mail</span> with your
+//                         enquiry.
+//                     </h5>
+//                 </div>
+//                 <div className="lg:w-[60%]">
+//                     <div className="flex flex-wrap w-full gap-2   lg:pl-0">
 
-                                        // prevent starting from 0-5
-                                        if (
-                                            value.length > 0 &&
-                                            !/^[6-9]/.test(value)
-                                        ) {
-                                            value = "";
-                                        }
+//                         {/* Mobile Number Optional */}
+//                         <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
+//                             <label className="block mb-2 text-sm font-medium text-gray-900">
+//                                 Phone (optional)
+//                             </label>
 
-                                        e.target.value = value;
-                                    },
-                                })}
-                                type="text"
-                                inputMode="numeric"
-                                maxLength={10}
-                                placeholder="Your actual number"
-                                className="
-        bg-gray-50
-        border
-        border-gray-300
-        text-gray-900
-        text-sm
-        rounded-lg
-        w-full
-        p-2.5
-    "
-                            />
+//                             <input
+//                                 {...register("mobileNumber", {
+//                                     pattern: {
+//                                         value: /^[6-9]\d{9}$/,
+//                                         message:
+//                                             "Enter valid 10 digit mobile number",
+//                                     },
+//                                     onChange: (e) => {
 
-                            {errors["mobileNumber"] && (
-                                <p className="text-sm text-red-600">
-                                    {errors["mobileNumber"]
-                                        .message as string}
-                                </p>
-                            )}
-                        </div>
+//                                         let value = e.target.value
+//                                             .replace(/\D/g, "")
+//                                             .slice(0, 10);
 
-                        {/* Email Required */}
-                        <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
-                            <label className="block mb-2 text-sm font-medium text-gray-900">
-                                Email (required)
-                            </label>
+//                                         // prevent starting from 0-5
+//                                         if (
+//                                             value.length > 0 &&
+//                                             !/^[6-9]/.test(value)
+//                                         ) {
+//                                             value = "";
+//                                         }
 
-                            <input
-                                {...register("email", {
-                                    required: "Email is required",
-                                    pattern: {
-                                        value:
-                                            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                                        message:
-                                            "Invalid email address",
-                                    },
-                                    onChange: (e) => {
-                                        e.target.value = e.target.value.replace(
-                                            /[^a-zA-Z0-9@._-]/g,
-                                            ""
-                                        );
-                                    },
-                                })}
-                                type="text"
-                                placeholder="Your e-mail"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
-                            />
+//                                         e.target.value = value;
+//                                     },
+//                                 })}
+//                                 type="text"
+//                                 inputMode="numeric"
+//                                 maxLength={10}
+//                                 placeholder="Your actual number"
+//                                 className="
+//         bg-gray-50
+//         border
+//         border-gray-300
+//         text-gray-900
+//         text-sm
+//         rounded-lg
+//         w-full
+//         p-2.5
+//     "
+//                             />
 
-                            {errors["email"] && (
-                                <p className="text-sm text-red-600">
-                                    {errors["email"]
-                                        .message as string}
-                                </p>
-                            )}
-                        </div>
+//                             {errors["mobileNumber"] && (
+//                                 <p className="text-sm text-red-600">
+//                                     {errors["mobileNumber"]
+//                                         .message as string}
+//                                 </p>
+//                             )}
+//                         </div>
 
-                        {/* Message Required */}
-                        <div className="w-full mb-5 md:w-[98%]">
-                            <label className="block mb-2 text-sm font-medium text-gray-900">
-                                Message (required)
-                            </label>
+//                         {/* Email Required */}
+//                         <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
+//                             <label className="block mb-2 text-sm font-medium text-gray-900">
+//                                 Email (required)
+//                             </label>
 
-                            <textarea
-                                {...register("message", {
-                                    required: "Message is required",
-                                    maxLength: {
-                                        value: 300,
-                                        message:
-                                            "Maximum 300 characters allowed",
-                                    },
-                                    onChange: (e) => {
-                                        e.target.value = e.target.value
-                                            .replace(
-                                                /[^A-Za-z0-9\s.,!?'"()\-]/g,
-                                                ""
-                                            )
-                                            .slice(0, 300);
-                                    },
-                                })}
-                                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
-                                placeholder="Brief project details"
-                            ></textarea>
+//                             <input
+//                                 {...register("email", {
+//                                     required: "Email is required",
+//                                     pattern: {
+//                                         value:
+//                                             /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+//                                         message:
+//                                             "Invalid email address",
+//                                     },
+//                                     onChange: (e) => {
+//                                         e.target.value = e.target.value.replace(
+//                                             /[^a-zA-Z0-9@._-]/g,
+//                                             ""
+//                                         );
+//                                     },
+//                                 })}
+//                                 type="text"
+//                                 placeholder="Your e-mail"
+//                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
+//                             />
 
-                            {errors["message"] && (
-                                <p className="text-sm text-red-600">
-                                    {errors["message"]
-                                        .message as string}
-                                </p>
-                            )}
-                        </div>
+//                             {errors["email"] && (
+//                                 <p className="text-sm text-red-600">
+//                                     {errors["email"]
+//                                         .message as string}
+//                                 </p>
+//                             )}
+//                         </div>
 
-                        {/* Math Question Required */}
-                        <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
-                            <label className="block mb-2 text-sm font-medium text-gray-900">
-                                Solve this: {num1} + {num2} =
-                            </label>
+//                         {/* Message Required */}
+//                         <div className="w-full mb-5 md:w-[98%]">
+//                             <label className="block mb-2 text-sm font-medium text-gray-900">
+//                                 Message (required)
+//                             </label>
 
-                            <input
-                                type="number"
-                                value={mathAnswer}
-                                onChange={(e) =>
-                                    setMathAnswer(
-                                        e.target.value.replace(
-                                            /\D/g,
-                                            ""
-                                        )
-                                    )
-                                }
-                                placeholder="Enter answer"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
-                            />
+//                             <textarea
+//                                 {...register("message", {
+//                                     required: "Message is required",
+//                                     maxLength: {
+//                                         value: 300,
+//                                         message:
+//                                             "Maximum 300 characters allowed",
+//                                     },
+//                                     onChange: (e) => {
+//                                         e.target.value = e.target.value
+//                                             .replace(
+//                                                 /[^A-Za-z0-9\s.,!?'"()\-]/g,
+//                                                 ""
+//                                             )
+//                                             .slice(0, 300);
+//                                     },
+//                                 })}
+//                                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
+//                                 placeholder="Brief project details"
+//                             ></textarea>
 
-                            {mathError && (
-                                <p className="text-sm text-red-600">
-                                    {mathError}
-                                </p>
-                            )}
-                        </div>
+//                             {errors["message"] && (
+//                                 <p className="text-sm text-red-600">
+//                                     {errors["message"]
+//                                         .message as string}
+//                                 </p>
+//                             )}
+//                         </div>
 
-                    </div>
-                    <button className="h-8 text-xs font-bold cursor-pointer text-white rounded bg-[#000000] w-28 border">
-                        Submit
-                    </button>
-                </div>
-            </div>
-        </form>
-    );
-};
+//                         {/* Math Question Required */}
+//                         <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
+//                             <label className="block mb-2 text-sm font-medium text-gray-900">
+//                                 Solve this: {num1} + {num2} =
+//                             </label>
 
-export default InquiryForm;
+//                             <input
+//                                 type="number"
+//                                 value={mathAnswer}
+//                                 onChange={(e) =>
+//                                     setMathAnswer(
+//                                         e.target.value.replace(
+//                                             /\D/g,
+//                                             ""
+//                                         )
+//                                     )
+//                                 }
+//                                 placeholder="Enter answer"
+//                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
+//                             />
+
+//                             {mathError && (
+//                                 <p className="text-sm text-red-600">
+//                                     {mathError}
+//                                 </p>
+//                             )}
+//                         </div>
+
+//                     </div>
+//                     <button className="h-8 text-xs font-bold cursor-pointer text-white rounded bg-[#000000] w-28 border">
+//                         Submit
+//                     </button>
+//                 </div>
+//             </div>
+//         </form>
+//     );
+// };
+
+// export default InquiryForm;
