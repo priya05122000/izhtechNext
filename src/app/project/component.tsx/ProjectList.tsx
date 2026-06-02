@@ -156,6 +156,7 @@ const ProjectCard = ({
                         (max-width: 1024px) 50vw,
                         33vw
                     "
+                        unoptimized={true}
                     />
                 </div>
             </Link>

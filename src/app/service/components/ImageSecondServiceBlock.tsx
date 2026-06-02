@@ -232,8 +232,8 @@ export default function ImageSecondServiceBlock(
                                 h-80
                                 w-full
                                 overflow-hidden
-                                sm:h-[500px]
-                                lg:h-[640px]
+                                sm:h-125
+                                lg:h-160
                             "
             >
 
@@ -250,6 +250,7 @@ export default function ImageSecondServiceBlock(
                                     (max-width: 1024px) 50vw,
                                     50vw
                                 "
+                                unoptimized={true}
               />
 
             </div>

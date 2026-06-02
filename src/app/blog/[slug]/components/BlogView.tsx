@@ -176,7 +176,7 @@ const BlogView = ({
                         preload
                         sizes="(max-width: 768px) 100vw, 85vw"
                         className="w-full h-full object-cover"
-
+                        unoptimized={true}
                     />
 
                 </motion.div>

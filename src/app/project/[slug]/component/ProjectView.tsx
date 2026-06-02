@@ -95,6 +95,7 @@ const HeroImage = ({
                         w-full
                         object-cover
                     "
+                    unoptimized={true}
                 />
             </div>
 
@@ -198,7 +199,9 @@ const DescriptionBlock = ({
                                 ? "float-left md:mr-8 lg:mr-10"
                                 : "float-right md:ml-8 lg:ml-10"
                             }
+
                     `}
+                        unoptimized={true}
                     />
 
                 )}

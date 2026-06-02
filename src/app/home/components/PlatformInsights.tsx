@@ -1,3 +1,4 @@
+import Image from "next/image";
 
 interface SiteInformation {
     id: string,
@@ -30,7 +31,7 @@ const PlatformInsights = ({ siteInfo }: MissionStatementProps) => {
                 <div className="lg:px-10 pb-16 pt-16 bg-[#F5F1F5] rounded relative">
                     <div className="flex-col justify-center gap-4 px-5 my-auto h-4/5 lg:flex lg:flex-row">
                         <div className="flex flex-col self-center h-full sm:px-2 mx-auto lg:w-3/6 sm:w-full">
-                            <img
+                            <Image
                                 className="justify-center h-auto mx-auto"
                                 src="/images/platforminsights.webp"
                                 alt="Platform insights illustration"

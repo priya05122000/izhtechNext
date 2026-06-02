@@ -146,6 +146,7 @@ lg:p-8">
                                                                 fill
                                                                 className="z-0 object-cover "
                                                                 sizes="(max-width: 768px) 100vw, 33vw"
+                                                                unoptimized={true}
                                                             />
 
                                                             {/* Overlay */}

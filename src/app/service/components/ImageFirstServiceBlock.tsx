@@ -106,7 +106,7 @@ export default function ImageFirstServiceBlock(
                     flex-col
                     items-center
                     lg:flex-row
-                    
+
                 "
       >
 
@@ -141,8 +141,8 @@ export default function ImageFirstServiceBlock(
                                 h-80
                                 w-full
                                 overflow-hidden
-                                sm:h-[500px]
-                                lg:h-[640px]
+                                sm:h-125
+                                lg:h-160
                             "
             >
 
@@ -159,6 +159,7 @@ export default function ImageFirstServiceBlock(
                                     (max-width: 1024px) 50vw,
                                     50vw
                                 "
+                unoptimized={true}
               />
 
             </div>

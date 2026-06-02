@@ -82,6 +82,7 @@ export default function BlogCard({
                 preload={variant === "home"}
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
+                unoptimized={true}
             />
 
             <div className="absolute inset-0 bg-[#00000080] z-0"></div>
@@ -146,9 +147,9 @@ export default function BlogCard({
                     height={900}
                     sizes="
 (max-width:768px) 100vw,
-464px
-
-    "/>
+464px"
+                    unoptimized={true}
+                />
 
                 <div className="flex-1 flex flex-col justify-between py-3 px-4">
 

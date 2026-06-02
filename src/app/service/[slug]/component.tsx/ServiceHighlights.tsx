@@ -132,12 +132,12 @@ export default function ServiceHighlights({
                                     <div
                                         className="
                                             relative
-                                            h-[300px]
+                                            h-75
                                             overflow-hidden
                                             rounded-lg
-                                            sm:h-[400px]
+                                            sm:h-100
                                             lg:h-full
-                                            lg:min-h-[500px]
+                                            lg:min-h-125
                                         "
                                     >
 
@@ -154,6 +154,7 @@ export default function ServiceHighlights({
                                                 (max-width: 1024px) 50vw,
                                                 45vw
                                             "
+                                            unoptimized={true}
                                         />
 
                                     </div>

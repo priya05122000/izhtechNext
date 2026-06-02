@@ -81,6 +81,7 @@ const FilterJobs = ({
                             // loading="lazy"
                             // decoding="async"
                             sizes="(max-width: 1024px) 100vw, 50vw"
+                            unoptimized={true}
                         />
                     ) : (
                         <p>No image available</p>

@@ -66,6 +66,7 @@ export default function PartnerCompany({
                                         quality={60}
                                         sizes="120px"
                                         className="object-contain  h-14 w-auto grayscale hover:grayscale-0 transition-all"
+                                        unoptimized={true}
                                     />
                                 )}
                             </div>

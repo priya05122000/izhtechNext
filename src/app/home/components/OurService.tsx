@@ -403,6 +403,7 @@ const OurService = ({
                                                                 33vw
                                                             "
                                                             preload={false}
+                                                            unoptimized={true}
                                                         />
                                                     </div>
 

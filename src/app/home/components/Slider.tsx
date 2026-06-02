@@ -130,6 +130,7 @@ const Slider = ({ testimonials }: TestimonialProps) => {
                                                                 loading="lazy"
                                                                 quality={70}
                                                                 className="w-12 h-12 mb-2 object-contain"
+                                                                unoptimized={true}
                                                             />
 
                                                             <p className="pt-2 text-xs text-gray-700">

@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/navigation";
 import LinkButton from "@/src/shared/components/LinkButton";
+import Image from "next/image";
 
 interface Project {
     id: string;
@@ -369,7 +370,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                     {projects?.map(
                                         (project, index) =>
                                             project.status ? (
-                                                <img
+                                                <Image
                                                     key={index}
                                                     alt={project.title || `Project ${index + 1}`}
                                                     className="show-image absolute w-full h-full object-contain object-center transition-opacity duration-500 ease-in-out opacity-100! transform! translate-y-0! z-10 cursor-pointer"
@@ -381,6 +382,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                                     onClick={() =>
                                                         router.push(`/project/${project.slug}`)
                                                     }
+                                                    unoptimized={true}
                                                 />
                                             ) : null
                                     )}
@@ -434,7 +436,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                                 className="w-full h-full"
                                             >
 
-                                                <img
+                                                <Image
                                                     alt={project.title || `Project ${index + 1}`}
                                                     className="show-image w-full h-full object-cover mb-5"
                                                     src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${project?.projectImagePath}`}
@@ -442,6 +444,7 @@ const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                                                     height={900}
                                                     loading="lazy"
                                                     decoding="async"
+                                                    unoptimized={true}
                                                 />
 
                                             </Link>
