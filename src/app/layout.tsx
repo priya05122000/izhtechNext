@@ -75,7 +75,7 @@ export default async function RootLayout({
           `}
         </Script> */}
 
-        {/* <GoogleAnalytics gaId="G-SYDD14SZLN" /> */}
+        <GoogleAnalytics gaId="G-SYDD14SZLN" />
       </body>
     </html>
   );

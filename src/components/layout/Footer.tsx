@@ -154,10 +154,10 @@ export default function Footer({
                         <h6 className="font-semibold">
                             Sign up for the newsletter
                         </h6>
-                        <LazyCaptcha
-                            form={"contact-us"}>
-                            <NewsletterForm />
-                        </LazyCaptcha>
+                        {/* <LazyCaptcha
+                            form={"contact-us"}> */}
+                        <NewsletterForm />
+                        {/* </LazyCaptcha> */}
                     </div>
 
                 </div>

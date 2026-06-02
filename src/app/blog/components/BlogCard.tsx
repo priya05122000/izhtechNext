@@ -145,9 +145,9 @@ export default function BlogCard({
                     width={1600}
                     height={900}
                     sizes="
-      (max-width: 768px) 100vw,
-      (max-width: 1024px) 50vw,
-      464px
+(max-width:768px) 100vw,
+464px
+
     "/>
 
                 <div className="flex-1 flex flex-col justify-between py-3 px-4">

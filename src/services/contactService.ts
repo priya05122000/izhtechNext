@@ -7,29 +7,24 @@ export interface ContactModel {
     message?: string;
 }
 
+
 export async function createContact(payload: ContactModel) {
-
     try {
-
         const res = await fetch(
             `${API_BASE_URL}/api/contact`,
             {
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json",
                 },
-
                 body: JSON.stringify(payload),
             }
         );
 
         if (!res.ok) {
-
-            console.error("Create Contact API failed:", res.status);
-
             return {
                 success: false,
+                errorMessage: `Request failed (${res.status})`,
                 data: null,
             };
         }
@@ -37,17 +32,62 @@ export async function createContact(payload: ContactModel) {
         const json = await res.json();
 
         return {
-            success: true,
-            data: json,
+            success: !json.errorStatus,
+            errorMessage: json.errorMessage,
+            data: json.data,
         };
-
     } catch (error) {
-
         console.error("Create contact error:", error);
 
         return {
             success: false,
+            errorMessage: "Something went wrong",
             data: null,
         };
     }
 }
+
+// export async function createContact(payload: ContactModel) {
+
+//     try {
+
+//         const res = await fetch(
+//             `${API_BASE_URL}/api/contact`,
+//             {
+//                 method: "POST",
+
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                 },
+
+//                 body: JSON.stringify(payload),
+//             }
+//         );
+
+//         if (!res.ok) {
+
+//             console.error("Create Contact API failed:", res.status);
+
+//             return {
+//                 success: false,
+//                 data: null,
+//             };
+//         }
+
+//         const json = await res.json();
+
+//         return {
+//             success: true,
+//             data: json,
+//         };
+
+//     } catch (error) {
+
+//         console.error("Create contact error:", error);
+
+//         return {
+//             success: false,
+//             data: null,
+//         };
+//     }
+// }

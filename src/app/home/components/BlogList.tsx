@@ -149,7 +149,7 @@ lg:p-8">
                                                             />
 
                                                             {/* Overlay */}
-                                                            <div className="absolute inset-0 z-0 bg-[#00000080]" />
+                                                            <div className="absolute inset-0 z-0 bg-[#000000a3]" />
 
                                                             {/* Content */}
                                                             <div className="relative z-10 flex h-full flex-col justify-between">
@@ -180,7 +180,7 @@ lg:p-8">
                                                                         {item.title}
                                                                     </p>
 
-                                                                    <div className="mt-2 flex flex-row flex-wrap gap-4">
+                                                                    <div className="mt-3 flex flex-row flex-wrap gap-2">
                                                                         {item?.categories?.map(
                                                                             (
                                                                                 category,
@@ -188,7 +188,11 @@ lg:p-8">
                                                                             ) => (
                                                                                 <span
                                                                                     key={index}
-                                                                                    className="flex h-6 w-28 items-center justify-center rounded-md bg-black text-xs text-white "
+                                                                                    className="flex h-6 px-2 items-center justify-center rounded  text-xs text-white "
+                                                                                    style={{
+                                                                                        background:
+                                                                                            "linear-gradient(326deg, #5877F8 37.65%, #FF20B2 78.67%, #FFBB03 102.38%)",
+                                                                                    }}
                                                                                 >
                                                                                     {category.name}
                                                                                 </span>

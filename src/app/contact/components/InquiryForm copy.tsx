@@ -1,61 +1,39 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+"use client"
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { createContact } from "@/src/services/contactService";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { toast } from "sonner";
+// import { fadeIn } from "@/src/shared/animation/variants";
+// import { motion } from "framer-motion"
 
+// interface InquiryFormProps {
+//     num1: number;
+//     num2: number;
+//     resetMath: () => void;
+// }
+
+// const InquiryForm = ({ num1, num2, resetMath }: InquiryFormProps) => {
 const InquiryForm = () => {
 
-
-    const [captchaQuestion, setCaptchaQuestion] = useState("");
-    const [captchaAnswer, setCaptchaAnswer] = useState(0);
-    const [userAnswer, setUserAnswer] = useState("");
-    const [captchaError, setCaptchaError] = useState("");
+    // Math question state
+    const [num1, setNum1] = useState(0);
+    const [num2, setNum2] = useState(0);
 
 
-    const generateCaptcha = () => {
-        const operations = ["+", "-", "*"];
-
-        const num1 = Math.floor(Math.random() * 20) + 1;
-        const num2 = Math.floor(Math.random() * 10) + 1;
-
-        const operation =
-            operations[Math.floor(Math.random() * operations.length)];
-
-        let answer = 0;
-
-        switch (operation) {
-            case "+":
-                answer = num1 + num2;
-                break;
-
-            case "-":
-                answer = num1 - num2;
-                break;
-
-            case "*":
-                answer = num1 * num2;
-                break;
-        }
-
-        setCaptchaQuestion(
-            `${num1} ${operation} ${num2}`
-        );
-
-        setCaptchaAnswer(answer);
-    };
-
-    useEffect(() => {
-        generateCaptcha();
+    React.useEffect(() => {
+        setNum1(Math.floor(Math.random() * 10) + 1);
+        setNum2(Math.floor(Math.random() * 10) + 1);
     }, []);
 
-
-    const resetCaptcha = () => {
-        generateCaptcha();
+    const resetMath = () => {
+        setNum1(Math.floor(Math.random() * 10) + 1);
+        setNum2(Math.floor(Math.random() * 10) + 1);
     };
 
 
+    const { executeRecaptcha } =
+        useGoogleReCaptcha();
 
     const {
         register,
@@ -64,67 +42,83 @@ const InquiryForm = () => {
         formState: { errors },
     } = useForm();
 
+    const [mathAnswer, setMathAnswer] = useState("");
+    const [mathError, setMathError] = useState("");
+
     async function saveContact(payload: any) {
         try {
-            const response = await createContact(payload);
 
-            if (response.success) {
-                toast.success(
-                    "Form submitted successfully"
-                );
-            } else {
-                toast.error(
-                    response.errorMessage
-                );
-            }
-
-        } catch (error) {
-            console.error(error);
-            toast.error("Something went wrong");
-        } finally {
-            reset();
-
-            setUserAnswer("");
-
-            setCaptchaError("");
-
-            resetCaptcha();
-        }
-    }
-
-
-    function validateCaptcha(
-        event: React.FormEvent
-    ) {
-        event.preventDefault();
-
-        handleSubmit((payload) => {
-
-            if (
-                Number(userAnswer) !== captchaAnswer
-            ) {
-                setCaptchaError(
-                    "Incorrect answer. Try again."
-                );
-
-                setUserAnswer("");
-
-                generateCaptcha();
-
+            // generate recaptcha token
+            if (!executeRecaptcha) {
+                console.error("Recaptcha not ready");
                 return;
             }
 
-            setCaptchaError("");
+            await new Promise((resolve) =>
+                setTimeout(resolve, 1000)
+            );
 
-            saveContact(payload);
+            const token =
+                await executeRecaptcha(
+                    "contact_form"
+                );
 
-        })();
+            // console.log(
+            //     "RECAPTCHA TOKEN:",
+            //     token
+            // );
+
+            // add token into payload
+            payload.token = token;
+
+            // console.log(
+            //     "FINAL PAYLOAD:",
+            //     payload
+            // );
+
+            const response = await createContact(payload);
+            if (response.success) {
+
+                toast.success(
+                    "Form submitted successfully"
+                );
+
+            } else {
+
+                toast.error(
+                    "Something went wrong"
+                );
+
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            reset();
+            setMathAnswer("");
+            setMathError("");
+            resetMath();
+        }
+    }
+
+    function validateMathAnswer(event: React.FormEvent) {
+        event.preventDefault();
+        if (parseInt(mathAnswer) !== num1 + num2) {
+            setMathError("Incorrect answer. Try again.");
+        } else {
+            setMathError("");
+            handleSubmit(saveContact)();
+        }
     }
 
     return (
-        <form onSubmit={validateCaptcha}>
+        <form onSubmit={validateMathAnswer}>
             <div className="flex-none py-4 lg:px-8  lg:flex gap-6 mt-3">
                 <div
+                    // variants={fadeIn("right", 0.1)}
+                    // initial="hidden"
+                    // whileInView={"show"}
+                    // exit={"hidden"}
+                    // viewport={{ once: false, amount: 0.1 }}
                     className="lg:w-4/12  mb-6 lg:mb-0"
                 >
 
@@ -202,20 +196,18 @@ const InquiryForm = () => {
                                     required: "Email is required",
                                     pattern: {
                                         value:
-                                            /^(?!.*\.\.)(?!.*@.*@)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/,
+                                            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                                         message:
                                             "Invalid email address",
                                     },
                                     onChange: (e) => {
-                                        e.target.value = e.target.value
-                                            .toLowerCase()
-                                            .replace(
-                                                /[^a-z0-9@._-]/g,
-                                                ""
-                                            );
+                                        e.target.value = e.target.value.replace(
+                                            /[^a-zA-Z0-9@._-]/g,
+                                            ""
+                                        );
                                     },
                                 })}
-                                type="email"
+                                type="text"
                                 placeholder="Your e-mail"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
                             />
@@ -263,47 +255,34 @@ const InquiryForm = () => {
                             )}
                         </div>
 
-                        <input
-                            type="text"
-                            {...register("website")}
-                            style={{ display: "none" }}
-                            tabIndex={-1}
-                            autoComplete="off"
-                        />
-
                         {/* Math Question Required */}
                         <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
                             <label className="block mb-2 text-sm font-medium text-gray-900">
-                                Solve this: {captchaQuestion} =
+                                Solve this: {num1} + {num2} =
                             </label>
 
                             <input
                                 type="number"
-                                value={userAnswer}
+                                value={mathAnswer}
                                 onChange={(e) =>
-                                    setUserAnswer(
-                                        e.target.value
+                                    setMathAnswer(
+                                        e.target.value.replace(
+                                            /\D/g,
+                                            ""
+                                        )
                                     )
                                 }
                                 placeholder="Enter answer"
-                                className="
-            bg-gray-50
-            border
-            border-gray-300
-            text-gray-900
-            text-sm
-            rounded-lg
-            w-full
-            p-2.5
-        "
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
                             />
 
-                            {captchaError && (
+                            {mathError && (
                                 <p className="text-sm text-red-600">
-                                    {captchaError}
+                                    {mathError}
                                 </p>
                             )}
                         </div>
+
                     </div>
                     <button className="h-8 text-xs font-bold cursor-pointer text-white rounded bg-[#000000] w-28 border">
                         Submit

@@ -2,11 +2,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { createContact } from "@/src/services/contactService";
-// import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function NewsletterForm() {
     const [isSuccessContact, setIsSuccessContact] = useState(false);
-    // const { executeRecaptcha } = useGoogleReCaptcha();
+    const { executeRecaptcha } = useGoogleReCaptcha();
 
     const {
         register,
@@ -17,27 +17,24 @@ export default function NewsletterForm() {
 
     async function saveContact(payload: any) {
         try {
-            // if (!executeRecaptcha) {
-            //     console.error("Recaptcha not ready");
-            //     return;
-            // }
+            if (!executeRecaptcha) {
+                console.error("Recaptcha not ready");
+                return;
+            }
 
-            // await new Promise((resolve) => setTimeout(resolve, 500));
+            await new Promise((resolve) => setTimeout(resolve, 500));
 
-            // const token = await executeRecaptcha("newsletter_form");
+            const token = await executeRecaptcha("newsletter_form");
 
             // console.log(
             //     "RECAPTCHA TOKEN:",
             //     token
             // );
-            // payload.token = token;
+            payload.token = token;
 
             const response = await createContact(payload);
-
             if (response.success) {
                 setIsSuccessContact(true);
-            } else {
-                console.error(response.errorMessage);
             }
         } catch (error) {
             console.error(error);
@@ -58,17 +55,14 @@ export default function NewsletterForm() {
                             {...register("email", {
                                 required: "Email is required",
                                 pattern: {
-                                    value:
-                                        /^(?!.*\.\.)(?!.*@.*@)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/,
+                                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                                     message: "Invalid email address",
                                 },
                                 onChange: (e) => {
-                                    e.target.value = e.target.value
-                                        .toLowerCase()
-                                        .replace(
-                                            /[^a-z0-9@._-]/g,
-                                            ""
-                                        );
+                                    e.target.value = e.target.value.replace(
+                                        /[^a-zA-Z0-9@._-]/g,
+                                        ""
+                                    );
                                 },
                             })}
                             type="email"
@@ -98,14 +92,6 @@ export default function NewsletterForm() {
                     {...register("message", {
                         required: "Message is required",
                     })}
-                />
-
-                <input
-                    type="text"
-                    {...register("website")}
-                    style={{ display: "none" }}
-                    tabIndex={-1}
-                    autoComplete="off"
                 />
                 <button
                     type="submit"
