@@ -79,7 +79,7 @@ const MeetTheTeam = ({ employees }: MeetTheTeamProps) => {
                                     // src={employee.image || `/images/team${index + 1}.jpg`}
                                     // alt="team"
                                     src={`${BASE_URL}/uploads/${employee.image}`}
-                                    className="w-full h-95 object-cover object-top"
+                                    className="w-full h-110 object-cover object-top"
                                     variants={{
                                         rest: { scale: 1 },
                                         hover: { scale: 1.1 }
@@ -89,7 +89,7 @@ const MeetTheTeam = ({ employees }: MeetTheTeamProps) => {
 
                                 {/* Gradient Overlay */}
                                 <motion.div
-                                    className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent"
+                                    className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent"
                                     variants={{
                                         rest: { opacity: 0 },
                                         hover: { opacity: 1 }
@@ -108,7 +108,7 @@ const MeetTheTeam = ({ employees }: MeetTheTeamProps) => {
                                 >
                                     <h3 className="text-xl font-bold">{employee.name}</h3>
 
-                                    <p className="text-sm text-gray-300 mb-3">
+                                    <p className="text-xs text-gray-300 mb-3">
                                         {employee.designation} - {employee.experience}
                                     </p>
                                     {/* <p className="text-sm text-gray-300">
@@ -116,7 +116,7 @@ const MeetTheTeam = ({ employees }: MeetTheTeamProps) => {
                                     </p> */}
 
                                     <div
-                                        className="text-sm text-gray-400 mb-5"
+                                        className="text-base leading-tight text-gray-400 mb-5"
                                         suppressHydrationWarning
                                         dangerouslySetInnerHTML={{
                                             __html: employee.description || "",
