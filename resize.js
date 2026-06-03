@@ -16,7 +16,7 @@
 
 const sharp = require("sharp");
 
-sharp("public/employee/dhanesh.png")
+sharp("public/employee/celiba.png")
     .resize({
         width: 800,
         height: 1000,
@@ -24,10 +24,10 @@ sharp("public/employee/dhanesh.png")
         // position: "top", // auto-focus important area
     })
     .webp({
-        quality: 95,
+        quality: 100,
         effort: 6
     })
-    .toFile("public/dhanesh.webp")
+    .toFile("public/celiba.webp")
     .then(() => console.log("✅ Done"))
     .catch(console.error);
 

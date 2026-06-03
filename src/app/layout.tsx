@@ -40,12 +40,12 @@ export default async function RootLayout({
 
         <LCPDiagnostics />
 
-        <a
+        {/* <a
           href="#main-content"
           className="sr-only focus:not-sr-only"
         >
           Skip to main content
-        </a>
+        </a> */}
 
         <ClientLayout siteInfo={siteInfo || []}>
           {children}

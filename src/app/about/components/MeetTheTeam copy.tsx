@@ -3,7 +3,6 @@ import { fadeIn } from '@/src/shared/animation/variants';
 import { useState } from 'react'
 import { motion } from "framer-motion"
 import { Facebook, Youtube } from 'lucide-react';
-import Image from 'next/image';
 
 interface Employee {
     id: string;
@@ -65,52 +64,56 @@ const MeetTheTeam = ({ employees }: MeetTheTeamProps) => {
                         // const isActive = activeCard === index;
 
                         return (
-                            <article
+                            <motion.article
                                 key={employee.id}
-                                className="group relative overflow-hidden cursor-pointer"
-                                onClick={() =>
-                                    setActiveCard(activeCard === index ? null : index)
-                                }
+                                className="relative overflow-hidden cursor-pointer"
+                                initial="rest"
+                                whileHover="hover"
+                                animate={activeCard === index ? "hover" : "rest"}
+                                onClick={() => setActiveCard(activeCard === index ? null : index)}
+                                onMouseEnter={() => setActiveCard(null)}
                             >
-                                <Image
+
+                                {/* Image */}
+                                <motion.img
+                                    // src={employee.image || `/images/team${index + 1}.jpg`}
+                                    // alt="team"
                                     src={`${BASE_URL}/uploads/${employee.image}`}
-                                    alt={employee.name}
-                                    width={800}
-                                    height={1000}
-                                    sizes="(max-width: 640px) 100vw,
-         (max-width: 1024px) 50vw,
-         (max-width: 1280px) 33vw,
-         25vw"
-                                    unoptimized
-                                    loading="lazy"
-                                    className="w-full h-110 object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                                    className="w-full h-110 object-cover object-top"
+                                    variants={{
+                                        rest: { scale: 1 },
+                                        hover: { scale: 1.1 }
+                                    }}
+                                    transition={{ duration: 0.4 }}
                                 />
 
-                                <div
-                                    className={`
-    absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent
-    transition-opacity duration-300
-    ${activeCard === index
-                                            ? "opacity-100"
-                                            : "opacity-0 lg:group-hover:opacity-100"
-                                        }
-  `}
+                                {/* Gradient Overlay */}
+                                <motion.div
+                                    className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent"
+                                    variants={{
+                                        rest: { opacity: 0 },
+                                        hover: { opacity: 1 }
+                                    }}
+                                    transition={{ duration: 0.3 }}
                                 />
 
-                                <div
-                                    className={`
-    absolute bottom-6 left-6 right-6 text-white transition-all duration-300
-    ${activeCard === index
-                                            ? "opacity-100 translate-y-0"
-                                            : "opacity-0 translate-y-14 lg:group-hover:opacity-100 lg:group-hover:translate-y-0"
-                                        }
-  `}
+                                {/* Content */}
+                                <motion.div
+                                    className="absolute bottom-6 left-6 right-6 text-white"
+                                    variants={{
+                                        rest: { y: 60, opacity: 0 },
+                                        hover: { y: 0, opacity: 1 }
+                                    }}
+                                    transition={{ duration: 0.35 }}
                                 >
                                     <h3 className="text-xl font-bold">{employee.name}</h3>
 
                                     <p className="text-xs text-gray-300 mb-3">
                                         {employee.designation} - {employee.experience}
                                     </p>
+                                    {/* <p className="text-sm text-gray-300">
+                                        {employee.experience}
+                                    </p> */}
 
                                     <div
                                         className="text-base leading-tight text-gray-400 mb-5"
@@ -119,8 +122,20 @@ const MeetTheTeam = ({ employees }: MeetTheTeamProps) => {
                                             __html: employee.description || "",
                                         }}
                                     />
-                                </div>
-                            </article>
+
+                                    {/* Social Icons */}
+                                    {/* <div className="flex gap-3">
+                                        <div className="w-10 h-10 border border-white/40 rounded-full flex items-center justify-center">
+                                            <Facebook />
+                                        </div>
+                                        <div className="w-10 h-10 border border-white/40 rounded-full flex items-center justify-center">
+                                            <Youtube />
+                                        </div>
+
+                                    </div> */}
+                                </motion.div>
+
+                            </motion.article>
                         );
                     })}
 

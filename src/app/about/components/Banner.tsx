@@ -1,33 +1,21 @@
-"use client"
-import { fadeIn } from "@/src/shared/animation/variants";
 import CustomObject from "@/src/shared/components/CustomObjects";
-import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 import Image from "next/image";
-// import ProgressBar from "./Progress";
-
-const ProgressBar = dynamic(
-    () => import("./Progress"),
-    {
-        ssr: false,
-    }
-);
-
+import ProgressBar from "./Progress";
 
 const Banner = () => {
     return (
         <section className="px-5 mx-auto relative ">
             <div className="flex gap-5 py-3 px-0 sm:px-10 mx-auto ">
                 <div className="relative gap-10 mx-auto lg:flex">
-                    <motion.div
-                        variants={fadeIn("right", 0.1)}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{
-                            once: true,
-                            amount: 0.15,
-                        }}
-                        className="relative bg-transparent lg:w-1/2"
+                    <div
+                        // variants={fadeIn("right", 0.1)}
+                        // initial="hidden"
+                        // whileInView="show"
+                        // viewport={{
+                        //     once: true,
+                        //     amount: 0.15,
+                        // }}
+                        className="relative bg-transparent lg:w-1/2 hero-fade-right"
                     >
 
                         <CustomObject
@@ -45,14 +33,17 @@ const Banner = () => {
                             variants="green"
                         />
                         <Image
-                            width={500}
-                            height={500}
-                            src="/images/about/banner.webp"
+                            src="/images/about/bannernew.webp"
                             alt="Business Growth Solution"
-                            className="w-full h-full object-cover"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            width={651}
+                            height={511}
+                            priority
+                            sizes="(max-width: 640px) 100vw,
+         (max-width: 1024px) 90vw,
+         35vw"
+                            className="w-full h-auto object-cover"
                         />
-                    </motion.div>
+                    </div>
 
                     {/* <CustomObject
                         className="absolute top-[calc(27%-10px)] left-[calc(30%-10px) lg:top-[calc(34%-10px)] lg:left-[calc(41%-10px)]  xl:top-[calc(29%-10px)] xl:left-[calc(44%-10px)] 2xl:top-[calc(27%-10px)]  transform -translate-x-1/2 -translate-y-1/2 -z-10 -2xl h-[150vw] lg:h-screen hidden lg:block" // Increased size here
@@ -61,15 +52,15 @@ const Banner = () => {
 
 
 
-                    <motion.div
-                        variants={fadeIn("left", 0.1)}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{
-                            once: true,
-                            amount: 0.15,
-                        }}
-                        className="flex-col justify-center gap-10 lg:gap-5 xl:gap-10 md:pe-0 mt-5 lg:mt-0 lg:pe-10 lg:w-1/2 lg:flex"
+                    <div
+                        // variants={fadeIn("left", 0.1)}
+                        // initial="hidden"
+                        // whileInView="show"
+                        // viewport={{
+                        //     once: true,
+                        //     amount: 0.15,
+                        // }}
+                        className="flex-col justify-center gap-10 lg:gap-5 xl:gap-10 md:pe-0 mt-5 lg:mt-0 lg:pe-10 lg:w-1/2 lg:flex hero-fade-left"
                     >
                         <div>
                             <h2 className="pb-4 text-3xl lg:text-2xl xl:text-4xl font-bold ">
@@ -101,7 +92,7 @@ const Banner = () => {
                             </p>
                             <ProgressBar progressTime={90} />
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

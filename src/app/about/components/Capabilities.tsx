@@ -41,12 +41,14 @@ const Capabilities = () => {
                         className="w-full lg:w-1/2"
                     >
                         <Image
-                            src="/images/about/capabilities.webp"
+                            src="/images/about/capabilitiesnew.webp"
                             alt="Izh Tech capabilities"
                             className="w-full h-auto object-cover"
-                            width={1200}
-                            height={800}
-                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            width={651}
+                            height={476}
+                            sizes="(max-width: 640px) 100vw,
+         (max-width: 1024px) 90vw,
+         35vw"
                         />
                     </motion.div>
                 </div>
