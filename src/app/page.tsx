@@ -5,7 +5,7 @@ import Script from "next/script";
 import HomePage from './home/page';
 
 export const metadata = {
-  title: "IZH Tech – Software & Digital Solutions",
+  title: "Izh Tech – Software & Digital Solutions",
 
   description:
     "Digital marketing, Web, mobile app, branding and software services by Izh Tech help businesses grow online.",
@@ -28,7 +28,7 @@ const page = () => {
       "https://izhtech.com/#organization",
 
     name:
-      "IZH Tech",
+      "Izh Tech",
 
     legalName:
       "Izh Tech Creative Solutions",
@@ -40,7 +40,7 @@ const page = () => {
       "https://izhtech.com/logo-primary.png",
 
     description:
-      "IZH Tech is a digital solutions company in India offering web and mobile app development, custom software, AI solutions, branding, and digital marketing services to help businesses grow online.",
+      "Izh Tech is a digital solutions company in India offering web and mobile app development, custom software, AI solutions, branding, and digital marketing services to help businesses grow online.",
 
     foundingDate:
       "2022",

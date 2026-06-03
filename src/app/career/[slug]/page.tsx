@@ -28,12 +28,12 @@ export async function generateMetadata({
     return {
         title:
             jobSlug?.title
-                ? `${jobSlug.title} Career Opportunities - IZH Tech`
-                : "Career Opportunities - IZH Tech",
+                ? `${jobSlug.title} Career Opportunities - Izh Tech`
+                : "Career Opportunities - Izh Tech",
 
         description:
             jobSlug?.shortNote ||
-            "Career opportunity at IZH Tech",
+            "Career opportunity at Izh Tech",
 
         alternates: {
             canonical:
@@ -42,7 +42,7 @@ export async function generateMetadata({
 
         openGraph: {
             title:
-                `${jobSlug?.title} Career Opportunities - IZH Tech`,
+                `${jobSlug?.title} Career Opportunities - Izh Tech`,
 
             description:
                 jobSlug?.shortNote,
@@ -59,7 +59,7 @@ export async function generateMetadata({
                 "summary_large_image",
 
             title:
-                `${jobSlug?.title} Career Opportunities - IZH Tech`,
+                `${jobSlug?.title} Career Opportunities - Izh Tech`,
 
             description:
                 jobSlug?.shortNote,
@@ -121,7 +121,7 @@ const CareerSlugPage = async ({
                         "Organization",
 
                     name:
-                        "IZH Tech",
+                        "Izh Tech",
 
                     sameAs:
                         "https://izhtech.com",
@@ -174,7 +174,7 @@ const CareerSlugPage = async ({
                         "PropertyValue",
 
                     name:
-                        "IZH Tech",
+                        "Izh Tech",
 
                     value:
                         jobSlug.id,

@@ -20,7 +20,7 @@ const WhyWorkWithUs = () => {
                         className="w-full"
                     >
                         <h2 className="text-4xl sm:text-5xl font-bold">
-                            Life at IZH Tech
+                            Life at Izh Tech
                         </h2>
                         <p className="text-base text-justify mt-5">
                             At Izh Tech, we are more than a workplace. We are a community of innovators, thinkers, and problem solvers. Through tech discussions, team activities, and shared learning, we create an engaging environment where every team member feels supported and empowered.
@@ -70,7 +70,7 @@ const WhyWorkWithUs = () => {
                 >
                     <Image
                         src="/images/career.webp"
-                        alt="Life at IZH Tech"
+                        alt="Life at Izh Tech"
                         // className="w-full h-full lg:h-170 xl:h-162.5 object-cover"
                         className="
     w-full

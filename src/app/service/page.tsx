@@ -34,10 +34,10 @@ interface Services {
 }
 
 export const metadata = {
-    title: "Web Development and Digital Services - IZH Tech",
+    title: "Web Development and Digital Services - Izh Tech",
 
     description:
-        "Explore IZH Tech services including web development, mobile app development, branding and digital marketing solutions.",
+        "Explore Izh Tech services including web development, mobile app development, branding and digital marketing solutions.",
 
     alternates: {
         canonical:
@@ -74,7 +74,7 @@ const ServicePage = async () => {
                     "https://izhtech.com/service#services",
 
                 name:
-                    "IZH Tech Services",
+                    "Izh Tech Services",
 
                 description:
                     "Professional digital services including web development, app development, branding and digital marketing.",
@@ -118,17 +118,17 @@ const ServicePage = async () => {
             "https://izhtech.com/service#services",
 
         name:
-            "IZH Tech Services",
+            "Izh Tech Services",
 
         description:
-            "IZH Tech provides professional digital services including Branding, Web Development, App Development, and Digital Marketing to help businesses grow online.",
+            "Izh Tech provides professional digital services including Branding, Web Development, App Development, and Digital Marketing to help businesses grow online.",
 
         provider: {
             "@type":
                 "Organization",
 
             name:
-                "IZH Tech",
+                "Izh Tech",
 
             url:
                 "https://izhtech.com",
@@ -142,7 +142,7 @@ const ServicePage = async () => {
                 "OfferCatalog",
 
             name:
-                "IZH Tech Service Catalog",
+                "Izh Tech Service Catalog",
 
             itemListElement: [
                 {
@@ -252,7 +252,7 @@ const ServicePage = async () => {
             <SectionHeader
                 title="Our Services"
                 description="Leave us a little info, and we’ll be in touch."
-                srOnlyText="IZH Tech provides web development, mobile app development, branding and digital marketing services."
+                srOnlyText="Izh Tech provides web development, mobile app development, branding and digital marketing services."
                 buttonText="Contact Us"
                 buttonHref="/contact"
                 customObjectVariant="green-disk"

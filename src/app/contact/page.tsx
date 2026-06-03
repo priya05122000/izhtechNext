@@ -9,10 +9,10 @@ import { getAllSiteInfo } from '@/src/services/siteInfoService';
 import SectionHeader from '@/src/shared/components/SectionHeader';
 
 export const metadata = {
-    title: "Contact IZH Tech for Web and App Development",
+    title: "Contact Izh Tech for Web and App Development",
 
     description:
-        "Get in touch with IZH Tech for branding, web development, app development, and digital marketing services.",
+        "Get in touch with Izh Tech for branding, web development, app development, and digital marketing services.",
 
     alternates: {
         canonical: "https://izhtech.com/contact",
@@ -32,20 +32,20 @@ const ContactPage = async () => {
             "ContactPage",
 
         name:
-            "Contact IZH Tech for Digital Solutions",
+            "Contact Izh Tech for Digital Solutions",
 
         url:
             "https://izhtech.com/contact",
 
         description:
-            "Get in touch with IZH Tech for branding, web development, app development, and digital marketing services.",
+            "Get in touch with Izh Tech for branding, web development, app development, and digital marketing services.",
 
         mainEntity: {
             "@type":
                 "Organization",
 
             name:
-                "IZH Tech",
+                "Izh Tech",
 
             url:
                 "https://izhtech.com",

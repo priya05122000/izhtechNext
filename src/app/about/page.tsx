@@ -15,9 +15,10 @@ import { getAllTestimonials } from '@/src/services/testimonialService'
 import TestimonialsClient from "./components/TestimonialsClient";
 import MeetTheTeam from './components/MeetTheTeam'
 import SectionHeader from '@/src/shared/components/SectionHeader'
+import { getAllEmployees } from '@/src/services/employeeService';
 
 export const metadata = {
-    title: "About IZH Tech and Our Digital Solutions Team",
+    title: "About Izh Tech and Our Digital Solutions Team",
 
     description:
         "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses.",
@@ -27,7 +28,7 @@ export const metadata = {
     },
 
     openGraph: {
-        title: "About IZH Tech and Our Digital Solutions Team",
+        title: "About Izh Tech and Our Digital Solutions Team",
 
         description:
             "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses.",
@@ -40,7 +41,7 @@ export const metadata = {
     twitter: {
         card: "summary_large_image",
 
-        title: "About IZH Tech and Our Digital Solutions Team",
+        title: "About Izh Tech and Our Digital Solutions Team",
 
         description:
             "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses.",
@@ -53,6 +54,7 @@ const AboutPage = async () => {
     const projects = await getAllProjects();
     const siteInfo = await getAllSiteInfo();
     const testimonials = await getAllTestimonials();
+    const employees = await getAllEmployees();
 
     return (
         <>
@@ -68,16 +70,16 @@ const AboutPage = async () => {
                             "@type": "AboutPage",
                             "@id": "https://izhtech.com/about",
                             url: "https://izhtech.com/about",
-                            name: "About IZH Tech",
+                            name: "About Izh Tech",
                             description:
-                                "IZH Tech is a digital solutions company providing web development, mobile app development, branding, and digital marketing services.",
+                                "Izh Tech is a digital solutions company providing web development, mobile app development, branding, and digital marketing services.",
                         },
 
                         {
                             "@context": "https://schema.org",
                             "@type": "Organization",
                             "@id": "https://izhtech.com/#organization",
-                            name: "IZH Tech",
+                            name: "Izh Tech",
                             url: "https://izhtech.com",
                             logo: "https://izhtech.com/logo-primary.png",
                             sameAs: [
@@ -130,7 +132,7 @@ const AboutPage = async () => {
                 designers={siteInfo?.[0]?.teamCount}
             />
 
-            <MeetTheTeam />
+            <MeetTheTeam employees={employees} />
 
         </>
     )

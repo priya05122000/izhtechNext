@@ -24,7 +24,7 @@ const SectionViewHeader: React.FC<SectionViewHeaderProps> = ({ title, header }) 
                         {title}
                     </h1>
                     <p className="sr-only">
-                        IZH Tech project showcasing web development,
+                        Izh Tech project showcasing web development,
                         mobile application development, branding and digital solutions.
                     </p>
                 </div>

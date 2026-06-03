@@ -46,7 +46,7 @@ export default function Footer({
 
                         {/* <img
                             src="/Logo-white.png"
-                            alt="IZH Tech Logo"
+                            alt="Izh Tech Logo"
                             className="h-16 w-auto mb-4"
                             width={200}
                             height={64}
@@ -56,7 +56,7 @@ export default function Footer({
 
                         <Image
                             src="/Logo-white.png"
-                            alt="IZH Tech Logo"
+                            alt="Izh Tech Logo"
                             width={100}
                             height={80}
                             className="w-16 h-auto mb-4"

@@ -30,7 +30,7 @@ export default function Navbar() {
                     {/* <img
                         src="/logo-primary.png"
                         className="w-16 h-auto"
-                        alt="IZH Tech | Your Digital Partner"
+                        alt="Izh Tech | Your Digital Partner"
                         width={64}
                         height={64}
                         decoding="async"
@@ -38,7 +38,7 @@ export default function Navbar() {
                     /> */}
                     <Image
                         src="/logo-primary.png"
-                        alt="IZH Tech | Your Digital Partner"
+                        alt="Izh Tech | Your Digital Partner"
                         width={100}
                         height={80}
                         className="w-16 h-auto"

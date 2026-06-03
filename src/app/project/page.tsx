@@ -9,10 +9,10 @@ import ProjectList from './component.tsx/ProjectList';
 import SectionHeader from '@/src/shared/components/SectionHeader';
 
 export const metadata = {
-    title: "Our Projects and Case Studies - IZH Tech",
+    title: "Our Projects and Case Studies - Izh Tech",
 
     description:
-        "A showcase of professional digital projects by IZH Tech including web development, mobile applications, branding and digital solutions.",
+        "A showcase of professional digital projects by Izh Tech including web development, mobile applications, branding and digital solutions.",
 
     alternates: {
         canonical: "https://izhtech.com/project",
@@ -39,10 +39,10 @@ const ProjectPage = async () => {
                     "https://izhtech.com/project#portfolio",
 
                 name:
-                    "IZH Tech Portfolio Projects",
+                    "Izh Tech Portfolio Projects",
 
                 description:
-                    "A showcase of professional digital projects by IZH Tech including web development, mobile applications, branding and digital solutions.",
+                    "A showcase of professional digital projects by Izh Tech including web development, mobile applications, branding and digital solutions.",
 
                 itemListElement:
                     projects.map(

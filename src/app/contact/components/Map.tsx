@@ -12,7 +12,7 @@ const Map = () => {
                 <div className="relative">
                     <Image
                         src="/izhtechmap.webp"
-                        alt="IZH Tech Location"
+                        alt="Izh Tech Location"
                         width={1600}
                         height={600}
                         className="w-full h-125 object-cover object-top"

@@ -14,10 +14,10 @@ import SectionHeader from "@/src/shared/components/SectionHeader";
 
 export const metadata = {
     title:
-        "Career Opportunities in Web and App Development - IZH Tech",
+        "Career Opportunities in Web and App Development - Izh Tech",
 
     description:
-        "Explore career opportunities at IZH Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
+        "Explore career opportunities at Izh Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
 
     alternates: {
         canonical:
@@ -26,10 +26,10 @@ export const metadata = {
 
     openGraph: {
         title:
-            "Career Opportunities in Web and App Development - IZH Tech",
+            "Career Opportunities in Web and App Development - Izh Tech",
 
         description:
-            "Explore career opportunities at IZH Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
+            "Explore career opportunities at Izh Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
 
         url:
             "https://izhtech.com/career",
@@ -43,10 +43,10 @@ export const metadata = {
             "summary_large_image",
 
         title:
-            "Career Opportunities in Web and App Development - IZH Tech",
+            "Career Opportunities in Web and App Development - Izh Tech",
 
         description:
-            "Explore career opportunities at IZH Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
+            "Explore career opportunities at Izh Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
     },
 };
 
@@ -124,7 +124,7 @@ const CareerPage = async () => {
                                     "Organization",
 
                                 name:
-                                    "IZH Tech",
+                                    "Izh Tech",
 
                                 sameAs:
                                     "https://izhtech.com",
@@ -178,7 +178,7 @@ const CareerPage = async () => {
                                     "PropertyValue",
 
                                 name:
-                                    "IZH Tech",
+                                    "Izh Tech",
 
                                 value:
                                     job.id,
@@ -200,20 +200,20 @@ const CareerPage = async () => {
             "AboutPage",
 
         name:
-            "Careers at IZH Tech",
+            "Careers at Izh Tech",
 
         url:
             "https://izhtech.com/career",
 
         description:
-            "Career opportunities at IZH Tech. Join our creative team working on branding, web development, app development, and digital marketing projects.",
+            "Career opportunities at Izh Tech. Join our creative team working on branding, web development, app development, and digital marketing projects.",
 
         mainEntity: {
             "@type":
                 "Organization",
 
             name:
-                "IZH Tech",
+                "Izh Tech",
 
             url:
                 "https://izhtech.com",
@@ -222,7 +222,7 @@ const CareerPage = async () => {
                 "https://izhtech.com/logo.png",
 
             description:
-                "IZH Tech is a digital company providing branding, web development, app development, and digital marketing services.",
+                "Izh Tech is a digital company providing branding, web development, app development, and digital marketing services.",
         },
     };
 
@@ -266,7 +266,7 @@ const CareerPage = async () => {
                         </span>
                     </>
                 }
-                srOnlyText="IZH Tech provides career opportunities in web development, mobile app development, branding and digital marketing."
+                srOnlyText="Izh Tech provides career opportunities in web development, mobile app development, branding and digital marketing."
                 buttonText="Apply Now"
                 customObjectVariant="orange-disk"
             />

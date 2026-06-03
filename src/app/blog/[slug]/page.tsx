@@ -37,8 +37,8 @@ export async function generateMetadata({
 
     const seoTitle =
         blogSlug?.title
-            ? `${blogSlug.title} | IZH Tech`
-            : "IZH Tech Blog";
+            ? `${blogSlug.title} | Izh Tech`
+            : "Izh Tech Blog";
 
     return {
         title:
@@ -147,7 +147,7 @@ const BlogSlugPage = async ({
                         "Organization",
 
                     name:
-                        "IZH Tech",
+                        "Izh Tech",
 
                     url: "https://izhtech.com",
 
@@ -158,7 +158,7 @@ const BlogSlugPage = async ({
                         "Organization",
 
                     name:
-                        "IZH Tech",
+                        "Izh Tech",
 
                     logo: {
                         "@type":

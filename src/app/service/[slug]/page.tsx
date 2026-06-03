@@ -82,7 +82,7 @@ const generateServiceSchema = (
                     "Organization",
 
                 name:
-                    "IZH Tech",
+                    "Izh Tech",
 
                 url:
                     SITE_URL,
@@ -171,12 +171,12 @@ export async function generateMetadata({
 
     return {
         title:
-            `${serviceSlug?.title} Solutions and Services - IZH Tech` ||
-            "IZH Tech Services",
+            `${serviceSlug?.title} Solutions and Services - Izh Tech` ||
+            "Izh Tech Services",
 
         description:
             serviceSlug?.shortNote ||
-            "IZH Tech service details",
+            "Izh Tech service details",
 
         alternates: {
             canonical:
@@ -185,7 +185,7 @@ export async function generateMetadata({
 
         openGraph: {
             title:
-                `${serviceSlug?.title} Solutions and Services - IZH Tech`,
+                `${serviceSlug?.title} Solutions and Services - Izh Tech`,
 
             description:
                 serviceSlug?.shortNote,
@@ -209,7 +209,7 @@ export async function generateMetadata({
                 "summary_large_image",
 
             title:
-                `${serviceSlug?.title} Solutions and Services - IZH Tech`,
+                `${serviceSlug?.title} Solutions and Services - Izh Tech`,
 
             description:
                 serviceSlug?.shortNote,

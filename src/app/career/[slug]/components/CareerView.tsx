@@ -70,7 +70,7 @@ const CareerView = ({
                 title={jobSlug?.title}
                 description={jobSlug.shortNote}
                 // description={<>Are you Looking for Your Dream <span className="text-[#0E3BF9]">Job?</span></>}
-                srOnlyText={`Job opportunity at IZH Tech in web development, mobile app development, branding and digital marketing. Apply now for career growth. ${jobSlug?.title || "Job opening at IZH Tech"}`}
+                srOnlyText={`Job opportunity at Izh Tech in web development, mobile app development, branding and digital marketing. Apply now for career growth. ${jobSlug?.title || "Job opening at Izh Tech"}`}
                 buttonText="View more"
                 buttonHref="/contact"
                 customObjectVariant="orange-disk"

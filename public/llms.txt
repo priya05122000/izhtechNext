@@ -1,7 +1,7 @@
-IZH Tech
+Izh Tech
 https://izhtech.com
 
-IZH Tech is a digital solutions company offering:
+Izh Tech is a digital solutions company offering:
 
 - Website Development
 - Mobile App Development

@@ -10,20 +10,20 @@ import { getAllBlogPosts } from "@/src/services/blogPostService";
 import SectionHeader from "@/src/shared/components/SectionHeader";
 
 export const metadata = {
-    title: "Technology and Digital Marketing Blogs - IZH Tech",
+    title: "Technology and Digital Marketing Blogs - Izh Tech",
 
     description:
-        "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
+        "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from Izh Tech.",
 
     alternates: {
         canonical: "https://izhtech.com/blog",
     },
 
     openGraph: {
-        title: "Technology and Digital Marketing Blogs - IZH Tech",
+        title: "Technology and Digital Marketing Blogs - Izh Tech",
 
         description:
-            "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
+            "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from Izh Tech.",
 
         url: "https://izhtech.com/blog",
 
@@ -33,10 +33,10 @@ export const metadata = {
     twitter: {
         card: "summary_large_image",
 
-        title: "Technology and Digital Marketing Blogs - IZH Tech",
+        title: "Technology and Digital Marketing Blogs - Izh Tech",
 
         description:
-            "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
+            "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from Izh Tech.",
     },
 };
 
@@ -57,13 +57,13 @@ const BlogPage = async () => {
                         "@type": "ItemList",
 
                         name:
-                            "IZH Tech Blogs",
+                            "Izh Tech Blogs",
 
                         url:
                             "https://izhtech.com/blog",
 
                         description:
-                            "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from IZH Tech.",
+                            "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from Izh Tech.",
 
                         itemListElement:
                             blogs?.map(
@@ -91,7 +91,7 @@ const BlogPage = async () => {
             <SectionHeader
                 title="Our Blogs"
                 description="Leave us a little info, and we’ll be in touch."
-                srOnlyText="IZH Tech blog shares articles on web development, mobile app development, branding, and digital marketing."
+                srOnlyText="Izh Tech blog shares articles on web development, mobile app development, branding, and digital marketing."
                 customObjectVariant="green-disk"
             />
 

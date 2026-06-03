@@ -4,8 +4,34 @@ import { useState } from 'react'
 import { motion } from "framer-motion"
 import { Facebook, Youtube } from 'lucide-react';
 
+interface Employee {
+    id: string;
+    name: string;
+    email: string | null;
+    mobileNumber: string | null;
+    gender: string | null;
+    dob: string | null;
+    image: string | null;
+    department: string | null;
+    designation: string | null;
+    description: string | null;
+    review: string | null;
+    order: number | null;
+    experience: string | null;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+    deletedAt: Date | null;
+}
 
-const MeetTheTeam = () => {
+interface MeetTheTeamProps {
+    employees: Employee[];
+}
+
+const BASE_URL =
+    process.env.NEXT_PUBLIC_API_BASE_URL;
+
+
+const MeetTheTeam = ({ employees }: MeetTheTeamProps) => {
 
     const [activeCard, setActiveCard] = useState<number | null>(null);
 
@@ -34,13 +60,12 @@ const MeetTheTeam = () => {
             <div className="mt-10">
                 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
-                    {[1, 2, 3, 4].map((item, index) => {
-
+                    {employees?.map((employee, index) => {
                         // const isActive = activeCard === index;
 
                         return (
                             <motion.article
-                                key={item}
+                                key={employee.id}
                                 className="relative overflow-hidden cursor-pointer"
                                 initial="rest"
                                 whileHover="hover"
@@ -51,8 +76,9 @@ const MeetTheTeam = () => {
 
                                 {/* Image */}
                                 <motion.img
-                                    src={`/images/team${item}.jpg`}
-                                    alt="team"
+                                    // src={employee.image || `/images/team${index + 1}.jpg`}
+                                    // alt="team"
+                                    src={`${BASE_URL}/uploads/${employee.image}`}
                                     className="w-full h-95 object-cover object-top"
                                     variants={{
                                         rest: { scale: 1 },
@@ -80,19 +106,25 @@ const MeetTheTeam = () => {
                                     }}
                                     transition={{ duration: 0.35 }}
                                 >
-                                    <h3 className="text-xl font-bold">Colin Lucido</h3>
+                                    <h3 className="text-xl font-bold">{employee.name}</h3>
 
                                     <p className="text-sm text-gray-300 mb-3">
-                                        UI Designer · Interactive Media
+                                        {employee.designation} - {employee.experience}
                                     </p>
+                                    {/* <p className="text-sm text-gray-300">
+                                        {employee.experience}
+                                    </p> */}
 
-                                    <p className="text-sm text-gray-400 mb-5">
-                                        George is an architect and founding partner,
-                                        providing flexible digital services.
-                                    </p>
+                                    <div
+                                        className="text-sm text-gray-400 mb-5"
+                                        suppressHydrationWarning
+                                        dangerouslySetInnerHTML={{
+                                            __html: employee.description || "",
+                                        }}
+                                    />
 
                                     {/* Social Icons */}
-                                    <div className="flex gap-3">
+                                    {/* <div className="flex gap-3">
                                         <div className="w-10 h-10 border border-white/40 rounded-full flex items-center justify-center">
                                             <Facebook />
                                         </div>
@@ -100,7 +132,7 @@ const MeetTheTeam = () => {
                                             <Youtube />
                                         </div>
 
-                                    </div>
+                                    </div> */}
                                 </motion.div>
 
                             </motion.article>
