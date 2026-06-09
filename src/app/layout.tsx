@@ -1,6 +1,13 @@
 // src/app/layout.tsx
 
+import type { Metadata } from "next";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  verification: {
+    google: "iy1eHHw-Janft_jLQsAVWPUB4ezRTVGLh8iybiTpiDg",
+  },
+};
 
 import ClientLayout from "./ClientLayout";
 
@@ -9,6 +16,7 @@ import { DM_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import { getAllSiteInfo } from "../services/siteInfoService";
 
 const dmSans = DM_Sans({
@@ -64,7 +72,7 @@ export default async function RootLayout({
           `}
         </Script> */}
 
-        {/* <GoogleAnalytics gaId="G-SYDD14SZLN" /> */}
+        <GoogleAnalytics gaId="G-SYDD14SZLN" />
       </body>
     </html>
   );
