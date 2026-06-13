@@ -6,10 +6,7 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 });
 
 const nextConfig: NextConfig = {
-
   output: "standalone",
-  trailingSlash: false,
-
   images: {
 
     // unoptimized: true,
@@ -40,88 +37,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-
-
-  async redirects() {
-    return [
-      {
-        source: "/blog-detail/:slug",
-        destination: "/blog/:slug",
-        permanent: true,
-      },
-
-      {
-        source: "/project-details/:slug",
-        destination: "/project/:slug",
-        permanent: true,
-      },
-    ];
-  },
-
-  async headers() {
-    return [
-      {
-        source: "/images/pdf/:path*",
-
-        headers: [
-          {
-            key: "X-Robots-Tag",
-            value: "noindex",
-          },
-        ],
-      },
-      {
-        source: "/llms.txt",
-        headers: [
-          {
-            key: "Content-Type",
-            value: "text/plain; charset=utf-8",
-          },
-        ],
-      },
-
-      {
-        source: "/(.*)",
-        headers: [
-
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-
-          {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
-
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=31536000; includeSubDomains; preload",
-          },
-
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-
-          {
-            key: "Content-Security-Policy",
-            value: `
-              default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
-              script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
-              style-src * 'unsafe-inline' data: blob:;
-              img-src * data: blob:;
-              font-src * data: blob:;
-              connect-src * data: blob: ws: wss:;
-              frame-ancestors *;
-            `.replace(/\n/g, ""),
-          },
-
-        ],
-      },
-    ];
-  },
-
 };
 
-export default withBundleAnalyzer(nextConfig);
+export default nextConfig;
