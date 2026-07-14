@@ -60,7 +60,7 @@ export default function Footer({
                             width={100}
                             height={80}
                             className="w-16 h-auto mb-4"
-                            // className="h-16 w-auto mb-4"
+                        // className="h-16 w-auto mb-4"
                         />
 
                         <h6 className="text-sm font-semibold">
@@ -107,6 +107,13 @@ export default function Footer({
                                 <p>{siteInfo[0]?.address}</p>
                             </div>
                         )}
+
+                        <div className="pt-6 text-gray-300">
+
+                            <b>Sharjah</b><br />
+                            Muweilah - 96648
+
+                        </div>
 
                     </div>
 

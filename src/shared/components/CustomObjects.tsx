@@ -7,7 +7,7 @@ interface CustomObjectProps {
   | "green"
   | "orange-half-circle-lines"
   | "hero-left-full"
-  | "circle-2"
+  | "circle-3"
   | "blue-short-line-left"
   | "hero-left-full-gif"
   | "purple-dots"
@@ -41,7 +41,7 @@ function CustomObject({
     "line-purple-left":
       "/images/objects/purple-line-left.webp",
 
-    "circle-2":
+    "circle-3":
       "/images/objects/circle-3.webp",
 
     "half-dash-yellow":

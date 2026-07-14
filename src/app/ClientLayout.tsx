@@ -6,7 +6,6 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 
 import CustomObject from "../shared/components/CustomObjects";
-import PageScroll from "../shared/components/PageScroll";
 import Collaboration from "../shared/components/Collaboration";
 import SocialMediaTag from "../shared/components/SocialMediaTag";
 
@@ -88,15 +87,14 @@ export default function ClientLayout({
                         lg:h-[50vh]
                         2xl:block
                     `}
-                    variants="circle-2"
+                    variants="circle-3"
                 /> */}
 
                 <CustomObject
-                    className={`${isAboutPage || isBlogPage ? "hidden" : "block"} absolute -z-10 -top-16 -right-16 w-65 h-65 md:-top-40 md:-right-40 md:w-100 md:h-100`}
-                    variants="circle-2"
+                    className={`${isAboutPage || isBlogPage ? "hidden" : "block"} absolute -z-10 -top-16 -right-16 w-45 h-45 md:-top-40 md:-right-40 md:w-80 md:h-80`}
+                    variants="circle-3"
                     priority
                 />
-
 
                 {/* <PageScroll /> */}
 

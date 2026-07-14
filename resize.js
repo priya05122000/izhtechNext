@@ -1,35 +1,35 @@
-// const sharp = require("sharp");
+const sharp = require("sharp");
 
-// sharp("public/file-1774848159661-53105578.webp")
-//     // .resize(200, 2--, {
-//     //     fit: "cover",
-//     //     position: "centre",
-//     // })
-//     .webp({ quality: 75, effort: 6 })
-//     .toFile("public/hdjkfh.webp")
-//     .then(() => console.log("✅ Done"))
-//     .catch(console.error);
+sharp("public/file-1774848159661-53105578.webp")
+    // .resize(200, 2--, {
+    //     fit: "cover",
+    //     position: "centre",
+    // })
+    .webp({ quality: 75, effort: 6 })
+    .toFile("public/hdjkfh.webp")
+    .then(() => console.log("✅ Done"))
+    .catch(console.error);
 
 // ---------------------------------------------------
 
 //logos
 
-const sharp = require("sharp");
+// const sharp = require("sharp");
 
-sharp("public/employee/celiba.png")
-    .resize({
-        width: 800,
-        height: 1000,
-        fit: "cover",
-        // position: "top", // auto-focus important area
-    })
-    .webp({
-        quality: 100,
-        effort: 6
-    })
-    .toFile("public/celiba.webp")
-    .then(() => console.log("✅ Done"))
-    .catch(console.error);
+// sharp("public/employee/priya.png")
+//     .resize({
+//         width: 800,
+//         height: 1000,
+//         fit: "cover",
+//         // position: "top", // auto-focus important area
+//     })
+//     .webp({
+//         quality: 100,
+//         effort: 6
+//     })
+//     .toFile("public/priya.webp")
+//     .then(() => console.log("✅ Done"))
+//     .catch(console.error);
 
 
 // ----------------------------------------------------
