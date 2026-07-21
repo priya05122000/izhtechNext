@@ -172,7 +172,7 @@ export default function Footer({
 
                 {/* Footer Bottom */}
                 <div className="flex flex-col sm:flex-row justify-between sm:items-center  pt-5 lg:pt-10 mt-5 lg:mt-10">
-                    <div data-testid="flowbite-footer-copyright" className=" sm:text-center text-sm text-white text-start">© <a href="/" className="ml-1 hover:underline">izhtech 2024. All rights reserved</a>
+                    <div data-testid="flowbite-footer-copyright" className=" sm:text-center text-sm text-white text-start">© <Link href="/" className="ml-1 hover:underline">izhtech 2024. All rights reserved</Link>
                     </div>
 
                     <ul className="flex flex-wrap justify-between sm:justify-center gap-2 mt-4 sm:mt-0 text-xs text-white list-none">

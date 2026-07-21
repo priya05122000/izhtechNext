@@ -2,7 +2,6 @@
 import { fadeIn } from '@/src/shared/animation/variants';
 import { useState } from 'react'
 import { motion } from "framer-motion"
-import { Facebook, Youtube } from 'lucide-react';
 import Image from 'next/image';
 
 interface Employee {

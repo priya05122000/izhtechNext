@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { createContact } from "@/src/services/contactService";
+import { createContact, ContactModel } from "@/src/services/contactService";
 // import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function NewsletterForm() {
@@ -15,7 +15,7 @@ export default function NewsletterForm() {
         formState: { errors },
     } = useForm();
 
-    async function saveContact(payload: any) {
+    async function saveContact(payload: ContactModel) {
         try {
             // if (!executeRecaptcha) {
             //     console.error("Recaptcha not ready");

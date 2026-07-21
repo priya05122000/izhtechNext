@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useTime, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeIn } from "../../../shared/animation/variants";
 import DynamicIcon from "@/src/shared/components/Icon";
 
@@ -39,16 +39,6 @@ interface FeatureProps {
 }
 
 export default function Feature({ services }: FeatureProps) {
-    const time = useTime();
-
-    const rotate = useTransform(
-        time,
-        [0, 4000],
-        [0, 360],
-        { clamp: false }
-    );
-
-
     return (
         <section className="grid w-full bg-[#F3FEFD]">
             <div className="container px-8 flex flex-col flex-wrap w-full py-0 pb-6 mx-auto md:flex-row lg:py-24 lg:flex-row lg:flex-wrap lg:justify-center">

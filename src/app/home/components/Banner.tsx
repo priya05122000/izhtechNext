@@ -56,7 +56,7 @@ const Banner = ({ siteInfo }: MissionStatementProps) => {
               <p className="z-10 pt-4 pb-4 text-base text-justify">
                 Izh Tech is a trusted website development company and digital
                 marketing agency dedicated to accelerating your business growth.
-                Whether you're a startup, a traditional business, or an
+                Whether you&apos;re a startup, a traditional business, or an
                 entrepreneur, we craft customized solutions to boost your online
                 visibility and strengthen your digital presence.
               </p>

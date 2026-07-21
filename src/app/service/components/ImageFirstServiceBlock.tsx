@@ -17,10 +17,12 @@ import LinkButton from "@/src/shared/components/LinkButton";
 /* -------------------------------------------------------------------------- */
 
 interface ServiceFeature {
+  title?: string;
+  description?: string;
+  icon?: string;
   isFeatured?: boolean;
   isActive?: boolean;
   order?: number;
-  [key: string]: any;
 }
 
 interface Services {

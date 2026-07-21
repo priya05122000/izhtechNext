@@ -1,7 +1,6 @@
 "use client";
 
 import LinkButton from "@/src/shared/components/LinkButton";
-import Link from "next/link";
 import React from "react";
 
 interface JobRolesModel {

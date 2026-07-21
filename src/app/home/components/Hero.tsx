@@ -1,5 +1,4 @@
 import Image from "next/image";
-import CustomObject from "@/src/shared/components/CustomObjects";
 
 export default function Hero() {
     return (

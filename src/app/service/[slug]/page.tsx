@@ -17,6 +17,15 @@ interface ServiceSlugPageProps {
     }>;
 }
 
+interface ServiceModel {
+    title?: string;
+    shortNote?: string;
+    description?: string;
+    featuredImagePath?: string;
+    serviceFeatures?: unknown;
+    serviceHighlights?: unknown;
+}
+
 const BASE_URL =
     process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -25,7 +34,7 @@ const SITE_URL =
 
 // Reusable service formatter
 const formatServiceData = (
-    serviceSlug: any,
+    serviceSlug: ServiceModel,
     slug: string
 ) => {
 
@@ -54,7 +63,7 @@ const formatServiceData = (
 
 // Reusable schema generator
 const generateServiceSchema = (
-    serviceSlug: any,
+    serviceSlug: ServiceModel,
     currentUrl: string,
     imageUrl: string,
     plainDescription: string
@@ -163,7 +172,6 @@ export async function generateMetadata({
     const {
         currentUrl,
         imageUrl,
-        plainDescription,
     } = formatServiceData(
         serviceSlug,
         slug

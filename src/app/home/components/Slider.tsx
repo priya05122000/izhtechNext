@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 import { MoveLeft, MoveRight } from "lucide-react";
 import CustomObject from "@/src/shared/components/CustomObjects";
 import Image from "next/image";
@@ -91,15 +92,14 @@ const Slider = ({ testimonials }: TestimonialProps) => {
                                         disableOnInteraction: false,
                                         pauseOnMouseEnter: true,
                                     }}
-                                    navigation={{
-                                        prevEl: prevRef.current,
-                                        nextEl: nextRef.current,
-                                    }}
-                                    onBeforeInit={(swiper: any) => {
-                                        swiper.params.navigation.prevEl =
-                                            prevRef.current;
-                                        swiper.params.navigation.nextEl =
-                                            nextRef.current;
+                                    navigation={true}
+                                    onBeforeInit={(swiper: SwiperType) => {
+                                        const navigation = swiper.params.navigation;
+
+                                        if (navigation && typeof navigation === "object") {
+                                            navigation.prevEl = prevRef.current;
+                                            navigation.nextEl = nextRef.current;
+                                        }
                                     }}
                                     className="testimonial-swiper"
                                 >

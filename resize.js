@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports -- CommonJS CLI script run via `node resize.js`
 const sharp = require("sharp");
 
 sharp("public/file-1774848159661-53105578.webp")

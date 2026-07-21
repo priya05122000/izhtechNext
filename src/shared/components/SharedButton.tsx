@@ -7,22 +7,20 @@ interface ShareProps {
 }
 
 const SharedButton = ({ title, imageUrl }: ShareProps) => {
-  const [url, setUrl] = useState('');
+  const [url] = useState(() =>
+    typeof window !== "undefined" ? window.location.href : ""
+  );
   const [file, setFile] = useState<File | null>(null);
 
-  // Set current URL and fetch image as File for sharing
+  // Fetch image as File for sharing
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setUrl(window.location.href);
-
-      if (imageUrl) {
-        fetch(imageUrl)
-          .then(res => res.blob())
-          .then(blob => {
-            setFile(new File([blob], "shared-image.jpg", { type: blob.type }));
-          })
-          .catch(err => console.error("Image fetch failed:", err));
-      }
+    if (imageUrl) {
+      fetch(imageUrl)
+        .then(res => res.blob())
+        .then(blob => {
+          setFile(new File([blob], "shared-image.jpg", { type: blob.type }));
+        })
+        .catch(err => console.error("Image fetch failed:", err));
     }
   }, [imageUrl]);
 

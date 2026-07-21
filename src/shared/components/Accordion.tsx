@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Plus, ArrowUpRightSquare } from "lucide-react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const AccordionItem = ({ header, content, i, expanded, setExpanded }: any) => {
   const isOpen = i === expanded;
 
@@ -64,7 +63,6 @@ const AccordionItem = ({ header, content, i, expanded, setExpanded }: any) => {
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function Accordion({ items }: { items: any[] }) {
   const [expanded, setExpanded] = useState<false | number>(0);
 

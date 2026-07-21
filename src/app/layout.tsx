@@ -16,7 +16,6 @@ import { DM_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Script from "next/script";
 import { getAllSiteInfo } from "../services/siteInfoService";
 import LCPDiagnostics from "../shared/components/LCPDiagnostics";
 

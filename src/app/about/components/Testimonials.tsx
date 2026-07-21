@@ -2,6 +2,7 @@
 import LinkButton from "@/src/shared/components/LinkButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 import { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -110,16 +111,14 @@ const Testimonials = ({
                                     slidesPerView={1}
                                     loop={activeTestimonials.length > 1}
                                     speed={600}
-                                    navigation={{
-                                        prevEl: prevRef.current,
-                                        nextEl: nextRef.current,
-                                    }}
-                                    onBeforeInit={(swiper: any) => {
-                                        swiper.params.navigation.prevEl =
-                                            prevRef.current;
+                                    navigation={true}
+                                    onBeforeInit={(swiper: SwiperType) => {
+                                        const navigation = swiper.params.navigation;
 
-                                        swiper.params.navigation.nextEl =
-                                            nextRef.current;
+                                        if (navigation && typeof navigation === "object") {
+                                            navigation.prevEl = prevRef.current;
+                                            navigation.nextEl = nextRef.current;
+                                        }
                                     }}
                                     onSlideChange={(swiper) => {
                                         setCurrentIndex(swiper.realIndex);

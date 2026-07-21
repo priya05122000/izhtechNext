@@ -8,6 +8,14 @@ import ProjectList from './component.tsx/ProjectList';
 
 import SectionHeader from '@/src/shared/components/SectionHeader';
 
+interface ProjectListItem {
+    slug: string;
+    projectName?: string;
+    shortNote?: string;
+    featuredImagePath?: string;
+    descriptions?: { imagePath?: string }[];
+}
+
 export const metadata = {
     title: "Our Projects and Case Studies - Izh Tech",
 
@@ -47,7 +55,7 @@ const ProjectPage = async () => {
                 itemListElement:
                     projects.map(
                         (
-                            project: any,
+                            project: ProjectListItem,
                             idx: number
                         ) => {
 

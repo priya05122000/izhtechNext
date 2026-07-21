@@ -8,8 +8,13 @@ import { getAllServices } from "@/src/services/mainService";
 
 import { getAllProjects } from "@/src/services/projectService";
 
-import { getAllCareer } from "@/src/services/careerService";
-import { getAllJobs, getJobBySlug } from "../services/JobService";
+import { getAllJobs } from "../services/JobService";
+
+interface SitemapEntry {
+    slug: string;
+    updatedAt?: string;
+    createdAt?: string;
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
@@ -71,11 +76,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const blogs = await getAllBlogPosts();
 
     const blogPages: MetadataRoute.Sitemap =
-        blogs?.map((blog: any) => ({
+        blogs?.map((blog: SitemapEntry) => ({
             url: `${baseUrl}/blog/${blog.slug}`,
 
             lastModified: new Date(
-                blog.updatedAt || blog.createdAt
+                blog.updatedAt || blog.createdAt || new Date()
             ),
 
             changeFrequency: "daily",
@@ -87,11 +92,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const services = await getAllServices();
 
     const servicePages: MetadataRoute.Sitemap =
-        services?.map((service: any) => ({
+        services?.map((service: SitemapEntry) => ({
             url: `${baseUrl}/service/${service.slug}`,
 
             lastModified: new Date(
-                service.updatedAt || service.createdAt
+                service.updatedAt || service.createdAt || new Date()
             ),
 
             changeFrequency: "weekly",
@@ -103,11 +108,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const projects = await getAllProjects();
 
     const projectPages: MetadataRoute.Sitemap =
-        projects?.map((project: any) => ({
+        projects?.map((project: SitemapEntry) => ({
             url: `${baseUrl}/project/${project.slug}`,
 
             lastModified: new Date(
-                project.updatedAt || project.createdAt
+                project.updatedAt || project.createdAt || new Date()
             ),
 
             changeFrequency: "weekly",
@@ -121,11 +126,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // console.log(careers)
 
     const careerPages: MetadataRoute.Sitemap =
-        careers?.map((career: any) => ({
+        careers?.map((career: SitemapEntry) => ({
             url: `${baseUrl}/career/${career.slug}`,
 
             lastModified: new Date(
-                career.updatedAt || career.createdAt
+                career.updatedAt || career.createdAt || new Date()
             ),
 
             changeFrequency: "weekly",

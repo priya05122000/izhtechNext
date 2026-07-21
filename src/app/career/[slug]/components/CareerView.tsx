@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 
-import CustomObject from "@/src/shared/components/CustomObjects";
 import SectionHeader from "@/src/shared/components/SectionHeader";
 import LinkButton from "@/src/shared/components/LinkButton";
 

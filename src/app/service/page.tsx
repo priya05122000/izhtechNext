@@ -11,10 +11,12 @@ import ImageSecondServiceBlock from "./components/ImageSecondServiceBlock";
 import SectionHeader from "@/src/shared/components/SectionHeader";
 
 interface ServiceFeature {
+    title?: string;
+    description?: string;
+    icon?: string;
     isFeatured?: boolean;
     isActive?: boolean;
     order?: number;
-    [key: string]: any;
 }
 
 interface Services {

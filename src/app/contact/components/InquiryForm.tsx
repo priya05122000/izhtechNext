@@ -1,58 +1,49 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { createContact } from "@/src/services/contactService";
+import { createContact, ContactModel } from "@/src/services/contactService";
 import { toast } from "sonner";
+
+function generateCaptcha() {
+    const operations = ["+", "-", "*"];
+
+    const num1 = Math.floor(Math.random() * 20) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+
+    const operation =
+        operations[Math.floor(Math.random() * operations.length)];
+
+    let answer = 0;
+
+    switch (operation) {
+        case "+":
+            answer = num1 + num2;
+            break;
+
+        case "-":
+            answer = num1 - num2;
+            break;
+
+        case "*":
+            answer = num1 * num2;
+            break;
+    }
+
+    return { question: `${num1} ${operation} ${num2}`, answer };
+}
 
 const InquiryForm = () => {
 
 
-    const [captchaQuestion, setCaptchaQuestion] = useState("");
-    const [captchaAnswer, setCaptchaAnswer] = useState(0);
+    const [captcha, setCaptcha] = useState(generateCaptcha);
     const [userAnswer, setUserAnswer] = useState("");
     const [captchaError, setCaptchaError] = useState("");
 
-
-    const generateCaptcha = () => {
-        const operations = ["+", "-", "*"];
-
-        const num1 = Math.floor(Math.random() * 20) + 1;
-        const num2 = Math.floor(Math.random() * 10) + 1;
-
-        const operation =
-            operations[Math.floor(Math.random() * operations.length)];
-
-        let answer = 0;
-
-        switch (operation) {
-            case "+":
-                answer = num1 + num2;
-                break;
-
-            case "-":
-                answer = num1 - num2;
-                break;
-
-            case "*":
-                answer = num1 * num2;
-                break;
-        }
-
-        setCaptchaQuestion(
-            `${num1} ${operation} ${num2}`
-        );
-
-        setCaptchaAnswer(answer);
-    };
-
-    useEffect(() => {
-        generateCaptcha();
-    }, []);
-
+    const { question: captchaQuestion, answer: captchaAnswer } = captcha;
 
     const resetCaptcha = () => {
-        generateCaptcha();
+        setCaptcha(generateCaptcha());
     };
 
 
@@ -64,7 +55,7 @@ const InquiryForm = () => {
         formState: { errors },
     } = useForm();
 
-    async function saveContact(payload: any) {
+    async function saveContact(payload: ContactModel) {
         try {
             const response = await createContact(payload);
 

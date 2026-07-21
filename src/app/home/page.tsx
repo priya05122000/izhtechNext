@@ -9,7 +9,6 @@ import { getAllClients } from "@/src/services/clientService";
 import PartnerCompany from "./components/PartnerCompany";
 import { getAllSiteInfo } from "@/src/services/siteInfoService";
 import PlatformInsights from "./components/PlatformInsights";
-import CustomObject from "@/src/shared/components/CustomObjects";
 // import BlogList from "./components/BlogList";
 import { getAllBlogPosts } from "@/src/services/blogPostService";
 import OurService from "./components/OurService";

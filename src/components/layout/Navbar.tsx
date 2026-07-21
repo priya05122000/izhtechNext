@@ -55,7 +55,7 @@ export default function Navbar() {
                         rel="noopener noreferrer"
                         className="transition-colors flex items-center justify-center  text-sm font-bold text-white py-1 bg-black h-10  relative group"
                     >
-                        Let's Talk
+                        Let&apos;s Talk
                     </LinkButton>
 
                     {/* Mobile Toggle */}

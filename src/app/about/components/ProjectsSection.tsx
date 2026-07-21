@@ -42,14 +42,14 @@ interface ProjectsSectionProps {
 
 const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
 
-    const [isDesktop, setIsDesktop] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(
+        () => typeof window !== "undefined" && window.innerWidth > 500
+    );
     const [showButton, setShowButton] = useState(false);
 
     const router = useRouter();
 
     useEffect(() => {
-
-        setIsDesktop(window.innerWidth > 500);
 
         const handleResize = () => {
             setIsDesktop(window.innerWidth > 500);

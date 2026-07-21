@@ -9,6 +9,11 @@ import { getAllBlogPosts } from "@/src/services/blogPostService";
 
 import SectionHeader from "@/src/shared/components/SectionHeader";
 
+interface BlogListItem {
+    slug: string;
+    title: string;
+}
+
 export const metadata = {
     title: "Technology and Digital Marketing Blogs - Izh Tech",
 
@@ -68,7 +73,7 @@ const BlogPage = async () => {
                         itemListElement:
                             blogs?.map(
                                 (
-                                    blog: any,
+                                    blog: BlogListItem,
                                     index: number
                                 ) => ({
                                     "@type":

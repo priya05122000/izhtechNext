@@ -12,6 +12,21 @@ import CareerJobsWrapper from "./components/CareerJobsWrapper";
 
 import SectionHeader from "@/src/shared/components/SectionHeader";
 
+interface JobModel {
+    id: string;
+    slug: string;
+    title: string;
+    shortNote?: string;
+    employmentMode?: string;
+    workMode?: string;
+    jobRolesId: string | string[];
+}
+
+interface JobRoleModel {
+    id: string;
+    roleStatus: boolean;
+}
+
 export const metadata = {
     title:
         "Career Opportunities in Web and App Development - Izh Tech",
@@ -61,7 +76,7 @@ const CareerPage = async () => {
 
     // filter active roles
     const filteredJobs =
-        jobLists?.filter((job: any) => {
+        jobLists?.filter((job: JobModel) => {
 
             const roleIds =
                 Array.isArray(job.jobRolesId)
@@ -72,7 +87,7 @@ const CareerPage = async () => {
 
                 const matchedRole =
                     jobRoles?.find(
-                        (role: any) =>
+                        (role: JobRoleModel) =>
                             role.id === id
                     );
 
@@ -92,7 +107,7 @@ const CareerPage = async () => {
 
                 "@graph":
                     filteredJobs.map(
-                        (job: any) => ({
+                        (job: JobModel) => ({
                             "@type":
                                 "JobPosting",
 

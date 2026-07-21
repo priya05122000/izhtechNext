@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 interface CustomObjectProps {
   variants:
   | "line-purple-left"
@@ -172,6 +170,7 @@ function CustomObject({
   ];
 
   return (
+    // eslint-disable-next-line @next/next/no-img-element -- decorative variant image, dimensions not always known
     <img
       className={className}
       src={imageSrc}

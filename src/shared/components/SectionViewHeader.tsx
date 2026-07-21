@@ -1,6 +1,5 @@
 import React from "react";
 import CustomObject from "@/src/shared/components/CustomObjects";
-import { div } from "framer-motion/client";
 
 interface SectionViewHeaderProps {
     header?: string
