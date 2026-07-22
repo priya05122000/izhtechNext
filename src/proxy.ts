@@ -2,16 +2,28 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { checkRedirect } from "@/src/lib/redirects";
 
+const PRODUCTION_HOSTS = ["izhtech.com", "www.izhtech.com"];
+
 export async function proxy(request: NextRequest) {
 
     const host = request.headers.get("host");
 
-    if (host === "www.izhtech.com") {
+    if (host && PRODUCTION_HOSTS.includes(host)) {
 
-        return NextResponse.redirect(
-            `https://izhtech.com${request.nextUrl.pathname}`,
-            301
-        );
+        const protocol =
+            request.headers.get("x-forwarded-proto") ??
+            request.nextUrl.protocol.replace(":", "");
+
+        const targetHost = host === "www.izhtech.com" ? "izhtech.com" : host;
+
+        if (targetHost !== host || protocol !== "https") {
+
+            return NextResponse.redirect(
+                `https://${targetHost}${request.nextUrl.pathname}${request.nextUrl.search}`,
+                301
+            );
+
+        }
 
     }
 
