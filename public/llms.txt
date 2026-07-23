@@ -1,31 +1,14 @@
-Izh Tech
-https://izhtech.com
+# Izh Tech
 
-Izh Tech is a digital solutions company offering:
+> Izh Tech is a digital solutions company offering website development, mobile app development, UI/UX design, branding, digital marketing, SEO services, e-commerce development, and custom software solutions.
 
-- Website Development
-- Mobile App Development
-- UI/UX Design
-- Branding
-- Digital Marketing
-- SEO Services
-- E-commerce Development
-- Custom Software Solutions
+- [Home](https://izhtech.com): Company overview and entry point
+- [Services](https://izhtech.com/service): Full list of digital services offered, including web development, mobile app development, UI/UX design, branding, digital marketing, SEO, e-commerce, and custom software
+- [Projects](https://izhtech.com/project): Portfolio of past and current client projects
+- [Blog](https://izhtech.com/blog): Articles and insights from the Izh Tech team
+- [Careers](https://izhtech.com/career): Open positions and hiring information
+- [Contact](https://izhtech.com/contact): Ways to get in touch with Izh Tech
 
-Services:
-https://izhtech.com/service
+## Contact
 
-Projects:
-https://izhtech.com/project
-
-Blogs:
-https://izhtech.com/blog
-
-Careers:
-https://izhtech.com/career
-
-Contact:
-https://izhtech.com/contact
-
-Email:
-celibadhanasekharan@izhtech.com
+- Email: celibadhanasekharan@izhtech.com
