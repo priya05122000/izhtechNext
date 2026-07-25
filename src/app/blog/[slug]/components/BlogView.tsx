@@ -34,6 +34,7 @@ interface PostModel {
     author: {
         name: string;
         id: string;
+        description: string;
     };
     createdAt: Date;
     updatedAt: Date;
@@ -139,6 +140,12 @@ const BlogView = ({
                         />
 
                     </div>
+
+                    {blogSlug?.author?.description && (
+                        <p className="pt-4 text-xs sm:text-sm text-gray-600 sm:w-2/3">
+                            {blogSlug.author.description}
+                        </p>
+                    )}
                 </div>
             </section>
 
