@@ -28,9 +28,16 @@
     color: black;
 }
 
+.faq-heading {
+    padding-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: black;
+}
+
 .blog-content h4 {
     padding-bottom: 1rem;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 700;
     color: black;
 }
@@ -52,6 +59,10 @@
 
     .blog-content h4 {
         font-size: 1.5rem;
+    }
+
+    .faq-heading {
+        font-size: 2rem;
     }
 }
 

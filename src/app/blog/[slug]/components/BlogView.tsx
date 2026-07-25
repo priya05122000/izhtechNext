@@ -26,6 +26,7 @@ interface PostModel {
     description: string;
     status: string;
     tags: string;
+    faq: string;
     shortNote: string;
     imagePath: string;
     featuredImagePath: string;
@@ -197,6 +198,34 @@ const BlogView = ({
                         blogSlug?.description || "",
                 }}
             />
+
+            {/* FAQ */}
+            {blogSlug?.faq && (
+
+                <motion.div
+                    variants={fadeIn("up", 0.1)}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{
+                        once: true,
+                        amount: 0.1,
+                    }}
+                    className="pt-6 w-full sm:w-2/3"
+                >
+
+                    <h3 className={styles["faq-heading"]}>
+                        Frequently asked questions
+                    </h3>
+
+                    <div
+                        className={styles["blog-content"]}
+                        dangerouslySetInnerHTML={{
+                            __html:
+                                blogSlug.faq,
+                        }}
+                    />
+                </motion.div>
+            )}
 
             {/* Tags */}
             {blogSlug?.tags && (
