@@ -10,13 +10,18 @@ export async function checkRedirect(pathname: string): Promise<RedirectCheckResu
     try {
         const url = `${API_BASE_URL}/api/redirects/check?path=${encodeURIComponent(pathname)}`;
 
-        console.log("API_BASE_URL:", API_BASE_URL);
-        console.log("Pathname:", pathname);
-        console.log("Request URL:", url);
+        // console.log("API_BASE_URL:", API_BASE_URL);
+        // console.log("Pathname:", pathname);
+        // console.log("Request URL:", url);
 
         const res = await fetch(url, { cache: "no-store" });
 
-        console.log("Status:", res.status);
+        // console.log("Status:", res.status);
+
+        if (res.status === 404) {
+            // No redirect exists for this path
+            return { found: false };
+        }
 
         if (!res.ok) {
             console.error("Redirect check API failed:", res.status);
