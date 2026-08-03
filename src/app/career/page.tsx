@@ -13,293 +13,232 @@ import CareerJobsWrapper from "./components/CareerJobsWrapper";
 import SectionHeader from "@/src/shared/components/SectionHeader";
 
 interface JobModel {
-    id: string;
-    slug: string;
-    title: string;
-    shortNote?: string;
-    employmentMode?: string;
-    workMode?: string;
-    jobRolesId: string | string[];
+  id: string;
+  slug: string;
+  title: string;
+  shortNote?: string;
+  employmentMode?: string;
+  workMode?: string;
+  status?: string;
+  jobRolesId: string | string[];
 }
 
 interface JobRoleModel {
-    id: string;
-    roleStatus: boolean;
+  id: string;
+  roleStatus: boolean;
 }
 
 export const metadata = {
-    title:
-        "Career Opportunities in Web and App Development - Izh Tech",
+  title: "Careers at Izh Tech | Apply Today",
+
+  description:
+    "Start your career with Izh Tech and work on exciting web development, mobile app development and digital marketing projects. Apply now.",
+
+  alternates: {
+    canonical: "https://izhtech.com/career",
+  },
+
+  openGraph: {
+    title: "Careers at Izh Tech | Apply Today",
 
     description:
-        "Explore career opportunities at Izh Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
+      "Start your career with Izh Tech and work on exciting web development, mobile app development and digital marketing projects. Apply now.",
 
-    alternates: {
-        canonical:
-            "https://izhtech.com/career",
-    },
+    url: "https://izhtech.com/career",
 
-    openGraph: {
-        title:
-            "Career Opportunities in Web and App Development - Izh Tech",
+    type: "website",
+  },
 
-        description:
-            "Explore career opportunities at Izh Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
+  twitter: {
+    card: "summary_large_image",
 
-        url:
-            "https://izhtech.com/career",
+    title: "Careers at Izh Tech | Apply Today",
 
-        type:
-            "website",
-    },
-
-    twitter: {
-        card:
-            "summary_large_image",
-
-        title:
-            "Career Opportunities in Web and App Development - Izh Tech",
-
-        description:
-            "Explore career opportunities at Izh Tech. Join our team and grow your career in web development, mobile app development, and digital marketing.",
-    },
+    description:
+      "Start your career with Izh Tech and work on exciting web development, mobile app development and digital marketing projects. Apply now.",
+  },
 };
 
 const CareerPage = async () => {
+  const [jobLists, jobRoles, career] = await Promise.all([
+    getAllJobs(),
+    getAllJobRoles(),
+    getAllCareer(),
+  ]);
 
-    const [jobLists, jobRoles, career] =
-        await Promise.all([
-            getAllJobs(),
-            getAllJobRoles(),
-            getAllCareer(),
-        ]);
+  // filter active jobs with active roles
+  const filteredJobs = jobLists
+    ?.filter((job: JobModel) => job.status === "active")
+    ?.filter((job: JobModel) => {
+      const roleIds = Array.isArray(job.jobRolesId)
+        ? job.jobRolesId
+        : [job.jobRolesId];
 
-    // filter active roles
-    const filteredJobs =
-        jobLists?.filter((job: JobModel) => {
+      return roleIds.some((id: string) => {
+        const matchedRole = jobRoles?.find(
+          (role: JobRoleModel) => role.id === id,
+        );
 
-            const roleIds =
-                Array.isArray(job.jobRolesId)
-                    ? job.jobRolesId
-                    : [job.jobRolesId];
+        return matchedRole?.roleStatus === true;
+      });
+    });
 
-            return roleIds.some((id: string) => {
+  // JobPosting Schema
+  const jobSchema =
+    filteredJobs && filteredJobs.length > 0
+      ? {
+          "@context": "https://schema.org",
 
-                const matchedRole =
-                    jobRoles?.find(
-                        (role: JobRoleModel) =>
-                            role.id === id
-                    );
+          "@graph": filteredJobs.map((job: JobModel) => ({
+            "@type": "JobPosting",
 
-                return (
-                    matchedRole?.roleStatus === true
-                );
-            });
-        });
+            title: job.title,
 
-    // JobPosting Schema
-    const jobSchema =
-        filteredJobs &&
-            filteredJobs.length > 0
-            ? {
-                "@context":
-                    "https://schema.org",
+            description: job.shortNote,
 
-                "@graph":
-                    filteredJobs.map(
-                        (job: JobModel) => ({
-                            "@type":
-                                "JobPosting",
+            datePosted: new Date().toISOString(),
 
-                            title:
-                                job.title,
+            validThrough: new Date(
+              new Date().setMonth(new Date().getMonth() + 1),
+            ).toISOString(),
 
-                            description:
-                                job.shortNote,
+            employmentType: job.employmentMode,
 
-                            datePosted:
-                                new Date().toISOString(),
+            workHours: job.workMode,
 
-                            validThrough:
-                                new Date(
-                                    new Date().setMonth(
-                                        new Date().getMonth() + 1
-                                    )
-                                ).toISOString(),
+            hiringOrganization: {
+              "@type": "Organization",
 
-                            employmentType:
-                                job.employmentMode,
+              name: "Izh Tech",
 
-                            workHours:
-                                job.workMode,
+              sameAs: "https://izhtech.com",
 
-                            hiringOrganization:
-                            {
-                                "@type":
-                                    "Organization",
+              logo: "https://izhtech.com/logo-primary.png",
+            },
 
-                                name:
-                                    "Izh Tech",
+            jobLocation: {
+              "@type": "Place",
 
-                                sameAs:
-                                    "https://izhtech.com",
+              address: {
+                "@type": "PostalAddress",
 
-                                logo:
-                                    "https://izhtech.com/logo-primary.png",
-                            },
+                streetAddress:
+                  "III Floor, Nixon Pinnacle, North, Sarguna Veethi St, Cruz Enclave, Simon Nagar",
 
-                            jobLocation: {
-                                "@type": "Place",
+                addressLocality: "Nagercoil",
 
-                                address: {
-                                    "@type": "PostalAddress",
+                addressRegion: "Tamil Nadu",
 
-                                    streetAddress:
-                                        "III Floor, Nixon Pinnacle, North, Sarguna Veethi St, Cruz Enclave, Simon Nagar",
+                postalCode: "629001",
 
-                                    addressLocality:
-                                        "Nagercoil",
+                addressCountry: "IN",
+              },
+            },
 
-                                    addressRegion:
-                                        "Tamil Nadu",
+            baseSalary: {
+              "@type": "MonetaryAmount",
 
-                                    postalCode:
-                                        "629001",
+              currency: "INR",
 
-                                    addressCountry:
-                                        "IN",
-                                },
-                            },
+              value: {
+                "@type": "QuantitativeValue",
 
-                            baseSalary: {
-                                "@type": "MonetaryAmount",
+                minValue: 10000,
 
-                                currency: "INR",
+                maxValue: 40000,
 
-                                value: {
-                                    "@type": "QuantitativeValue",
+                unitText: "MONTH",
+              },
+            },
 
-                                    minValue: 10000,
+            identifier: {
+              "@type": "PropertyValue",
 
-                                    maxValue: 40000,
+              name: "Izh Tech",
 
-                                    unitText: "MONTH",
-                                },
-                            },
+              value: job.id,
+            },
 
-                            identifier:
-                            {
-                                "@type":
-                                    "PropertyValue",
+            url: `https://izhtech.com/career/${job.slug}`,
+          })),
+        }
+      : null;
 
-                                name:
-                                    "Izh Tech",
+  // AboutPage Schema
+  const aboutSchema = {
+    "@context": "https://schema.org",
 
-                                value:
-                                    job.id,
-                            },
+    "@type": "AboutPage",
 
-                            url:
-                                `https://izhtech.com/career/${job.slug}`,
-                        })
-                    ),
-            }
-            : null;
+    name: "Careers at Izh Tech | Apply Today",
 
-    // AboutPage Schema
-    const aboutSchema = {
-        "@context":
-            "https://schema.org",
+    url: "https://izhtech.com/career",
 
-        "@type":
-            "AboutPage",
+    description:
+      "Start your career with Izh Tech and work on exciting web development, mobile app development and digital marketing projects. Apply now.",
 
-        name:
-            "Careers at Izh Tech",
+    mainEntity: {
+      "@type": "Organization",
 
-        url:
-            "https://izhtech.com/career",
+      name: "Izh Tech",
 
-        description:
-            "Career opportunities at Izh Tech. Join our creative team working on branding, web development, app development, and digital marketing projects.",
+      url: "https://izhtech.com",
 
-        mainEntity: {
-            "@type":
-                "Organization",
+      logo: "https://izhtech.com/logo.png",
 
-            name:
-                "Izh Tech",
+      description:
+        "Izh Tech is a digital company providing branding, web development, app development, and digital marketing services.",
+    },
+  };
 
-            url:
-                "https://izhtech.com",
+  return (
+    <section className="mx-auto container-fluid">
+      {/* Job Schema */}
+      {jobSchema && (
+        <Script
+          id="career-job-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jobSchema),
+          }}
+        />
+      )}
 
-            logo:
-                "https://izhtech.com/logo.png",
+      {/* About Schema */}
+      <Script
+        id="career-about-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aboutSchema),
+        }}
+      />
 
-            description:
-                "Izh Tech is a digital company providing branding, web development, app development, and digital marketing services.",
-        },
-    };
+      <SectionHeader
+        title="Career"
+        description={
+          <>
+            Are you Looking for Your Dream{" "}
+            <span className="text-[#0E3BF9]">Job?</span>
+          </>
+        }
+        srOnlyText="Izh Tech provides career opportunities in web development, mobile app development, branding and digital marketing."
+        buttonText="Apply Now"
+        customObjectVariant="orange-disk"
+      />
 
-    return (
-        <section className="mx-auto container-fluid">
-
-            {/* Job Schema */}
-            {jobSchema && (
-                <Script
-                    id="career-job-schema"
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html:
-                            JSON.stringify(
-                                jobSchema
-                            ),
-                    }}
-                />
-            )}
-
-            {/* About Schema */}
-            <Script
-                id="career-about-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html:
-                        JSON.stringify(
-                            aboutSchema
-                        ),
-                }}
-            />
-
-            <SectionHeader
-                title="Career"
-                description={
-                    <>
-                        Are you Looking for
-                        Your Dream{" "}
-                        <span className="text-[#0E3BF9]">
-                            Job?
-                        </span>
-                    </>
-                }
-                srOnlyText="Izh Tech provides career opportunities in web development, mobile app development, branding and digital marketing."
-                buttonText="Apply Now"
-                customObjectVariant="orange-disk"
-            />
-
-            {/* <h2 className="sr-only">
+      {/* <h2 className="sr-only">
                 Jobs in Web Development, Branding and Digital Marketing
             </h2> */}
 
-            <CareerJobsWrapper
-                jobLists={jobLists}
-                jobRoles={jobRoles}
-                career={career}
-            />
+      <CareerJobsWrapper
+        jobLists={jobLists}
+        jobRoles={jobRoles}
+        career={career}
+      />
 
-            <WhyWorkWithUs />
-
-        </section>
-    );
+      <WhyWorkWithUs />
+    </section>
+  );
 };
 
 export default CareerPage;

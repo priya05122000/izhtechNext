@@ -21,7 +21,7 @@ export const metadata = {
     title: "About Izh Tech and Our Digital Solutions Team",
 
     description:
-        "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses.",
+        "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses. Get in touch today.",
 
     alternates: {
         canonical: "https://izhtech.com/about",
@@ -31,7 +31,7 @@ export const metadata = {
         title: "About Izh Tech and Our Digital Solutions Team",
 
         description:
-            "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses.",
+            "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses. Get in touch today.",
 
         url: "https://izhtech.com/about",
 
@@ -44,7 +44,7 @@ export const metadata = {
         title: "About Izh Tech and Our Digital Solutions Team",
 
         description:
-            "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses.",
+            "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses. Get in touch today.",
     },
 };
 
@@ -70,9 +70,9 @@ const AboutPage = async () => {
                             "@type": "AboutPage",
                             "@id": "https://izhtech.com/about",
                             url: "https://izhtech.com/about",
-                            name: "About Izh Tech",
+                            name: "About Izh Tech and Our Digital Solutions Team",
                             description:
-                                "Izh Tech is a digital solutions company providing web development, mobile app development, branding, and digital marketing services.",
+                                "Learn about Izh Tech and our focus on software, branding and digital growth solutions for businesses. Get in touch today.",
                         },
 
                         {

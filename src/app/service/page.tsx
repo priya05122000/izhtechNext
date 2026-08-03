@@ -39,7 +39,7 @@ export const metadata = {
     title: "Web Development and Digital Services - Izh Tech",
 
     description:
-        "Explore Izh Tech services including web development, mobile app development, branding and digital marketing solutions.",
+        "Grow your business with web development, mobile app development, branding and digital marketing services. Get a free consultation today.",
 
     alternates: {
         canonical:
@@ -76,10 +76,10 @@ const ServicePage = async () => {
                     "https://izhtech.com/service#services",
 
                 name:
-                    "Izh Tech Services",
+                    "Web Development and Digital Services - Izh Tech",
 
                 description:
-                    "Professional digital services including web development, app development, branding and digital marketing.",
+                    "Grow your business with web development, mobile app development, branding and digital marketing services. Get a free consultation today.",
 
                 itemListElement:
                     services.map(
@@ -120,10 +120,10 @@ const ServicePage = async () => {
             "https://izhtech.com/service#services",
 
         name:
-            "Izh Tech Services",
+            "Web Development and Digital Services - Izh Tech",
 
         description:
-            "Izh Tech provides professional digital services including Branding, Web Development, App Development, and Digital Marketing to help businesses grow online.",
+            "Grow your business with web development, mobile app development, branding and digital marketing services. Get a free consultation today.",
 
         provider: {
             "@type":

@@ -47,10 +47,10 @@ const ProjectPage = async () => {
                     "https://izhtech.com/project#portfolio",
 
                 name:
-                    "Izh Tech Portfolio Projects",
+                    "Our Projects and Case Studies - Izh Tech",
 
                 description:
-                    "A showcase of professional digital projects by Izh Tech including web development, mobile applications, branding and digital solutions.",
+                    "See how Izh Tech delivers web development, mobile applications, branding and digital solutions for businesses. View our pojects today.",
 
                 itemListElement:
                     projects.map(

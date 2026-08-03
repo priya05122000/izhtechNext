@@ -23,7 +23,7 @@ interface Project {
     openPositions: number;
     description: string;
     educationAndQualification: Date;
-    status: string;
+    status: boolean;
     createdAt: Date;
     updatedAt: Date;
     deletedAt: Date;
@@ -69,6 +69,7 @@ const JobList = ({
 
     // Filter Jobs
     const filteredJobs = jobLists
+        ?.filter((job) => job.status == true)
         ?.filter((job) => {
             if (!activeRoleId) return true;
 

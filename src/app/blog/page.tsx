@@ -62,13 +62,13 @@ const BlogPage = async () => {
                         "@type": "ItemList",
 
                         name:
-                            "Izh Tech Blogs",
+                            "Technology and Digital Marketing Blogs - Izh Tech",
 
                         url:
                             "https://izhtech.com/blog",
 
                         description:
-                            "Latest articles and insights on technology, digital marketing, web development, branding, and business solutions from Izh Tech.",
+                            "Stay updated with expert insights on technology, digital marketing, web development, branding and business solutions. Read our latest articles.",
 
                         itemListElement:
                             blogs?.map(
