@@ -57,8 +57,8 @@ export default function Hero() {
                         /> */}
 
                         <Image
-                            src="/images/hero.webp"
-                            alt="Hero Image"
+                            src="/images/izhtech-homepage-hero.webp"
+                            alt="Software development and digital marketing services"
                             width={734}
                             height={441}
                             preload

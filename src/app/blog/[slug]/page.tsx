@@ -165,7 +165,7 @@ const BlogSlugPage = async ({
                             "ImageObject",
 
                         url:
-                            "https://izhtech.com/logo-primary.png",
+                            "https://izhtech.com/izhtech-logo.png",
                     },
                 },
 

@@ -81,7 +81,7 @@ const AboutPage = async () => {
                             "@id": "https://izhtech.com/#organization",
                             name: "Izh Tech",
                             url: "https://izhtech.com",
-                            logo: "https://izhtech.com/logo-primary.png",
+                            logo: "https://izhtech.com/izhtech-logo.png",
                             sameAs: [
                                 "https://www.facebook.com/izhtech",
                                 "https://www.linkedin.com/company/izhtech",

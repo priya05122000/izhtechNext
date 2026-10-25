@@ -51,7 +51,7 @@ const ContactPage = async () => {
                 "https://izhtech.com",
 
             logo:
-                "https://izhtech.com/logo-primary.png",
+                "https://izhtech.com/izhtech-logo.png",
 
             contactPoint: {
                 "@type":

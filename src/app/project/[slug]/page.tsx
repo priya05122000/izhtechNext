@@ -146,7 +146,7 @@ const ProjectSlugPage = async ({
                 name: "Izh Tech",
                 logo: {
                     "@type": "ImageObject",
-                    url: "https://izhtech.com/logo-primary.png",
+                    url: "https://izhtech.com/izhtech-logo.png",
                 },
             },
         }

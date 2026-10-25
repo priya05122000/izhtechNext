@@ -7,50 +7,49 @@ import { fadeIn } from "@/src/shared/animation/variants";
 import Image from "next/image";
 
 interface JobRolesModel {
-    id: string;
-    roleName: string;
-    roleStatus: boolean;
-    createdAt?: string;
-    updatedAt?: string;
-    deletedAt?: string;
+  id: string;
+  roleName: string;
+  roleStatus: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  deletedAt?: string;
 }
 
 interface CareerModel {
-    id?: string;
-    careerBannerImage?: string;
-    careerDescription?: string;
+  id?: string;
+  careerBannerImage?: string;
+  careerDescription?: string;
 }
 
 interface FilterJobsProps {
-    jobRoles: JobRolesModel[];
-    career?: CareerModel[];
-    activeRoleId: string | null;
-    setActiveRoleId: React.Dispatch<React.SetStateAction<string | null>>;
+  jobRoles: JobRolesModel[];
+  career?: CareerModel[];
+  activeRoleId: string | null;
+  setActiveRoleId: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const FilterJobs = ({
-    jobRoles,
-    career = [],
-    activeRoleId,
-    setActiveRoleId,
+  jobRoles,
+  career = [],
+  activeRoleId,
+  setActiveRoleId,
 }: FilterJobsProps) => {
-    return (
-        <section className="px-5 sm:px-8">
-            <div className="relative mx-auto px-0 md:px-5 lg:px-10 md:flex ">
-
-                {/* Left Image Section */}
-                <motion.div
-                    variants={fadeIn("right", 0.1)}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{
-                        once: true,
-                        amount: 0.15,
-                    }}
-                    className="relative bg-transparent  w-full lg:w-1/2 mb-5 sm:mb-0"
-                >
-                    <CustomObject
-                        className="
+  return (
+    <section className="px-5 sm:px-8">
+      <div className="relative mx-auto px-0 md:px-5 lg:px-10 md:flex ">
+        {/* Left Image Section */}
+        <motion.div
+          variants={fadeIn("right", 0.1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          className="relative bg-transparent  w-full lg:w-1/2 mb-5 sm:mb-0"
+        >
+          <CustomObject
+            className="
             absolute
             top-0
             right-0
@@ -62,13 +61,13 @@ const FilterJobs = ({
             lg:w-50 lg:h-50
             z-0
         "
-                        variants="green"
-                    />
-                    {career?.[0]?.careerBannerImage ? (
-                        <Image
-                            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${career[0].careerBannerImage}`}
-                            alt="Career Banner"
-                            className="
+            variants="green"
+          />
+          {career?.[0]?.careerBannerImage ? (
+            <Image
+              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/${career[0].careerBannerImage}`}
+              alt="Career Banner"
+              className="
     relative
     z-10
     object-cover
@@ -76,79 +75,81 @@ const FilterJobs = ({
     h-80
     lg:h-120
 "
-                            width={1600}
-                            height={900}
-                            // loading="lazy"
-                            // decoding="async"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            unoptimized={true}
-                        />
-                    ) : (
-                        <p>No image available</p>
-                    )}
-                </motion.div>
+              width={1600}
+              height={900}
+              // loading="lazy"
+              // decoding="async"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              unoptimized={true}
+            />
+          ) : (
+            <p>No image available</p>
+          )}
+        </motion.div>
 
-                {/* Background Decorative Object */}
-                {/*
+        {/* Background Decorative Object */}
+        {/*
                 <CustomObject
                     className="absolute top-[calc(27%-10px)] left-[calc(30%-10px)] lg:top-[calc(24%-10px)] lg:left-[calc(46%-10px)] xl:top-[calc(21%-10px)] xl:left-[calc(47%-10px)] transform -translate-x-1/2 -translate-y-1/2 -z-10 -2xl h-[150vw] lg:h-screen hidden lg:block"
                     variants="green"
                 /> */}
 
+        {/* Right Content Section */}
+        <motion.div
+          variants={fadeIn("left", 0.1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          className="flex flex-col justify-center gap-6 px-0 sm:px-6 md:px-10 lg:px-20 w-full lg:w-1/2"
+        >
+          <div>
+            <p className="text-justify sm:text-sm md:text-md lg:text-base">
+              {career?.[0]?.careerDescription ||
+                "No career description available."}
+            </p>
 
-                {/* Right Content Section */}
-                <motion.div
-                    variants={fadeIn("left", 0.1)}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{
-                        once: true,
-                        amount: 0.15,
-                    }}
-                    className="flex flex-col justify-center gap-6 px-0 sm:px-6 md:px-10 lg:px-20 w-full lg:w-1/2"
-                >
-                    <div>
-                        <p className="text-justify sm:text-sm md:text-md lg:text-base">
-                            {career?.[0]?.careerDescription ||
-                                "No career description available."}
-                        </p>
+            <div className="flex flex-wrap gap-2 mt-5">
+              {jobRoles?.some((jobrole) => jobrole.roleStatus) && (
+                <>
+                  {/* View All Button */}
+                  <button
+                    onClick={() => setActiveRoleId(null)}
+                    className={`w-auto px-3 py-1 text-xs font-bold border cursor-pointer rounded-xs uppercase transition-all ${
+                      activeRoleId === null
+                        ? "bg-black text-white border-black"
+                        : "bg-white text-black border-black"
+                    }`}
+                  >
+                    VIEW ALL
+                  </button>
 
-                        <div className="flex flex-wrap gap-2 mt-5">
-
-                            {/* View All Button */}
-                            <button
-                                onClick={() => setActiveRoleId(null)}
-                                className={`w-auto px-3 py-1 text-xs font-bold border cursor-pointer rounded-xs uppercase transition-all ${activeRoleId === null
-                                    ? "bg-black text-white border-black"
-                                    : "bg-white text-black border-black"
-                                    }`}
-                            >
-                                VIEW ALL
-                            </button>
-
-                            {/* Job Role Buttons */}
-                            {jobRoles
-                                ?.filter((jobrole) => jobrole.roleStatus)
-                                ?.map((jobrole) => (
-                                    <button
-                                        key={jobrole.id}
-                                        onClick={() =>
-                                            setActiveRoleId(jobrole.id)
-                                        }
-                                        className={`w-auto cursor-pointer px-3 py-1 text-xs font-bold border rounded-xs uppercase transition-all ${activeRoleId === jobrole.id
-                                            ? "bg-black text-white border-black"
-                                            : "bg-white text-black border-black"
-                                            }`}
-                                    >
-                                        {jobrole.roleName}
-                                    </button>
-                                ))}
-                        </div>
-                    </div>
-                </motion.div>
+                  {/* Job Role Buttons */}
+                  {jobRoles
+                    ?.filter((jobrole) => jobrole.roleStatus)
+                    ?.map((jobrole) => (
+                      <button
+                        key={jobrole.id}
+                        onClick={() => setActiveRoleId(jobrole.id)}
+                        className={`w-auto cursor-pointer px-3 py-1 text-xs font-bold border rounded-xs uppercase transition-all ${
+                          activeRoleId === jobrole.id
+                            ? "bg-black text-white border-black"
+                            : "bg-white text-black border-black"
+                        }`}
+                      >
+                        {jobrole.roleName}
+                      </button>
+                    ))}
+                </>
+              )}
             </div>
-        </section>
-    );
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default FilterJobs;

@@ -37,7 +37,7 @@ const page = () => {
       "https://izhtech.com",
 
     logo:
-      "https://izhtech.com/logo-primary.png",
+      "https://izhtech.com/izhtech-logo.png",
 
     description:
       "Izh Tech is a digital solutions company in India offering web and mobile app development, custom software, AI solutions, branding, and digital marketing services to help businesses grow online.",
