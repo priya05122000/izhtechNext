@@ -23,9 +23,10 @@ interface SiteInformation {
 
 interface InquiryProps {
     siteInfo: SiteInformation[];
+    services: string[];
 }
 
-const Inquiry = ({ siteInfo }: InquiryProps) => {
+const Inquiry = ({ siteInfo, services }: InquiryProps) => {
 
     return (
         <>
@@ -59,7 +60,7 @@ const Inquiry = ({ siteInfo }: InquiryProps) => {
                         </div>
                     </section>
 
-                    <InquiryForm />
+                    <InquiryForm services={services} />
                 </div>
             </section>
         </>

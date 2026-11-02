@@ -1,9 +1,27 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import {
+  CountryCode,
+  isValidPhoneNumber,
+  parsePhoneNumber,
+} from "libphonenumber-js/mobile";
 import { createContact, ContactModel } from "@/src/services/contactService";
+import CountryCodeSelect, { useCountryOptions } from "./CountryCodeSelect";
 import { toast } from "sonner";
+
+const DEFAULT_COUNTRY: CountryCode = "IN";
+
+interface InquiryFormValues {
+  name: string;
+  email: string;
+  phoneCountry: CountryCode;
+  mobileNumber: string;
+  service: string;
+  message: string;
+  website: string;
+}
 
 function generateCaptcha() {
   const random = (min: number, max: number) =>
@@ -57,13 +75,46 @@ function generateCaptcha() {
     }
   }
 
-  return { question, answer };
+  return { question, answer, options: buildOptions(answer) };
 }
 
-const InquiryForm = () => {
-  const [captcha, setCaptcha] = useState({
+// The right answer plus two wrong ones close to it, shuffled
+function buildOptions(answer: number) {
+  const options = new Set([answer]);
+
+  while (options.size < 3) {
+    const offset = Math.floor(Math.random() * 10) + 1;
+    options.add(Math.random() < 0.5 ? answer - offset : answer + offset);
+  }
+
+  const shuffled = [...options];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+}
+
+const RequiredMark = () => (
+  <span className="text-red-600" aria-hidden="true">
+    {" "}*
+  </span>
+);
+
+interface InquiryFormProps {
+  services: string[];
+}
+
+const InquiryForm = ({ services }: InquiryFormProps) => {
+  const [captcha, setCaptcha] = useState<{
+    question: string;
+    answer: number;
+    options: number[];
+  }>({
     question: "",
     answer: 0,
+    options: [],
   });
 
   const [captchaReady, setCaptchaReady] = useState(false);
@@ -72,7 +123,7 @@ const InquiryForm = () => {
     setCaptcha(generateCaptcha());
     setCaptchaReady(true);
   }, []);
-  const [userAnswer, setUserAnswer] = useState("");
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [captchaError, setCaptchaError] = useState("");
 
   const { question: captchaQuestion, answer: captchaAnswer } = captcha;
@@ -85,8 +136,16 @@ const InquiryForm = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
-  } = useForm();
+    control,
+    getValues,
+    trigger,
+    formState: { errors, isSubmitted },
+  } = useForm<InquiryFormValues>({ defaultValues: { phoneCountry: DEFAULT_COUNTRY } });
+
+  const countryOptions = useCountryOptions();
+
+  const countryName = (code: CountryCode) =>
+    countryOptions.find((country) => country.code === code)?.name ?? code;
 
   async function saveContact(payload: ContactModel) {
     try {
@@ -103,7 +162,7 @@ const InquiryForm = () => {
     } finally {
       reset();
 
-      setUserAnswer("");
+      setSelectedAnswer(null);
 
       setCaptchaError("");
 
@@ -115,10 +174,16 @@ const InquiryForm = () => {
     event.preventDefault();
 
     handleSubmit((payload) => {
-      if (Number(userAnswer) !== captchaAnswer) {
+      if (selectedAnswer === null) {
+        setCaptchaError("Please choose an answer.");
+
+        return;
+      }
+
+      if (selectedAnswer !== captchaAnswer) {
         setCaptchaError("Incorrect answer. Try again.");
 
-        setUserAnswer("");
+        setSelectedAnswer(null);
 
         setCaptcha(generateCaptcha());
 
@@ -127,7 +192,13 @@ const InquiryForm = () => {
 
       setCaptchaError("");
 
-      saveContact(payload);
+      // Save the number in international format, e.g. +919876543210
+      const { phoneCountry, ...contact } = payload;
+
+      saveContact({
+        ...contact,
+        mobileNumber: parsePhoneNumber(contact.mobileNumber, phoneCountry).number,
+      });
     })();
   }
 
@@ -144,48 +215,36 @@ const InquiryForm = () => {
         </div>
         <div className="lg:w-[60%]">
           <div className="flex flex-wrap w-full gap-2   lg:pl-0">
-            {/* Mobile Number Optional */}
+            {/* Name Required */}
             <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
               <label className="block mb-2 text-sm font-medium text-gray-900">
-                Phone (optional)
+                Name
+                <RequiredMark />
               </label>
 
               <input
-                {...register("mobileNumber", {
-                  pattern: {
-                    value: /^[6-9]\d{9}$/,
-                    message: "Enter valid 10 digit mobile number",
+                {...register("name", {
+                  required: "Name is required",
+                  maxLength: {
+                    value: 50,
+                    message: "Maximum 50 characters allowed",
                   },
                   onChange: (e) => {
-                    let value = e.target.value.replace(/\D/g, "").slice(0, 10);
-
-                    // prevent starting from 0-5
-                    if (value.length > 0 && !/^[6-9]/.test(value)) {
-                      value = "";
-                    }
-
-                    e.target.value = value;
+                    e.target.value = e.target.value
+                      .replace(/[^A-Za-z\s.'-]/g, "")
+                      .slice(0, 50);
                   },
                 })}
                 type="text"
-                inputMode="numeric"
-                maxLength={10}
-                placeholder="Your actual number"
-                className="
-        bg-gray-50
-        border
-        border-gray-300
-        text-gray-900
-        text-sm
-        rounded-lg
-        w-full
-        p-2.5
-    "
+                autoComplete="name"
+                aria-required="true"
+                placeholder="Your name"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
               />
 
-              {errors["mobileNumber"] && (
+              {errors["name"] && (
                 <p className="text-sm text-red-600">
-                  {errors["mobileNumber"].message as string}
+                  {errors["name"].message as string}
                 </p>
               )}
             </div>
@@ -193,7 +252,8 @@ const InquiryForm = () => {
             {/* Email Required */}
             <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
               <label className="block mb-2 text-sm font-medium text-gray-900">
-                Email (required)
+                Email
+                <RequiredMark />
               </label>
 
               <input
@@ -211,6 +271,7 @@ const InquiryForm = () => {
                   },
                 })}
                 type="email"
+                aria-required="true"
                 placeholder="Your e-mail"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
               />
@@ -222,13 +283,103 @@ const InquiryForm = () => {
               )}
             </div>
 
+            {/* Mobile Number Required */}
+            <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
+              <label className="block mb-2 text-sm font-medium text-gray-900">
+                Phone Number
+                <RequiredMark />
+              </label>
+
+              <div className="flex w-full">
+                <Controller
+                  name="phoneCountry"
+                  control={control}
+                  render={({ field }) => (
+                    <CountryCodeSelect
+                      value={field.value}
+                      options={countryOptions}
+                      onChange={(code) => {
+                        field.onChange(code);
+                        // Re-check the number against the newly chosen country
+                        if (isSubmitted) {
+                          trigger("mobileNumber");
+                        }
+                      }}
+                    />
+                  )}
+                />
+
+                <input
+                  {...register("mobileNumber", {
+                    required: "Phone number is required",
+                    validate: (value) => {
+                      // Read the country at validation time: it may have just changed
+                      const country = getValues("phoneCountry");
+                      return (
+                        isValidPhoneNumber(value, country) ||
+                        `Enter a valid mobile number for ${countryName(country)}`
+                      );
+                    },
+                    onChange: (e) => {
+                      e.target.value = e.target.value.replace(/\D/g, "").slice(0, 15);
+                    },
+                  })}
+                  type="text"
+                  inputMode="numeric"
+                  maxLength={15}
+                  autoComplete="tel-national"
+                  aria-required="true"
+                  placeholder="Your actual number"
+                  className="
+        bg-gray-50
+        border
+        border-gray-300
+        text-gray-900
+        text-sm
+        rounded-r-lg
+        w-full
+        min-w-0
+        p-2.5
+    "
+                />
+              </div>
+
+              {errors["mobileNumber"] && (
+                <p className="text-sm text-red-600">
+                  {errors["mobileNumber"].message as string}
+                </p>
+              )}
+            </div>
+
+            {/* Service Optional */}
+            <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
+              <label className="block mb-2 text-sm font-medium text-gray-900">
+                Service
+              </label>
+
+              <select
+                {...register("service")}
+                defaultValue=""
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
+              >
+                <option value="">Select a service</option>
+                {services.map((service) => (
+                  <option key={service} value={service}>
+                    {service}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             {/* Message Required */}
             <div className="w-full mb-5 md:w-[98%]">
               <label className="block mb-2 text-sm font-medium text-gray-900">
-                Message (required)
+                Message
+                <RequiredMark />
               </label>
 
               <textarea
+                aria-required="true"
                 {...register("message", {
                   required: "Message is required",
                   maxLength: {
@@ -261,32 +412,55 @@ const InquiryForm = () => {
             />
 
             {/* Math Question Required */}
-            <div className="w-full mb-5 md:w-[48%] lg:w-[48%]">
-              <label className="block mb-2 text-sm font-medium text-gray-900">
-                {captchaReady
-                  ? `Solve this: ${captcha.question} =`
-                  : "Loading CAPTCHA..."}
-              </label>
+            <div className="w-full mb-5 md:w-[98%]">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                <label
+                  id="captcha-question"
+                  className="text-sm font-medium text-gray-900"
+                >
+                  {captchaReady
+                    ? `Solve this: ${captcha.question} =`
+                    : "Loading CAPTCHA..."}
+                  <RequiredMark />
+                </label>
 
-              <input
-                type="number"
-                value={userAnswer}
-                onChange={(e) => setUserAnswer(e.target.value)}
-                placeholder="Enter answer"
-                className="
-            bg-gray-50
-            border
-            border-gray-300
-            text-gray-900
-            text-sm
-            rounded-lg
-            w-full
-            p-2.5
-        "
-              />
+                <div
+                  role="radiogroup"
+                  aria-labelledby="captcha-question"
+                  className="flex gap-1.5 min-h-7.5"
+                >
+                  {captcha.options.map((option) => {
+                    const selected = selectedAnswer === option;
+
+                    return (
+                      <label
+                        key={option}
+                        className={`flex items-center justify-center min-w-11 rounded-md border px-2.5 py-1 text-sm cursor-pointer transition-colors has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-black has-[input:focus-visible]:ring-offset-1 ${
+                          selected
+                            ? "bg-black border-black text-white"
+                            : "bg-gray-50 border-gray-300 text-gray-900 hover:border-gray-500"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="captcha-answer"
+                          value={option}
+                          checked={selected}
+                          onChange={() => {
+                            setSelectedAnswer(option);
+                            setCaptchaError("");
+                          }}
+                          className="sr-only"
+                        />
+                        {option}
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
 
               {captchaError && (
-                <p className="text-sm text-red-600">{captchaError}</p>
+                <p className="mt-1 text-sm text-red-600">{captchaError}</p>
               )}
             </div>
           </div>

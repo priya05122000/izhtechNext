@@ -7,8 +7,29 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 
 const nextConfig: NextConfig = {
   output: "standalone",
-  images: {
 
+  async redirects() {
+    return [
+      {
+        source: "/index.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/index.php",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source:
+          "/blog/how-retargeting-improves-ad-performance-and-customer-reach",
+        destination: "/blog/how-retargeting-improves-ad-performance",
+        permanent: true,
+      },
+    ];
+  },
+
+  images: {
     // unoptimized: true,
     // unoptimized: process.env.NODE_ENV === "development",
 

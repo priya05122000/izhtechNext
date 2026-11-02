@@ -3,7 +3,10 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export interface ContactModel {
+    name?: string;
     email?: string;
+    mobileNumber?: string;
+    service?: string;
     message?: string;
 }
 

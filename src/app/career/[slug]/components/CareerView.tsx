@@ -5,6 +5,8 @@ import React from "react";
 import SectionHeader from "@/src/shared/components/SectionHeader";
 import LinkButton from "@/src/shared/components/LinkButton";
 
+import styles from "./career.module.css";
+
 interface JobRolesModel {
     id: string;
     roleName: string;
@@ -40,18 +42,19 @@ const CareerView = ({
     jobSlug,
 }: CareerViewProps) => {
 
-    const renderHTMLBulletPoints = (html?: string) => {
+    // Description comes from the CMS rich text editor and already contains its own
+    // <p>, <h3>, <ul>/<li> structure, so render it as-is and only drop empty blocks.
+    const renderHTMLDescription = (html?: string) => {
         if (!html) return null;
 
         const formattedHtml = html
-            .replace(/<p>/g, "<li>")
-            .replace(/<\/p>/g, "</li>")
             .replace(/&nbsp;/g, " ")
+            .replace(/<(li|p)\b[^>]*>(\s|<br\s*\/?>)*<\/\1>/gi, "")
             .trim();
 
         return (
-            <ul
-                className="list-disc pl-5 space-y-2 mt-2"
+            <div
+                className={styles["job-description"]}
                 dangerouslySetInnerHTML={{
                     __html: formattedHtml,
                 }}
@@ -85,7 +88,7 @@ const CareerView = ({
                         {jobSlug?.title} Required Skills
                     </h2>
 
-                    {renderHTMLBulletPoints(jobSlug?.description)}
+                    {renderHTMLDescription(jobSlug?.description)}
                 </div>
 
                 {/* Open Positions */}
