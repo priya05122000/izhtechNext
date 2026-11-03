@@ -31,7 +31,7 @@ interface Project {
     openPositions: number;
     description: string;
     educationAndQualification: Date;
-    status: boolean;
+    status: string;
     createdAt: Date;
     updatedAt: Date;
     deletedAt: Date;
