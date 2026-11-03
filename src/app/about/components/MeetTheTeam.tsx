@@ -49,9 +49,9 @@ const MeetTheTeam = ({ employees }: MeetTheTeamProps) => {
                         >
                             {/* <CustomObject className="absolute -z-10" variants="green-disk" /> */}
                             <p className="text-base">OUR TEAM</p>
-                            <h1 className="pt-2 text-3xl font-bold lg:text-3xl xl:text-5xl">
+                            <h2 className="pt-2 text-3xl font-bold lg:text-3xl xl:text-5xl">
                                 Meet the Team
-                            </h1>
+                            </h2>
                         </motion.div>
                     </div>
                 </section>

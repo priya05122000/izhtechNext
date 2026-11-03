@@ -4,6 +4,8 @@ import Map from './components/Map';
 
 import Inquiry from './components/Inquiry';
 
+import ContactDetails from './components/ContactDetails';
+
 import { getAllSiteInfo } from '@/src/services/siteInfoService';
 
 import SectionHeader from '@/src/shared/components/SectionHeader';
@@ -85,8 +87,12 @@ const ContactPage = async () => {
             <SectionHeader
                 title="Contact Us"
                 description="Leave us a little info, and we’ll be in touch."
+                srOnlyText="Contact Izh Tech for software development, web and mobile app development, branding, digital marketing and SEO. Reach our Nagercoil office by phone or email, Monday to Friday, 9:30 AM to 6:30 PM IST."
                 customObjectVariant="orange-disk"
             />
+            
+            {/* for SEO crawlers and bots, this component is hidden from users using CSS */}
+            <ContactDetails siteInfo={siteInfo} /> 
 
             <Map />
 
