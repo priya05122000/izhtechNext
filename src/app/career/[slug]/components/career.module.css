@@ -1,0 +1,56 @@
+.job-description {
+    margin-top: 0.5rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.job-description > :first-child {
+    margin-top: 0;
+}
+
+.job-description h1,
+.job-description h2,
+.job-description h3,
+.job-description h4,
+.job-description h5,
+.job-description h6 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.job-description p {
+    margin-bottom: 0.5rem;
+}
+
+.job-description ul,
+.job-description ol {
+    padding-left: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.job-description ul {
+    list-style-type: disc;
+}
+
+.job-description ol {
+    list-style-type: decimal;
+}
+
+.job-description ul ul {
+    list-style-type: circle;
+    margin-top: 0.5rem;
+}
+
+.job-description li + li {
+    margin-top: 0.5rem;
+}
+
+.job-description li > p:last-child {
+    margin-bottom: 0;
+}
+
+.job-description a {
+    color: #0E3BF9;
+    text-decoration: underline;
+}

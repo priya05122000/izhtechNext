@@ -19,11 +19,12 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { getAllSiteInfo } from "../services/siteInfoService";
 import LCPDiagnostics from "../shared/components/LCPDiagnostics";
 
+// Use the variable font (no `weight`): requesting static weights makes Google
+// return /l/font?kit=...&skey=... URLs, which Turbopack's font loader can't resolve.
 const dmSans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-dm-sans",
-  weight: ["400", "500", "600", "700"],
 });
 
 export default async function RootLayout({

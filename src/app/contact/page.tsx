@@ -8,6 +8,8 @@ import ContactDetails from './components/ContactDetails';
 
 import { getAllSiteInfo } from '@/src/services/siteInfoService';
 
+import { getAllServices } from '@/src/services/mainService';
+
 import SectionHeader from '@/src/shared/components/SectionHeader';
 
 export const metadata = {
@@ -25,6 +27,15 @@ const ContactPage = async () => {
 
     const siteInfo =
         await getAllSiteInfo();
+
+    const services: { title?: string; isActive?: boolean; order?: number }[] =
+        await getAllServices();
+
+    const serviceOptions =
+        (Array.isArray(services) ? services : [])
+            .filter((service) => service.title && service.isActive !== false)
+            .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+            .map((service) => service.title as string);
 
     const contactSchema = {
         "@context":
@@ -53,7 +64,7 @@ const ContactPage = async () => {
                 "https://izhtech.com",
 
             logo:
-                "https://izhtech.com/logo-primary.png",
+                "https://izhtech.com/izhtech-logo.png",
 
             contactPoint: {
                 "@type":
@@ -98,6 +109,7 @@ const ContactPage = async () => {
 
             <Inquiry
                 siteInfo={siteInfo}
+                services={serviceOptions}
             />
 
         </>

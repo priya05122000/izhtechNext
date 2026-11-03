@@ -1,116 +1,313 @@
-.blog-content p {
+
+/* ========================================
+   Paragraphs and Lists
+======================================== */
+
+
+.blog-content p,
+.blog-content ul,
+.faq-content p,
+.faq-content ul {
     font-size: 0.875rem;
-    margin-bottom: 1rem;
-    color: black;
-    text-align: justify;
+    line-height: 1.8;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #000;
+    text-align: left;
 }
 
-.blog-content ul {
+/* List Styling */
+.blog-content ul,
+.faq-content ul {
     list-style-type: disc;
-    list-style-position: inside;
+    list-style-position: outside;
+    padding-left: 1.5rem;
+}
+
+.blog-content ul li,
+.faq-content ul li {
+    padding-left: 0.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.8;
+}
+
+.blog-content ul li:last-child,
+.faq-content ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   Heading Styles - Mobile
+======================================== */
+
+.blog-content h2,
+.faq-content h2 {
+    margin-top: 1.75rem;
     margin-bottom: 1rem;
-    font-size: 0.875rem;
-    color: black;
-    text-align: justify;
-}
-
-.blog-content h2 {
-    padding-bottom: 1rem;
+    padding-bottom: 0;
     font-size: 1.75rem;
+    line-height: 1.3;
     font-weight: 700;
-    color: black;
+    color: #000;
 }
 
-.blog-content h3 {
-    padding-bottom: 1rem;
-    font-size: 1.25rem;
+.blog-content h3,
+.faq-content h3,
+.faq-heading {
+    margin-top: 1.5rem;
+    margin-bottom: 0.875rem;
+    padding-bottom: 0;
+    font-size: 1.5rem;
+    line-height: 1.35;
     font-weight: 700;
-    color: black;
+    color: #000;
 }
+
+.blog-content h4,
+.faq-content h4 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #000;
+}
+
+.blog-content h5,
+.faq-content h5 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #000;
+}
+
+.blog-content h6,
+.faq-content h6 {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 700;
+    color: #000;
+}
+
+/* ========================================
+   First Heading Spacing
+======================================== */
+
+.blog-content h2:first-child,
+.blog-content h3:first-child,
+.blog-content h4:first-child,
+.blog-content h5:first-child,
+.blog-content h6:first-child,
+.faq-content h2:first-child,
+.faq-content h3:first-child,
+.faq-content h4:first-child,
+.faq-content h5:first-child,
+.faq-content h6:first-child {
+    margin-top: 0;
+}
+
+/* ========================================
+   FAQ Section Heading
+======================================== */
 
 .faq-heading {
-    padding-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: black;
-}
-
-.blog-content h4 {
-    padding-bottom: 1rem;
-    font-size: 1rem;
-    font-weight: 700;
-    color: black;
-}
-
-@media (min-width: 1024px) {
-
-    .blog-content p,
-    .blog-content ul {
-        font-size: 1rem;
-    }
-
-    .blog-content h2 {
-        font-size: 3rem;
-    }
-
-    .blog-content h3 {
-        font-size: 2rem;
-    }
-
-    .blog-content h4 {
-        font-size: 1.5rem;
-    }
-
-    .faq-heading {
-        font-size: 2rem;
-    }
-}
-
-
-/* .blog-content p {
-    font-size: 0.875rem;
+    margin-top: 0;
     margin-bottom: 1rem;
-    color: black;
-    text-align: justify;
 }
 
-.blog-content ul {
-    list-style-type: disc;
-    list-style-position: inside;
-    margin-bottom: 1rem;
+/* ========================================
+   Table Wrapper
+   HTML comes from dangerouslySetInnerHTML
+======================================== */
+
+.blog-content :global(.table-wrapper) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 1.5rem 0 2rem;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+}
+
+/* ========================================
+   Table - Outer Border
+======================================== */
+
+.blog-content :global(.table-wrapper table) {
+    display: table;
+    width: 100%;
+    min-width: 750px;
+    margin: 0;
+    padding: 0;
+    border: 2px solid #9ca3af4e !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    table-layout: auto;
+    background-color: #fff;
+    color: #000;
     font-size: 0.875rem;
-    color: black;
-    text-align: justify;
+    line-height: 1.6;
 }
 
-.blog-content h2 {
-    padding-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: black;
+/* ========================================
+   Table Sections and Rows
+======================================== */
+
+.blog-content :global(.table-wrapper thead) {
+    display: table-header-group;
 }
 
-.blog-content h3 {
-    padding-bottom: 1rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: black;
+.blog-content :global(.table-wrapper tbody) {
+    display: table-row-group;
 }
+
+.blog-content :global(.table-wrapper tr) {
+    display: table-row;
+    border: 1px solid #d1d5db !important;
+}
+
+/* ========================================
+   Table Header Cells
+======================================== */
+
+.blog-content :global(.table-wrapper th) {
+    display: table-cell;
+    padding: 12px 14px;
+    background-color: #f3f4f6 !important;
+    color: #111827;
+    font-weight: 700;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #9ca3af4e !important;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+/* ========================================
+   Table Body Cells
+======================================== */
+
+.blog-content :global(.table-wrapper td) {
+    display: table-cell;
+    padding: 12px 14px;
+    background-color: transparent;
+    color: #000;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.7;
+    border: 1px solid #9ca3af4e !important;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+/* ========================================
+   Table Paragraphs
+======================================== */
+
+.blog-content :global(.table-wrapper th p),
+.blog-content :global(.table-wrapper td p) {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-align: left;
+}
+
+/* ========================================
+   Alternate Row Background
+======================================== */
+
+.blog-content :global(.table-wrapper tbody tr:nth-child(even)) {
+    background-color: #f9fafb;
+}
+
+.blog-content :global(.table-wrapper tbody tr:nth-child(odd)) {
+    background-color: #fff;
+}
+
+/* ========================================
+   FAQ Numbering
+======================================== */
+
+.faq-content {
+    counter-reset: faq-counter;
+}
+
+.faq-content h4 {
+    counter-increment: faq-counter;
+}
+
+.faq-content h4::before {
+    content: counter(faq-counter) ". ";
+    font-weight: 700;
+    color: #000;
+}
+
+/* ========================================
+   Mobile Responsive
+======================================== */
+
+@media (max-width: 767px) {
+    .blog-content :global(.table-wrapper) {
+        width: 100%;
+        max-width: 100%;
+        margin: 1rem 0 1.5rem;
+    }
+
+    .blog-content :global(.table-wrapper table) {
+        width: 750px;
+        min-width: 750px;
+    }
+
+    .blog-content :global(.table-wrapper th),
+    .blog-content :global(.table-wrapper td) {
+        padding: 10px;
+    }
+}
+
+/* ========================================
+   Tablet and Desktop - 768px and Above
+======================================== */
 
 @media (min-width: 768px) {
 
-    .blog-content p,
-    .blog-content ul {
-        font-size: 1rem;
+    .blog-content h2,
+    .faq-content h2 {
+        font-size: 2.625rem;
     }
 
-    .blog-content h2 {
+    .blog-content h3,
+    .faq-content h3,
+    .faq-heading {
+        font-size: 2.25rem;
+    }
+
+    .blog-content h4,
+    .faq-content h4 {
+        font-size: 1.75rem;
+    }
+
+    .blog-content h5,
+    .faq-content h5 {
         font-size: 1.5rem;
     }
 
-    .blog-content h3 {
+    .blog-content h6,
+    .faq-content h6 {
         font-size: 1.25rem;
     }
 }
 
- */

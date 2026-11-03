@@ -113,8 +113,9 @@ const CareerPage = async () => {
 
               sameAs: "https://izhtech.com",
 
-              logo: "https://izhtech.com/logo-primary.png",
-            },
+                                logo:
+                                    "https://izhtech.com/izhtech-logo.png",
+                            },
 
             jobLocation: {
               "@type": "Place",

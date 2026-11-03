@@ -37,7 +37,7 @@ const page = () => {
       "https://izhtech.com",
 
     logo:
-      "https://izhtech.com/logo-primary.png",
+      "https://izhtech.com/izhtech-logo.png",
 
     description:
       "Software that works, marketing that gets it seen — Izh Tech is a software development and digital marketing agency in Nagercoil. Let's talk.",

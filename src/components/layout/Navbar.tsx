@@ -37,7 +37,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
                     {/* <img
-                        src="/logo-primary.png"
+                        src="/izhtech-logo.png"
                         className="w-16 h-auto"
                         alt="Izh Tech | Your Digital Partner"
                         width={64}
@@ -46,8 +46,8 @@ export default function Navbar() {
                         loading="eager"
                     /> */}
                     <Image
-                        src="/logo-primary.png"
-                        alt="Izh Tech | Your Digital Partner"
+                        src="/izhtech-logo.png"
+                        alt="Izh Tech logo | Your Digital Partner"
                         width={100}
                         height={80}
                         className="w-16 h-auto"

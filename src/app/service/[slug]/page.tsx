@@ -97,7 +97,7 @@ const generateServiceSchema = (
                     SITE_URL,
 
                 logo:
-                    `${SITE_URL}/logo-primary.png`,
+                    `${SITE_URL}/izhtech-logo.png`,
             },
 
             image:

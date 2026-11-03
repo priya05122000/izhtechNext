@@ -33,7 +33,7 @@ const PlatformInsights = ({ siteInfo }: MissionStatementProps) => {
                         <div className="flex flex-col self-center h-full sm:px-2 mx-auto lg:w-3/6 sm:w-full">
                             <Image
                                 className="justify-center h-auto mx-auto"
-                                src="/images/platforminsights.webp"
+                                src="/images/platform-insights.webp"
                                 alt="Platform insights illustration"
                                 width={1200}
                                 height={800}
